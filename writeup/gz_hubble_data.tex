@@ -111,64 +111,49 @@ So we made images of the same galaxy at a variety of redshifts using input image
 
 We select 288 different galaxies in SDSS imaging to run through the FERENGI code.
 
-The selection spanned a variety of galaxy morphologies (as indicated by GZ2 classifications), with a range of surface brightnesses, and also picked ideal something for different target redshifts in HST imaging. 
+The selection spanned a variety of galaxy morphologies (as indicated by GZ2 classifications), with a range of surface brightnesses, and also picked ideal {\bf need Edmond to fill in} for different target redshifts in HST imaging. 
 
- The selection criteria for the different morphological categories
-
-1. Features (Q1): Clean Yes, Int, Clean No: 
-No: p_smooth > 0.8
-Int: 0.3 < p_smooth < 0.6
-Yes: p_features_or_disk > 0.8. 
-To make sure they're not mergers, I also suggest requiring p_odd < 0.1
-
-2. Mergers: Clean No, Int, Clean Yes (3 galaxies - some overlap with above)
-No: p_features_or_disk > 0.8 & p_odd < 0.1 & p_merger < 0.1
-Int: p_odd > 0.5 & 0.1< p_merger < 0.4 
-Yes: p_odd > 0.5 & p_merger > 0.4
-
-3. Edge-on: clean no, int, clean yes
-Yes: p_edgeon > 0.8
-Int: 0.4 < p_edgeon < 0.8
-No: p_edgeon < 0.2
-Also require p_features_or_disk > 0.5
- 
-4. Bars (from clean no edge-on sample): clean no, int, clean yes
-No: p_bar < 0.1
-Int: 0.2 < p_bar < 0.4
-Yes: p_bar > 0.8
-Also require p_features_or_disk > 0.5 and p_edgeon < 0.2
-This category is run twice. 
-
-5. Spirals (clean not edge-on, and bar-less): clean no, int, clean yes
-No: p_spiral < 0.2
-Int: 0.2 < p_spiral < 0.8
-Yes: p_spiral > 0.8
-Also require p_features_or_disk > 0.5 and p_edgeon < 0.2 and p_bar < 0.1
-
-6. Bulges (clean not edge-on, and bar-less): 
-No: p_nobulge>0.6
-Int: p_justnoticeable>0.6
-Yes: p_obvious/dominent>0.5 * ask Edmond what this means p_ob+p_dom>0.5 or p_ob OR p_dom >0.5
-Also require p_features_or_disk > 0.5 and p_edgeon < 0.5 and p_bar < 0.2
-
-7. Edge-on bulge shape: 
-Round: p_rounded>0.5, p_features_or_disk > 0.5 and p_edgeon > 0.5
-Boxy: p_boxy>0.4, p_features_or_disk > 0.5 and p_edgeon > 0.2
-Non: p_nobulge>0.5, p_features_or_disk > 0.5 and p_edgeon > 0.5
-
-Input galaxies are done at three surface brightnesses: 
-
-mu > 21.5 (low)
-20.5 < mu < 21.5 (mid)
-mu < 20.5 (high)
- 
- 
+ The selection criteria for the different morphological categories is summarised in Table \ref{morphologies}. The surface brightness selection was (1) low: $\mu > 21.5 {\rm mag arsec}^2$;  (2) mid: $20.5 < \mu < 21.5 {\rm mag arsec}^2$; and (3) high: $\mu < 20.5 {\rm mag arsec}^2$. 
  
 \begin{table*}
-\caption{Summary of FERENGI parameters\label{ferengi}}
+\caption{Summary of morphological categories \label{morphologies}}
+\begin{tabular}{lllc}
+\hline\hline
+Morphology & Label &  Selection & $N_{\rm objects}$ \\
+\hline
+Features & Yes & $p_{\rm features} > 0.8$, $p_{rm odd} < 0.1$ & 12 \\ 
+ & Int & $0.3 < p_{\rm smooth} < 0.6$, $p_{\rm odd} < 0.1$ & 12 \\ 
+ & No &  $p_{\rm smooth} > 0.8$, $p_{\rm odd} < 0.1$ & 12 \\ 
+Merger & No & $p_{\rm features} > 0.8$, $p_{\rm odd < 0.1}$, $p_{\rm merger} < 0.1$ & 12\\
+& Int & $p_{\rm odd} > 0.5$, $0.1< p_{\rm merger} < 0.4$ & 12 \\ 
+& Yes & $p_{\rm odd} > 0.5$, $p_{\rm merger} > 0.4$ & 12\\
+Edge-on & Yes &  $p_{\rm edgeon} > 0.8$, $p_{\rm features} > 0.5$ & 12 \\
+& Int & $0.4 < p_{\rm edgeon} < 0.8$ , $p_{\rm features} > 0.5$ & 12 \\
+& No & $p_{\rm edgeon} < 0.2$, $p_{\rm features} > 0.5$ & 12 \\
+Bar & No & $p_{\rm bar} < 0.1$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$ & 24 \\
+& Int & $0.2 < p_{\rm bar} < 0.4$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$ & 24 \\
+& Yes&  $p_{\rm bar} > 0.8$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$ & 24 \\
+Visible spiral & No & $p_{\rm spiral} < 0.2$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$, $p_{\rm bar} < 0.1$ & 12 \\
+& Int &  $0.2 < p_{\rm spiral} < 0.8$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$, $p_{\rm bar} < 0.1$ & 12 \\
+& Yes &  $p_{\rm spiral} > 0.8$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$, $p_{\rm bar} < 0.1$ & 12 \\
+Oblique Bulge Size & No & $p_{\rm nobulge>0.6}$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.5$, $p_{\rm bar} < 0.2$ & 12 \\
+& Int &  $p_{\rm justnoticeable}>0.6$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.5$, $p_{\rm bar} < 0.2$ & 12 \\
+& Yes & $p_{\rm obvious/dominent}>0.5$\footnote{Edmond does this means $p_{\rm obv}+p_{\rm dom}>0.5$ or $p_{\rm ob} OR p_{\rm dom} >0.5$? }, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.5$, $p_{\rm bar} < 0.2$ & 12 \\
+Edge-on bulge shape 
+& Round & $p_{\rm rounded}>0.5$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} > 0.5$ & 12\\
+& Boxy & $p_{\rm boxy}>0.4$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} > 0.2$ & 12\\
+& Non & $p_{\rm nobulge}>0.5$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} > 0.5$ & 12\\
+\hline\hline
+\end{tabular}
+\end{table*}
+
+There were four ``target redshifts" ($z = 0.3, 0.5, 0.8$ and 1.0), and from these points the images were redshifted in $\Delta z = 0.1$ bins up to $z=1.0$. In addition different evolution models were assumed in FERENGI. This evolution is a crude mechanism that is suppose to mimic the brightness increase of galaxies with increasing redshift. The evolution mechanism allows us to make galaxies brighter as linear function of redshift, and that is it. It is an empirical addition to the magnitude of a galaxy of the form $M' = e z + M$, where $M'$ is the corrected magnitude, $e$ is the evolutionary correction in magnitudes.  (i.e. $e=-1$ essentially brightens the galaxy by 1 magnitude by $z=1$). {\bf What values of $e$ did we use?} Depending on the target, or starting redshift we ran FERENGI for several final redshifts and different evolution models as summarized in Table \ref{ferengi}. 
+
+\begin{table}
+\caption{Summary of FERENGI runs \label{ferengi}}
 \begin{tabular}{lccccc}
 \hline\hline
-Starting redshift &  $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $N_{\rm per input galaxy}$ & $N_{\rm total}$\\
+Starting redshift &  $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $N_{\rm runs}$ & $N_{\rm total}$\\
 \hline
 0.3 & 8 & 7 & 56 & 4031 \\
 0.5 & 6 & 4 & 24 & 1728 \\
@@ -176,7 +161,9 @@ Starting redshift &  $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $N_{\rm per inpu
 1.0 & 1 & 3 & 3 & 216 \\
 \hline\hline
 \end{tabular}
-\end{table*}
+\end{table}
+
+An example redshifted image is shown in Figure \ref{exampleFERENGI}.
 
 
 \section{Summary}
