@@ -15,6 +15,13 @@ pro ferengi_analysis
   !p.font=0
 ;--------------------------------------------------------------------
 
+; Read in Brooke's first most certainly incorrect reduction FITS file
+data=mrdfits('../../data/ferengi_classifications_collated.fits',1)
+
+; Note: We are testing on: T01_SMOOTH_OR_FEATURES_A02_FEATURES_FRAC for now.
+
+
+
   plot, [0], [0], $
         xr=[0, 1.2], xstyle=1, xtitle='redshift', $
         yr=[0, 1], ystyle=1, ytitle=textoidl('vote fraction for question X, f_{x,z}'), $
@@ -22,10 +29,10 @@ pro ferengi_analysis
         ytickv=[0.0, 0.25, 0.50, 0.75, 1.0], yticks=5
 
 
-; In anticipation of real data
-
 ; Redshift array
   redshift_array_1=[0.030, 0.3+findgen(8)*0.1]
+
+
 
 ;--------------------------------------------------------------------
 ; ## Clean up
