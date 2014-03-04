@@ -32,14 +32,25 @@ Yes: p_spiral > 0.8
 Also require p_features_or_disk > 0.5 and p_edgeon < 0.2 and p_bar < 0.1
 
 6. Bulges (clean not edge-on, and bar-less): 
-p_nobulge>0.8, p_justnoticeable>0.8, p_obvious>0.8. Also require p_features_or_disk > 0.8 and p_edgeon < 0.2 and p_bar < 0.1
+No: p_nobulge>0.6
+Int: p_justnoticeable>0.6
+Yes: p_obvious/dominent>0.5 * ask Edmond what this means p_ob+p_dom>0.5 or p_ob OR p_dom >0.5
+Also require p_features_or_disk > 0.5 and p_edgeon < 0.5 and p_bar < 0.2
 
-7. Edge-on bulge: 
-p_rounded>0.8, p_boxy>0.8, p_nobulge>0.8 (all for Task 09, bulge shape). Also require p_features_or_disk > 0.8 and p_edgeon > 0.8
+7. Edge-on bulge shape: 
+Round: p_rounded>0.5, p_features_or_disk > 0.5 and p_edgeon > 0.5
+Boxy: p_boxy>0.4, p_features_or_disk > 0.5 and p_edgeon > 0.2
+Non: p_nobulge>0.5, p_features_or_disk > 0.5 and p_edgeon > 0.5
 
+In the example each input galaxies has been FERENGI'd just once to each galaxy's minimum redshift and with no evolution (evo=0.0). 
 
+In the full set the input galaxies are FERENGI'd
 
-Each input galaxies has been FERENGI'd just once to each galaxy's minimum redshift and with no evolution (evo=0.0). Some galaxies have already been FERENGI'd to different redshifts, most have not. 
+Target z=0.3: Nredshift=8; Nevolution = 7, Ntotal = 56 (per input galaxy)
+Target z=0.5: Nredshift=6; Nevolution = 4, Ntotal = 24 (per input galaxy)
+Target z=0.8: Nredshift=3; Nevolution = 3, Ntotal = 9 (per input galaxy)
+Target z=1.0: Nredshift=1; Nevolution = 3, Ntotal = 3 (per input galaxy)
+ 
 
 At the bottom of each page, the following information is displayed - GZ2 category, minimum redshift, surface brightness bin, and evolution.
 
