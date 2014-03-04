@@ -53,10 +53,10 @@ In the example each input galaxies has been FERENGI'd just once to each galaxy's
 
 In the full set the input galaxies are FERENGI'd
 
-Target z=0.3: Nredshift=8; Nevolution = 7, Ntotal = 56 (per input galaxy)
-Target z=0.5: Nredshift=6; Nevolution = 4, Ntotal = 24 (per input galaxy)
-Target z=0.8: Nredshift=3; Nevolution = 3, Ntotal = 9 (per input galaxy)
-Target z=1.0: Nredshift=1; Nevolution = 3, Ntotal = 3 (per input galaxy)
+Target z=0.3: Nredshift=8; Nevolution = 7, Ntotal = 56 (per input galaxy), 4032 total
+Target z=0.5: Nredshift=6; Nevolution = 4, Ntotal = 24 (per input galaxy), 1728 total
+Target z=0.8: Nredshift=3; Nevolution = 3, Ntotal = 9 (per input galaxy), 648 total 
+Target z=1.0: Nredshift=1; Nevolution = 3, Ntotal = 3 (per input galaxy), 216 total
  
 
 At the bottom of each page, the following information is displayed - GZ2 category, minimum redshift, surface brightness bin, and evolution.

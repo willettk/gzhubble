@@ -1,0 +1,201 @@
+%\documentclass[twocolumn]{emulateapj}
+%\documentclass[12pt,preprint]{aastex}
+
+\documentclass[usenatbib]{mn2e}
+
+\newcommand{\s}{$_{\rm s}$}
+\newcommand{\kms}{km~s$^{-1}$}
+\newcommand{\msun}{{\it M}$_{\odot}$}
+\newcommand{\lsun}{{\it L}$_{\odot}$}
+\newcommand{\mear}{{\it M}$_{\oplus}$}
+\newcommand{\etal}{{\it et al.}}
+\newcommand{\ie}{{\it i.e.}}
+\newcommand{\eg}{{\it e.g.}}
+\newcommand{\be}{\begin{equation}}
+\newcommand{\ee}{\end{equation}}
+\newcommand{\magarc}{{\rm mag\,arcsec$^{-2}$}}
+\newcommand{\MK}{{{\rm M}_{\rm ext,K}-5\log h}}
+\newcommand{\ri}{{$r_{21}$}}
+\newcommand{\ra}{$R_A$}
+\newcommand{\vobs}{{v_{\rm obs}}}
+\newcommand{\kmsMpc}{km~s$^{-1}$ Mpc$^{-1}$}
+\newcommand{\h}{$h_{70}$}
+\newcommand{\vpec}{v_{\rm pec}}
+\newcommand{\like}{{\mathcal L}}
+\newcommand{\vs}{\vspace*{5pt}}
+\newcommand{\continued}{ (Continued)}
+
+% Journals
+\newcommand{\mnras}{MNRAS}
+\newcommand{\apj}{ApJ}
+\newcommand{\apjl}{ApJL}
+\newcommand{\aj}{AJ}
+\newcommand{\pasp}{PASP}
+\newcommand{\aaps}{A\&AS}
+\newcommand{\aap}{A\&A}
+\newcommand{\apjs}{ApJS}
+\newcommand{\araa}{ARA\&A}
+\newcommand{\pbar}{p_{\rm bar}}
+\newcommand{\fHI}{f_{\rm HI}}
+
+\voffset-1.25cm
+
+\usepackage{epsfig}
+\begin{document}
+
+\title[Galaxy Zoo Hubble Data]{Galaxy Zoo: Classifications for Galaxies in HST Legacy Imaging}
+%Bars Regulating Star Formation though the Atomic Gas Content of Disc Galaxies}
+%The Atomic Gas Content of Barred Galaxies from ALFALFA$^*$: Bar Feedback in Intermediate Mass Disc Galaxies }
+\author[Lead Author \etal]{Lead Author and other Galaxy Zoo science team\\
+%$^1$Institute for Cosmology and Gravitation, University of Portsmouth, Dennis Sciama Building, Burnaby Road, Portsmouth, PO1 3FX, UK \\
+%$^2$South East Physics Network, www.sepnet.ac.uk\\
+%$^3$Dept. of Astronomy, Cornell University, Space Sciences Building, Ithaca, NY 14850, USA\\
+ %$^2$Institute for Sciences of the Cosmos (ICCUB), University of Barcelona, Marti i Franques 1, Barcelona, 08024 Spain\\
+% $^{4}$Oxford Astrophysics, Department of Physics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, UK\\
+%$^{5}$Yale Center for Astronomy and Astrophysics, Yale University, P.O. Box 208121, New Haven, CT 06520, USA \\
+%$^6$Steward Observatory, University of Arizona, 933 N. Cherry Ave, Tuscon, AZ 85721, USA\\
+ %$^4$Astronomy Department, Adler Planetarium and Astronomy Museum, 1300 Lake Shore Drive, Chicago, IL 60605, USA\\
+ % $^7$Centre for Astronomy \& Particle Theory, University of Nottingham, University Park, Nottingham, NG7 2RD, UK\\
+ %$^6$School of Physics and Astronomy, University of Minnesota, Minneapolis, MN 55455, USA\\
+ %$^7$Department of Physics \& Astronomy, 206 Gallalee Hall, 514 University Blvd., University of Alabama, Tuscaloosa, AL 35487-0234, USA\\
+% $^8$Einstein Fellow\\ 
+\\
+ $^*$This publication has been made possible by the participation of more than 200,000 volunteers in the Galaxy Zoo project. \\ Their contributions are individually acknowledged at \texttt{http://www.galaxyzoo.org/volunteers}. \\
+\\
+{\tt E-mail: lead.author@university.edu}
+ }
+
+%\date{Accepted for publication in MNRAS, 7th October 2010.}
+%\pagerange{1--10} \pubyear{2010}
+
+\maketitle
+
+\begin{abstract}
+
+Data release paper for GZ Hubble
+
+\end{abstract}
+
+%\keywords{galaxies: distances and redshifts --- galaxies: clusters --- galaxies: fundamental parameters --- distance scale --- cosmological parameters}
+
+\section{Introduction}
+
+%\begin{figure}
+%\includegraphics[width=84mm]{barfraction_gasfraction.ps}
+%\includegraphics[height=80mm,angle=-90]{TuningFork.ps}
+%\caption{The Hubble Sequence illustrated by the examples suggested by Hubble (1926) with images from the SDSS.  The galaxies are: : E0 Ð NGC 3379; E5 Ð NGC 4621;  Sa - NGC 4594 (``The Sombrero");  Sb - NGC 2841; Sc -  NGC 5447 (``The Pinwheel"); SBa - NGC 2859; SBb - NGC 3351 (or M95); SBc - 7479. We have also included an S0 (NGC 6278), not in HubbleÕs original scheme.) \label{sequence}}
+%\end{figure}
+ 
+
+\section{Sample and Data} 
+
+\subsection{Summary of HST Legacy Survey Imaging}
+
+AEGIS has1 orbit each (~2200 seconds) in F606W (V band) and F814W filter and has been dithered to 0.03 ''/pixel; the imaging covers ~710 arcmin$^2$.
+
+GOODS targeted 2 fields, GOODS-N and GOODS-S, imaging in 4 filters -- F435W (B), F606W (V), F775W (i), and F850LP (z). The mean exposure times vary, from 1000 - 2100 seconds. The images have been dithered to a pixel scale of 0.03 ''/pixel and covers at total area of ~320 arcmin$^2$ (160 arcmin$^2$ per field). The filters that Griffith et al uses for the colored images were F606W and F775W for GOODS-N and F606W and F850LP for GOODS-S.
+
+COSMOS has 1 orbit (2028 seconds) in the F814W (I band) filter and has been dithered to 0.05 ''/pixel; it covers the largest area, ~1.8 deg$^2$. 
+
+GEMS has 1 orbit (2160 and 2286 seconds) in the F606W and F850LP filters, with a pixel scale of 0.03 ''/pixel; it covers ~800 arcmin$^2$
+
+\section{Redshift Dependent Classification Bias}
+
+We can't do what we did in Bamford et al. (2009) for the original GZ or Willett et al. (2013) for GZ2 because these both depended on the assumption of no redshift bias. In the GZH samples the redshift range is so large that we expect to find redshift evolution of the types and morphologies of galaxies which are seen. 
+
+So we made images of the same galaxy at a variety of redshifts using input images from the SDSS (cite the SDSS) and the FERENGI code (cite Ferengi). 
+ 
+\subsection{Selection of Input Galaxies}
+
+We select 288 different galaxies in SDSS imaging to run through the FERENGI code.
+
+The selection spanned a variety of galaxy morphologies (as indicated by GZ2 classifications) and surface brightnesses, and also picked ideal something for different target redshifts in HST imaging. 
+
+ Here are the selection criteria for the categories
+
+1. Features (Q1): Clean Yes, Int, Clean No: 
+No: p_smooth > 0.8
+Int: 0.3 < p_smooth < 0.6
+Yes: p_features_or_disk > 0.8. 
+To make sure they're not mergers, I also suggest requiring p_odd < 0.1
+
+2. Mergers: Clean No, Int, Clean Yes (3 galaxies - some overlap with above)
+No: p_features_or_disk > 0.8 & p_odd < 0.1 & p_merger < 0.1
+Int: p_odd > 0.5 & 0.1< p_merger < 0.4 
+Yes: p_odd > 0.5 & p_merger > 0.4
+
+3. Edge-on: clean no, int, clean yes
+Yes: p_edgeon > 0.8
+Int: 0.4 < p_edgeon < 0.8
+No: p_edgeon < 0.2
+Also require p_features_or_disk > 0.5
+ 
+4. Bars (from clean no edge-on sample): clean no, int, clean yes
+No: p_bar < 0.1
+Int: 0.2 < p_bar < 0.4
+Yes: p_bar > 0.8
+Also require p_features_or_disk > 0.5 and p_edgeon < 0.2
+This category is run twice. 
+
+5. Spirals (clean not edge-on, and bar-less): clean no, int, clean yes
+No: p_spiral < 0.2
+Int: 0.2 < p_spiral < 0.8
+Yes: p_spiral > 0.8
+Also require p_features_or_disk > 0.5 and p_edgeon < 0.2 and p_bar < 0.1
+
+6. Bulges (clean not edge-on, and bar-less): 
+No: p_nobulge>0.6
+Int: p_justnoticeable>0.6
+Yes: p_obvious/dominent>0.5 * ask Edmond what this means p_ob+p_dom>0.5 or p_ob OR p_dom >0.5
+Also require p_features_or_disk > 0.5 and p_edgeon < 0.5 and p_bar < 0.2
+
+7. Edge-on bulge shape: 
+Round: p_rounded>0.5, p_features_or_disk > 0.5 and p_edgeon > 0.5
+Boxy: p_boxy>0.4, p_features_or_disk > 0.5 and p_edgeon > 0.2
+Non: p_nobulge>0.5, p_features_or_disk > 0.5 and p_edgeon > 0.5
+
+Input galaxies are done at three surface brightnesses: 
+
+mu > 21.5 (low)
+20.5 < mu < 21.5 (mid)
+mu < 20.5 (high)
+ 
+ 
+ 
+\begin{table*}
+\caption{Summary of FERENGI parameters\label{ferengi}}
+\begin{tabular}{lccccc}
+\hline\hline
+Starting redshift &  $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $N_{\rm per input galaxy}$ & $N_{\rm total}$\\
+\hline
+0.3 & 8 & 7 & 56 & 4031 \\
+0.5 & 6 & 4 & 24 & 1728 \\
+0.8 & 3 & 3 & 9 & 648 \\
+1.0 & 1 & 3 & 3 & 216 \\
+\hline\hline
+\end{tabular}
+\end{table*}
+
+
+\section{Summary}
+
+ 
+\paragraph*{ACKNOWLEDGEMENTS.} 
+
+This publication has been made possible by the participation of more than 200,000 volunteers in the Galaxy Zoo project. Their contributions are individually acknowledged at \texttt{http://www.galaxyzoo.org/volunteers}. Galaxy Zoo 2 was developed with the help of a grant from The Leverhulme Trust.
+
+HST acknowledgements.
+
+Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. The SDSS Web Site is http://www.sdss.org/. 
+
+The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. The Participating Institutions are the American Museum of Natural History, Astrophysical  Institute Potsdam, University of Basel, University of Cambridge, 
+Case Western Reserve University, University of Chicago, Drexel University, Fermilab, the Institute for Advanced Study, the Japan 
+Participation Group, Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, the Kavli Institute for Particle Astrophysics and Cosmology, the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), the Max-Planck-Institute for Astrophysics (MPA), New Mexico State Uni- 
+versity, Ohio State University, University of Pittsburgh, University of Portsmouth, Princeton University, the United States Naval Observatory and the University of Washington. 
+
+
+\begin{thebibliography}{}
+
+\end{thebibliography}
+
+\end{document}
