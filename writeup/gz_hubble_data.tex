@@ -80,12 +80,6 @@ Data release paper for GZ Hubble
 
 \section{Introduction}
 
-%\begin{figure}
-%\includegraphics[width=84mm]{barfraction_gasfraction.ps}
-%\includegraphics[height=80mm,angle=-90]{TuningFork.ps}
-%\caption{The Hubble Sequence illustrated by the examples suggested by Hubble (1926) with images from the SDSS.  The galaxies are: : E0 – NGC 3379; E5 – NGC 4621;  Sa - NGC 4594 (``The Sombrero");  Sb - NGC 2841; Sc -  NGC 5447 (``The Pinwheel"); SBa - NGC 2859; SBb - NGC 3351 (or M95); SBc - 7479. We have also included an S0 (NGC 6278), not in Hubble’s original scheme.) \label{sequence}}
-%\end{figure}
- 
 
 \section{Sample and Data} 
 
@@ -101,7 +95,7 @@ Data release paper for GZ Hubble
 \item GEMS has 1 orbit (2160 and 2286 seconds) in the F606W and F850LP filters, with a pixel scale of 0.03 ''/pixel; it covers ~800 arcmin$^2$
 \end{itemize}
 
-\section{Redshift Dependent Classification Bias}
+\section{Correcting for Redshift Dependent Classification Bias}
 
 We can't do what we did in Bamford et al. (2009) for the original GZ or Willett et al. (2013) for GZ2 because these both depended on the assumption of no redshift bias. In the GZH samples the redshift range is so large that we expect to find redshift evolution of the types and morphologies of galaxies which are seen. 
 
@@ -182,7 +176,14 @@ Starting redshift &  $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $N_{\rm runs}$ &
 \end{tabular}
 \end{table}
 
-An example redshifted image is shown in Figure \ref{exampleFERENGI}.
+Two series of example redshifted images are shown in Figure \ref{exampleFERENGI}.
+
+\begin{figure*}
+\includegraphics[width=84mm]{example_ferengi.ps}
+%\includegraphics[height=80mm,angle=-90]{TuningFork.ps}
+\caption{Examples of two galaxies which have been run through the FERENGI code to produce simulated HST images. \label{exampleFERENGI}}
+\end{figure*}
+ 
 
 
 \section{Summary}
