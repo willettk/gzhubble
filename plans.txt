@@ -26,3 +26,16 @@ For each galaxy, I FERENGI in redshift intervals of 0.10, up to z=1.0.
 For each redshift that I FERENGI, I will also FERENGI different evolution terms, depending on the target redshift. 
 
 The evolution in FERENGI is an empirical addition to the magnitude of a galaxy like this: M' = evo*z + M, where M': the corrected magnitude, evo: evolutionary correction in magnitudes, z: redshift, M: uncorrected magnitude, i.e. evo=-1 essentially brightens the galaxy by 1 magnitude at redshift z=1.
+
+To summarize:
+
+For target z = 0.30, we have the following: 8 GZ2 categories * 3 classifications * 3 surface brightness * 8 redshift intervals (z=0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.0) * 7 evolution terms = 4,032 
+
+For target z = 0.50, we have: 8 * 3 * 3 * 6 redshift intervals (z=0.50, 0.60, 0.70, 0.80, 0.90, 1.0) * 4 evolution terms = 1,728
+
+For target z = 0.80, we have: 8 * 3 * 3 * 3 redshift intervals (z=0.80, 0.90, 1.0) * 3 evolution terms = 648
+
+For target z = 1.00, we have: 8 * 3 * 3 * 1 redshift interval * 3 evolution terms = 216
+
+For a total of 6,624 FERENGI galaxies. 
+
