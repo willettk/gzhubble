@@ -56,7 +56,7 @@ pro ferengi_analysis
            
            
                                 ; Plot
-           color=25+i*75
+           color=25+i*75 + k*3
            oplot, [redshift_array_1], [vote(i,j,k,*)], psym=sym(1), color=color
            oplot, [redshift_array_1], [vote(i,j,k,*)], linestyle=0, color=color
         endfor
