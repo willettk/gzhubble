@@ -25,8 +25,24 @@ plot, [0], [0], $
 ; Some fake data
 
 ; galaxies with a low vote
+oplot, [0.010], [0.30], psym=sym(1)
+oplot, [0.020], [0.27], psym=sym(1)
+oplot, [0.015], [0.22], psym=sym(1)
 
 
+; galaxies with an in-between vote
+oplot, [0.012], [0.50], psym=sym(1)
+oplot, [0.035], [0.56], psym=sym(1)
+oplot, [0.008], [0.47], psym=sym(1)
+
+
+; galaxies with a high vote
+oplot, [0.016], [0.88], psym=sym(1)
+oplot, [0.030], [0.92], psym=sym(1)
+oplot, [0.022], [0.94], psym=sym(1)
+
+; label
+;xyouts, [0.23], [0.2], 'SDSS galaxies', /normal, orientation=90, charsize=1.2
 
 
 ;--------------------------------------------------------------------
