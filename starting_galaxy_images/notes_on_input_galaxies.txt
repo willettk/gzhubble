@@ -1,0 +1,63 @@
+Example images of the 288 input SDSS galaxies (72 per minimum redshift * 4 minimum redshift) for 7 different questions on the tree (there are two sets for the bar question). 
+
+Here are the selection criteria: 
+
+1. Features (Q1): Clean Yes, Int, Clean No: 
+No: p_smooth > 0.8
+Int: 0.3 < p_smooth < 0.6
+Yes: p_features_or_disk > 0.8. 
+To make sure they're not mergers, I also suggest requiring p_odd < 0.1
+
+2. Mergers: Clean No, Int, Clean Yes (3 galaxies - some overlap with above)
+No: p_features_or_disk > 0.8 & p_odd < 0.1 & p_merger < 0.1
+Int: p_odd > 0.5 & 0.1< p_merger < 0.4 
+Yes: p_odd > 0.5 & p_merger > 0.4
+
+3. Edge-on: clean no, int, clean yes
+Yes: p_edgeon > 0.8
+Int: 0.4 < p_edgeon < 0.8
+No: p_edgeon < 0.2
+Also require p_features_or_disk > 0.5
+ 
+4. Bars (from clean no edge-on sample): clean no, int, clean yes
+No: p_bar < 0.1
+Int: 0.2 < p_bar < 0.4
+Yes: p_bar > 0.8
+Also require p_features_or_disk > 0.5 and p_edgeon < 0.2
+
+5. Spirals (clean not edge-on, and bar-less): clean no, int, clean yes
+No: p_spiral < 0.2
+Int: 0.2 < p_spiral < 0.8
+Yes: p_spiral > 0.8
+Also require p_features_or_disk > 0.5 and p_edgeon < 0.2 and p_bar < 0.1
+
+6. Bulges (clean not edge-on, and bar-less): 
+p_nobulge>0.8, p_justnoticeable>0.8, p_obvious>0.8. Also require p_features_or_disk > 0.8 and p_edgeon < 0.2 and p_bar < 0.1
+
+7. Edge-on bulge: 
+p_rounded>0.8, p_boxy>0.8, p_nobulge>0.8 (all for Task 09, bulge shape). Also require p_features_or_disk > 0.8 and p_edgeon > 0.8
+
+
+
+Each input galaxies has been FERENGI'd just once to each galaxy's minimum redshift and with no evolution (evo=0.0). Some galaxies have already been FERENGI'd to different redshifts, most have not. 
+
+At the bottom of each page, the following information is displayed - GZ2 category, minimum redshift, surface brightness bin, and evolution.
+
+KLM comments and Edmond's responses 
+
+Pointing offset from centre of galaxy
+SDSS objid=587739407837298697 (in gz2 faceonbulge; z=0.03; 21.5 < mu  (low); evolution = 0.0
+SDSS objid = 587729778512756840 (gz faceonbulge; z=0.05, low, no evolution)
+objid 588023046402998333 (merge; z=0.3, high, no evol)
+Tried to do this better. 
+
+
+Seemingly an edge-on galaxy in faceonbulge sample?
+SDSS objid = 588017979437875205 (z=0.3 mid, no evolution)
+"This is the only galaxy that fits the requirements for this subclass, so there is no other choice. We can either keep it or just discard it, but I don't think we need to discard it, this galaxy shouldn't be detrimental to our ultimate goal. "
+
+Irregular/edge-on in faceonbulge sample
+OBjid 588298661962973207 (z=0.8, mid, no evol)
+587741817854754833 (z=1.0, min, no evol)
+I've changed these two.
+
