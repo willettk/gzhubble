@@ -15,13 +15,28 @@ pro ferengi_analysis
   !p.font=0
 ;--------------------------------------------------------------------
 
+
+;--------------------------------------------------------------------
+; # Read in data and required metadata
 ; Read in Brooke's first most certainly incorrect reduction FITS file
 data=mrdfits('../../data/ferengi_classifications_collated.fits',1)
 
 ; Read in Edmond's metadata file
 info=mrdfits('../../data/GZ2_FERENGI_objects_FINAL_7_6_13.fits',1)
 
+; Read in Stuart's metadata file
+readcol, '../../data/galaxy_zoo_ferengi_subjects.csv', $
+         subject_id,sdss_id, $
+         format='a,x,x,x,x,x,x,x,a', $
+         skipline=1
+;--------------------------------------------------------------------
+
+
+
+
 ; Note: We are testing on: T01_SMOOTH_OR_FEATURES_A02_FEATURES_FRAC for now.
+
+
 
 
 
