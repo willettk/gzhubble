@@ -113,22 +113,18 @@ So we made images of the same galaxy at a variety of redshifts using input image
  
 \subsection{Selection of FERENGI Input Galaxies}
 
-
-
-
-
-
 We select 288 different galaxies in SDSS imaging to run through the FERENGI code.
 
-The selection spanned a variety of galaxy morphologies (as indicated by GZ2 classifications), with a range of surface brightnesses, and also picked ideal {\bf need Edmond to fill in} for different target redshifts in HST imaging. 
+The selection spanned a variety of galaxy morphologies (as indicated by GZ2 classifications), with a range of surface brightnesses, and also spanned the redshift range of SDSS targets (in $N_z = 4$ bins) in order to be optimised for different target redshifts in HST imaging. 
 
- The selection criteria for the different morphological categories is summarised in Table \ref{morphologies}. The surface brightness selection was (1) low: $\mu > 21.5 {\rm mag arsec}^2$;  (2) mid: $20.5 < \mu < 21.5 {\rm mag arsec}^2$; and (3) high: $\mu < 20.5 {\rm mag arsec}^2$. 
+ The selection criteria for the different morphological categories is summarised in Table \ref{morphologies}. The surface brightness selection ($N_\mu = 3$) was (1) low: $\mu > 21.5 {\rm mag arsec}^2$;  (2) mid: $20.5 < \mu < 21.5 {\rm mag arsec}^2$; and (3) high: $\mu < 20.5 {\rm mag arsec}^2$. 
  
 \begin{table*}
 \caption{Summary of morphological categories \label{morphologies}}
 \begin{tabular}{lllc}
 \hline\hline
 Morphology & Label &  Selection & $N_{\rm objects}$ \\
+ & & & ($N_z \times N_\mu$) \\
 \hline
 Features & Yes & $p_{\rm features} > 0.8$, $p_{rm odd} < 0.1$ & 12 \\ 
  & Int & $0.3 < p_{\rm smooth} < 0.6$, $p_{\rm odd} < 0.1$ & 12 \\ 
@@ -156,18 +152,18 @@ Edge-on bulge shape
 \end{tabular}
 \end{table*}
 
-There were four ``target redshifts" ($z = 0.3, 0.5, 0.8$ and 1.0), and from these points the images were redshifted in $\Delta z = 0.1$ bins up to $z=1.0$. In addition different evolution models were assumed in FERENGI. This evolution is a crude mechanism that is suppose to mimic the brightness increase of galaxies with increasing redshift. The evolution mechanism allows us to make galaxies brighter as linear function of redshift, and that is it. It is an empirical addition to the magnitude of a galaxy of the form $M' = e z + M$, where $M'$ is the corrected magnitude, $e$ is the evolutionary correction in magnitudes.  (i.e. $e=-1$ essentially brightens the galaxy by 1 magnitude by $z=1$). {\bf What values of $e$ did we use?} Depending on the target, or starting redshift we ran FERENGI for several final redshifts and different evolution models as summarized in Table \ref{ferengi}. 
+For each of the four ``target redshifts" ($z = 0.3, 0.5, 0.8$ and 1.0), the images were redshifted in $\Delta z = 0.1$ bins up to $z=1.0$. In addition different evolution models were assumed in FERENGI. This evolution is a crude mechanism that is suppose to mimic the brightness increase of galaxies with increasing redshift. The evolution mechanism allows us to make galaxies brighter as linear function of redshift, and that is it. It is an empirical addition to the magnitude of a galaxy of the form $M' = e z + M$, where $M'$ is the corrected magnitude, $e$ is the evolutionary correction in magnitudes.  (i.e. $e=-1$ essentially brightens the galaxy by 1 magnitude by $z=1$). We ran FERENGI for values of $e$ starting from $e=0$ and increasing up to $e=3.5$ in $\Delta e = 0.5$ steps. Depending on the target, or starting redshift we ran FERENGI for several final redshifts and different evolution models as summarized in Table \ref{ferengi}. 
 
 \begin{table}
 \caption{Summary of FERENGI runs \label{ferengi}}
-\begin{tabular}{lccccc}
+\begin{tabular}{lcccccc}
 \hline\hline
-Starting redshift &  $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $N_{\rm runs}$ & $N_{\rm total}$\\
+Starting redshift &  $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $e_{\rm max}$ & $N_{\rm runs}$ & $N_{\rm total}$\\
 \hline
-0.3 & 8 & 7 & 56 & 4031 \\
-0.5 & 6 & 4 & 24 & 1728 \\
-0.8 & 3 & 3 & 9 & 648 \\
-1.0 & 1 & 3 & 3 & 216 \\
+0.3 & 8 & 7 & 3.5 & 56 & 4031 \\
+0.5 & 6 & 4 & 2.0 & 24 & 1728 \\
+0.8 & 3 & 3 & 1.5 & 9 & 648 \\
+1.0 & 1 & 3 & 1.5 & 3 & 216 \\
 \hline\hline
 \end{tabular}
 \end{table}
@@ -183,7 +179,7 @@ Two series of example redshifted images are shown in Figure \ref{exampleFERENGI}
 
 \subsection{Results of FERENGI Analysis}
 
-We show here the {\bf currently fake} results of citizen scientist classifications of images of galaxies placed at artificial redshifts. Figure \ref{results1} shows the {\bf currently fake} change of vote fractions for feature X with redshift, for three vote fraction levels with three surface-brightness levels and 7 evolutionary corrections. 
+We show here the {\bf currently fake} results of citizen scientist classifications of images of galaxies placed at artificial redshifts. Figure \ref{results1} shows the {\bf currently fake} change of vote fractions for the change of $p_{\rm features}$ with redshift, for three galaxies with different vote fraction levels, three surface-brightness levels and 7 evolutionary corrections. 
 
 %-----------------------------------------------------------------------------------------------------------------------------------
 \begin{figure}
