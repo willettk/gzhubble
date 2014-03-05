@@ -53,6 +53,7 @@ original_galaxy_redshift = dblarr(n_elements(info.objid))
 
 
 ; Loop over each galaxy in Edmond's catalog
+nn=0
 for i=0L,n_elements(info.objid)-1 do begin
                                 ; Print ID and some info
    print, info[i].objid
@@ -87,11 +88,12 @@ for i=0L,n_elements(info.objid)-1 do begin
                                 ; according to Stuart's table
    n_ferengi=n_elements(ii)
    print, n_ferengi
+   if n_ferengi eq 3 then nn=nn+1
    for j=0L,n_elements(ii)-1 do begin
       print, meta[ii[j]].subject_id
       current_subject_id = meta[ii[j]].subject_id
-      spawn, 'wget http://www.galaxyzoo.org/subjects/standard/'+current_subject_id+'.jpg'
-   
+      ;espawn, 'wget http://www.galaxyzoo.org/subjects/standard/'+current_subject_id+'.jpg'
+      stop
 
       ; Locate the current subject in Brooke's data
       jj=where(data.subject_id eq current_subject_id)
@@ -101,18 +103,18 @@ for i=0L,n_elements(info.objid)-1 do begin
       ;print, current_subject_id_vote
 
       ; ## here comes the guessing part
-      if n_ferengi eq 56 then begin
-         
+      if n_ferengi eq 3 then begin
+         ;nn=nn+1
          ;for k1=0,
 
       endif
 
       
    endfor
-   stop
+   ;stop
 
 endfor
-
+print, nn
 
   plot, [0], [0], $
         xr=[0, 1.1], xstyle=1, xtitle='redshift', $
