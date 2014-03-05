@@ -1,4 +1,4 @@
-_id,classification_count,created_at,group_id,state,zooniverse_id,hubble_id,sdss_id,survey,ra,dec,survey,sdss_id,mag_u,mag_g,mag_r,mag_i,mag_z,petrorad_flux,petrorad_r,redshift
+subject_id,classification_count,created_at,group_id,state,zooniverse_id,hubble_id,sdss_id,survey,ra,dec,survey,sdss_id,mag_u,mag_g,mag_r,mag_i,mag_z,petrorad_flux,petrorad_r,redshift
 5249ce0c3ae74072a30033c1,40,2013-10-15 02:46:19 UTC,5249cbce3ae740728d000001,complete,AGZ0007ooa,,587725041707647104,ferengi,191.75418239,-1.57808178,ferengi,587725041707647104,16.53541,15.110473,14.609353,14.372601,14.309058,0.0,28.426388,0.00906325
 5249ce0c3ae74072a30033c2,40,2013-10-15 02:46:19 UTC,5249cbce3ae740728d000001,complete,AGZ0007oob,,587725041707647104,ferengi,191.75418239,-1.57808178,ferengi,587725041707647104,16.53541,15.110473,14.609353,14.372601,14.309058,0.0,28.426388,0.00906325
 5249ce0c3ae74072a30033c3,40,2013-10-15 02:46:19 UTC,5249cbce3ae740728d000001,complete,AGZ0007ooc,,587725041707647104,ferengi,191.75418239,-1.57808178,ferengi,587725041707647104,16.53541,15.110473,14.609353,14.372601,14.309058,0.0,28.426388,0.00906325

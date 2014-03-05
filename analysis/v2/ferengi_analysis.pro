@@ -16,6 +16,14 @@ pro ferengi_analysis
 ;--------------------------------------------------------------------
 
 
+
+; Note: We are testing on: T01_SMOOTH_OR_FEATURES_A02_FEATURES_FRAC
+; for now.
+
+
+
+
+
 ;--------------------------------------------------------------------
 ; # Read in data and required metadata
 ; Read in Brooke's first most certainly incorrect reduction FITS file
@@ -24,17 +32,9 @@ data=mrdfits('../../data/ferengi_classifications_collated.fits',1)
 ; Read in Edmond's metadata file
 info=mrdfits('../../data/GZ2_FERENGI_objects_FINAL_7_6_13.fits',1)
 
-; Read in Stuart's metadata file
-readcol, '../../data/galaxy_zoo_ferengi_subjects.csv', $
-         subject_id,sdss_id, $
-         format='a,x,x,x,x,x,x,x,a', $
-         skipline=1
+; Read in Stuart's metadata file, converted to FITS via TOPCAT
+meta=mrdfits('../../data/galaxy_zoo_ferengi_subjects.fits',1)
 ;--------------------------------------------------------------------
-
-
-
-
-; Note: We are testing on: T01_SMOOTH_OR_FEATURES_A02_FEATURES_FRAC for now.
 
 
 
@@ -51,9 +51,19 @@ readcol, '../../data/galaxy_zoo_ferengi_subjects.csv', $
   redshift_array_1=[0.030, 0.3+findgen(8)*0.1]
 
 
-; Make fake vote fractions for 3 vote fraction levels, 3 SB levels, 1+8 redshift intervals, 7
-; evolutionary corrections
-  vote=dblarr(3, 3, 7, 9)
+; Loop over each galaxy in Edmond's catalog
+for i=0L,n_elements(info.objid)-1 do begin
+                                ; Print ID and some info
+   print, info[i].objid
+   
+                                ; Match the current object in
+                                ; Stuart's table. 
+   ii=where(meta.sdss_id eq strtrim(string(info[i].objid),2))
+
+
+   stop
+endfor
+
 
 ;--------------------------------------------------------------------
 ; ## Clean up
