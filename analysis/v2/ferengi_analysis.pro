@@ -86,9 +86,12 @@ for i=0L,n_elements(info.objid)-1 do begin
                                 ; to the current galaxy
                                 ; according to Stuart's table
    n_ferengi=n_elements(ii)
+   print, n_ferengi
    for j=0L,n_elements(ii)-1 do begin
       print, meta[ii[j]].subject_id
       current_subject_id = meta[ii[j]].subject_id
+      spawn, 'wget http://www.galaxyzoo.org/subjects/standard/'+current_subject_id+'.jpg'
+   
 
       ; Locate the current subject in Brooke's data
       jj=where(data.subject_id eq current_subject_id)
@@ -96,6 +99,13 @@ for i=0L,n_elements(info.objid)-1 do begin
       ; Extract the vote fraction
       current_subject_id_vote = data[jj].T01_SMOOTH_OR_FEATURES_A02_FEATURES_FRAC
       ;print, current_subject_id_vote
+
+      ; ## here comes the guessing part
+      if n_ferengi eq 56 then begin
+         
+         ;for k1=0,
+
+      endif
 
       
    endfor
