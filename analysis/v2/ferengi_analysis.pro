@@ -34,6 +34,10 @@ info=mrdfits('../../data/GZ2_FERENGI_objects_FINAL_7_6_13.fits',1)
 
 ; Read in Stuart's metadata file, converted to FITS via TOPCAT
 meta=mrdfits('../../data/galaxy_zoo_ferengi_subjects.fits',1)
+
+; Read in the GZ2 classifications for the original galaxies, generated
+;by Brooke
+gz2=mrdfits('../../data/GZ2_FERENGI_matched_to_gz2_catalog.fits',1)
 ;--------------------------------------------------------------------
 
 
@@ -55,7 +59,26 @@ meta=mrdfits('../../data/galaxy_zoo_ferengi_subjects.fits',1)
 for i=0L,n_elements(info.objid)-1 do begin
                                 ; Print ID and some info
    print, info[i].objid
+   print, info[i].desired_z
+   print, info[i].sb_bin
    
+                                ; Process the original GZ2
+                                ; classification of the current
+                                ; object. No matching required as
+                                ; Brooke simply matched
+                                ; Edmond's table (info) to the
+                                ; GZ2 database
+
+   print, gz2[i].T01_SMOOTH_OR_FEATURES_A02_FEATURES_OR_DISK_WEIGHTED_FRACTION
+   print, gz2[i].redshift 
+   original_galaxy_vote     = gz2[i].T01_SMOOTH_OR_FEATURES_A02_FEATURES_OR_DISK_WEIGHTED_FRACTION
+   original_galaxy_redshift = gz2[i].redshift 
+
+
+   ;ii=where(
+   stop
+
+
                                 ; Match the current object in
                                 ; Stuart's table. 
    ii=where(meta.sdss_id eq strtrim(string(info[i].objid),2))
