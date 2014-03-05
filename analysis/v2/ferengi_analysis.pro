@@ -56,8 +56,8 @@ original_galaxy_redshift = dblarr(n_elements(info.objid))
 for i=0L,n_elements(info.objid)-1 do begin
                                 ; Print ID and some info
    print, info[i].objid
-   print, info[i].desired_z
-   print, info[i].sb_bin
+   ;print, info[i].desired_z
+   ;print, info[i].sb_bin
    
                                 ; Process the original GZ2
                                 ; classification of the current
@@ -76,7 +76,30 @@ for i=0L,n_elements(info.objid)-1 do begin
    original_galaxy_redshift[i] = meta[ii[0]].redshift
    ;print, original_galaxy_redshift
 
-                                ; 
+                                ; ### Experimental part. I'm
+                                ; trying to reverse-engineer
+                                ; Edmond's scheme to locate
+                                ; results for the FERENGI'd galaxies
+   
+                                ; Loop over ALL the
+                                ; subject_id's that correspond
+                                ; to the current galaxy
+                                ; according to Stuart's table
+   n_ferengi=n_elements(ii)
+   for j=0L,n_elements(ii)-1 do begin
+      print, meta[ii[j]].subject_id
+      current_subject_id = meta[ii[j]].subject_id
+
+      ; Locate the current subject in Brooke's data
+      jj=where(data.subject_id eq current_subject_id)
+      
+      ; Extract the vote fraction
+      current_subject_id_vote = data[jj].T01_SMOOTH_OR_FEATURES_A02_FEATURES_FRAC
+      ;print, current_subject_id_vote
+
+      
+   endfor
+   stop
 
 endfor
 
