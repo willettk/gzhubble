@@ -5,7 +5,7 @@ pro ferengi_analysis
 ; ## Set up plotting
   cleanplot, /silent
   set_plot, 'ps'
-  device, filename='fake_results.ps', $
+  device, filename='somewhat_fake_results.ps', $
           /color, /landscape, bits_per_pixel=8,  $
           /helvetica
   loadct, 0, /silent
@@ -43,16 +43,13 @@ gz2=mrdfits('../../data/GZ2_FERENGI_matched_to_gz2_catalog.fits',1)
 
 
 
-
-  plot, [0], [0], $
-        xr=[0, 1.2], xstyle=1, xtitle='redshift', $
-        yr=[0, 1], ystyle=1, ytitle=textoidl('vote fraction for question X, f_{x,z}'), $
-        xtickv=[0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2], xticks=6, $
-        ytickv=[0.0, 0.25, 0.50, 0.75, 1.0], yticks=5
-
-
 ; Redshift array
   redshift_array_1=[0.030, 0.3+findgen(8)*0.1]
+
+; Array for storing the vote fraction and redshift of the original
+; galaxies
+original_galaxy_vote     = dblarr(n_elements(info.objid))
+original_galaxy_redshift = dblarr(n_elements(info.objid))
 
 
 ; Loop over each galaxy in Edmond's catalog
@@ -69,24 +66,31 @@ for i=0L,n_elements(info.objid)-1 do begin
                                 ; Edmond's table (info) to the
                                 ; GZ2 database
 
-   print, gz2[i].T01_SMOOTH_OR_FEATURES_A02_FEATURES_OR_DISK_WEIGHTED_FRACTION
-   print, gz2[i].redshift 
-   original_galaxy_vote     = gz2[i].T01_SMOOTH_OR_FEATURES_A02_FEATURES_OR_DISK_WEIGHTED_FRACTION
-   original_galaxy_redshift = gz2[i].redshift 
-
-
-   ;ii=where(
-   stop
-
+   ;print, gz2[i].T01_SMOOTH_OR_FEATURES_A02_FEATURES_OR_DISK_WEIGHTED_FRACTION
+   original_galaxy_vote[i]    = gz2[i].T01_SMOOTH_OR_FEATURES_A02_FEATURES_OR_DISK_WEIGHTED_FRACTION
+   
 
                                 ; Match the current object in
                                 ; Stuart's table. 
    ii=where(meta.sdss_id eq strtrim(string(info[i].objid),2))
+   original_galaxy_redshift[i] = meta[ii[0]].redshift
+   ;print, original_galaxy_redshift
 
+                                ; 
 
-   stop
 endfor
 
+
+  plot, [0], [0], $
+        xr=[0, 1.1], xstyle=1, xtitle='redshift', $
+        yr=[0, 1], ystyle=1, ytitle=textoidl('vote fraction for question X, f_{x,z}'), $
+        xtickv=[0.0, 0.2, 0.4, 0.6, 0.8, 1.0, 1.2], xticks=6, $
+        ytickv=[0.0, 0.25, 0.50, 0.75, 1.0], yticks=5
+
+  oplot, original_galaxy_redshift, original_galaxy_vote, psym=sym(1), symsize=0.8
+
+
+stop
 
 ;--------------------------------------------------------------------
 ; ## Clean up
