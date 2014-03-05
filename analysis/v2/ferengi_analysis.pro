@@ -18,6 +18,9 @@ pro ferengi_analysis
 ; Read in Brooke's first most certainly incorrect reduction FITS file
 data=mrdfits('../../data/ferengi_classifications_collated.fits',1)
 
+; Read in Edmond's metadata file
+info=mrdfits('../../data/GZ2_FERENGI_objects_FINAL_7_6_13.fits',1)
+
 ; Note: We are testing on: T01_SMOOTH_OR_FEATURES_A02_FEATURES_FRAC for now.
 
 
@@ -33,6 +36,9 @@ data=mrdfits('../../data/ferengi_classifications_collated.fits',1)
   redshift_array_1=[0.030, 0.3+findgen(8)*0.1]
 
 
+; Make fake vote fractions for 3 vote fraction levels, 3 SB levels, 1+8 redshift intervals, 7
+; evolutionary corrections
+  vote=dblarr(3, 3, 7, 9)
 
 ;--------------------------------------------------------------------
 ; ## Clean up
