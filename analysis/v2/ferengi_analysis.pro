@@ -38,6 +38,9 @@ meta=mrdfits('../../data/galaxy_zoo_ferengi_subjects.fits',1)
 ; Read in the GZ2 classifications for the original galaxies, generated
 ;by Brooke
 gz2=mrdfits('../../data/GZ2_FERENGI_matched_to_gz2_catalog.fits',1)
+
+; Read in Michael's file linking subject_id to FERENGI parameters
+ferengi=mrdfits('../../data/ferengi_details.fits',1)
 ;--------------------------------------------------------------------
 
 
@@ -53,7 +56,6 @@ original_galaxy_redshift = dblarr(n_elements(info.objid))
 
 
 ; Loop over each galaxy in Edmond's catalog
-nn=0
 for i=0L,n_elements(info.objid)-1 do begin
                                 ; Print ID and some info
    print, info[i].objid
@@ -77,23 +79,17 @@ for i=0L,n_elements(info.objid)-1 do begin
    original_galaxy_redshift[i] = meta[ii[0]].redshift
    ;print, original_galaxy_redshift
 
-                                ; ### Experimental part. I'm
-                                ; trying to reverse-engineer
-                                ; Edmond's scheme to locate
-                                ; results for the FERENGI'd galaxies
-   
+
                                 ; Loop over ALL the
                                 ; subject_id's that correspond
                                 ; to the current galaxy
                                 ; according to Stuart's table
    n_ferengi=n_elements(ii)
    print, n_ferengi
-   if n_ferengi eq 3 then nn=nn+1
+
    for j=0L,n_elements(ii)-1 do begin
       print, meta[ii[j]].subject_id
       current_subject_id = meta[ii[j]].subject_id
-      ;espawn, 'wget http://www.galaxyzoo.org/subjects/standard/'+current_subject_id+'.jpg'
-      stop
 
       ; Locate the current subject in Brooke's data
       jj=where(data.subject_id eq current_subject_id)
@@ -102,19 +98,19 @@ for i=0L,n_elements(info.objid)-1 do begin
       current_subject_id_vote = data[jj].T01_SMOOTH_OR_FEATURES_A02_FEATURES_FRAC
       ;print, current_subject_id_vote
 
-      ; ## here comes the guessing part
-      if n_ferengi eq 3 then begin
-         ;nn=nn+1
-         ;for k1=0,
+      ; Find the FERENGI meta-data in the table Michael sent
+      kk=where(ferengi.subject_id eq current_subject_id)
+      ;print, current_subject_id
+      ;print, ferengi[kk].subject_id
+      ;print, ferengi[kk].sim_redshift, ferengi[kk].sim_evolution
+      
 
-      endif
-
+      stop
       
    endfor
    ;stop
 
 endfor
-print, nn
 
   plot, [0], [0], $
         xr=[0, 1.1], xstyle=1, xtitle='redshift', $
