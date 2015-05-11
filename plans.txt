@@ -1,0 +1,42 @@
+Image size 10 * r_90
+
+
+Summary of GZH Surveys
+
+AEGIS has1 orbit each (~2200 seconds) in F606W (V band) and F814W filter and has been dithered to 0.03 ''/pixel; the imaging covers ~710 arcmin^2.
+
+GOODS targeted 2 fields, GOODS-N and GOODS-S, imaging in 4 filters -- F435W (B), F606W (V), F775W (i), and F850LP (z). The mean exposure times vary, from 1000 - 2100 seconds. The images have been dithered to a pixel scale of 0.03 ''/pixel and covers at total area of ~320 arcmin^2 (160 arcmin^2 per field). The filters that Griffith et al uses for the colored images were F606W and F775W for GOODS-N and F606W and F850LP for GOODS-S.
+
+COSMOS has 1 orbit (2028 seconds) in the F814W (I band) filter and has been dithered to 0.05 ''/pixel; it covers the largest area, ~1.8 deg^2. 
+
+GEMS has 1 orbit (2160 and 2286 seconds) in the F606W and F850LP filters, with a pixel scale of 0.03 ''/pixel; it covers ~800 arcmin^2
+
+There are 8 Galaxy Zoo 2 categories, seven we agreed to - mergers, spirals, face-on bulge, edge-on bulge, edge-on, features, and bars - and an additional one that I am including that simply includes more bars at different p_bars, I called it 'more bar'. 
+
+Within each category, there are 3 different classifications. 
+
+Also, each category has 3 surface brightness bins. 
+
+That's 72 galaxies per minimum redshift, or as I've been calling it, target redshifts, meaning that I am using a different set of input SDSS galaxies for each minimum redshift that we choose. 
+
+I've chosen 4 minimum redshifts - 0.30, 0.50, 0.80, and 1.0. Moreover, for each set of input SDSS galaxies, I do the following:
+
+For each galaxy, I FERENGI in redshift intervals of 0.10, up to z=1.0. 
+
+For each redshift that I FERENGI, I will also FERENGI different evolution terms, depending on the target redshift. 
+
+The evolution in FERENGI is an empirical addition to the magnitude of a galaxy like this: M' = evo*z + M, where M': the corrected magnitude, evo: evolutionary correction in magnitudes, z: redshift, M: uncorrected magnitude, i.e. evo=-1 essentially brightens the galaxy by 1 magnitude at redshift z=1.
+
+To summarize:
+
+For target z = 0.30, we have the following: 8 GZ2 categories * 3 classifications * 3 surface brightness * 8 redshift intervals (z=0.30, 0.40, 0.50, 0.60, 0.70, 0.80, 0.90, 1.0) * 7 evolution terms = 4,032 
+
+For target z = 0.50, we have: 8 * 3 * 3 * 6 redshift intervals (z=0.50, 0.60, 0.70, 0.80, 0.90, 1.0) * 4 evolution terms = 1,728
+
+For target z = 0.80, we have: 8 * 3 * 3 * 3 redshift intervals (z=0.80, 0.90, 1.0) * 3 evolution terms = 648
+
+For target z = 1.00, we have: 8 * 3 * 3 * 1 redshift interval * 3 evolution terms = 216
+
+For a total of 6,624 FERENGI galaxies. 
+
+testing 1 2 3
