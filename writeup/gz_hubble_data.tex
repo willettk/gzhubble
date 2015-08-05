@@ -37,8 +37,8 @@
 %\newcommand{\aap}{A\&A}
 %\newcommand{\apjs}{ApJS}
 %\newcommand{\araa}{ARA\&A}
-%\newcommand{\pbar}{p_{\rm bar}}
-%\newcommand{\fHI}{f_{\rm HI}}
+\newcommand{\pbar}{p_{\rm bar}}
+\newcommand{\fHI}{f_{\rm HI}}
 
 \voffset-1.25cm
 
@@ -216,6 +216,46 @@ We show here the {\bf preliminary} results of citizen scientist classifications 
 \end{center}
 \end{figure}
 %-----------------------------------------------------------------------------------------------------------------------------------
+\subsubsection{Results of Zeta Approach (Mel stuff)}
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=\textwidth]{p_vs_p_SB_redshift.ps}
+\caption{a caption. Add scale in $p_{\rm features}$ somehow that doesn't clutter the plot even more. }
+\label{fig:p_vs_p}
+\end{center}
+\end{figure*}
+
+In Figure \ref{fig:p_vs_p} we examine the change in $p_{\rm features}$ for the FERENGI images relative to their lowest simulated redshift ($\rm z_{sim}=0.3$). For each simulated redshift value $z$, and at fixed surface brightness $\mu$, we plot $p_{\rm features,z}$, the value measured at that simulated redshift, vs $p_{\rm features,z=0.3}$, the value measured for the same galaxy imaged at $z=0.3$. Only images corresponding to galaxies which also had FERENGI images at $z=0.3$ were included in this plot, which include 4031 out of the total 6624.
+ 
+Our objective is to use these data to predict, for a galaxy with a measured $p_{\rm features,z}$ value, what its $p_{\rm features}$ value would have been if it had been viewed at $z=0.3$. This predicted value is defined as the debiased vote fraction $p_{\rm features,debiased}$, and is calculated by applying a correction to the measured value of $p_{\rm features}$, determined by the $\zeta$ function described in the previous section. We determine that a predicted value can be obtained so long as the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ is single-valued; that is, for a given $p_{\rm features,z}$, there is one corresponding value of $p_{\rm features}$ at $z=0.3$. 
+
+In Figure \ref{fig:p_vs_p} we see that the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ is \emph{not} always single valued; hence we do not find it appropriate to correct galaxies that lie in these regions of surface brightness/redshift/$p_{\rm features}$ space. Our criteria for determining whether a region of this space is correctable is as follows: For each surface brightness and redshift bin, we examine the distribution of $p_{\rm features,z=0.3}$ for fixed $p_{\rm features,z}$ in bins of $\Delta p_{\rm features,z} = 0.1$. These sub-bins are marked by the horizontal lines within each larger, surface brightness/redshift bin. First, we require at least 5 points in each sub-bin to determine with confidence whether that region is correctable or uncorrectable. For the region to be considered correctable, we require that the inner two quartiles of the distribution of $p_{\rm features,z=0.3}$ within these sub-bins span a range less than 0.2. These regions are coloured purple, and the inner two quartile ranges are indicated by the black error bars within each sub-bin.If the spread is greater than 0.2, the region is considered uncorrectable; these are marked in green. Any region with fewer than 5 points is considered to have ``not enough information (NEI)'', and left uncoloured on the plot. 
+
+Stuff to do in this section: 
+
+\begin{itemize}
+\item talk about where purple and green tend to be on plot, and about how green areas are primarily ellipticals and disks with all the features washed out - can't tell them apart! hence, can't debias
+\item talk about where the Hubble sample falls in this space, reference table \ref{hubble_debiasable} 
+\item justify N>5 and spread < 0.2 (or find a better way to choose criteria)
+\item check out corrections for correctable and NEI, show some sample images of corrected galaxies
+\item show some data for $p_{bar}$, determine or justify why we won't debiase them  
+\end{itemize}
+ 
+\begin{table}
+\caption{Debiasable Hubble Stuff. Doesn't include SDSS yet. Note: stuff without good redshift info automatically gets put in uncorrectable category - which is about 25,000 galaxies. Might increase correctable number if we can get these measurements. \label{hubble_debiasable}}
+\begin{tabular}{lrr}
+\hline\hline
+Category &  N & \% \\
+\hline
+Correctable   & 7408 & 6 \%  \\
+Uncorrectable & 58526 & 50 \%\\
+NEI           & 52149 & 44 \% \\
+Total         & 118083 & 100 \% \\
+\hline\hline
+\end{tabular}
+\end{table}
+
 
 \subsubsection{TODO LIST}
 We need to do: 
