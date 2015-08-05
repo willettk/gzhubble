@@ -127,8 +127,7 @@ In the GZH samples the redshift range is so large that we expect to find redshif
 %-----------------------------------------------------------------------------------------------------------------------------------
 \begin{figure}
 \begin{center}
-\includegraphics[width=60mm]{example_ferengi2.pdf}
-%\includegraphics[height=80mm,angle=-90]{TuningFork.pdf}
+\includegraphics[width=60mm]{figures/example_ferengi2.pdf}
 \caption{Examples of an obvious spiral and obvious elliptical at $z=0$ which both look similar when redshifted to $z=0.8$. See below for the description of the method for redshifting.\label{exampleFERENGI}}
 \end{center}
 \end{figure}
@@ -195,8 +194,7 @@ $z_{\rm target}$ & $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $e_{\rm max}$ & $N
 Two series of example redshifted images are shown in Figure \ref{exampleFERENGI}, both for runs with no evolution ($e=0$). 
 
 \begin{figure*}
-\includegraphics[width=160mm]{example_ferengi.pdf}
-%\includegraphics[height=80mm]{TuningFork.pdf}
+\includegraphics[width=160mm]{figures/example_ferengi.pdf}
 \caption{Examples of two galaxies which have been run through the FERENGI code to produce simulated HST images. The value of $p_{\rm features}$ for each panel is (1) Top row: $p_{\rm features}=$ 0.9, 0.625, 0.35, 0.35, 0.225 and (2) Bottom row: $p_{\rm features}=$ 1.00, 0.875, 0.875, 0.625, 0.375. \label{exampleFERENGI}}
 \end{figure*}
 
@@ -215,7 +213,7 @@ f_{\mu,z} = \left(f_{\mu,z=0.3}\right) \times e^{{\frac{z-z_0}{\zeta}}},
 
 \begin{figure*}
 \begin{center}
-\includegraphics[width=\textwidth]{zeta_examples.pdf}
+\includegraphics[width=\textwidth]{figures/zeta_examples.pdf}
 \caption{Behavior of the normalized, weighted vote fractions of features visible in a galaxy ($f_\textrm{features}$) as a function of redshift in the artifical \ferengi{} images. Galaxies are a random selection of images with $e=0$ and at least three detectable images in redshift bins of $z\ge0.3$. The measured vote fractions (red points) are fit with an exponential function (Equation~\ref{eqn:fzeta}); the best-fit parameters are given above each plot. Error bars are Poissonian, assuming a median of 40~votes per galaxy.}
 \label{fig:zeta_examples}
 \end{center}
@@ -227,7 +225,7 @@ Figure~\ref{fig:zeta_mu} shows the results of the sample; the correction is a we
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.50\textwidth]{zeta_mu.pdf}
+\includegraphics[width=0.50\textwidth]{figures/zeta_mu.pdf}
 \caption{All fits for the vote fraction dropoff parameter $\zeta$ for $f_\textrm{features}$ in the \ferengi{} galaxies as a function of surface brightness. This includes only the 51~galaxies with a reasonably bounded range on the dropoff ($-10<\log(\zeta)<10$) and sufficient points to fit the function.}
 \label{fig:zeta_mu}
 \end{center}
@@ -251,7 +249,7 @@ f_\textrm{debiased} = 1 - (1 - f)e^{\frac{z-z_0}{\hat\zeta}}.
 
 \begin{figure*}
 \begin{center}
-\includegraphics[width=\textwidth]{p_vs_p_SB_redshift.pdf}
+\includegraphics[width=\textwidth]{figures/p_vs_p_SB_redshift.pdf}
 \caption{a caption. Add scale in $p_{\rm features}$ somehow that doesn't clutter the plot even more. }
 \label{fig:p_vs_p}
 \end{center}
@@ -295,7 +293,7 @@ We show here the {\bf preliminary} results of citizen scientist classifications 
 \begin{figure}
 \begin{center}
 
-\includegraphics[width=0.45\textwidth]{somewhat_fake_results.pdf}
+\includegraphics[width=0.45\textwidth]{figures/somewhat_fake_results.pdf}
 
 \caption{Preliminary results of the \ferengi{} redshifting exercise. WARNING NO USER WEIGHTING.... For a range of vote fraction levels with three surface-brightness levels and 7 evolutionary corrections each (the colours indicate evolutionary correction value with green being $e=0$, we show the range of evolution of the vote fractions for featured vs. smooth with redshift.}
 
