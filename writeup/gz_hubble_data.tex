@@ -44,6 +44,9 @@
 
 \usepackage{epsfig}
 \usepackage{color,soul}
+\usepackage{natbib}
+\bibliographystyle{mn2e}
+
 \begin{document}
 
 \title[Galaxy Zoo Hubble Data]{Galaxy Zoo: Morphological Classifications for Galaxies in HST Legacy Imaging}
@@ -179,12 +182,12 @@ For each of the four ``target redshifts'' ($z = 0.3, 0.5, 0.8$ and $1.0$), the i
 \caption{Summary of FERENGI runs \label{ferengivalues}}
 \begin{tabular}{lcccccc}
 \hline\hline
-$z_{\rm target}$ &  $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $e_{\rm max}$ & $N_{\rm runs}$ & $N_{\rm total}$\\
+$z_{\rm target}$ & $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $e_{\rm max}$ & $N_{\rm runs}$ & $N_{\rm total}$\\
 \hline
-0.3 & 8 & 7 & -3.0 & 56 & 4031 \\
-0.5 & 6 & 4 & -1.5 & 24 & 1728 \\
-0.8 & 3 & 3 & -1.0 & 9 & 648 \\
-1.0 & 1 & 3 & -1.0 & 3 & 216 \\
+0.3              & 8                  & 7                   & $-3.0$        & 56             & 4031 \\
+0.5              & 6                  & 4                   & $-1.5$        & 24             & 1728 \\
+0.8              & 3                  & 3                   & $-1.0$        &  9             &  648 \\
+1.0              & 1                  & 3                   & $-1.0$        &  3             &  216 \\
 \hline\hline
 \end{tabular}
 \end{table}
@@ -197,26 +200,54 @@ Two series of example redshifted images are shown in Figure \ref{exampleFERENGI}
 \caption{Examples of two galaxies which have been run through the FERENGI code to produce simulated HST images. The value of $p_{\rm features}$ for each panel is (1) Top row: $p_{\rm features}=$ 0.9, 0.625, 0.35, 0.35, 0.225 and (2) Bottom row: $p_{\rm features}=$ 1.00, 0.875, 0.875, 0.625, 0.375. \label{exampleFERENGI}}
 \end{figure*}
 
- 
+\subsection{Approach to debiasing morphological classifications}
 
-\subsection{Results of FERENGI Analysis}
+The approach used in GZH for correcting the weighted classifications for user bias rests on the assumption that the \emph{amount} of bias is a function of the apparent size and brightness of the image as seen on screen. This is controlled by two types of parameters: \textbf{intrinsic} properties of the galaxy itself, such as its physical diameter and luminosity, and \textbf{extrinsic} properties, such as the distance (redshift) of the galaxy and its relative orientation. There are likely other parameters that affect user accuracy, such as the proximity of close companions \citep[``distraction bias''; see][]{joh15} or those that vary by individual user. The combination of all such parameters forms a high-dimensional space, and we have insufficient test galaxies to measure the individual effects of each. Instead, we use just two parameters that are intended to capture the bulk of the change in bias (based on GZ1/GZ2): a galaxy's $r$-band surface brightness ($\mu_r$; intrinsic) and redshift ($z$; extrinsic). 
 
-We show here the {\bf preliminary} results of citizen scientist classifications of images of galaxies placed at artificial redshifts. Figure \ref{results1} shows the {\bf preliminary} range of change of vote fractions for the change of $p_{\rm features}$ with redshift, for galaxies with different vote fraction levels, three ranges of surface-brightness levels and 7 evolutionary corrections (this last bit is indicated by the colour). 
+The change in bias as a function of $\mu_r$ and $z$ is measured using the \ferengi{} images at all evolutionary corrected factors. We assume that the ``true'' (ie, debiased) vote fraction $f_{\mu,z}$ for a galaxy can be expressed as:
 
-%-----------------------------------------------------------------------------------------------------------------------------------
+\begin{equation}
+f_{\mu,z} = \left(f_{\mu,z=0.3}\right) \times e^{{\frac{z-z_0}{\zeta}}},
+\label{eqn:fzeta}
+\end{equation}
+
+\noindent where $f_{\mu,z=0.3}$ is the ``calibrated'' vote fraction at the lowest redshift in the \ferengi{} bins, which is at redshift $z=0.3$ and $\zeta$ is a positive parameter that controls the rate at which $f$ drops off with increasing redshift. This formula fits the data relatively well (with almost no exceptions, the vote fractions for featured galaxies decrease monotonically with increasing redshift), and the exponential function bounds the observed vote fractions between $f_{\mu,z=0.3}$ and zero. Figure~\ref{fig:zeta_examples} show examples of the change in vote fraction and their fits to Equation~\ref{eqn:fzeta} for a random selection of galaxies in the \ferengi{} images. 
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=\textwidth]{zeta_examples.pdf}
+\caption{Behavior of the normalized, weighted vote fractions of features visible in a galaxy ($f_\textrm{features}$) as a function of redshift in the artifical \ferengi{} images. Galaxies are a random selection of images with $e=0$ and at least three detectable images in redshift bins of $z\ge0.3$. The measured vote fractions (red points) are fit with an exponential function (Equation~\ref{eqn:fzeta}); the best-fit parameters are given above each plot. Error bars are Poissonian, assuming a median of 40~votes per galaxy.}
+\label{fig:zeta_examples}
+\end{center}
+\end{figure*}
+
+We then take the values of $\zeta$ for \emph{all} sets of artifically redshifted galaxies and use them to fit the overall distribution of $\zeta$ as a function of surface brightness (since we expect the correction being applied to vary as a function of the intrinsic galaxy properties). We restrict the galaxies that can be used to measure the calibration to those with data at the pivot redshift of $z=0.3$, those with non-zero $f_\textrm{features}$ at $z=0.3$, and with a reasonable fit to the exponential model ($\Delta \chi^2 > 3.0$). 
+
+Figure~\ref{fig:zeta_mu} shows the results of the sample; the correction is a weak function of surface brightness overall. Higher-surface brightness galaxies have stronger average corrections, likely because these galaxies are more likely to have larger $f_\textrm{features}$ values at high redshifts. Low surface brightness galaxies are more likely to begin low and remain low; the bounded nature of the dropoff (and Poissonian-like variance among the individual voters) means that the average magnitude of $\zeta$ will be less. 
+
 \begin{figure}
 \begin{center}
-
-\includegraphics[width=0.35\textwidth]{somewhat_fake_results.pdf}
-
-\caption{Preliminary results of the FERENGI redshifting exercise. WARNING NO USER WEIGHTING.... For a range of vote fraction levels with three surface-brightness levels and 7 evolutionary corrections each (the colours indicate evolutionary correction value with green being $e=0$, we show the range of evolution of the vote fractions for featured vs. smooth with redshift.}
-
-\label{fig:ferengi_results_fake}
-
+\includegraphics[width=0.50\textwidth]{zeta_mu.pdf}
+\caption{All fits for the vote fraction dropoff parameter $\zeta$ for $f_\textrm{features}$ in the \ferengi{} galaxies as a function of surface brightness. This includes only the 51~galaxies with a reasonably bounded range on the dropoff ($-10<\log(\zeta)<10$) and sufficient points to fit the function.}
+\label{fig:zeta_mu}
 \end{center}
 \end{figure}
-%-----------------------------------------------------------------------------------------------------------------------------------
-\subsubsection{Results of Zeta Approach (Mel stuff)}
+
+We fit the data in Figure~\ref{fig:zeta_mu} with a linear function such that:
+
+\begin{equation}
+\log_{10}(\hat\zeta) = \zeta_0 + \zeta_1 \times \mu,
+\label{eqn:zetafit}
+\end{equation}
+
+\noindent where $\hat\zeta$ is the correction factor that will be applied to each galaxy as a function of surface brightness. The best-fit parameters to the linear fit (from least-squares optimization) are $\zeta_0 = 0.1, \zeta_1=1.4$. To make the final debiased correction, we modify the simple exponential form of Equation~\ref{eqn:fzeta} to bound the debiased vote fractions between $f$ and 1:
+
+\begin{equation}
+f_\textrm{debiased} = 1 - (1 - f)e^{\frac{z-z_0}{\hat\zeta}}.
+\label{eqn:fzeta_mod}
+\end{equation}
+
+\subsection{Results of Zeta Approach (Mel stuff)}
 
 \begin{figure*}
 \begin{center}
@@ -237,9 +268,9 @@ Stuff to do in this section:
 \begin{itemize}
 \item talk about where purple and green tend to be on plot, and about how green areas are primarily ellipticals and disks with all the features washed out - can't tell them apart! hence, can't debias
 \item talk about where the Hubble sample falls in this space, reference table \ref{hubble_debiasable} 
-\item justify N>5 and spread < 0.2 (or find a better way to choose criteria)
+\item justify $N>5$ and spread $< 0.2$ (or find a better way to choose criteria)
 \item check out corrections for correctable and NEI, show some sample images of corrected galaxies
-\item show some data for $p_{bar}$, determine or justify why we won't debiase them  
+\item show some data for $\pbar$, determine or justify why we won't debiase them  
 \end{itemize}
  
 \begin{table}
@@ -255,6 +286,24 @@ Total         & 118083 & 100 \% \\
 \hline\hline
 \end{tabular}
 \end{table}
+
+\subsection{Results of FERENGI Analysis}
+
+We show here the {\bf preliminary} results of citizen scientist classifications of images of galaxies placed at artificial redshifts. Figure \ref{results1} shows the {\bf preliminary} range of change of vote fractions for the change of $p_{\rm features}$ with redshift, for galaxies with different vote fraction levels, three ranges of surface-brightness levels and 7~evolutionary corrections (this last bit is indicated by the colour). 
+
+%-----------------------------------------------------------------------------------------------------------------------------------
+\begin{figure}
+\begin{center}
+
+\includegraphics[width=0.45\textwidth]{somewhat_fake_results.pdf}
+
+\caption{Preliminary results of the \ferengi{} redshifting exercise. WARNING NO USER WEIGHTING.... For a range of vote fraction levels with three surface-brightness levels and 7 evolutionary corrections each (the colours indicate evolutionary correction value with green being $e=0$, we show the range of evolution of the vote fractions for featured vs. smooth with redshift.}
+
+\label{fig:ferengi_results_fake}
+
+\end{center}
+\end{figure}
+%-----------------------------------------------------------------------------------------------------------------------------------
 
 
 \subsubsection{TODO LIST}
@@ -274,22 +323,16 @@ Now people go and do science with these awesome Galaxy Zoo Hubble classification
  
 \paragraph*{ACKNOWLEDGEMENTS.} 
 
-This publication has been made possible by the participation of more than 200,000 volunteers in the Galaxy Zoo project. Their contributions are individually acknowledged at \texttt{http://www.galaxyzoo.org/volunteers}. Galaxy Zoo 2 was developed with the help of a grant from The Leverhulme Trust. KS gratefully acknowledges support from Swiss National Science Foundation Grant PP00P2\_138979/1.
+This publication has been made possible by the participation of more than 200,000 volunteers in the Galaxy Zoo project. Their contributions are individually acknowledged at \texttt{http://www.galaxyzoo.org/volunteers}. Galaxy Zoo 2 was developed with the help of a grant from The Leverhulme Trust. 
 
-We thank ASIAA for hosting the ``Citizen Science in Astronomy" workshop, Mar 3-7th 2014 in Taipei, Taiwan, at which some of this analysis was done. 
+We thank ASIAA for hosting the ``Citizen Science in Astronomy'' workshop, Mar 3-7 2014 in Taipei, Taiwan, at which some of this analysis was done. 
 
 HST acknowledgements.
 
 Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. The SDSS Web Site is http://www.sdss.org/. 
 
-The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. The Participating Institutions are the American Museum of Natural History, Astrophysical  Institute Potsdam, University of Basel, University of Cambridge, 
-Case Western Reserve University, University of Chicago, Drexel University, Fermilab, the Institute for Advanced Study, the Japan 
-Participation Group, Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, the Kavli Institute for Particle Astrophysics and Cosmology, the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), the Max-Planck-Institute for Astrophysics (MPA), New Mexico State Uni- 
-versity, Ohio State University, University of Pittsburgh, University of Portsmouth, Princeton University, the United States Naval Observatory and the University of Washington. 
+The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. The Participating Institutions are the American Museum of Natural History, Astrophysical  Institute Potsdam, University of Basel, University of Cambridge, Case Western Reserve University, University of Chicago, Drexel University, Fermilab, the Institute for Advanced Study, the Japan Participation Group, Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, the Kavli Institute for Particle Astrophysics and Cosmology, the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), the Max-Planck-Institute for Astrophysics (MPA), New Mexico State University, Ohio State University, University of Pittsburgh, University of Portsmouth, Princeton University, the United States Naval Observatory and the University of Washington. 
 
-
-\begin{thebibliography}{}
-
-\end{thebibliography}
+\bibliography{kwrefs}
 
 \end{document}
