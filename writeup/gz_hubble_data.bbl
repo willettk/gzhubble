@@ -1,0 +1,69 @@
+\begin{thebibliography}{8}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Bamford} {et~al}\mbox{.}(2009){Bamford}, {Nichol}, {Baldry}, {Land},
+  {Lintott}, {Schawinski}, {Slosar}, {Szalay}, {Thomas}, {Torki}, {Andreescu},
+  {Edmondson}, {Miller}, {Murray}, {Raddick}, \& {Vandenberg}}]{bam09}
+{Bamford} S.~P. {et~al.}, 2009, \mnras, 393, 1324
+
+\bibitem[{{Barden} {et~al}\mbox{.}(2008){Barden}, {Jahnke}, \&
+  {H{\"a}u{\ss}ler}}]{bar08a}
+{Barden} M., {Jahnke} K., {H{\"a}u{\ss}ler} B., 2008, \apjs, 175, 105
+
+\bibitem[{{Griffith} {et~al}\mbox{.}(2012){Griffith}, {Cooper}, {Newman},
+  {Moustakas}, {Stern}, {Comerford}, {Davis}, {Lotz}, {Barden}, {Conselice},
+  {Capak}, {Faber}, {Kirkpatrick}, {Koekemoer}, {Koo}, {Noeske}, {Scoville},
+  {Sheth}, {Shopbell}, {Willmer}, \& {Weiner}}]{gri12}
+{Griffith} R.~L. {et~al.}, 2012, \apjs, 200, 9
+
+\bibitem[{{Johnson} {et~al}\mbox{.}(2015){Johnson}, {Seth}, {Dalcanton},
+  {Wallace}, {Simpson}, {Lintott}, {Kapadia}, {Skillman}, {Caldwell},
+  {Fouesneau}, {Weisz}, {Williams}, {Beerman}, {Gouliermis}, \&
+  {Sarajedini}}]{joh15}
+{Johnson} L.~C. {et~al.}, 2015, \apj, 802, 127
+
+\bibitem[{{Lintott} {et~al}\mbox{.}(2008){Lintott}, {Schawinski}, {Slosar},
+  {Land}, {Bamford}, {Thomas}, {Raddick}, {Nichol}, {Szalay}, {Andreescu},
+  {Murray}, \& {Vandenberg}}]{lin08}
+{Lintott} C.~J. {et~al.}, 2008, \mnras, 389, 1179
+
+\bibitem[{{Strauss} {et~al}\mbox{.}(2002){Strauss}, {Weinberg}, {Lupton},
+  {Narayanan}, {Annis}, {Bernardi}, {Blanton}, {Burles}, {Connolly},
+  {Dalcanton}, {Doi}, {Eisenstein}, {Frieman}, {Fukugita}, {Gunn},
+  {Ivezi{\'c}}, {Kent}, {Kim}, {Knapp}, {Kron}, {Munn}, {Newberg}, {Nichol},
+  {Okamura}, {Quinn}, {Richmond}, {Schlegel}, {Shimasaku}, {SubbaRao},
+  {Szalay}, {Vanden Berk}, {Vogeley}, {Yanny}, {Yasuda}, {York}, \&
+  {Zehavi}}]{str02}
+{Strauss} M.~A. {et~al.}, 2002, \aj, 124, 1810
+
+\bibitem[{{Willett} {et~al}\mbox{.}(2013){Willett}, {Lintott}, {Bamford},
+  {Masters}, {Simmons}, {Casteels}, {Edmondson}, {Fortson}, {Kaviraj}, {Keel},
+  {Melvin}, {Nichol}, {Raddick}, {Schawinski}, {Simpson}, {Skibba}, {Smith}, \&
+  {Thomas}}]{wil13}
+{Willett} K.~W. {et~al.}, 2013, \mnras, 435, 2835
+
+\bibitem[{{York} {et~al}\mbox{.}(2000){York}, {Adelman}, {Anderson},
+  {Anderson}, {Annis}, {Bahcall}, {Bakken}, {Barkhouser}, {Bastian}, {Berman},
+  {Boroski}, {Bracker}, {Briegel}, {Briggs}, {Brinkmann}, {Brunner}, {Burles},
+  {Carey}, {Carr}, {Castander}, {Chen}, {Colestock}, {Connolly}, {Crocker},
+  {Csabai}, {Czarapata}, {Davis}, {Doi}, {Dombeck}, {Eisenstein}, {Ellman},
+  {Elms}, {Evans}, {Fan}, {Federwitz}, {Fiscelli}, {Friedman}, {Frieman},
+  {Fukugita}, {Gillespie}, {Gunn}, {Gurbani}, {de Haas}, {Haldeman}, {Harris},
+  {Hayes}, {Heckman}, {Hennessy}, {Hindsley}, {Holm}, {Holmgren}, {Huang},
+  {Hull}, {Husby}, {Ichikawa}, {Ichikawa}, {Ivezi{\'c}}, {Kent}, {Kim},
+  {Kinney}, {Klaene}, {Kleinman}, {Kleinman}, {Knapp}, {Korienek}, {Kron},
+  {Kunszt}, {Lamb}, {Lee}, {Leger}, {Limmongkol}, {Lindenmeyer}, {Long},
+  {Loomis}, {Loveday}, {Lucinio}, {Lupton}, {MacKinnon}, {Mannery}, {Mantsch},
+  {Margon}, {McGehee}, {McKay}, {Meiksin}, {Merelli}, {Monet}, {Munn},
+  {Narayanan}, {Nash}, {Neilsen}, {Neswold}, {Newberg}, {Nichol}, {Nicinski},
+  {Nonino}, {Okada}, {Okamura}, {Ostriker}, {Owen}, {Pauls}, {Peoples},
+  {Peterson}, {Petravick}, {Pier}, {Pope}, {Pordes}, {Prosapio},
+  {Rechenmacher}, {Quinn}, {Richards}, {Richmond}, {Rivetta}, {Rockosi},
+  {Ruthmansdorfer}, {Sandford}, {Schlegel}, {Schneider}, {Sekiguchi}, {Sergey},
+  {Shimasaku}, {Siegmund}, {Smee}, {Smith}, {Snedden}, {Stone}, {Stoughton},
+  {Strauss}, {Stubbs}, {SubbaRao}, {Szalay}, {Szapudi}, {Szokoly}, {Thakar},
+  {Tremonti}, {Tucker}, {Uomoto}, {Vanden Berk}, {Vogeley}, {Waddell}, {Wang},
+  {Watanabe}, {Weinberg}, {Yanny}, {Yasuda}, \& {SDSS Collaboration}}]{yor00}
+{York} D.~G. {et~al.}, 2000, \aj, 120, 1579
+
+\end{thebibliography}
