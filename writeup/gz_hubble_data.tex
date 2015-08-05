@@ -25,42 +25,43 @@
 \newcommand{\vs}{\vspace*{5pt}}
 \newcommand{\continued}{ (Continued)}
 
+\newcommand{\ferengi}{\textsc{ferengi}}
+
 % Journals
-\newcommand{\mnras}{MNRAS}
-\newcommand{\apj}{ApJ}
-\newcommand{\apjl}{ApJL}
-\newcommand{\aj}{AJ}
-\newcommand{\pasp}{PASP}
-\newcommand{\aaps}{A\&AS}
-\newcommand{\aap}{A\&A}
-\newcommand{\apjs}{ApJS}
-\newcommand{\araa}{ARA\&A}
-\newcommand{\pbar}{p_{\rm bar}}
-\newcommand{\fHI}{f_{\rm HI}}
+%\newcommand{\mnras}{MNRAS}
+%\newcommand{\apj}{ApJ}
+%\newcommand{\apjl}{ApJL}
+%\newcommand{\aj}{AJ}
+%\newcommand{\pasp}{PASP}
+%\newcommand{\aaps}{A\&AS}
+%\newcommand{\aap}{A\&A}
+%\newcommand{\apjs}{ApJS}
+%\newcommand{\araa}{ARA\&A}
+%\newcommand{\pbar}{p_{\rm bar}}
+%\newcommand{\fHI}{f_{\rm HI}}
 
 \voffset-1.25cm
 
 \usepackage{epsfig}
+\usepackage{color,soul}
 \begin{document}
 
-\title[Galaxy Zoo Hubble Data]{Galaxy Zoo: Classifications for Galaxies in HST Legacy Imaging}
-%Bars Regulating Star Formation though the Atomic Gas Content of Disc Galaxies}
-%The Atomic Gas Content of Barred Galaxies from ALFALFA$^*$: Bar Feedback in Intermediate Mass Disc Galaxies }
-\author[Lead Author \etal]{Lead Author and other Galaxy Zoo science team\\
+\title[Galaxy Zoo Hubble Data]{Galaxy Zoo: Morphological Classifications for Galaxies in HST Legacy Imaging}
+\author[Lead Author \etal]{Lead Author and other Galaxy Zoo science team members\\
 %$^1$Institute for Cosmology and Gravitation, University of Portsmouth, Dennis Sciama Building, Burnaby Road, Portsmouth, PO1 3FX, UK \\
 %$^2$South East Physics Network, www.sepnet.ac.uk\\
 %$^3$Dept. of Astronomy, Cornell University, Space Sciences Building, Ithaca, NY 14850, USA\\
- %$^2$Institute for Sciences of the Cosmos (ICCUB), University of Barcelona, Marti i Franques 1, Barcelona, 08024 Spain\\
+%$^2$Institute for Sciences of the Cosmos (ICCUB), University of Barcelona, Marti i Franques 1, Barcelona, 08024 Spain\\
 % $^{4}$Oxford Astrophysics, Department of Physics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, UK\\
 %$^{5}$Yale Center for Astronomy and Astrophysics, Yale University, P.O. Box 208121, New Haven, CT 06520, USA \\
 %$^6$Steward Observatory, University of Arizona, 933 N. Cherry Ave, Tuscon, AZ 85721, USA\\
- %$^4$Astronomy Department, Adler Planetarium and Astronomy Museum, 1300 Lake Shore Drive, Chicago, IL 60605, USA\\
- % $^7$Centre for Astronomy \& Particle Theory, University of Nottingham, University Park, Nottingham, NG7 2RD, UK\\
- %$^6$School of Physics and Astronomy, University of Minnesota, Minneapolis, MN 55455, USA\\
- %$^7$Department of Physics \& Astronomy, 206 Gallalee Hall, 514 University Blvd., University of Alabama, Tuscaloosa, AL 35487-0234, USA\\
+%$^4$Astronomy Department, Adler Planetarium and Astronomy Museum, 1300 Lake Shore Drive, Chicago, IL 60605, USA\\
+% $^7$Centre for Astronomy \& Particle Theory, University of Nottingham, University Park, Nottingham, NG7 2RD, UK\\
+%$^6$School of Physics and Astronomy, University of Minnesota, Minneapolis, MN 55455, USA\\
+%$^7$Department of Physics \& Astronomy, 206 Gallalee Hall, 514 University Blvd., University of Alabama, Tuscaloosa, AL 35487-0234, USA\\
 % $^8$Einstein Fellow\\ 
 \\
- $^*$This publication has been made possible by the participation of more than 200,000 volunteers in the Galaxy Zoo project. \\ Their contributions are individually acknowledged at \texttt{http://www.galaxyzoo.org/volunteers}. \\
+ $^*$This publication has been made possible by the participation of more than 200,000 volunteers in the Galaxy Zoo project. \\ Their contributions are individually acknowledged at \texttt{http://authors.galaxyzoo.org/authors.html}. \\
 \\
 {\tt E-mail: lead.author@university.edu}
  }
@@ -86,9 +87,9 @@ This will be the data release paper for GZ Hubble. We present the classification
 \subsection{Summary of HST Legacy Survey Imaging}
 
 \begin{itemize}
-\item AEGIS has 1 orbit each (~2200 seconds) in F606W (V band) and F814W filter and has been dithered to 0.03 ''/pixel; the imaging covers ~710 arcmin$^2$.
+\item AEGIS has 1 orbit each (~2200 seconds) in F606W (V band) and F814W filter and has been dithered to 0.03 ''/pixel; the imaging covers $\sim710$~arcmin$^2$.
 
-\item GOODS targeted 2 fields, GOODS-N and GOODS-S, imaging in 4 filters -- F435W (B), F606W (V), F775W (i), and F850LP (z). The mean exposure times vary, from 1000 - 2100 seconds. The images have been dithered to a pixel scale of 0.03 ''/pixel and covers at total area of ~320 arcmin$^2$ (160 arcmin$^2$ per field). The filters that Griffith et al uses for the colored images were F606W and F775W for GOODS-N and F606W and F850LP for GOODS-S.
+\item GOODS targeted 2 fields, GOODS-N and GOODS-S, imaging in 4 filters -- F435W (B), F606W (V), F775W (i), and F850LP (z). The mean exposure times vary, from 1000 - 2100 seconds. The images have been dithered to a pixel scale of 0.03 ''/pixel and covers at total area of ~320 arcmin$^2$ (160 arcmin$^2$ per field). The filters that \citet{gri12} uses for the colored images were F606W and F775W for GOODS-N and F606W and F850LP for GOODS-S.
 
 \item COSMOS has 1 orbit (2028 seconds) in the F814W (I band) filter and has been dithered to 0.05 ''/pixel; it covers the largest area, ~1.8 deg$^2$. 
 
@@ -96,7 +97,7 @@ This will be the data release paper for GZ Hubble. We present the classification
 \end{itemize}
 
 \begin{table*}
-\caption{Summary of GZ Hubble Samples \label{ferengi}}
+\caption{Summary of GZ Hubble Samples \label{gzh_numbers}}
 \begin{tabular}{lclccc}
 \hline\hline
 Survey &  $t_{\rm exp}$ & Filters & Resolution & Area & $N_{\rm galaxies}$ \\
@@ -112,11 +113,11 @@ GOODS & 1000-2100s & F435W (B), F606W (V), F775W (i), F850LP (z) & 0.03 & 320 \\
 
 \subsection{User Weighting}
 
-The votes of individual users who classified galaxies in Galaxy Zoo Hubble are combined to make a vote fraction for each question on the classification tree. Users votes are weighted slightly (in a method identical to that described in Willett et al. 2013) such that users who frequently disagree with all other users end up having very low weights. The majority of users have weights very close to 1.0 ({\bf STEVEN: Is this true for GZH - do you have a plot of the distribution of user weights or consistencies we can include here?}. 
+The votes of individual users who classified galaxies in Galaxy Zoo Hubble are combined to make a vote fraction for each question on the classification tree. Users votes are weighted slightly \citep[in a method identical to that described in][]{wil13} such that users who frequently disagree with all other users end up having very low weights. The majority of users have weights very close to 1.0 ({\bf STEVEN: Is this true for GZH - do you have a plot of the distribution of user weights or consistencies we can include here?}. 
 
 \section{Correcting for Redshift Dependent Classification Bias}
 
-Previous version of Galaxy Zoo morphology classifications (Lintott et al. 2011, Willett et al. 2013) were based on observations of galaxies in the Sloan Digital Sky Survey (SDSS) which are typically at $z<0.1$. In these cases it could be assumed that there was no real evolution of the morphologies of galaxies and therefore any observed changes in the distribution of galaxies with different consensus morphologies was assumed to be due to the effects of redshift on the image quality (\ie. the reduction in physical resolution, surface brightness dimming etc). So for both previous releases of GZ morphogloies, a correction was provided for redshift dependent bias based on matching the classification fractions at the highest redshfts with those at the lowest redshift. See Bamford et al. (2009) and Willett et al. (2013) for the details. 
+Previous version of Galaxy Zoo morphology classifications \citep{lin08,wil13} were based on observations of galaxies in the Sloan Digital Sky Survey (SDSS) which are typically at $z<0.1$. In these cases it could be assumed that there was no real evolution of the morphologies of galaxies and therefore any observed changes in the distribution of galaxies with different consensus morphologies was assumed to be due to the effects of redshift on the image quality (\ie. the reduction in physical resolution, surface brightness dimming etc). So for both previous releases of GZ morphogloies, a correction was provided for redshift dependent bias based on matching the classification fractions at the highest redshfts with those at the lowest redshift. See \citet{bam09} and \citet{wil13} for the details. 
 
 In the GZH samples the redshift range is so large that we expect to find redshift evolution of the types and morphologies of galaxies which are seen. So the previous methods of correcting for redshift dependent bias will not work. In addition the effects of band shifting will change the images even more across these redshift ranges. Figure \ref{redshift} which illustrates one possible effect of losing features in spiral galaxies at high redshift). 
 
@@ -125,58 +126,57 @@ In the GZH samples the redshift range is so large that we expect to find redshif
 \begin{center}
 \includegraphics[width=60mm]{example_ferengi2.ps}
 %\includegraphics[height=80mm,angle=-90]{TuningFork.ps}
-\caption{Examples of an obvious spiral and obvious elliptical at $z=0$ which both look similar when redshifted to $z=0.8$. See below for the description of the method for redshirting.  \label{exampleFERENGI}}
+\caption{Examples of an obvious spiral and obvious elliptical at $z=0$ which both look similar when redshifted to $z=0.8$. See below for the description of the method for redshifting.\label{exampleFERENGI}}
 \end{center}
 \end{figure}
  %-----------------------------------------------------------------------------------------------------------------------------------
 
-In order to test the effects of redshift we made images of the same galaxy at a variety of redshifts using input images from the SDSS (cite the SDSS) and the FERENGI code (cite Ferengi) to produce images from these typical of those observed in the HST surveys. 
+In order to test the effects of redshift we made images of the same galaxy at a variety of redshifts using input images from the SDSS \citep{yor00,str02} and the \ferengi{} code \citep{bar08a} to produce images that match the observational properties of those observed in the HST surveys. 
  
 \subsection{Selection of FERENGI Input Galaxies}
 
-We select 288 different galaxies in SDSS imaging to run through the FERENGI code.
+We selected 288 unique galaxies from SDSS imaging to run through the \ferengi{} code.
 
 The selection spanned a variety of galaxy morphologies (as indicated by GZ2 classifications), with a range of surface brightnesses, and also spanned the redshift range of SDSS targets (in $N_z = 4$ bins) in order to be optimised for different target minimum redshifts in HST imaging. 
 
  The selection criteria for the different morphological categories is summarised in Table \ref{morphologies}. The surface brightness selection ($N_\mu = 3$) was (1) low: $\mu > 21.5 {\rm mag arsec}^2$;  (2) mid: $20.5 < \mu < 21.5 {\rm mag arsec}^2$; and (3) high: $\mu < 20.5 {\rm mag arsec}^2$. 
  
 \begin{table*}
-\caption{Summary of morphological categories selected for FERENGI sample \label{morphologies}}
+\caption{Summary of morphological categories selected for FERENGI sample. \hl{For Edmond: does $p_{\rm obvious/dominant}>0.5$ mean ($p_{\rm obv}+p_{\rm dom}>0.5$) or ($p_{\rm ob}$ OR $p_{\rm dom} >0.5$)?}\label{morphologies}}
 \begin{tabular}{lllc}
 \hline\hline
-Morphology & Label &  Selection & $N_{\rm objects}$ \\
- & & & ($N_z \times N_\mu$) \\
+Morphology          & Label &  Selection                                                                                            & $N_{\rm objects}$ \\
+                    &       &                                                                                                       & [$N_z \times N_\mu$] \\
 \hline
-Features & Yes & $p_{\rm features} > 0.8$, $p_{\rm odd} < 0.1$ & 12 \\ 
- & Int & $0.3 < p_{\rm smooth} < 0.6$, $p_{\rm odd} < 0.1$ & 12 \\ 
- & No &  $p_{\rm smooth} > 0.8$, $p_{\rm odd} < 0.1$ & 12 \\ 
-Merger & No & $p_{\rm features} > 0.8$, $p_{\rm odd < 0.1}$, $p_{\rm merger} < 0.1$ & 12\\
-& Int & $p_{\rm odd} > 0.5$, $0.1< p_{\rm merger} < 0.4$ & 12 \\ 
-& Yes & $p_{\rm odd} > 0.5$, $p_{\rm merger} > 0.4$ & 12\\
-Edge-on & Yes &  $p_{\rm edgeon} > 0.8$, $p_{\rm features} > 0.5$ & 12 \\
-& Int & $0.4 < p_{\rm edgeon} < 0.8$ , $p_{\rm features} > 0.5$ & 12 \\
-& No & $p_{\rm edgeon} < 0.2$, $p_{\rm features} > 0.5$ & 12 \\
-Bar & No & $p_{\rm bar} < 0.1$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$ & 24 \\
-& Int & $0.2 < p_{\rm bar} < 0.4$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$ & 24 \\
-& Yes&  $p_{\rm bar} > 0.8$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$ & 24 \\
-Visible spiral & No & $p_{\rm spiral} < 0.2$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$, $p_{\rm bar} < 0.1$ & 12 \\
-& Int &  $0.2 < p_{\rm spiral} < 0.8$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$, $p_{\rm bar} < 0.1$ & 12 \\
-& Yes &  $p_{\rm spiral} > 0.8$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$, $p_{\rm bar} < 0.1$ & 12 \\
-Oblique Bulge Size & No & $p_{\rm nobulge>0.6}$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.5$, $p_{\rm bar} < 0.2$ & 12 \\
-& Int &  $p_{\rm justnoticeable}>0.6$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.5$, $p_{\rm bar} < 0.2$ & 12 \\
-& Yes & $p_{\rm obvious/dominent}>0.5$\footnote{Edmond does this means $p_{\rm obv}+p_{\rm dom}>0.5$ or $p_{\rm ob} OR p_{\rm dom} >0.5$? }, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.5$, $p_{\rm bar} < 0.2$ & 12 \\
-Edge-on bulge shape 
-& Round & $p_{\rm rounded}>0.5$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} > 0.5$ & 12\\
-& Boxy & $p_{\rm boxy}>0.4$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} > 0.2$ & 12\\
-& Non & $p_{\rm nobulge}>0.5$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} > 0.5$ & 12\\
+Features            & Yes   & $p_{\rm features} > 0.8$, $p_{\rm odd} < 0.1$                                                         & 12 \\ 
+                    & Int   & $0.3 < p_{\rm smooth} < 0.6$, $p_{\rm odd} < 0.1$                                                     & 12 \\ 
+                    & No    & $p_{\rm smooth} > 0.8$, $p_{\rm odd} < 0.1$                                                           & 12 \\ 
+Merger              & No    & $p_{\rm features} > 0.8$, $p_{\rm odd < 0.1}$, $p_{\rm merger} < 0.1$                                 & 12 \\
+                    & Int   & $p_{\rm odd} > 0.5$, $0.1< p_{\rm merger} < 0.4$                                                      & 12 \\ 
+                    & Yes   & $p_{\rm odd} > 0.5$, $p_{\rm merger} > 0.4$                                                           & 12 \\
+Edge-on             & Yes   & $p_{\rm edgeon} > 0.8$, $p_{\rm features} > 0.5$                                                      & 12 \\
+                    & Int   & $0.4 < p_{\rm edgeon} < 0.8$ , $p_{\rm features} > 0.5$                                               & 12 \\
+                    & No    & $p_{\rm edgeon} < 0.2$, $p_{\rm features} > 0.5$                                                      & 12 \\
+Bar                 & No    & $p_{\rm bar} < 0.1$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$                                 & 24 \\
+                    & Int   & $0.2 < p_{\rm bar} < 0.4$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$                           & 24 \\
+                    & Yes   & $p_{\rm bar} > 0.8$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$                                 & 24 \\
+Visible spiral      & No    & $p_{\rm spiral} < 0.2$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$, $p_{\rm bar} < 0.1$         & 12 \\
+                    & Int   & $0.2 < p_{\rm spiral} < 0.8$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$, $p_{\rm bar} < 0.1$   & 12 \\
+                    & Yes   & $p_{\rm spiral} > 0.8$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.2$, $p_{\rm bar} < 0.1$         & 12 \\
+Oblique bulge size  & No    & $p_{\rm nobulge>0.6}$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.5$, $p_{\rm bar} < 0.2$          & 12 \\
+                    & Int   & $p_{\rm justnoticeable}>0.6$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.5$, $p_{\rm bar} < 0.2$   & 12 \\
+                    & Yes   & $p_{\rm obvious/dominant}>0.5$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} < 0.5$, $p_{\rm bar} < 0.2$ & 12 \\
+Edge-on bulge shape & Round & $p_{\rm rounded}>0.5$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} > 0.5$                               & 12 \\
+                    & Boxy  & $p_{\rm boxy}>0.4$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} > 0.2$                                  & 12 \\
+                    & Non   & $p_{\rm nobulge}>0.5$, $p_{\rm features} > 0.5$, $p_{\rm edgeon} > 0.5$                               & 12 \\
 \hline\hline
 \end{tabular}
 \end{table*}
 
-For each of the four ``target redshifts" ($z = 0.3, 0.5, 0.8$ and 1.0), the images were redshifted in $\Delta z = 0.1$ bins up to $z=1.0$. In addition different evolution models were assumed in FERENGI. This evolution is a crude mechanism that is suppose to mimic the brightness increase of galaxies with increasing redshift. The evolution mechanism allows us to make galaxies brighter as linear function of redshift, and that is it. It is an empirical addition to the magnitude of a galaxy of the form $M' = e z + M$, where $M'$ is the corrected magnitude, $e$ is the evolutionary correction in magnitudes.  (i.e. $e=-1$ essentially brightens the galaxy by 1 magnitude by $z=1$). We ran FERENGI for values of $e$ starting from $e=0$ and decreasing to $e=-3.5$ in $\Delta e = 0.5$ steps. Depending on the target, or starting redshift we ran FERENGI for several final redshifts and different evolution models as summarized in Table \ref{ferengi}. 
+For each of the four ``target redshifts'' ($z = 0.3, 0.5, 0.8$ and $1.0$), the images were redshifted in $\Delta z = 0.1$ bins up to $z=1.0$. In addition different evolution models were assumed in \ferengi{}. This evolution is a crude mechanism that is suppose to mimic the brightness increase of galaxies with increasing redshift. The evolution mechanism allows us to make galaxies brighter as linear function of redshift, and that is it. It is an empirical addition to the magnitude of a galaxy of the form $M' = e\times z + M$, where $M'$ is the corrected magnitude, $e$ is the evolutionary correction in magnitudes.  (i.e. $e=-1$ essentially brightens the galaxy by 1~magnitude by $z=1$). We ran \ferengi{} for values of $e$ starting from $e=0$ and decreasing to $e=-3.5$ in $\Delta e = 0.5$ steps. Depending on the target, or starting redshift we ran \ferengi{} for several final redshifts and different evolution models as summarized in Table~\ref{ferengivalues}. 
 
 \begin{table}
-\caption{Summary of FERENGI runs \label{ferengi}}
+\caption{Summary of FERENGI runs \label{ferengivalues}}
 \begin{tabular}{lcccccc}
 \hline\hline
 $z_{\rm target}$ &  $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $e_{\rm max}$ & $N_{\rm runs}$ & $N_{\rm total}$\\
