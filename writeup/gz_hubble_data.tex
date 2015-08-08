@@ -259,31 +259,40 @@ In Figure \ref{fig:p_vs_p} we examine the change in $p_{\rm features}$ for the F
  
 Our objective is to use these data to predict, for a galaxy with a measured $p_{\rm features,z}$ value, what its $p_{\rm features}$ value would have been if it had been viewed at $z=0.3$. This predicted value is defined as the debiased vote fraction $p_{\rm features,debiased}$, and is calculated by applying a correction to the measured value of $p_{\rm features}$, determined by the $\zeta$ function described in the previous section. We determine that a predicted value can be obtained so long as the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ is single-valued; that is, for a given $p_{\rm features,z}$, there is one corresponding value of $p_{\rm features}$ at $z=0.3$. 
 
-In Figure \ref{fig:p_vs_p} we see that the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ is \emph{not} always single valued; hence we do not find it appropriate to correct galaxies that lie in these regions of surface brightness/redshift/$p_{\rm features}$ space. Our criteria for determining whether a region of this space is correctable is as follows: For each surface brightness and redshift bin, we examine the distribution of $p_{\rm features,z=0.3}$ for fixed $p_{\rm features,z}$ in bins of $\Delta p_{\rm features,z} = 0.1$. These sub-bins are marked by the horizontal lines within each larger, surface brightness/redshift bin. First, we require at least 5 points in each sub-bin to determine with confidence whether that region is correctable or uncorrectable. For the region to be considered correctable, we require that the inner two quartiles of the distribution of $p_{\rm features,z=0.3}$ within these sub-bins span a range less than 0.2. These regions are coloured purple, and the inner two quartile ranges are indicated by the black error bars within each sub-bin.If the spread is greater than 0.2, the region is considered uncorrectable; these are marked in green. Any region with fewer than 5 points is considered to have ``not enough information (NEI)'', and left uncoloured on the plot. 
+
+
+In Figure \ref{fig:p_vs_p} we see that the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ is \emph{not} always single valued; hence we do not find it appropriate to correct galaxies that lie in these regions of surface brightness/redshift/$p_{\rm features}$ space. These regions tend to have low $p_{\rm features}$ values at high redshift, but a wide range of values at $z=0.3$. These regions contain two morphological types of galaxies: First are genuine ellipticals, which have low values of $p_{\rm features}$ at both high and low redshift. Second are disks whose features become washed out at high redshift; hence their $p_{\rm freatures}$ value at $z=0.3$ may be quite high, while the value observed at high redshift is very low. This effect is strongest at the highest redshift and the lowest surface brightnesses, where features become near impossible to discern from the images. From this information we conclude that, for the Hubble galaxies, we cannot distinguish between genuine ellipticals and disks if the measured value of $p_{\rm features}$ is too low for a given surface brightness and redshift, because the relationship between the measured value and the ``original'' ($z=0.3$) value is not single-valued.  
+
+Our criteria for determining whether a region of this space is single-valued, and therefore correctable, is as follows: For each surface brightness and redshift bin, we examine the distribution of $p_{\rm features,z=0.3}$ in four bins of $p_{\rm features,z}$. These sub-bins are marked by the horizontal lines within each larger, surface brightness/redshift bin in Figure \ref{fig:p_vs_p}. First, we compute the interquartile range (IQR) of the distribution of $p_{\rm features,z=0.3}$ in each sub-bin, which are indicated by the orange bars. For the region to be considered correctable, we require that the IQR of the distribution within these sub-bins is less than the sub-bin height. Regions which fit these criteria are uncouloured in the plot. If the IQR is greater than the bin height, the region is considered uncorrectable; these are marked in green. Any region with fewer than 5 points is considered to have ``not enough information (NEI)'', and are shown in purple. 
 
 Stuff to do in this section: 
 
 \begin{itemize}
-\item talk about where purple and green tend to be on plot, and about how green areas are primarily ellipticals and disks with all the features washed out - can't tell them apart! hence, can't debias
 \item talk about where the Hubble sample falls in this space, reference table \ref{hubble_debiasable} 
-\item justify $N>5$ and spread $< 0.2$ (or find a better way to choose criteria)
 \item check out corrections for correctable and NEI, show some sample images of corrected galaxies
 \item show some data for $\pbar$, determine or justify why we won't debiase them  
 \end{itemize}
+
+
+
  
 \begin{table}
 \caption{Debiasable Hubble Stuff. Doesn't include SDSS yet. Note: stuff without good redshift info automatically gets put in uncorrectable category - which is about 25,000 galaxies. Might increase correctable number if we can get these measurements. \label{hubble_debiasable}}
-\begin{tabular}{lrr}
+\begin{tabular}{lrrrrrrr}
 \hline\hline
-Category &  N & \% \\
+                                   & AEGIS   & COSMOS & GEMS & GOODS-N & GOODS-S & SDSS    & Total \\
 \hline
-Correctable   & 7408 & 6 \%  \\
-Uncorrectable & 58526 & 50 \%\\
-NEI           & 52149 & 44 \% \\
-Total         & 118083 & 100 \% \\
+Correctable                        & 2,438   & 21,522 & 28,52 & 1,146  & 1,040   & 0       & 28,998\\
+Uncorrectable                      & 1,403   & 19,626 & 1,832 & 271    & 980     & 0       & 24,112\\
+No Correction Needed ($z \le 0.3$) & 854     & 10,840 & 1,086 & 208    & 229     & 37,545  & 50,762\\ 
+NEI                                & 2,464   & 33,727 & 1,886 & 691    & 2,023   & 0       & 40,791\\
+No Redshift Information            & 1,348   & 7,093  & 1,648 & 235    & 641     & 14,316  & 25,281\\
+Total                              & 8,507   & 92,808 & 9,304 & 2,551  & 4,913   & 51,861  & 169,944\\
 \hline\hline
 \end{tabular}
 \end{table}
+
+
 
 \subsection{Results of FERENGI Analysis}
 
