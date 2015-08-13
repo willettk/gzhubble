@@ -199,6 +199,7 @@ Two series of example redshifted images are shown in Figure \ref{exampleFERENGI}
 \end{figure*}
 
 \subsection{Approach to debiasing morphological classifications}
+\label{sec:zeta}
 
 The approach used in GZH for correcting the weighted classifications for user bias rests on the assumption that the \emph{amount} of bias is a function of the apparent size and brightness of the image as seen on screen. This is controlled by two types of parameters: \textbf{intrinsic} properties of the galaxy itself, such as its physical diameter and luminosity, and \textbf{extrinsic} properties, such as the distance (redshift) of the galaxy and its relative orientation. There are likely other parameters that affect user accuracy, such as the proximity of close companions \citep[``distraction bias''; see][]{joh15} or those that vary by individual user. The combination of all such parameters forms a high-dimensional space, and we have insufficient test galaxies to measure the individual effects of each. Instead, we use just two parameters that are intended to capture the bulk of the change in bias (based on GZ1/GZ2): a galaxy's $r$-band surface brightness ($\mu_r$; intrinsic) and redshift ($z$; extrinsic). 
 
@@ -255,7 +256,7 @@ f_\textrm{debiased} = 1 - (1 - f)e^{\frac{z-z_0}{\hat\zeta}}.
 \end{center}
 \end{figure*}
 
-In Figure \ref{fig:p_vs_p} we examine the change in $p_{\rm features}$ for the FERENGI images relative to their lowest simulated redshift ($\rm z_{sim}=0.3$). For each simulated redshift value $z$, and at fixed surface brightness $\mu$, we plot $p_{\rm features,z}$, the value measured at that simulated redshift, vs $p_{\rm features,z=0.3}$, the value measured for the same galaxy imaged at $z=0.3$. Only images corresponding to galaxies which also had FERENGI images at $z=0.3$ were included in this plot, which include 4031 out of the total 6624.
+In Figure \ref{fig:p_vs_p} we examine the change in $p_{\rm features}$ for the \ferengi{} galaxies relative to their lowest simulated redshift. In this analysis, only galaxies whose lowest simulated redshift image was ($\rm z_{sim}=0.3$) were used (see Table \ref{ferengivalues}), and only those which had detectable surface brightness measurements in Sextractor; this includes 3,959 of the total 6,466 images. For each simulated redshift value $z$, and at fixed surface brightness $\mu$, we plot $p_{\rm features,z}$, the value measured at that simulated redshift, vs $p_{\rm features,z=0.3}$, the value measured for the same galaxy imaged at $z=0.3$. 
  
 Our objective is to use these data to predict, for a galaxy with a measured $p_{\rm features,z}$ value, what its $p_{\rm features}$ value would have been if it had been viewed at $z=0.3$. This predicted value is defined as the debiased vote fraction $p_{\rm features,debiased}$, and is calculated by applying a correction to the measured value of $p_{\rm features}$, determined by the $\zeta$ function described in the previous section. We determine that a predicted value can be obtained so long as the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ is single-valued; that is, for a given $p_{\rm features,z}$, there is one corresponding value of $p_{\rm features}$ at $z=0.3$. 
 
@@ -264,6 +265,24 @@ Our objective is to use these data to predict, for a galaxy with a measured $p_{
 In Figure \ref{fig:p_vs_p} we see that the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ is \emph{not} always single valued; hence we do not find it appropriate to correct galaxies that lie in these regions of surface brightness/redshift/$p_{\rm features}$ space. These regions tend to have low $p_{\rm features}$ values at high redshift, but a wide range of values at $z=0.3$. These regions contain two morphological types of galaxies: First are genuine ellipticals, which have low values of $p_{\rm features}$ at both high and low redshift. Second are disks whose features become washed out at high redshift; hence their $p_{\rm freatures}$ value at $z=0.3$ may be quite high, while the value observed at high redshift is very low. This effect is strongest at the highest redshift and the lowest surface brightnesses, where features become near impossible to discern from the images. From this information we conclude that, for the Hubble galaxies, we cannot distinguish between genuine ellipticals and disks if the measured value of $p_{\rm features}$ is too low for a given surface brightness and redshift, because the relationship between the measured value and the ``original'' ($z=0.3$) value is not single-valued.  
 
 Our criteria for determining whether a region of this space is single-valued, and therefore correctable, is as follows: For each surface brightness and redshift bin, we examine the distribution of $p_{\rm features,z=0.3}$ in four bins of $p_{\rm features,z}$. These sub-bins are marked by the horizontal lines within each larger, surface brightness/redshift bin in Figure \ref{fig:p_vs_p}. First, we compute the interquartile range (IQR) of the distribution of $p_{\rm features,z=0.3}$ in each sub-bin, which are indicated by the orange bars. For the region to be considered correctable, we require that the IQR of the distribution within these sub-bins is less than the sub-bin height. Regions which fit these criteria are uncouloured in the plot. If the IQR is greater than the bin height, the region is considered uncorrectable; these are marked in green. Any region with fewer than 5 points is considered to have ``not enough information (NEI)'', and are shown in purple. 
+
+Using this approach, 52\% of the \ferengi{} images were found to have single-valued relationships between their $p_{\rm features}$ values at high and low redshift (see Table \ref{ferengi_corrections} for a summary.) Only these images were used in determining the $\zeta$ function (Section \ref{sec:zeta}).  
+
+
+\begin{table}
+\caption{Distribution of \ferengi{} images analysed in Figure \ref{fig:p_vs_p}. Correctable images had a single-valued relationship between their measured $p_{\rm features}$ values at high and low redshifts (white regions in Figure \ref{fig:p_vs_p}). Uncorrectable images had a non single-valued relationship (green regions). NEI images had undetermined relationships due to a lack of data ($N<5$) in their corresponding sub-bins (purple regions).   \label{ferengi_corrections}}
+\begin{tabular}{lcc}
+\hline \hline
+				   & N     & \% \\
+\hline 
+Correctable                        & 2,057   & 52\% \\
+Uncorrectable                      & 1,732   & 44\% \\
+NEI                                & 170     &  4\%\\
+Total                              & 3,959   & 100\% \\
+\hline \hline
+\end{tabular}
+\end{table}
+
 
 Stuff to do in this section: 
 
@@ -282,17 +301,31 @@ Stuff to do in this section:
 \hline\hline
                                    & AEGIS   & COSMOS & GEMS & GOODS-N & GOODS-S & SDSS    & Total \\
 \hline
-Correctable                        & 2,438   & 21,522 & 28,52 & 1,146  & 1,040   & 0       & 28,998\\
+Correctable                        & 2,325   & 20,669 & 2,748 & 1,074  & 1,022   & 0       & 27,838\\
 Uncorrectable                      & 1,403   & 19,626 & 1,832 & 271    & 980     & 0       & 24,112\\
-No Correction Needed ($z \le 0.3$) & 698     & 9,679 & 1,012 & 171    & 199     & 37,545  & 49,034\\ 
-NEI                                & 2,621   & 34,888 & 1,960 & 728    & 2,053   & 0       & 42,250\\
+No Correction Needed ($z \le 0.3$) & 967     & 11,693 & 1,190 & 280    & 247     & 37,545  & 51,922\\ 
+NEI                                & 2,465   & 33,727 & 1,886 & 691    & 2,023   & 0       & 40,792\\
 No Redshift Information            & 1,347   & 7,093  & 1,648 & 235    & 641     & 14,316  & 25,280\\
 Total                              & 8,507   & 92,808 & 9,304 & 2,551  & 4,913   & 51,861  & 169,944\\
 \hline\hline
 \end{tabular}
 \end{table*}
 
+\begin{figure*}
+\begin{center}
+\includegraphics[width=\textwidth]{figures/hubble_z_mu_p_distributions.pdf}
+\caption{Distribution of things for 3 groups. }
+\label{fig:z_mu_p}
+\end{center}
+\end{figure*}
 
+\begin{figure*}
+\begin{center}
+\includegraphics[width=\textwidth]{figures/debiased_corrections.pdf}
+\caption{Debiased vs weighted values for 3 groups.}
+\label{fig:features_corrections}
+\end{center}
+\end{figure*}
 
 \subsection{Results of FERENGI Analysis}
 
