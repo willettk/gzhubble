@@ -250,8 +250,18 @@ f_\textrm{debiased} = 1 - (1 - f)e^{\frac{z-z_0}{\hat\zeta}}.
 
 \begin{figure*}
 \begin{center}
+\includegraphics[width=\textwidth]{figures/eye_of_sauron.pdf}
+\caption{Surface brightness vs. redshift of 118,083 galaxies in the ACS Hubble sample. The white grid denotes the surface brightness and redshift range of the \ferengi{} images, subdivided in bins corresponding to fixed ranges used for analysis in Figure \ref{fig:p_vs_p}.}
+
+\label{fig:features_corrections}
+\end{center}
+\end{figure*}
+
+
+\begin{figure*}
+\begin{center}
 \includegraphics[width=\textwidth]{figures/p_vs_p_SB_redshift.pdf}
-\caption{a caption. Add scale in $p_{\rm features}$ somehow that doesn't clutter the plot even more. }
+\caption{Effects of redshift bias in 3,959 images in the \ferengi{} sample. Each point in a given redshift and surface brightness bin represents a unique galaxy. On the y-axis in each bin is the $p_{features}$ value of the image of that galaxy redshifted to the value corresponding to that redshift bin. On the x-axis is the $p_{features}$ value of the image of the same galaxy redshifted to $z=0.3$. Regions in which there is a nearly one-to-one relationship between $p_{features}$ at high redshift and $z=0.3$ are white; those in which there is not are green, and those with not enough data ($N<5$) are purple. }
 \label{fig:p_vs_p}
 \end{center}
 \end{figure*}
@@ -314,7 +324,7 @@ Total                              & 8,507   & 92,808 & 9,304 & 2,551  & 4,913  
 \begin{figure*}
 \begin{center}
 \includegraphics[width=\textwidth]{figures/hubble_z_mu_p_distributions.pdf}
-\caption{Distribution of things for 3 groups. }
+\caption{Distributions of redshift, surface brightness, and $p_{features}$ for correctable (purple), uncorrectable (green), and NEI (pink) galaxies in the full Hubble sample. The uncorrectable galaxies tend towards higher redshift, slightly lower in surface brightness, and lower values of $p_{features}$ than the correctable galaxies. The long tail of NEI galaxies in redshift and surface brightness demonstrates the limits of the \ferengi{} sample, for which there is no data at $z>1$ or $\mu>24$.}
 \label{fig:z_mu_p}
 \end{center}
 \end{figure*}
@@ -322,7 +332,8 @@ Total                              & 8,507   & 92,808 & 9,304 & 2,551  & 4,913  
 \begin{figure*}
 \begin{center}
 \includegraphics[width=\textwidth]{figures/debiased_corrections.pdf}
-\caption{Debiased vs weighted values for 3 groups.}
+\caption{Debiased $p_{features}$ corrected to $z=0.3$ vs weighted $p_{features}$ for the correctable (left), uncorrectable (middle), and NEI (right) galaxies in the Hubble sample.}
+
 \label{fig:features_corrections}
 \end{center}
 \end{figure*}
