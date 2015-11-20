@@ -1,4 +1,12 @@
-# Is the surface brightness of galaxies in the FERENGI images dimming as expected (1+z)^4?
+"""
+Is the surface brightness of galaxies in the FERENGI images dimming as expected (1+z)^4?
+
+References:
+
+    http://www.astro.caltech.edu/~george/ay127/Ay127_CosmoTests.pdf
+    Calvi et al. (2014) http://arxiv.org/pdf/1410.2281v1.pdf
+
+"""
 
 from astropy.io import fits
 from matplotlib import pyplot as plt
