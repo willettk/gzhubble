@@ -41,6 +41,14 @@
 \newcommand{\pbar}{p_{\rm bar}}
 \newcommand{\fHI}{f_{\rm HI}}
 
+% Bands
+
+\newcommand{\Bband}{$B_{435W}$}
+\newcommand{\Vband}{$V_{606W}$}
+\newcommand{\iband}{$I_{775W}$}
+\newcommand{\Iband}{$I_{814W}$}
+\newcommand{\zband}{$I_{850LP}$}
+
 \voffset-1.25cm
 
 \usepackage{epsfig}
@@ -85,23 +93,28 @@ This will be the data release paper for GZ:Hubble. We present the classification
 
 \section{Introduction}
 
+\textit{Usual due diligence for an intro science paper. Should cover:}
+
+\begin{enumerate}
+    \item Motivation for studying morphology of galaxies
+    \item Particular scientific questions governed by galaxies at $z\sim1$
+    \item Theoretical predictions for galaxy morphology evolution
+    \item Past imaging and morphology studies at $z\sim1$
+    \item Summary of GZ/citizen science work on galaxy morphology to date
+\end{enumerate}
 
 \section{Sample and Data} 
 
 \subsection{Summary of HST Legacy Survey Imaging}
 
-Needs: coordinate/location description.
-
-So GZ:CANDELS overlaps with GZ:Hubble in GOODS-S and COSMOS. GZH doesn't 
-
 \begin{itemize}
-\item AEGIS has 1 orbit each ($\sim2200$~seconds) in the F606W (V-band) and F814W (I-band) filters and has been dithered to 0.03~\arcsec/pixel; the imaging covers $\sim710$~arcmin$^2$.
+\item Hubble ACS imaging for the All-Wavelength Extended Groth Strip International Survey \citep[AEGIS;][]{dav07} covers a strip centered at $\alpha=14^\textrm{h}17^\textrm{m}, \delta=+52^\circ30^\prime$. The strip was originally selected due to low extinction and Galactic/zodiacal emission, making it a prime target for multi-wavelength observations by space-based observatories. The ACS images covered 63 separate tiles over a total area of $\sim710$~arcmin$^2$. Images were in two bands, with exposure times of 2300~seconds in F606W (\Vband) and 2100~seconds in F814W (\Iband). The final mosaic images are dithered to a resolution of 0.03~\arcsec/pixel. For extended objects, the limiting magnitudes of sources in AEGIS are 26.23~(AB) in \Vband{} and 25.61 (AB) in \Iband. 
 
-\item GOODS targeted 2 fields, GOODS-N and GOODS-S, imaging in 4 filters -- F435W (B), F606W (V), F775W (i), and F850LP (z). The mean exposure times vary, from 1000 -- 2100~seconds. The images have been dithered to a pixel scale of 0.03~\arcsec/pixel and covers a total area of $\sim320$~arcmin$^2$ (160~arcmin$^2$ per field). The filters that \citet{gri12} uses for the colored images were F606W and F775W for GOODS-N and F606W and F850LP for GOODS-S.
+\item The Great Observatories Origins Deep Survey \citep[GOODS;][]{gia04} covers two well-studied fields in the northern and southern hemispheres: the Hubble Deep Field-North ($\alpha=12^\textrm{h}36^\textrm{m}, \delta=+62^\circ14^\prime$) and the Chandra Deep Field-South ($\alpha=03^\textrm{h}32^\textrm{m}, \delta=-27^\circ48^\prime$). Data including Hubble ACS images are referred to as GOODS-N and GOODS-S, respectively. ACS imaged the GOODS fields in 4 filters -- F435W (\Bband), \Vband, F775W (\iband), and F850LP (\zband). The mean exposure times for each epoch vary by band, from 1050--2100~seconds. The \Bband{} images were completed in a single epoch at the beginning of the survey, but the \Vband, \iband, and \zband{} images were taken in five separate epochs separated by 40--50~days each. The ACS images are dithered to a pixel scale of 0.03~\arcsec/pixel and covers a total area of $\sim320$~arcmin$^2$ (160~arcmin$^2$ per field). The $5\sigma$ limiting magnitudes for extended sources are 25.7 for \Vband{} and 25.0 for \iband. 
 
-\item COSMOS has 1 orbit (2028~seconds) in the F814W (I-band) filter and has been dithered to 0.05~\arcsec/pixel; it covers the largest area, $\sim1.8$~deg$^2$. 
+\item The Cosmic Evolution Survey \citep[COSMOS;][]{sco07} covers an area of $\sim1.8$~deg$^2$ centered at $\alpha=10^\textrm{h}00^\textrm{m}28^\textrm{s}, \delta=+02^\circ12^\prime21^{\prime\prime}$. Its location near the celestial equator was designed to enable coverage by ground-based telescopes in both the Northern and Southern Hemispheres, as well as the space-based observatories. The Hubble ACS data from COSMOS consists of 1 orbit with 2028~seconds per pointing in \Iband, consisting of 590 total pointings. The image resolution is dithered to 0.05~\arcsec/pixel. The 50\% completeness magnitude for a galaxy with a half-light radius of $0^{\prime\prime}.50$ in \Iband{} is 24.7 mag. 
 
-\item GEMS has 1 orbit (2160 and 2286~seconds in the F606W and F850LP filters, respectively) with a pixel scale of 0.03~\arcsec/pixel; it covers $\sim800$~arcmin$^2$
+\item The Galaxy Evolution from Morphologies and SEDS \citep[GEMS;][]{rix04,cal08} survey is also centered on the Chandra Deep Field-South. The GEMS data covers $\sim800$~arcmin$^2$, and surrounds the area covered by GOODS-S. Images from ACS in GEMS have 1 orbit per pointing for a total of 63~pointings. The exposure times are 2160 and 2286~seconds in \Vband{} and \zband{}, respectively. The image resolution has a pixel scale of 0.03~\arcsec/pixel. The $5\sigma$ limiting magnitudes for source detection are 25.7 AB in \Vband{} and 24.2~AB in \zband. 
 \end{itemize}
 
 % Note: galaxy counts remove the duplicate observations from gz_hst_table
@@ -113,21 +126,44 @@ So GZ:CANDELS overlaps with GZ:Hubble in GOODS-S and COSMOS. GZH doesn't
 Survey &  $t_{\rm exp}$ & Filters & Resolution & Area & $N_{\rm galaxies}$ \\
  & [sec] & & [\arcsec/pix] & [arcmin$^2$] & \\
 \hline
-AEGIS                         & 2200        & F606W (V) and F814W (I)                     & 0.03 & 710   & 8157  \\
-COSMOS                        & 2028        & F814W (I)                                   & 0.05 & 6480  & 88530 \\
-GEMS                          & 2160$-$2286 & F606W (V) and F850LP (z)                    & 0.03 & 800   & 9143  \\
-GOODS                         & 1000$-$2100 & F435W (B), F606W (V), F775W (i), F850LP (z) & 0.03 & 320   & 7336  \\
-\hspace{10pt} \emph{GOODS-N}  & $-$         & $-$                                         & $-$  & $-$   & \emph{2551}  \\
-\hspace{10pt} \emph{GOODS-S}  & $-$         & $-$                                         & $-$  & $-$   & \emph{4785}  \\
+AEGIS                         & 2100$-$2300 & \Vband{} and \Iband{}            & 0.03 & 710   & 8157  \\
+COSMOS                        & 2028        & \Iband{}                         & 0.05 & 6480  & 88530 \\
+GEMS                          & 2160$-$2286 & \Vband{} and \zband{}            & 0.03 & 800   & 9143  \\
+GOODS                         & 1000$-$2100 & \Bband, \Vband, \iband, \zband{} & 0.03 & 320   & 7336  \\
+\hspace{10pt} \emph{GOODS-N}  & $-$         & $-$                              & $-$  & $-$   & \emph{2551}  \\
+\hspace{10pt} \emph{GOODS-S}  & $-$         & $-$                              & $-$  & $-$   & \emph{4785}  \\
 \hline
-total                         & $-$         & $-$                                         & $-$  & 8310  & 113166  \\
+total                         & $-$         & $-$                              & $-$  & 8310  & 113166  \\
 \hline\hline
 \end{tabular}
 \end{table*}
 
+\subsection{Image creation}
+
+The GOODS images in GZH use mosaics constructed from both 2-epoch and 5-epoch sets of data. 
+
+The filters that \citet{gri12} uses for the colored images were F606W and F775W for GOODS-N and F606W and F850LP for GOODS-S. 
+
+We use different filters for the north and south GOODS fields so that GEMS can be directly compared with GOODS-S. 
+
+Fake AGN
+
+Stripe 82
+
+Different treatment of colored noise in COSMOS; creating color gradients with Subaru data and using \Iband{} for illumination map.
+
+FERENGI images. 
+
 \subsection{User weighting}
 
 The votes of individual users who classified galaxies in GZH are combined to make a vote fraction for each question on the classification tree. Users' votes are weighted slightly \citep[in a method identical to that described in][]{wil13} such that users who frequently disagree with all other users end up having very low weights. The majority of users have weights very close to $w=1.0$ ({\bf STEVEN: Is this true for GZH - do you have a plot of the distribution of user weights or consistencies we can include here?}. 
+
+\section{Galaxy Zoo interface and classifications}
+
+\begin{figure*}
+\includegraphics[width=160mm]{figures/gzh_interface.png}
+\caption{Screenshot of the Galaxy Zoo: Hubble interface showing an example COSMOS image at the first step in the decision tree.\label{fig:interface}}
+\end{figure*}
 
 \section{Correcting for redshift-dependent classification bias}
 
@@ -146,7 +182,7 @@ In the GZH samples, the redshift range is large enough that we expect to measure
 
 In order to test and correct for the effects of redshift, we generated a set of calibration images. These images consist of the same galaxy as it would appear over a variety of redshifts. The input images are from the SDSS \citep{yor00,str02} and are processed using the \ferengi{} code \citep{bar08a} to match the observational properties of the HST surveys out to $z=1$. These images were classified in the Galaxy Zoo interface using the same classification scheme as the original HST images.
  
-\subsection{Selection of FERENGI Input Galaxies}
+\subsection{Selection of FERENGI input galaxies}
 
 We selected 288 unique galaxies from SDSS imaging to run through the \ferengi{} code. The selection spanned a variety of galaxy morphologies (as selected by GZ2 classifications) and $r^\prime$-band surface brightnesses, and also spanned the redshift range of SDSS targets (in $N_z = 4$ bins) in order to be optimised for different target minimum redshifts in HST imaging. 
 
@@ -373,7 +409,7 @@ We need to do:
 \item Instructions of how to link the $z=0$ $p_X$ values for galaxies with a given size, magnitude (surface brightness) in the GZH images. 
 \end{itemize}
 
-\subsection{Morphological measurements in GZH beyond Task 1}
+\subsection{Morphological measurements in GZH beyond Task 1 - effects of debiasing?}
 
 \subsection{Duplicate images}
 
@@ -381,20 +417,48 @@ We need to do:
 
 \subsection{SDSS Stripe 82 images}
 
+\subsection{Fake AGN}
+
 \section{Catalog}
+
+To include: detailed description of each column in the machine-readable tables. 
+
+Needs some test cases for extracting a given set of objects (eg, clump galaxies in a particular redshift range) and evaluation of the results. Possibly include suggested thresholds, \'a la GZ2. 
+
+\section{Analysis}
+
+\subsection{Demographics of morphology}
+
+Summarize the broad trends that are seen regarding the fraction of galaxies with various morphologies, how that relates to color, size, etc. Briefly discuss results as compared with literature and theory. 
+
+\subsection{Comparison to other catalogs}
+
+Compare GZH data to:
+
+\begin{itemize}
+    \item \citet[ZEST;][]{sca07} (COSMOS)
+    \item Tasca (COSMOS)
+    \item Cassata (COSMOS)
+    \item Zajmoski (COSMOS)
+    \item GEMS morphologies?
+    \item AEGIS morphologies?
+    \item GOODS N/S morphologies?
+    \item expert visual inspection?
+\end{itemize}
+
+\textit{Address trends seen in broad morphological classes, possible reasons for difference. Also should attempt to map between the GZH vote fractions and whatever classification systems are used in the above systems.}
 
 \section{Summary}
 
 Now people go and do science with these awesome GZH classifications.  
  
- 
 \paragraph*{ACKNOWLEDGEMENTS.} 
 
-This publication has been made possible by the participation of more than 200,000 volunteers in the Galaxy Zoo project. Their contributions are individually acknowledged at \texttt{http://www.galaxyzoo.org/volunteers}. Galaxy Zoo 2 was developed with the help of a grant from The Leverhulme Trust. 
+This publication has been made possible by the participation of more than 200,000 volunteers in the Galaxy Zoo project. Their contributions are individually acknowledged at \texttt{http://www.galaxyzoo.org/volunteers}.
 
-We thank ASIAA for hosting the ``Citizen Science in Astronomy'' workshop, Mar 3-7 2014 in Taipei, Taiwan, at which some of this analysis was done. 
+We thank Meg Schwamb and the ASIAA for hosting the ``Citizen Science in Astronomy'' workshop, 3-7 Mar 2014 in Taipei, Taiwan, at which some of this analysis was done. 
 
-This project made heavy use of the Astropy packages in Python \citep{ast13}, as well as the seaborn plotting package \citep{was15}.
+This project made heavy use of the Astropy packages in Python \citep{ast13}, as well as the \texttt{seaborn} plotting package \citep{was15}.
 
 HST acknowledgements.
 
