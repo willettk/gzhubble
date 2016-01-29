@@ -233,7 +233,7 @@ Figure~\ref{fig:zeta_mu} shows the results of the sample; the correction is a we
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.50\textwidth]{figures/zeta_mu.pdf}
-\caption{All fits for the vote fraction dropoff parameter $\zeta$ for $f_\textrm{features}$ in the \ferengi{} galaxies as a function of surface brightness. This includes only the 51~galaxies with a reasonably bounded range on the dropoff ($-10<\log(\zeta)<10$) and sufficient points to fit the function.}
+\caption{All fits for the vote fraction dropoff parameter $\zeta$ for $f_\textrm{features}$ in the \ferengi{} galaxies as a function of surface brightness. This includes only the 37~galaxies with a reasonably bounded range on the dropoff ($-10<\log(\zeta)<10$) and sufficient points to fit the function.}
 \label{fig:zeta_mu}
 \end{center}
 \end{figure}
@@ -266,7 +266,7 @@ f_\textrm{debiased} = 1 - (1 - f)e^{\frac{z-z_0}{\hat\zeta}}.
 \begin{figure*}
 \begin{center}
 \includegraphics[width=\textwidth]{figures/p_vs_p_SB_redshift.pdf}
-\caption{Effects of redshift bias in 3,959 images in the \ferengi{} sample. Each point in a given redshift and surface brightness bin represents a unique galaxy. On the y-axis in each bin is the $p_{features}$ value of the image of that galaxy redshifted to the value corresponding to that redshift bin. On the x-axis is the $p_{features}$ value of the image of the same galaxy redshifted to $z=0.3$. Regions in which there is a nearly one-to-one relationship between $p_{features}$ at high redshift and $z=0.3$ are white; those in which there is not are green, and those with not enough data ($N<5$) are purple. }
+\caption{Effects of redshift bias in 3,950 images in the \ferengi{} sample. Each point in a given redshift and surface brightness bin represents a unique galaxy. On the y-axis in each bin is the $p_{features}$ value of the image of that galaxy redshifted to the value corresponding to that redshift bin. On the x-axis is the $p_{features}$ value of the image of the same galaxy redshifted to $z=0.3$. The dashed black lines represent the best-fit polynomials to the data in each square. The solid black line represents $p_{\rm features,z}$ = $p_{\rm features,z=0.3}$. Regions in which there is a single-valued relationship between $p_{features}$ at high redshift and $z=0.3$ are white; those in which there is not are blue, and those with not enough data ($N<5$) are gray. }
 \label{fig:p_vs_p}
 \end{center}
 \end{figure*}
@@ -279,21 +279,22 @@ Our objective is to use these data to predict, for a galaxy with a measured $p_{
 
 In Figure~\ref{fig:p_vs_p} we see that the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ is \emph{not} always single valued; hence we do not find it appropriate to correct galaxies that lie in these regions of surface brightness/redshift/$p_{\rm features}$ space. These regions tend to have low $p_{\rm features}$ values at high redshift, but a wide range of values at $z=0.3$. These regions contain two morphological types of galaxies: First are genuine ellipticals, which have low values of $p_{\rm features}$ at both high and low redshift. Second are disks whose features become washed out at high redshift; hence their $p_{\rm freatures}$ value at $z=0.3$ may be quite high, while the value observed at high redshift is very low. This effect is strongest at the highest redshift and the lowest surface brightnesses, where features become near impossible to discern from the images. From this information we conclude that, for the Hubble galaxies, we cannot distinguish between genuine ellipticals and disks if the measured value of $p_{\rm features}$ is too low for a given surface brightness and redshift, because the relationship between the measured value and the ``original'' ($z=0.3$) value is not single-valued.  
 
-Our criteria for determining whether a region of this space is single-valued, and therefore correctable, is as follows: For each surface brightness and redshift bin, we examine the distribution of $p_{\rm features,z=0.3}$ in four bins of $p_{\rm features,z}$. These sub-bins are marked by the horizontal lines within each larger, surface brightness/redshift bin in Figure~\ref{fig:p_vs_p}. First, we compute the interquartile range (IQR) of the distribution of $p_{\rm features,z=0.3}$ in each sub-bin, which are indicated by the orange bars. For the region to be considered correctable, we require that the IQR of the distribution within these sub-bins is less than the sub-bin height. Regions which fit these criteria are uncouloured in the plot. If the IQR is greater than the bin height, the region is considered uncorrectable; these are marked in green. Any region with fewer than 5 points is considered to have ``not enough information (NEI)'', and are shown in purple. 
+Our criteria for determining whether a region of this space is single-valued, and therefore correctable, is as follows: In each surface brightness and redshift bin, we model the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ by fitting the data with a polynomials of degrees 3, 2, and 1, and use the best fit out of the three. These fits are shown as the dashed black lines in figure ~\ref{fig:p_vs_p}. Any flat regions of the polynomial fits are areas in which there is not a clear single-valued relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$; we quantify this by setting a minimum slope cut of 0.4. Any data in which the polynomial fit has a slope less than this value is considered \emph{not} one-to-one, and therefore ``uncorrectable.'' These regions are highlighted in blue in figure ~\ref{fig:p_vs_p}. Uncolored (white) regions of the plot have sufficiently high slopes for us to consider the relationship to be single-valued; galaxies in these regions are considered ``correctable'', and only these are used in measuring the parameters for the $\zeta$ function (Section \ref{sec:zeta}). Only surface brightness/redshift bins with at least 5 galaxies were considered; regions with fewer than 5 galaxies we consider to have 'not enough information' to determine the  $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ relationship, these are colored gray in figure ~\ref{fig:p_vs_p}. 
 
-Using this approach, 52\% of the \ferengi{} images were found to have single-valued relationships between their $p_{\rm features}$ values at high and low redshift (see Table \ref{ferengi_corrections} for a summary.) Only these images were used in determining the $\zeta$ function (Section \ref{sec:zeta}).  
+
+
 
 
 \begin{table}
 \caption{Distribution of \ferengi{} images analysed in Figure~\ref{fig:p_vs_p}. Correctable images had a single-valued relationship between their measured $p_{\rm features}$ values at high and low redshifts (white regions in Figure~\ref{fig:p_vs_p}). Uncorrectable images had a non single-valued relationship (green regions). NEI images had undetermined relationships due to a lack of data ($N<5$) in their corresponding sub-bins (purple regions).   \label{ferengi_corrections}}
-\begin{tabular}{lcc}
+\begin{tabular}{lrr}
 \hline \hline
 				   & N     & \% \\
 \hline 
-Correctable                        & 2,057   & 52\% \\
-Uncorrectable                      & 1,732   & 44\% \\
-NEI                                & 170     &  4\%\\
-Total                              & 3,959   & 100\% \\
+Correctable                        & 1,884   & 48\% \\
+Uncorrectable                      & 1,986   & 50\% \\
+NEI                                & 80     &  2\%\\
+Total                              & 3,950   & 100\% \\
 \hline \hline
 \end{tabular}
 \end{table}
