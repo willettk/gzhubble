@@ -1,5 +1,15 @@
-\begin{thebibliography}{8}
+\begin{thebibliography}{16}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Astropy Collaboration} {et~al}\mbox{.}(2013){Astropy Collaboration},
+  {Robitaille}, {Tollerud}, {Greenfield}, {Droettboom}, {Bray}, {Aldcroft},
+  {Davis}, {Ginsburg}, {Price-Whelan}, {Kerzendorf}, {Conley}, {Crighton},
+  {Barbary}, {Muna}, {Ferguson}, {Grollier}, {Parikh}, {Nair}, {Unther},
+  {Deil}, {Woillez}, {Conseil}, {Kramer}, {Turner}, {Singer}, {Fox}, {Weaver},
+  {Zabalza}, {Edwards}, {Azalee Bostroem}, {Burke}, {Casey}, {Crawford},
+  {Dencheva}, {Ely}, {Jenness}, {Labrie}, {Lim}, {Pierfederici}, {Pontzen},
+  {Ptak}, {Refsdal}, {Servillat}, \& {Streicher}}]{ast13}
+{Astropy Collaboration} {et~al.}, 2013, \aap, 558, A33
 
 \bibitem[{{Bamford} {et~al}\mbox{.}(2009){Bamford}, {Nichol}, {Baldry}, {Land},
   {Lintott}, {Schawinski}, {Slosar}, {Szalay}, {Thomas}, {Torki}, {Andreescu},
@@ -9,6 +19,35 @@
 \bibitem[{{Barden} {et~al}\mbox{.}(2008){Barden}, {Jahnke}, \&
   {H{\"a}u{\ss}ler}}]{bar08a}
 {Barden} M., {Jahnke} K., {H{\"a}u{\ss}ler} B., 2008, \apjs, 175, 105
+
+\bibitem[{{Caldwell} {et~al}\mbox{.}(2008){Caldwell}, {McIntosh}, {Rix},
+  {Barden}, {Beckwith}, {Bell}, {Borch}, {Heymans}, {H{\"a}u{\ss}ler},
+  {Jahnke}, {Jogee}, {Meisenheimer}, {Peng}, {S{\'a}nchez}, {Somerville},
+  {Wisotzki}, \& {Wolf}}]{cal08}
+{Caldwell} J.~A.~R. {et~al.}, 2008, \apjs, 174, 136
+
+\bibitem[{{Davis} {et~al}\mbox{.}(2007){Davis}, {Guhathakurta}, {Konidaris},
+  {Newman}, {Ashby}, {Biggs}, {Barmby}, {Bundy}, {Chapman}, {Coil},
+  {Conselice}, {Cooper}, {Croton}, {Eisenhardt}, {Ellis}, {Faber}, {Fang},
+  {Fazio}, {Georgakakis}, {Gerke}, {Goss}, {Gwyn}, {Harker}, {Hopkins},
+  {Huang}, {Ivison}, {Kassin}, {Kirby}, {Koekemoer}, {Koo}, {Laird}, {Le
+  Floc'h}, {Lin}, {Lotz}, {Marshall}, {Martin}, {Metevier}, {Moustakas},
+  {Nandra}, {Noeske}, {Papovich}, {Phillips}, {Rich}, {Rieke}, {Rigopoulou},
+  {Salim}, {Schiminovich}, {Simard}, {Smail}, {Small}, {Weiner}, {Willmer},
+  {Willner}, {Wilson}, {Wright}, \& {Yan}}]{dav07}
+{Davis} M. {et~al.}, 2007, \apjl, 660, L1
+
+\bibitem[{{Giavalisco} {et~al}\mbox{.}(2004){Giavalisco}, {Ferguson},
+  {Koekemoer}, {Dickinson}, {Alexander}, {Bauer}, {Bergeron}, {Biagetti},
+  {Brandt}, {Casertano}, {Cesarsky}, {Chatzichristou}, {Conselice},
+  {Cristiani}, {Da Costa}, {Dahlen}, {de Mello}, {Eisenhardt}, {Erben}, {Fall},
+  {Fassnacht}, {Fosbury}, {Fruchter}, {Gardner}, {Grogin}, {Hook},
+  {Hornschemeier}, {Idzi}, {Jogee}, {Kretchmer}, {Laidler}, {Lee}, {Livio},
+  {Lucas}, {Madau}, {Mobasher}, {Moustakas}, {Nonino}, {Padovani}, {Papovich},
+  {Park}, {Ravindranath}, {Renzini}, {Richardson}, {Riess}, {Rosati},
+  {Schirmer}, {Schreier}, {Somerville}, {Spinrad}, {Stern}, {Stiavelli},
+  {Strolger}, {Urry}, {Vandame}, {Williams}, \& {Wolf}}]{gia04}
+{Giavalisco} M. {et~al.}, 2004, \apjl, 600, L93
 
 \bibitem[{{Griffith} {et~al}\mbox{.}(2012){Griffith}, {Cooper}, {Newman},
   {Moustakas}, {Stern}, {Comerford}, {Davis}, {Lotz}, {Barden}, {Conselice},
@@ -27,6 +66,26 @@
   {Murray}, \& {Vandenberg}}]{lin08}
 {Lintott} C.~J. {et~al.}, 2008, \mnras, 389, 1179
 
+\bibitem[{{Rix} {et~al}\mbox{.}(2004){Rix}, {Barden}, {Beckwith}, {Bell},
+  {Borch}, {Caldwell}, {H{\"a}ussler}, {Jahnke}, {Jogee}, {McIntosh},
+  {Meisenheimer}, {Peng}, {Sanchez}, {Somerville}, {Wisotzki}, \&
+  {Wolf}}]{rix04}
+{Rix} H.-W. {et~al.}, 2004, \apjs, 152, 163
+
+\bibitem[{{Scarlata} {et~al}\mbox{.}(2007){Scarlata}, {Carollo}, {Lilly},
+  {Sargent}, {Feldmann}, {Kampczyk}, {Porciani}, {Koekemoer}, {Scoville},
+  {Kneib}, {Leauthaud}, {Massey}, {Rhodes}, {Tasca}, {Capak}, {Maier},
+  {McCracken}, {Mobasher}, {Renzini}, {Taniguchi}, {Thompson}, {Sheth},
+  {Ajiki}, {Aussel}, {Murayama}, {Sanders}, {Sasaki}, {Shioya}, \&
+  {Takahashi}}]{sca07}
+{Scarlata} C. {et~al.}, 2007, \apjs, 172, 406
+
+\bibitem[{{Scoville} {et~al}\mbox{.}(2007){Scoville}, {Aussel}, {Brusa},
+  {Capak}, {Carollo}, {Elvis}, {Giavalisco}, {Guzzo}, {Hasinger}, {Impey},
+  {Kneib}, {LeFevre}, {Lilly}, {Mobasher}, {Renzini}, {Rich}, {Sanders},
+  {Schinnerer}, {Schminovich}, {Shopbell}, {Taniguchi}, \& {Tyson}}]{sco07}
+{Scoville} N. {et~al.}, 2007, \apjs, 172, 1
+
 \bibitem[{{Strauss} {et~al}\mbox{.}(2002){Strauss}, {Weinberg}, {Lupton},
   {Narayanan}, {Annis}, {Bernardi}, {Blanton}, {Burles}, {Connolly},
   {Dalcanton}, {Doi}, {Eisenstein}, {Frieman}, {Fukugita}, {Gunn},
@@ -35,6 +94,13 @@
   {Szalay}, {Vanden Berk}, {Vogeley}, {Yanny}, {Yasuda}, {York}, \&
   {Zehavi}}]{str02}
 {Strauss} M.~A. {et~al.}, 2002, \aj, 124, 1810
+
+\bibitem[{Waskom {et~al}\mbox{.}(2015)Waskom, Botvinnik, Hobson, Warmenhoven,
+  Cole, Halchenko, Vanderplas, Hoyer, Villalba, Quintero, Miles, Augspurger,
+  Yarkoni, Evans, Wehner, Rocher, Megies, Coelho, Ziegler, Hoppe, Seabold,
+  Pascual, Cloud, Koskinen, Hausler, kjemmett, Milajevs, Qalieh, Allan, \&
+  Meyer}]{was15}
+Waskom M. {et~al.}, 2015, seaborn: v0.6.0 (june 2015)
 
 \bibitem[{{Willett} {et~al}\mbox{.}(2013){Willett}, {Lintott}, {Bamford},
   {Masters}, {Simmons}, {Casteels}, {Edmondson}, {Fortson}, {Kaviraj}, {Keel},

@@ -6,6 +6,9 @@ References:
     http://www.astro.caltech.edu/~george/ay127/Ay127_CosmoTests.pdf
     Calvi et al. (2014) http://arxiv.org/pdf/1410.2281v1.pdf
 
+    but also see
+    http://arxiv.org/pdf/1405.0275.pdf
+
 """
 
 from astropy.io import fits
