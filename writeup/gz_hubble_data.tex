@@ -39,6 +39,7 @@
 %\newcommand{\apjs}{ApJS}
 %\newcommand{\araa}{ARA\&A}
 \newcommand{\pbar}{p_{\rm bar}}
+\newcommand{\pfeatures}{p_{\rm features}}
 \newcommand{\fHI}{f_{\rm HI}}
 
 % Bands
@@ -316,13 +317,14 @@ Our objective is to use these data to predict, for a galaxy with a measured $p_{
 
 Figure~\ref{fig:p_vs_p} shows that the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ is \emph{not} always single valued; hence, it is not appropriate to correct galaxies that lie in certain regions of surface brightness/redshift/$p_{\rm features}$ space. These regions tend to have low $p_{\rm features}$ values at high redshift, but a wide range of values at $z=0.3$. These regions contain two morphological types of galaxies: First are genuine ellipticals, which have low values of $p_{\rm features}$ at both high and low redshift. Second are disks whose features become washed out at high redshift; hence their $p_{\rm features}$ value at $z=0.3$ may be quite high, while the value observed at high redshift is very low. This effect is strongest at high $z$ and low $\mu$, where features become nearly impossible to discern in the images.
 
-Our criteria for determining whether a region of this space is single-valued, and therefore correctable, is as follows: In each surface brightness and redshift bin, we model the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ by fitting the data with a polynomials of degrees 3, 2, and 1, and use the best fit out of the three. These fits are shown as the dashed black lines in figure ~\ref{fig:p_vs_p}. Any flat regions of the polynomial fits are areas in which there is not a clear single-valued relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$; we quantify this by setting a minimum slope cut of 0.4. Any data in which the polynomial fit has a slope less than this value is considered \emph{not} one-to-one, and therefore ``uncorrectable.'' These regions are highlighted in blue in figure ~\ref{fig:p_vs_p}. Uncolored (white) regions of the plot have sufficiently high slopes for us to consider the relationship to be single-valued; galaxies in these regions are considered ``correctable'', and only these are used in measuring the parameters for the $\zeta$ function (Section \ref{sec:zeta}). Only surface brightness/redshift bins with at least 5 galaxies were considered; regions with fewer than 5 galaxies we consider to have 'not enough information' to determine the  $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ relationship, these are colored gray in figure ~\ref{fig:p_vs_p}. 
+Our criteria for determining whether a region of this space is single-valued, and therefore correctable, is as follows: In each surface brightness and redshift bin, we model the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ by fitting the data with a polynomials of degrees 3, 2, and 1, and use the best fit out of the three. These fits are shown as the dashed black lines in figure ~\ref{fig:p_vs_p}. Any flat regions of the polynomial fits are areas in which there is not a clear single-valued relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$; we quantify this by setting a minimum slope cut of 0.4. Any data in which the polynomial fit has a slope less than this value is considered \emph{not} one-to-one, and therefore ``uncorrectable.'' These regions are highlighted in blue in figure ~\ref{fig:p_vs_p}. Uncolored (white) regions of the plot have sufficiently high slopes for us to consider the relationship to be single-valued; galaxies in these regions are considered ``correctable'', and only these are used in measuring the parameters for the $\zeta$ function (Section \ref{sec:zeta}). Only surface brightness/redshift bins with at least 5 galaxies were considered; regions with fewer than 5 galaxies we consider to have 'not enough information' to determine the  $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ relationship, these are colored gray in figure ~\ref{fig:p_vs_p}.
+
+The unshaded regions in figure ~\ref{fig:p_vs_p} define discrete ranges of redshift, surface brightness, and $\pfeatures$ a galaxy must have in order for the $\zeta$ approach to be confidentely applied to a galaxy in the GZH sample. While the appropriate correctable regions were defined discretely, we assume the true correctable region is a smooth function of z, $\mu$, and $\pfeatures$. To define this smooth space, we use a convex hull method to enclose the correctable and uncorrectable \ferengi{} galaxies is z-$\mu$-$\pfeatures$ space. Due to scatter, the boundaries of the resulting hulls overlap. The boundaries are then adjusted until the contamination from both groups is minimized. We use the resulting hulls to define the correctable and uncorrectable regions for categorizing the Hubble galaxies. The results of this method and final categorization of the Hubble sample is displayed in Table~\ref{hubble_debiasable}. We find that of the galaxies at redshift higher than $z=z_{0}=0.3$, 17\% of these are able to be debiased using the $\zeta$ method, 27\% cannot be debiased, and 56\% cannot be determined, due to a lack of redshift or information or due to a lack of \ferengi{} data corresponding to those galaxies redshift/surface brightness values.
+
+now talk about how we get low/high limits on pfeatures
 
 
-
-
-
-\begin{table}
+\begin{table}ー
 \caption{Distribution of \ferengi{} images analysed in Figure~\ref{fig:p_vs_p}. Correctable images had a single-valued relationship between their measured $p_{\rm features}$ values at high and low redshifts (white regions in Figure~\ref{fig:p_vs_p}). Uncorrectable images had a non single-valued relationship (green regions). NEI images had undetermined relationships due to a lack of data ($N<5$) in their corresponding sub-bins (purple regions).   \label{ferengi_corrections}}
 \begin{tabular}{lrr}
 \hline \hline
@@ -348,7 +350,8 @@ Stuff to do in this section:
 
  
 \begin{table*}
-\caption{Breakdown of what we can correct out of the GZH data, by sample. \label{hubble_debiasable}}
+\caption{Breakdown of what we can correct out of the GZH data, by sample. 
+\label{hubble_debiasable}}
 \begin{tabular}{lrrrrrrrr}
 \hline\hline
                                   & AEGIS   & COSMOS & GEMS & GOODS-N & GOODS-S & GOODS FULL   & SDSS    & Total \\
