@@ -153,7 +153,29 @@ Stripe 82
 
 Different treatment of colored noise in COSMOS; creating color gradients with Subaru data and using \Iband{} for illumination map.
 
-FERENGI images. 
+FERENGI images.
+
+\subsection{Redshifts}
+
+We obtain redshifts from a variety of sources: spectroscopic and photometric redshifts from \citet{gri12}, spectroscopic, photometric, and grism redshifts from 3DHST \citep{mom15}, and photometric redshifts from UltraVISTA \citep{ilb13}. The distribution is shown in Table~\ref{redshifts}, and are located in the `$\rm Z~BEST$' column of the catalog. We first use the \citep{gri12} and \citep{mom15} redshifts if those are available. If they are not, then we compare the 1$\sigma$ errors of the photometric and grism redshits from all three catalogs, and use the redshift with the smallest error. The source of the redshifts are displayed in the $\rm Z~BEST~SOURCE$ column of the catalog. 
+
+\begin{table*}
+\caption{Redshift sources of the Hubble data, by sample.  \label{redshifts}}
+\begin{tabular}{lrrrrrrrr}
+\hline\hline
+                                  & AEGIS   & COSMOS & GEMS & GOODS-N & GOODS-S & GOODS FULL    & SDSS    & Total \\
+\hline
+Griffith specz                  & 3,656    & 7,201  & 387   & 1,997  & 3,016   &           	&         & 16,257\\
+3DHST specz                      & 12       & 35     & 6     & 5      & 103     &               &         & 161\\
+Griffith photoz                 & 4,442    & 82,662 & 8,886 & 218    & 1,662   &               &         & 97,870\\ 
+3DHST grismz                     & 341      & 358    & 9     & 101    & 67      &               &         & 876\\
+UltraVista photoz                & 0        & 2,473  & 0     & 0      & 0       &           	&         & 2,473\\
+3DHST photoz                     & 56       & 79     & 16    & 230    & 65      &           	&         & 446\\
+
+Total                            & 8,507    & 92,808 & 9,304 & 2,551  & 4,913   & 11,157    	& 51,861  & 181,101\\
+\hline\hline
+\end{tabular}
+\end{table*}
 
 \subsection{User weighting}
 
@@ -413,7 +435,7 @@ We need to do:
 \end{itemize}
 
 \subsection{Morphological measurements in GZH beyond Task 1 - effects of debiasing?}
-
+blah blah cite \citet{ilb13} \citep{ilb13} \citet{mom15} \citep{mom15}
 \subsection{Duplicate images}
 
 \subsection{Effect of changing depth for GOODS}
