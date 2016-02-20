@@ -145,7 +145,12 @@ The GOODS images in GZH use mosaics constructed from both 2-epoch and 5-epoch se
 
 The filters that \citet{gri12} uses for the colored images were F606W and F775W for GOODS-N and F606W and F850LP for GOODS-S. 
 
-We use different filters for the north and south GOODS fields so that GEMS can be directly compared with GOODS-S. 
+We use different filters for the north and south GOODS fields so that GEMS can be directly compared with GOODS-S (Figure~\ref{fig:filtercurves}). 
+
+\begin{figure*}
+\includegraphics[width=160mm]{figures/filter_curves.pdf}
+\caption{Transmission curves of the filters used by \textit{HST} Advanced Camera for Surveys (ACS) in wide-field channel mode for the various surveys in Galaxy Zoo: Hubble. The unfilled black curves show the filters for the Suprime Camera on the \textit{Subaru} telescope which were used to create color gradients in the composite images for COSMOS.\label{fig:filtercurves}}
+\end{figure*}
 
 Fake AGN
 
@@ -461,7 +466,7 @@ This publication has been made possible by the participation of more than 200,00
 
 We thank Meg Schwamb and the ASIAA for hosting the ``Citizen Science in Astronomy'' workshop, 3-7 Mar 2014 in Taipei, Taiwan, at which some of this analysis was done. 
 
-This project made heavy use of the Astropy packages in Python \citep{ast13}, as well as the \texttt{seaborn} plotting package \citep{was15}.
+This project made heavy use of the Astropy packages in Python \citep{ast13}, the \texttt{seaborn} plotting package \citep{was15}, and astroML \citep{van12}.
 
 HST acknowledgements.
 

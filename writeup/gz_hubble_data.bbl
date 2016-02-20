@@ -1,4 +1,4 @@
-\begin{thebibliography}{16}
+\begin{thebibliography}{19}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Astropy Collaboration} {et~al}\mbox{.}(2013){Astropy Collaboration},
@@ -55,6 +55,17 @@
   {Sheth}, {Shopbell}, {Willmer}, \& {Weiner}}]{gri12}
 {Griffith} R.~L. {et~al.}, 2012, \apjs, 200, 9
 
+<<<<<<< Updated upstream
+=======
+\bibitem[{{Ilbert} {et~al}\mbox{.}(2013){Ilbert}, {McCracken}, {Le F{\`e}vre},
+  {Capak}, {Dunlop}, {Karim}, {Renzini}, {Caputi}, {Boissier}, {Arnouts},
+  {Aussel}, {Comparat}, {Guo}, {Hudelot}, {Kartaltepe}, {Kneib}, {Krogager},
+  {Le Floc'h}, {Lilly}, {Mellier}, {Milvang-Jensen}, {Moutard}, {Onodera},
+  {Richard}, {Salvato}, {Sanders}, {Scoville}, {Silverman}, {Taniguchi},
+  {Tasca}, {Thomas}, {Toft}, {Tresse}, {Vergani}, {Wolk}, \& {Zirm}}]{ilb13}
+{Ilbert} O. {et~al.}, 2013, \aap, 556, A55
+
+>>>>>>> Stashed changes
 \bibitem[{{Johnson} {et~al}\mbox{.}(2015){Johnson}, {Seth}, {Dalcanton},
   {Wallace}, {Simpson}, {Lintott}, {Kapadia}, {Skillman}, {Caldwell},
   {Fouesneau}, {Weisz}, {Williams}, {Beerman}, {Gouliermis}, \&
@@ -66,6 +77,17 @@
   {Murray}, \& {Vandenberg}}]{lin08}
 {Lintott} C.~J. {et~al.}, 2008, \mnras, 389, 1179
 
+<<<<<<< Updated upstream
+=======
+\bibitem[{{Momcheva} {et~al}\mbox{.}(2015){Momcheva}, {Brammer}, {van Dokkum},
+  {Skelton}, {Whitaker}, {Nelson}, {Fumagalli}, {Maseda}, {Leja}, {Franx},
+  {Rix}, {Bezanson}, {Da Cunha}, {Dickey}, {F{\"o}rster Schreiber},
+  {Illingworth}, {Kriek}, {Labb{\'e}}, {Ulf Lange}, {Lundgren}, {Magee},
+  {Marchesini}, {Oesch}, {Pacifici}, {Patel}, {Price}, {Tal}, {Wake}, {van der
+  Wel}, \& {Wuyts}}]{mom15}
+{Momcheva} I.~G. {et~al.}, 2015, ArXiv e-prints, 1510.02106
+
+>>>>>>> Stashed changes
 \bibitem[{{Rix} {et~al}\mbox{.}(2004){Rix}, {Barden}, {Beckwith}, {Bell},
   {Borch}, {Caldwell}, {H{\"a}ussler}, {Jahnke}, {Jogee}, {McIntosh},
   {Meisenheimer}, {Peng}, {Sanchez}, {Somerville}, {Wisotzki}, \&
@@ -94,6 +116,11 @@
   {Szalay}, {Vanden Berk}, {Vogeley}, {Yanny}, {Yasuda}, {York}, \&
   {Zehavi}}]{str02}
 {Strauss} M.~A. {et~al.}, 2002, \aj, 124, 1810
+
+\bibitem[{{Vanderplas} {et~al}\mbox{.}(2012){Vanderplas}, {Connolly},
+  {Ivezi{\'c}}, \& {Gray}}]{van12}
+{Vanderplas} J., {Connolly} A., {Ivezi{\'c}} {\v Z}., {Gray} A., 2012, in
+  Conference on Intelligent Data Understanding (CIDU), pp. 47 --54
 
 \bibitem[{Waskom {et~al}\mbox{.}(2015)Waskom, Botvinnik, Hobson, Warmenhoven,
   Cole, Halchenko, Vanderplas, Hoyer, Villalba, Quintero, Miles, Augspurger,
