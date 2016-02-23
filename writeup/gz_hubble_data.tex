@@ -55,6 +55,9 @@
 \usepackage{epsfig}
 \usepackage{color,soul}
 \usepackage{natbib}
+\usepackage{graphicx}
+\usepackage{subfigure}
+\usepackage{deluxetable}
 \bibliographystyle{mn2e}
 
 \begin{document}
@@ -105,6 +108,7 @@ This will be the data release paper for GZ:Hubble. We present the classification
 \end{enumerate}
 
 \section{Sample and Data} 
+\label{sec:data}
 
 \subsection{Summary of HST Legacy Survey Imaging}
 
@@ -158,10 +162,32 @@ Stripe 82
 
 Different treatment of colored noise in COSMOS; creating color gradients with Subaru data and using \Iband{} for illumination map.
 
-FERENGI images. 
+FERENGI images.
+
+\subsection{Redshifts}
+
+We obtain redshifts from a variety of sources: spectroscopic and photometric redshifts from \citet{gri12}, spectroscopic, photometric, and grism redshifts from 3DHST \citep{mom15}, and photometric redshifts from UltraVISTA \citep{ilb13}. The distribution is shown in Table~\ref{redshifts}, and are located in the `$\rm Z~BEST$' column of the catalog. We first use the \citep{gri12} and \citep{mom15} redshifts if those are available. If they are not, then we compare the 1$\sigma$ errors of the photometric and grism redshits from all three catalogs, and use the redshift with the smallest error. The source of the redshifts are displayed in the $\rm Z~BEST~SOURCE$ column of the catalog. 
+
+\begin{table*}
+\caption{Redshift sources of the Hubble data, by sample.  \label{redshifts}}
+\begin{tabular}{lrrrrrrrr}
+\hline\hline
+                                  & AEGIS   & COSMOS & GEMS & GOODS-N & GOODS-S & GOODS FULL    & SDSS    & Total \\
+\hline
+Griffith specz                  & 3,656    & 7,201  & 387   & 1,997  & 3,016   &           	&         & 16,257\\
+3DHST specz                      & 12       & 35     & 6     & 5      & 103     &               &         & 161\\
+Griffith photoz                 & 4,442    & 82,662 & 8,886 & 218    & 1,662   &               &         & 97,870\\ 
+3DHST grismz                     & 341      & 358    & 9     & 101    & 67      &               &         & 876\\
+UltraVista photoz                & 0        & 2,473  & 0     & 0      & 0       &           	&         & 2,473\\
+3DHST photoz                     & 56       & 79     & 16    & 230    & 65      &           	&         & 446\\
+
+Total                            & 8,507    & 92,808 & 9,304 & 2,551  & 4,913   & 11,157    	& 51,861  & 181,101\\
+\hline\hline
+\end{tabular}
+\end{table*}
 
 \subsection{User weighting}
-
+\label{sec:weighting}
 The votes of individual users who classified galaxies in GZH are combined to make a vote fraction for each question on the classification tree. Users' votes are weighted slightly \citep[in a method identical to that described in][]{wil13} such that users who frequently disagree with all other users end up having very low weights. The majority of users have weights very close to $w=1.0$ ({\bf STEVEN: Is this true for GZH - do you have a plot of the distribution of user weights or consistencies we can include here?}. 
 
 \section{Galaxy Zoo interface and classifications}
@@ -172,7 +198,7 @@ The votes of individual users who classified galaxies in GZH are combined to mak
 \end{figure*}
 
 \section{Correcting for redshift-dependent classification bias}
-
+\label{sec:debiasing}
 The previous versions of Galaxy Zoo morphology classifications \citep{lin08,wil13} were based on observations of galaxies in the Sloan Digital Sky Survey (SDSS) which are typically at $z<0.1$. In these cases it was assumed that there was no cosmological evolution of the morphologies of galaxies and therefore any observed changes in the distribution of galaxies with different consensus morphologies was due to the effects of redshift on the image quality (\ie. the reduction in physical resolution, surface brightness dimming, etc). For both previous releases of GZ morphologies, we provided a correction for redshift-dependent bias based on matching the classification fractions at the highest redshfts with those at the lowest redshift. See \citet{bam09} and \citet{wil13} for the details. 
 
 In the GZH samples, the redshift range is large enough that we expect to measure cosmological evolution of the types and morphologies of galaxies in the sample. As a result, the previous methods of correcting for redshift dependent bias will not work. In addition, the effects of band shifting will change the images even more across these redshift ranges. %Figure~\ref{fig:exampleFERENGI} illustrates some of the possible effects of losing features in spiral galaxies at high redshift. 
@@ -299,38 +325,41 @@ f_\textrm{features,debiased} = 1 - (1 - f)e^{\frac{z-z_0}{\hat\zeta}}.
 
 \subsection{Results of $\zeta$ approach}
 
-\begin{figure*}
+\begin{figure}
 \begin{center}
-\includegraphics[width=\textwidth]{figures/eye_of_sauron.pdf}
+\includegraphics[width=0.5\textwidth]{figures/eye_of_sauron.pdf}
 \caption{Surface brightness vs. redshift of 118,083 galaxies in the ACS sample. The white grid denotes the surface brightness and redshift range of the \ferengi{} images, subdivided in bins corresponding to fixed ranges used for analysis in Figure~\ref{fig:p_vs_p}.}
 
 \label{fig:features_corrections}
 \end{center}
-\end{figure*}
+\end{figure}
 
 \begin{figure*}
-\begin{center}
-\includegraphics[width=\textwidth]{figures/p_vs_p_SB_redshift.pdf}
-\caption{Effects of redshift bias in 3,950 images in the \ferengi{} sample. Each point in a given redshift and surface brightness bin represents a unique galaxy. On the y-axis in each bin is the $p_{features}$ value of the image of that galaxy redshifted to the value corresponding to that redshift bin. On the x-axis is the $p_{features}$ value of the image of the same galaxy redshifted to $z=0.3$. The dashed black lines represent the best-fit polynomials to the data in each square. The solid black line represents $p_{\rm features,z}$ = $p_{\rm features,z=0.3}$. Regions in which there is a single-valued relationship between $p_{features}$ at high redshift and $z=0.3$ are white; those in which there is not are blue, and those with not enough data ($N<5$) are gray. }
+\centering
+\subfigure{[6a]\label{fig:6a}\includegraphics[width=0.5\textwidth]{figures/p_vs_p_SB_redshift.pdf}}
+\subfigure{[6b]\label{fig:6b}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot1.pdf}}
+\\
+\subfigure{[6c]\label{fig:6c}\includegraphics[width=0.5\textwidth]{figures/orangebars.pdf}}
+\subfigure{[6d]\label{fig:6d}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot2.pdf}}
+\caption{Effects of redshift bias in 3,950 images in the \ferengi{} sample. [6a]: Each point in a given redshift and surface brightness bin represents a unique galaxy. On the y-axis in each bin is the $p_{\rm features}$ value of the image of that galaxy redshifted to the value corresponding to that redshift bin. On the x-axis is the $p_{\rm features}$ value of the image of the same galaxy redshifted to $z=0.3$. The dashed black lines represent the best-fit polynomials to the data in each square. The solid black line represents $p_{\rm features,z}$ = $p_{\rm features,z=0.3}$. Regions in which there is a single-valued relationship between $p_{\rm features}$ at high redshift and at $z=0.3$ are white; those in which there is not are blue, and those with not enough data ($N<5$) are gray. [6b]: A larger version of the dark-outlined square in [6a], containing \ferengi{} galaxies that have been artificially redshifted to $z=1.0$ and have surface brightnesses between $20.3 < \mu < 21.0$ $\rm (mag/arcsec^2)$. [6c]: The same data as [6a] is shown. Each $z,\mu$ bin is divided into 4 sub-bins to determine the range of intrinsic $p_{\rm features,z=0.3}$ for a given range of observed $p_{\rm features,z}$ values. In each sub-bin, the orange bars represent the inner 80th percentiles of the data, the boundaries of which are the lower and upper limits of the debiased values. [6d]: The same data as [6b], but highlighting the upper and lower limit regions.}
 \label{fig:p_vs_p}
-\end{center}
 \end{figure*}
 
-In Figure~\ref{fig:p_vs_p} we examine the change in $p_{\rm features}$ for the \ferengi{} galaxies relative to their lowest simulated redshift. In this analysis, only galaxies whose lowest simulated redshift image was ($\rm z_{sim}=0.3$) were used (see Table \ref{ferengivalues}), and only those which had detectable surface brightness measurements in \sextractor{}; this includes 3,959 of the total 6,466 images. For each simulated redshift value $z$, and at a fixed surface brightness $\mu$, we plot $p_{\rm features,z}$, the value measured at that simulated redshift, vs $p_{\rm features,z=0.3}$, the value measured for the same galaxy imaged at $z=0.3$. 
+In Figure~\ref{fig:p_vs_p} we examine the change in $p_{\rm features}$ for the \ferengi{} galaxies relative to their lowest simulated redshift. In this analysis, only galaxies whose lowest simulated redshift image was ($\rm z_{sim}=0.3$) were used (see Table \ref{ferengivalues}), and only those which had detectable surface brightness measurements in \sextractor{}; this includes 3,950 of the total 6,466 images. For each simulated redshift value $z$, and at a fixed surface brightness $\mu$, we plot $p_{\rm features,z}$, the value measured at that simulated redshift, vs $p_{\rm features,z=0.3}$, the value measured for the same galaxy imaged at $z=0.3$. 
  
 Our objective is to use these data to predict, for a galaxy with a measured $p_{\rm features,z}$ value, what its $p_{\rm features}$ value \emph{would have been} if it had been viewed at $z=0.3$. This predicted value is defined as the debiased vote fraction $p_{\rm features,debiased}$, and is calculated by applying a correction to the measured value of $p_{\rm features}$, determined by the $\zeta$ function described in the previous section. A reliable predicted value can be obtained so long as the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ is single-valued; that is, for a given $p_{\rm features,z}$, there is exactly one corresponding value of $p_{\rm features}$ at $z=0.3$. 
 
 Figure~\ref{fig:p_vs_p} shows that the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ is \emph{not} always single valued; hence, it is not appropriate to correct galaxies that lie in certain regions of surface brightness/redshift/$p_{\rm features}$ space. These regions tend to have low $p_{\rm features}$ values at high redshift, but a wide range of values at $z=0.3$. These regions contain two morphological types of galaxies: First are genuine ellipticals, which have low values of $p_{\rm features}$ at both high and low redshift. Second are disks whose features become washed out at high redshift; hence their $p_{\rm features}$ value at $z=0.3$ may be quite high, while the value observed at high redshift is very low. This effect is strongest at high $z$ and low $\mu$, where features become nearly impossible to discern in the images.
 
-Our criteria for determining whether a region of this space is single-valued, and therefore correctable, is as follows: In each surface brightness and redshift bin, we model the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ by fitting the data with a polynomials of degrees 3, 2, and 1, and use the best fit out of the three. These fits are shown as the dashed black lines in figure ~\ref{fig:p_vs_p}. Any flat regions of the polynomial fits are areas in which there is not a clear single-valued relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$; we quantify this by setting a minimum slope cut of 0.4. Any data in which the polynomial fit has a slope less than this value is considered \emph{not} one-to-one, and therefore ``uncorrectable.'' These regions are highlighted in blue in figure ~\ref{fig:p_vs_p}. Uncolored (white) regions of the plot have sufficiently high slopes for us to consider the relationship to be single-valued; galaxies in these regions are considered ``correctable'', and only these are used in measuring the parameters for the $\zeta$ function (Section \ref{sec:zeta}). Only surface brightness/redshift bins with at least 5 galaxies were considered; regions with fewer than 5 galaxies we consider to have 'not enough information' to determine the  $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ relationship, these are colored gray in figure ~\ref{fig:p_vs_p}.
+Our criteria for determining whether a region of this space is single-valued, and therefore correctable, is as follows: In each surface brightness and redshift bin, we model the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ by fitting the data with a polynomials of degrees 3, 2, and 1, and use the best fit out of the three. These fits are shown as the dashed black lines in Figure~\ref{fig:6a}. Any flat regions of the polynomial fits are areas in which there is not a clear single-valued relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$; we quantify this by setting a minimum slope cut of 0.4. Any data in which the polynomial fit has a slope less than this value is considered \emph{not} one-to-one, and therefore ``uncorrectable.'' These regions are highlighted in blue in figure ~\ref{fig:6a}. Uncolored (white) regions of the plot have sufficiently high slopes for us to consider the relationship to be single-valued; galaxies in these regions are considered ``correctable'', and only these are used in measuring the parameters for the $\zeta$ function (Section \ref{sec:zeta}). Only surface brightness/redshift bins with at least 5 galaxies were considered; regions with fewer than 5 galaxies we consider to have ``not enough information'' to determine the  $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ relationship, these are colored gray in Figure~\ref{fig:6a}.
 
-The unshaded regions in figure ~\ref{fig:p_vs_p} define discrete ranges of redshift, surface brightness, and $\pfeatures$ a galaxy must have in order for the $\zeta$ approach to be confidentely applied to a galaxy in the GZH sample. While the appropriate correctable regions were defined discretely, we assume the true correctable region is a smooth function of z, $\mu$, and $\pfeatures$. To define this smooth space, we use a convex hull method to enclose the correctable and uncorrectable \ferengi{} galaxies is z-$\mu$-$\pfeatures$ space. Due to scatter, the boundaries of the resulting hulls overlap. The boundaries are then adjusted until the contamination from both groups is minimized. We use the resulting hulls to define the correctable and uncorrectable regions for categorizing the Hubble galaxies. The results of this method and final categorization of the Hubble sample is displayed in Table~\ref{hubble_debiasable}. We find that of the galaxies at redshift higher than $z=z_{0}=0.3$, 17\% of these are able to be debiased using the $\zeta$ method, 27\% cannot be debiased, and 56\% cannot be determined, due to a lack of redshift or information or due to a lack of \ferengi{} data corresponding to those galaxies redshift/surface brightness values.
+The unshaded regions in Figure~\ref{fig:6a} define discrete ranges of redshift, surface brightness, and $\pfeatures$ a galaxy must have in order for the $\zeta$ approach to be confidentely applied to a galaxy in the GZH sample. While the appropriate correctable regions were defined discretely, we assume the true correctable region is a smooth function of z, $\mu$, and $\pfeatures$. To define this smooth space, we use a convex hull method to enclose the correctable and uncorrectable \ferengi{} galaxies is z-$\mu$-$\pfeatures$ space. Due to scatter, the boundaries of the resulting hulls overlap. The boundaries are then adjusted until the contamination from both groups is minimized. We use the resulting hulls to define the correctable and uncorrectable regions for categorizing the Hubble galaxies. The results of this method and final categorization of the Hubble sample is displayed in Table~\ref{hubble_debiasable}. We find that of the galaxies at redshift higher than $z=z_{0}=0.3$, 17\% of these are able to be debiased using the $\zeta$ method, 27\% cannot be debiased, and 56\% cannot be determined, due to a lack of redshift or information or due to a lack of \ferengi{} data corresponding to those galaxies' redshift/surface brightness values.
 
-now talk about how we get low/high limits on pfeatures
+For the ``uncorrectable'' galaxies, those for which we cannot confidentely assign a single debiased $p_{\rm features}$ value, we instead determine a likely \emph{range} of debiased values, using a method visualized in Figure~\ref{fig:6c}. Here we again use the \ferengi{} simulated data to analyze the range of intrinsic $p_{\rm features,z=0.3}$ values for any given observed $p_{\rm features}$ value, again as a function of surface brightness and redshift. In each z,$\mu$ bin, we examine the spread of intrinsic values of $p_{\rm features,z=0.3}$ for 4 ranges of observed $p_{\rm features}$. We quantify the range of intrinsic values as the inner 80\% of the data; this range is represented by the orange bars in Figure~\ref{fig:6c}. For any galaxy which can't be directly debiased by the $\zeta$ method, then, we use these ranges to denote the upper and lower limits on what we expect $p_{features,z=0.3}$ to be for any observed value of $p_{\rm features}$. 
 
 
 \begin{table}ー
-\caption{Distribution of \ferengi{} images analysed in Figure~\ref{fig:p_vs_p}. Correctable images had a single-valued relationship between their measured $p_{\rm features}$ values at high and low redshifts (white regions in Figure~\ref{fig:p_vs_p}). Uncorrectable images had a non single-valued relationship (green regions). NEI images had undetermined relationships due to a lack of data ($N<5$) in their corresponding sub-bins (purple regions).   \label{ferengi_corrections}}
+\caption{Distribution of \ferengi{} images analysed in Figure~\ref{fig:p_vs_p}. Correctable images had a single-valued relationship between their measured $p_{\rm features}$ values at high and low redshifts (white regions in Figure~\ref{fig:p_vs_p}). Uncorrectable images had a non single-valued relationship (blue regions). NEI images had undetermined relationships due to a lack of data ($N<5$) in their corresponding z-$\mu$ bins (gray regions).   \label{ferengi_corrections}}
 \begin{tabular}{lrr}
 \hline \hline
 				                   & N       & \% \\
@@ -418,7 +447,6 @@ We need to do:
 \end{itemize}
 
 \subsection{Morphological measurements in GZH beyond Task 1 - effects of debiasing?}
-
 \subsection{Duplicate images}
 
 \subsection{Effect of changing depth for GOODS}
@@ -427,12 +455,68 @@ We need to do:
 
 \subsection{Fake AGN}
 
-\section{Catalog}
+\section{The Catalog}
+
+The data release for GZH includes morphological data for 181,101 galaxies. The full table can be accessed at some website. We also include a secondary metadata table, which contains data from a variety of sources explained in Section \ref{sec:data}.
+
+For each galaxy we list its unique objid, as well as the source's RA, DEC, and survey (AEGIS, COSMOS, GEMS, GOODS North (full and shallow depth), GOODS South (full and shallow depth), SDSS. For each of the 40 (?) questions in the GZH decision tree, the following classification data is provided: For each question, $\tt N_{votes}$ is the number of users to answer that question. For each unique answer, $\tt fraction$ is the fraction of users to select that answer ($\rm N_{answer}/N_{votes}$, and $\tt weighted$ is the weighted fraction, which takes into account user consistency (Section~\ref{sec:weighting}). 
+
+The GZH vote fractions can be largely dependent on the resolution of the image. Two otherwise morphologically identical galaxies which differ significantly in redshift, brightness, or size may result in very different vote fractions for any given question, given that many features of a galaxy are difficult to discern in less-resolved images (bars, spiral arms, disk structure, etc). For this reason, it is necessary to take caution utilizing vote fractions as cut-offs to determine morphological structure; we offer guidelines for careful classification in Section~\ref{sec:cookbook}. 
+
+We corrected for the biases described for the first question of the GZH decision tree, which asks ``Is the galaxy smooth and round, with no sign of a disk?'' The method is described in Section~\ref{sec:debiasing}. For this question, we provide the additional parameters $\tt debiased$, $\tt lower~limit$, $\tt upper~limit$, and $\tt best$ vote fractions. The $\tt best$ fraction for $p_{features}$is chosen based on the categorization of the galaxy: if it is ``correctable'', $\tt best = debiased$, if ``uncorrectable'', $\tt best = lower~limit$, and if neither, $\tt best = weighted$. The debiased vote fractions for $\tt p_{smooth}$ were calculated on the critera that vote fractions for all answers must sum to unity. Explicitely: $\tt p_{smooth} = 1 - p_{features} - p_{artifact}$. 
+
+\tabletypesize{\scriptsize}
+\begin{deluxetable}{lrrllcrrrrrr|c}
+\rotate
+\tablecolumns{12}
+\tablewidth{0pc}
+\tablecaption{GZH morphological classifications} 
+\label{tab:catalog}
+\tabletypesize{\scriptsize}
+\tablehead{
+ &  &   &  &  
+\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
+\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\colhead{$\dots$}
+\\
+\colhead{OBJNO} & 
+\colhead{RA} & 
+\colhead{DEC} & 
+\colhead{Imaging} & 
+\colhead{Correctable Category} & 
+\colhead{$N_\mathrm{votes}$} & 
+\colhead{fraction} & 
+\colhead{weighted} & 
+\colhead{debiased} & 
+\colhead{lower~limit} & 
+\colhead{upper~limit} &
+\colhead{best} &
+\colhead{}
+}
+\small
+\startdata
+10000034            & 188.93       & 62.23         & AEGIS           &  correctable &  72 &  10 &  10.0 & 0.625 & 0.625 & 0.629 & 0 \\
+10000162            & 160.99      & 11.70          & AEGIS           &  uncorrectable &  84 &  17 &  17.0 & 0.810 & 0.810 & 0.810 & 1 \\
+5001356             & 210.80       & 54.15         & GOODS-N-Shallow &  correctable &  88 &  18 &  18.0 & 0.783 & 0.783 & 0.722 & 0 \\
+9003947835          & 176.54       & 8.74          & GOODS-S-Shallow &  nei &  48 &  16 &  16.0 & 1.000 & 1.000 & 1.000 & 1 \\
+GDS~S~16203         & 186.44       & 47.88         & GOODS-FULL      &  nei &  89 &  17 &  17.0 & 0.739 & 0.739 & 0.739 & 0 \\
+8647474690312438284 & 188.93       & 62.64         & SDSS            &  zlt3 &  91 &   0 &   0.0 & 0.000 & 0.000 & 0.000 & 0 \\
+20061690            & 160.99       & 11.70         & COSMOS          &  nei &  65 &   4 &   3.4 & 0.333 & 0.295 & 0.295 & 0 \\
+20061692            & 176.54       & 8.45          & COSMOS          &  correctable &  75 &  14 &  14.0 & 0.609 & 0.629 & 0.666 & 0 \\
+90022947            & 230.24       & 84.20         & GEMS           &  zlt3 & 129 &  12 &  12.0 & 0.462 & 0.462 & 0.492 & 0 \\
+20063829            & 203.23       & 93.20         & COSMOS         &  correctable &  69 &  18 &  17.0 & 0.900 & 0.895 & 0.840 & 1 \\
+\enddata
+\tablecomments{Full version is online at some website, here are 10 rows out of 181,101 in the full version.\emph{These numbers are super fake right now - put real values in for final version!}}
+\end{deluxetable}
+
+
 
 To include: detailed description of each column in the machine-readable tables. 
 
 Needs some test cases for extracting a given set of objects (eg, clump galaxies in a particular redshift range) and evaluation of the results. Possibly include suggested thresholds, \'a la GZ2. 
-
+\section{Using the Catalog}
+\label{sec:cookbook}
+Include cookbook for selecting morphologies. 
 \section{Analysis}
 
 \subsection{Demographics of morphology}
