@@ -166,25 +166,60 @@ FERENGI images.
 
 \subsection{Redshifts}
 
-We obtain redshifts from a variety of sources: spectroscopic and photometric redshifts from \citet{gri12}, spectroscopic, photometric, and grism redshifts from 3DHST \citep{mom15}, and photometric redshifts from UltraVISTA \citep{ilb13}. The distribution is shown in Table~\ref{redshifts}, and are located in the `$\rm Z~BEST$' column of the catalog. We first use the \citep{gri12} and \citep{mom15} redshifts if those are available. If they are not, then we compare the 1$\sigma$ errors of the photometric and grism redshits from all three catalogs, and use the redshift with the smallest error. The source of the redshifts are displayed in the $\rm Z~BEST~SOURCE$ column of the catalog. 
 
-\begin{table*}
-\caption{Redshift sources of the Hubble data, by sample.  \label{redshifts}}
-\begin{tabular}{lrrrrrrrr}
-\hline\hline
-                                  & AEGIS   & COSMOS & GEMS & GOODS-N & GOODS-S & GOODS FULL    & SDSS    & Total \\
+We compiled redshifts from a variety of sources to include in the GZH catalog. For each galaxy, the redshift selected is in the $\tt Z\_Best$ column of the data (see Table~\ref{tab:catalog}), its type (spectroscopic: $\tt SPEC\_Z$, photometric: $\tt PHOTO\_Z$, or grism: $ \tt GRISM\_Z$) is listed in the column $\tt Z\_BEST\_TYPE$, and the source catalog ($\tt Griffith$ \citep{gri12}, $\tt 3DHST$ \citep{mom15}, $\tt MUSYC$ \citep{car10}, or $\tt UltraVISTA$ \citep{ilb13}) of the redshift is in column $\tt Z\_BEST\_SOURCE$.
+
+For galaxies which have redshifts from multiple sources, we use the following algorithm to select the $\tt Z\_BEST$ redshift. We first prioritize spectroscopic redshifts; these are provided in the Griffith, 3DHST, and MUSYC catalogs. If a high quality spec-z exists in the Griffith catalog we use that, else 3DHST, else MUSYC. We show in Figure~\ref{fig:speczs} that over 98\% of the the spec-z's are consistent with each other, and therefore the priority order of selection makes no negligible difference. If no spectroscipic redshifts are available, we compare the 1-$\sigma$ errors of the photometric (Griffith, 3DHST, MUSYC, UltraVISTA) and grism (UltraVISTA) redshifts, and use the redshift with the smallest error. Table~\ref{tab:redshifts} shows the results of this selection. 
+ 
+\begin{figure*}
+\includegraphics[width=160mm]{figures/specz_comparison.pdf}
+\caption{Spectroscopic redshifts from Griffith, 3DHST, and MUSYC catalogs. The number in the upper left of each plot is the percentage of redshifts which agree within $\Delta z < 0.05$ between the two catalogs being compared in each panel. Within this range there is over 98\% agreement in redshifts between all three catalogs.}
+\label{fig:speczs}
+\end{figure*}
+
+\tabletypesize{\scriptsize}
+\begin{deluxetable}{l|rr|rrr|rr|r|rr}
+\centering
+%\rotate
+\tablecolumns{12}
+\tablewidth{0pc}
+\tablecaption{GZH redshifts by survey} 
+\label{tab:redshifts}
+\tabletypesize{\scriptsize}
+\tablehead{
+ &   
+\multicolumn{2}{c}{\underline{Griffith}} &
+\multicolumn{3}{c}{\underline{3DHST}} &
+\multicolumn{2}{c}{\underline{MUSYC}} &
+\multicolumn{1}{c}{\underline{UltraVISTA}}&
+\multicolumn{2}{c}{\underline{Total}} 
+\\
+\colhead{Survey} & 
+\colhead{spec-z} & 
+\colhead{photo-z} & 
+\colhead{spec-z} & 
+\colhead{grism-z} & 
+\colhead{photo-z} & 
+\colhead{spec-z} & 
+\colhead{photo-z} & 
+\colhead{photo-z} & 
+\colhead{with redshift} &
+\colhead{in survey}
+}
+\small
+\startdata
+%Survey     Gs        Gp    3ds    3dg     3dp       Ms      Mp       UVp       total
+AEGIS    & 3,656  & 2,941  & 12  &  515  &  249    & 0     & 0     &  0      & 7,373  & 8,507\\
+COSMOS   & 7,201  & 77,435 & 35  &  358  &  26     & 0     & 0     &  2,665  & 85,020 & 92,808 \\
+GEMS     & 387    & 628    & 6   &  99   &  40     & 279   & 7,304 & 0       & 8,743  & 9,304\\
+GOODS-N  & 1,947  & 37     & 418 & 1,545 &  1,381  & 0     & 0     & 0       & 5,328  & 12,030 \\
+GOODS-S  & 1,080  & 4      & 327 & 1,348 &  281    & 816   & 1,184 & 0       & 5,040  & 10,284 \\
+SDSS     & 0      & 0      & 0   &  0    &  0      & 0     & 0     & 0       & 37,545 & 51,861  \\
 \hline
-Griffith specz                  & 3,656    & 7,201  & 387   & 1,997  & 3,016   &           	&         & 16,257\\
-3DHST specz                      & 12       & 35     & 6     & 5      & 103     &               &         & 161\\
-Griffith photoz                 & 4,442    & 82,662 & 8,886 & 218    & 1,662   &               &         & 97,870\\ 
-3DHST grismz                     & 341      & 358    & 9     & 101    & 67      &               &         & 876\\
-UltraVista photoz                & 0        & 2,473  & 0     & 0      & 0       &           	&         & 2,473\\
-3DHST photoz                     & 56       & 79     & 16    & 230    & 65      &           	&         & 446\\
+Total    & 14,271 & 81,045 & 798 & 3,865 & 1,977   & 1,095 & 8,488 & 2,665   & 114,204 & 184,794\\
+\enddata
+\end{deluxetable}
 
-Total                            & 8,507    & 92,808 & 9,304 & 2,551  & 4,913   & 11,157    	& 51,861  & 181,101\\
-\hline\hline
-\end{tabular}
-\end{table*}
 
 \subsection{User weighting}
 \label{sec:weighting}
@@ -467,7 +502,8 @@ We corrected for the biases described for the first question of the GZH decision
 
 \tabletypesize{\scriptsize}
 \begin{deluxetable}{lrrllcrrrrrr|c}
-\rotate
+\centering
+%\rotate
 \tablecolumns{12}
 \tablewidth{0pc}
 \tablecaption{GZH morphological classifications} 
