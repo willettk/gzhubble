@@ -58,17 +58,13 @@
   {Sheth}, {Shopbell}, {Willmer}, \& {Weiner}}]{gri12}
 {Griffith} R.~L. {et~al.}, 2012, \apjs, 200, 9
 
-\bibitem[{{Ilbert} {et~al}\mbox{.}(2013){Ilbert}, O. and {McCracken}, H.~J. and {Le F{\`e}vre}, O. and 
-	{Capak}, P. and {Dunlop}, J. and {Karim}, A. and {Renzini}, M.~A. and 
-	{Caputi}, K. and {Boissier}, S. and {Arnouts}, S. and {Aussel}, H. and 
-	{Comparat}, J. and {Guo}, Q. and {Hudelot}, P. and {Kartaltepe}, J. and 
-	{Kneib}, J.~P. and {Krogager}, J.~K. and {Le Floc'h}, E. and 
-	{Lilly}, S. and {Mellier}, Y. and {Milvang-Jensen}, B. and {Moutard}, T. and 
-	{Onodera}, M. and {Richard}, J. and {Salvato}, M. and {Sanders}, D.~B. and 
-	{Scoville}, N. and {Silverman}, J.~D. and {Taniguchi}, Y. and 
-	{Tasca}, L. and {Thomas}, R. and {Toft}, S. and {Tresse}, L. and 
-	{Vergani}, D. and {Wolk}, M. and {Zirm}, A.}]{ilb13}
-{Ilbert} O. {et~al.}, 2013, \aap, 556, 55
+\bibitem[{{Ilbert} {et~al}\mbox{.}(2013){Ilbert}, {McCracken}, {Le F{\`e}vre},
+  {Capak}, {Dunlop}, {Karim}, {Renzini}, {Caputi}, {Boissier}, {Arnouts},
+  {Aussel}, {Comparat}, {Guo}, {Hudelot}, {Kartaltepe}, {Kneib}, {Krogager},
+  {Le Floc'h}, {Lilly}, {Mellier}, {Milvang-Jensen}, {Moutard}, {Onodera},
+  {Richard}, {Salvato}, {Sanders}, {Scoville}, {Silverman}, {Taniguchi},
+  {Tasca}, {Thomas}, {Toft}, {Tresse}, {Vergani}, {Wolk}, \& {Zirm}}]{ilb13}
+{Ilbert} O. {et~al.}, 2013, \aap, 556, A55
 
 \bibitem[{{Johnson} {et~al}\mbox{.}(2015){Johnson}, {Seth}, {Dalcanton},
   {Wallace}, {Simpson}, {Lintott}, {Kapadia}, {Skillman}, {Caldwell},
@@ -80,16 +76,14 @@
   {Land}, {Bamford}, {Thomas}, {Raddick}, {Nichol}, {Szalay}, {Andreescu},
   {Murray}, \& {Vandenberg}}]{lin08}
 {Lintott} C.~J. {et~al.}, 2008, \mnras, 389, 1179
-\bibitem[{{Momcheva} {et~al}\mbox{.}(2015){Momcheva}, I.~G. and {Brammer}, G.~B. and {van Dokkum}, P.~G. and 
-	{Skelton}, R.~E. and {Whitaker}, K.~E. and {Nelson}, E.~J. and 
-	{Fumagalli}, M. and {Maseda}, M.~V. and {Leja}, J. and {Franx}, M. and 
-	{Rix}, H.-W. and {Bezanson}, R. and {Da Cunha}, E. and {Dickey}, C. and 
-	{F{\"o}rster Schreiber}, N.~M. and {Illingworth}, G. and {Kriek}, M. and 
-	{Labb{\'e}}, I. and {Ulf Lange}, J. and {Lundgren}, B.~F. and 
-	{Magee}, D. and {Marchesini}, D. and {Oesch}, P. and {Pacifici}, C. and 
-	{Patel}, S.~G. and {Price}, S. and {Tal}, T. and {Wake}, D.~A. and 
-	{van der Wel}, A. and {Wuyts}, S.}]{mom15}
-{Momcheva} I.~G. {et~al.}, 2015
+
+\bibitem[{{Momcheva} {et~al}\mbox{.}(2015){Momcheva}, {Brammer}, {van Dokkum},
+  {Skelton}, {Whitaker}, {Nelson}, {Fumagalli}, {Maseda}, {Leja}, {Franx},
+  {Rix}, {Bezanson}, {Da Cunha}, {Dickey}, {F{\"o}rster Schreiber},
+  {Illingworth}, {Kriek}, {Labb{\'e}}, {Ulf Lange}, {Lundgren}, {Magee},
+  {Marchesini}, {Oesch}, {Pacifici}, {Patel}, {Price}, {Tal}, {Wake}, {van der
+  Wel}, \& {Wuyts}}]{mom15}
+{Momcheva} I.~G. {et~al.}, 2015, ArXiv e-prints, 1510.02106
 
 \bibitem[{{Rix} {et~al}\mbox{.}(2004){Rix}, {Barden}, {Beckwith}, {Bell},
   {Borch}, {Caldwell}, {H{\"a}ussler}, {Jahnke}, {Jogee}, {McIntosh},
