@@ -164,21 +164,10 @@ Different treatment of colored noise in COSMOS; creating color gradients with Su
 
 FERENGI images.
 
-\subsection{Redshifts}
-
-
-We compiled redshifts from a variety of sources to include in the GZH catalog. For each galaxy, the redshift selected is in the $\tt Z\_Best$ column of the data (see Table~\ref{tab:catalog}), its type (spectroscopic: $\tt SPEC\_Z$, photometric: $\tt PHOTO\_Z$, or grism: $ \tt GRISM\_Z$) is listed in the column $\tt Z\_BEST\_TYPE$, and the source catalog ($\tt Griffith$ \citep{gri12}, $\tt 3DHST$ \citep{mom15}, $\tt MUSYC$ \citep{car10}, or $\tt UltraVISTA$ \citep{ilb13}) of the redshift is in column $\tt Z\_BEST\_SOURCE$.
-
-For galaxies which have redshifts from multiple sources, we use the following algorithm to select the $\tt Z\_BEST$ redshift. We first prioritize spectroscopic redshifts; these are provided in the Griffith, 3DHST, and MUSYC catalogs. If a high quality spec-z exists in the Griffith catalog we use that, else 3DHST, else MUSYC. We show in Figure~\ref{fig:speczs} that over 98\% of the the spec-z's are consistent with each other, and therefore the priority order of selection makes no negligible difference. If no spectroscipic redshifts are available, we compare the 1-$\sigma$ errors of the photometric (Griffith, 3DHST, MUSYC, UltraVISTA) and grism (UltraVISTA) redshifts, and use the redshift with the smallest error. Table~\ref{tab:redshifts} shows the results of this selection. 
- 
-\begin{figure*}
-\includegraphics[width=160mm]{figures/specz_comparison.pdf}
-\caption{Spectroscopic redshifts from Griffith, 3DHST, and MUSYC catalogs. The number in the upper left of each plot is the percentage of redshifts which agree within $\Delta z < 0.05$ between the two catalogs being compared in each panel. Within this range there is over 98\% agreement in redshifts between all three catalogs.}
-\label{fig:speczs}
-\end{figure*}
 
 \tabletypesize{\scriptsize}
 \begin{deluxetable}{l|rr|rrr|rr|r|rr}
+
 \centering
 %\rotate
 \tablecolumns{12}
@@ -220,12 +209,26 @@ Total    & 14,271 & 81,045 & 798 & 3,865 & 1,977   & 1,095 & 8,488 & 2,665   & 1
 \enddata
 \end{deluxetable}
 
+\subsection{Redshifts}
+
+We compiled redshifts from a variety of sources to include in the GZH catalog. For each galaxy, the redshift selected is in the $\tt Z\_Best$ column of the data (see Table~\ref{tab:catalog}), its type (spectroscopic: $\tt SPEC\_Z$, photometric: $\tt PHOTO\_Z$, or grism: $ \tt GRISM\_Z$) is listed in the column $\tt Z\_BEST\_TYPE$, and the source catalog ($\tt Griffith$ \citep{gri12}, $\tt 3DHST$ \citep{mom15}, $\tt MUSYC$ \citep{car10}, or $\tt UltraVISTA$ \citep{ilb13}) of the redshift is in column $\tt Z\_BEST\_SOURCE$.
+
+For galaxies which have redshifts from multiple sources, we use the following algorithm to select the $\tt Z\_BEST$ redshift. We first prioritize spectroscopic redshifts; these are provided in the Griffith, 3DHST, and MUSYC catalogs. If a high quality spec-z exists in the Griffith catalog we use that, else 3DHST, else MUSYC. We show in Figure~\ref{fig:speczs} that over 98\% of the the spec-z's are consistent with each other, and therefore the priority order of selection makes no negligible difference. If no spectroscipic redshifts are available, we compare the 1-$\sigma$ errors of the photometric (Griffith, 3DHST, MUSYC, UltraVISTA) and grism (UltraVISTA) redshifts, and use the redshift with the smallest error. Table~\ref{tab:redshifts} shows the results of this selection. 
+ 
+\begin{figure*}
+\includegraphics[width=160mm]{figures/specz_comparison.pdf}
+\caption{Spectroscopic redshifts from Griffith, 3DHST, and MUSYC catalogs. The number in the upper left of each plot is the percentage of redshifts which agree within $\Delta z < 0.05$ between the two catalogs being compared in each panel. Within this range there is over 98\% agreement in redshifts between all three catalogs.}
+\label{fig:speczs}
+\end{figure*}
+
+
 
 \subsection{User weighting}
 \label{sec:weighting}
 The votes of individual users who classified galaxies in GZH are combined to make a vote fraction for each question on the classification tree. Users' votes are weighted slightly \citep[in a method identical to that described in][]{wil13} such that users who frequently disagree with all other users end up having very low weights. The majority of users have weights very close to $w=1.0$ ({\bf STEVEN: Is this true for GZH - do you have a plot of the distribution of user weights or consistencies we can include here?}. 
 
 \section{Galaxy Zoo interface and classifications}
+\label{sec:gz_interface}
 
 \begin{figure*}
 \includegraphics[width=160mm]{figures/gzh_interface.png}
@@ -407,8 +410,10 @@ Total                              & 3,950   & 100\% \\
 \end{tabular}
 \end{table}
 
+\subsection{Challenges of debiasing questions beyond ``smooth or features''}
+Each FERENGI image does not have the same number of users answering each question, due to the structure of the decision tree. Every user answers the first question, ``Is the galaxy smooth and rounded, with no sign of a disk?''; as such the vote fractions $\rm p_{smooth}, p_{features}$, and $\rm p_{artifact}$ are all computed with the minimum statistical error for any question, with roughly 40 total answers (see Section~\ref{sec:gz_interface}). The number of users to answer any subsequent question, however, is always equal to or less than the number to answer the preceding question. For this reason, some galaxies may have very few (or even zero) answers to a question further down the tree (see Figure make-figure-of-count-distribution-for-each-question). To minimize statistical error in computing vote fractions, a cut on the number of answers to a given question is always implemented. 
 
-Stuff to do in this section: 
+In the FERENGI data, we find that this places large limitations on the amount of information we can extract for the higher order questions. We require that at least 5 users answer each question for a galaxy image at $z=0.3$ \emph{and} its image at higher $z$. This requirement placed on both images is not met by a significant number of galaxies for questions beyond question 1. Without sufficient galaxies in each surface brightness/redshift bin, we cannot accurately measure a relationship between vote fractions and redshift; for this reason we only offer debiased vote fractions for question 1. \textbf{perhaps compute number of galaxies that can be fit to zeta for each question, show a table? overkill?} In Section \ref{sec:ferengi_bar} we show results of an attempt to measure $\zeta$ for $\rm p_{bar}$. 
 
 \begin{itemize}
 \item talk about where the Hubble sample falls in this space, reference table \ref{hubble_debiasable} 
@@ -503,7 +508,7 @@ We corrected for the biases described for the first question of the GZH decision
 \tabletypesize{\scriptsize}
 \begin{deluxetable}{lrrllcrrrrrr|c}
 \centering
-%\rotate
+\rotate
 \tablecolumns{12}
 \tablewidth{0pc}
 \tablecaption{GZH morphological classifications} 
@@ -531,18 +536,23 @@ We corrected for the biases described for the first question of the GZH decision
 }
 \small
 \startdata
-10000034            & 188.93       & 62.23         & AEGIS           &  correctable &  72 &  10 &  10.0 & 0.625 & 0.625 & 0.629 & 0 \\
-10000162            & 160.99      & 11.70          & AEGIS           &  uncorrectable &  84 &  17 &  17.0 & 0.810 & 0.810 & 0.810 & 1 \\
-5001356             & 210.80       & 54.15         & GOODS-N-Shallow &  correctable &  88 &  18 &  18.0 & 0.783 & 0.783 & 0.722 & 0 \\
-9003947835          & 176.54       & 8.74          & GOODS-S-Shallow &  nei &  48 &  16 &  16.0 & 1.000 & 1.000 & 1.000 & 1 \\
-GDS~S~16203         & 186.44       & 47.88         & GOODS-FULL      &  nei &  89 &  17 &  17.0 & 0.739 & 0.739 & 0.739 & 0 \\
-8647474690312438284 & 188.93       & 62.64         & SDSS            &  zlt3 &  91 &   0 &   0.0 & 0.000 & 0.000 & 0.000 & 0 \\
-20061690            & 160.99       & 11.70         & COSMOS          &  nei &  65 &   4 &   3.4 & 0.333 & 0.295 & 0.295 & 0 \\
-20061692            & 176.54       & 8.45          & COSMOS          &  correctable &  75 &  14 &  14.0 & 0.609 & 0.629 & 0.666 & 0 \\
-90022947            & 230.24       & 84.20         & GEMS           &  zlt3 & 129 &  12 &  12.0 & 0.462 & 0.462 & 0.492 & 0 \\
-20063829            & 203.23       & 93.20         & COSMOS         &  correctable &  69 &  18 &  17.0 & 0.900 & 0.895 & 0.840 & 1 \\
+13035128            & 214.99  & 53.02    & AEGIS   &  correctable  		&  121 &  0.46 &  0.50 & 0.12 & 0.14 & 0.73 & 0.12 \\
+13035131            & 215.01  & 53.02    & AEGIS   &  nei           		&  134 &  0.61 &  0.65 & 0.20 &      &      & 0.65 \\
+    ...             & ...     & ...      &  ...    &  ...              		&  ... & ...   &  ...  & ...  & ...  & ...  & ...  \\
+20055697            & 150.52  & 2.09     & COSMOS  &  correctable   		&  52  &  0.52 &  0.55 & 0.38 & 0.55 & 0.81 & 0.38  \\
+20055698            & 150.50  & 2.09     & COSMOS  &  uncorrectable 		&  31  &  0.61 &  0.70 & 0.47 & 0.47 & 0.80 & 0.70 \\
+    ...             & ...     & ...      &  ...    &  ...              		&  ... & ...   &  ...  & ...  & ...  & ...  & ...  \\
+90021901            & 53.29   & -27.85   & GEMS    &  correctable   		&  131 &  0.21 &  0.21 & 0.15 & 0.14 & 0.35 & 0.15 \\
+90021903            & 53.34   & -27.83   & GEMS    &  $z<0.3$         		&  142 &  0.78 &  0.80 & 1.04 &      &      & 0.80 \\
+    ...             & ...     & ...      &  ...    &  ...              		&  ... & ...   &  ...  & ...  & ...  & ...  & ...  \\
+GDS\_N\_2333        & 189.02  & 62.12    & GOODS-N & $\rm nei\_needs\_redshift$ &  40  &  0.33 &  0.33 & 0.87 &      &      & 0.33 \\
+GDS\_S\_3132        & 53.04   & -27.71   & GOODS-S & uncorrectable              &  40  &  0.83 &  0.83 & 0.45 & 0.38 & 0.85 & 0.83 \\
+    ...             & ...     & ...      &  ...    &  ...              		&  ... & ...   &  ...  & ...  & ...  & ...  & ...  \\
+587731173843665742  & 315.58  & 0.25     & SDSS    & $z<0.3$                    &  48  & 0.79  & 0.89  & 1.23 &      &      & 0.89 \\
+587731173843730515  & 315.61  & 0.30     & SDSS    & $z<0.3$                    &  53  & 0.68  & 0.75  & 1.06 &      &      & 0.75 \\
+
 \enddata
-\tablecomments{Full version is online at some website, here are 10 rows out of 181,101 in the full version.\emph{These numbers are super fake right now - put real values in for final version!}}
+\tablecomments{Full version is online at some website, here are 10 rows out of 181,101 in the full version.}
 \end{deluxetable}
 
 
@@ -601,7 +611,127 @@ The SDSS is managed by the Astrophysical Research Consortium for the Participati
 \appendix
 \section{GOODS Shallow Depth data}
 
+
+\begin{table}
+\caption{Breakdown of what we can correct out of the GOODS shallow depth data. \label{goods_shallow_categories}}
+\begin{tabular}{lrrrrrrrr}
+\hline\hline
+                                   & GOODS-N & GOODS-S & Total \\
+\hline
+Correctable                        & 748     & 514     & 1,262 \\
+Uncorrectable                      & 526     & 1,143   & 1,669 \\
+No Correction Needed ($z \le 0.3$) & 267     & 267     & 534   \\ 
+NEI                                & 851     & 2,670   & 3,521 \\
+No Redshift Information            & 159     & 319     & 478   \\
+Total                              & 2,551   & 4,913   & 7,464 \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+
+
 GZH used both 5-epoch and 2-epoch sets of data to construct the GOODS set of images. The 11,157 full depth 5-epoch images are used in the main catalog; the classifications for the 7,464 shallow depth 2-epoch images are offered as a supplementary table. Here we briefly analyze the effect of image depth on the ability of the GZ users to identify features or disk structure in the images. 
 
-4,461 galaxies have both full depth and shallow depth classifications. 
+\subsection{Comparing shallow and full depth morphologies}.
+Of the 11,157 galaxies in the GOODS-N and GOODS-S full depth sample, 4,461 of these are in the shallow-depth sample. In Figure~\ref{fig:shallow_vs_full} we find a strong correlation between $\rm p_{features}$ for both sets of images. The mean change in $\rm p_{features}$ from the shallow to full depth images  $\rm p_{features,full} - p_{features,shallow} = \Delta p = 0.00$, with a standard deviation of $\sigma = 0.17$. While there is some variance in $\Delta p$ in the whole sample, the change is usually small and not often significant enough to change a morphological classification. Defining a clean sample of disk galaxies as those with $p_{features,best}>0.8$, elliptical galaxies as those with  $p_{smooth,best}<0.2$, and intermediate as those in between, we find that 75\% of the sample would not change morphology. Of the remaining 25\% that would change morphology, only 0.3\% (representing 10 galaxies total) drastically change morphology from smooth to featured or visa versa, while the rest would transition to or from the ``intermediate'' morphology. Details can be seen in Table~\ref{shallow_to_full_stats} and examples of images representing the 9 possible changes (or lack of) in morphology are shown in Figures~\ref{fig:shallow_smooth},\ref{fig:shallow_intermediate}, and \ref{fig:shallow_featured}.
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.50\textwidth]{figures/full_shallow_p_plot.pdf}
+\caption{shallowfull}
+\label{fig:shallow_vs_full}
+\end{center}
+\end{figure}
+
+\begin{table}
+\caption{Properties of galaxies whose morphologies changed or stayed the same in the shallow vs full images. Featured here is defined as $p_{features,best}>0.8$, intermediate = $0.2<p_{features,best}<0.8$, smooth = $p_{smooth,best}<0.2$. \label{shallow_to_full_stats}}
+\begin{tabular}{lrrrrrrrr}
+\hline\hline
+shallow to full morphology    & N       & \%       & $<\Delta p>$ & $<z>$ \\
+\hline
+smooth to smooth              & 758     & 17.0     & -0.00        &  0.69\\
+smooth to intermediate        & 367     & 8.2      & 0.18         &  0.69\\
+smooth to featured            & 7       & 0.2      & 0.76         &  0.57\\ 
+intermediate to smooth        & 214     & 4.8      & -0.18        &  0.65\\
+intermediate to intermediate  & 2,303   & 51.6     & 0.01         &  0.78 \\
+intermediate to featured      & 168     & 3.8      & 0.19         &  0.83\\
+featured to smooth            & 3       & 0.1      & -0.74        &  0.71\\
+featured to intermediate      & 337     & 7.6      & -0.18        &  0.68\\
+featured to featured          & 301     & 6.8      & -0.05        &  0.71\\
+
+Total                         & 4,461   & 100      &              & \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+
+
+\begin{figure*}
+\centering
+
+\subfigure{[a]\label{fig:smoothtoint}\includegraphics[width=\textwidth]{figures/smooth_to_smooth.pdf}}
+
+\subfigure{[b]\label{fig:smoothtoint}\includegraphics[width=\textwidth]{figures/smooth_to_intermediate.pdf}}
+
+\subfigure{[c]\label{fig:smoothtoint}\includegraphics[width=\textwidth]{figures/smooth_to_featured.pdf}}
+
+\caption{Galaxies whose shallow images were classified as smooth and full depth images were classified as smooth, intermediate, or featured.}
+\label{fig:shallow_smooth}
+\end{figure*}
+
+\begin{figure*}
+\centering
+
+\subfigure{[b]\label{fig:smoothtoint}\includegraphics[width=\textwidth]{figures/intermediate_to_smooth.pdf}}
+
+\subfigure{[b]\label{fig:smoothtoint}\includegraphics[width=\textwidth]{figures/intermediate_to_intermediate.pdf}}
+
+\subfigure{[b]\label{fig:smoothtoint}\includegraphics[width=\textwidth]{figures/intermediate_to_featured.pdf}}
+
+\caption{Galaxies whose shallow images were classified as intermediate and full depth images were classified as smooth, intermediate, or featured.}
+\label{fig:shallow_intermediate}
+\end{figure*}
+
+\begin{figure*}
+\centering
+
+\subfigure{[b]\label{fig:smoothtoint}\includegraphics[width=\textwidth]{figures/featured_to_smooth.pdf}}
+
+\subfigure{[b]\label{fig:smoothtoint}\includegraphics[width=\textwidth]{figures/featured_to_intermediate.pdf}}
+
+\subfigure{[b]\label{fig:smoothtoint}\includegraphics[width=\textwidth]{figures/featured_to_featured.pdf}}
+
+
+\caption{Galaxies whose shallow images were classified as featured and full depth images were classified as smooth, intermediate, or featured.}
+\label{fig:shallow_featured}
+\end{figure*}
+
+\subsection{FERENGI analysis of pbar}
+\label{sec:ferengi_bar}
+\begin{figure*}
+\centering
+\subfigure{[a]\label{a}\includegraphics[width=0.5\textwidth]{figures/p_vs_p_SB_redshift_bar.pdf}}
+\subfigure{[b]\label{b}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot1_bar.pdf}}
+\\
+\subfigure{[c]\label{c}\includegraphics[width=0.5\textwidth]{figures/orangebars_bar.pdf}}
+\subfigure{[d]\label{d}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot2_bar.pdf}}
+\caption{Same as Figure~\ref{fig:p_vs_p}, but with the bar question.}
+\label{fig:p_vs_p_bar}
+\end{figure*}
+
+\begin{table}ー
+\caption{Distribution of \ferengi{} images analysed in Figure~\ref{fig:p_vs_p_bar}. Correctable images had a single-valued relationship between their measured $p_{\rm bar}$ values at high and low redshifts (white regions in Figure~\ref{fig:p_vs_p_bar}). Uncorrectable images had a non single-valued relationship (blue regions). NEI images had undetermined relationships due to a lack of data ($N<5$) in their corresponding z-$\mu$ bins (gray regions). Only 17\% (maximum) of FERENGI galaxies in the sample were considered ``correctable'', which is not sufficient to compute a $\zeta$ function applicable to the Hubble data.   \label{ferengi_bar_corrections}}
+\begin{tabular}{lrr}
+\hline \hline
+				                   & N       & \% \\
+\hline 
+Correctable                        & 664   & 17\% \\
+Uncorrectable                      & 483   & 12\% \\
+NEI                                & 2,803     & 71\%\\
+Total                              & 3,950   & 100\% \\
+\hline \hline
+\end{tabular}
+\end{table}
+
+
 \end{document}
