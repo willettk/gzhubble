@@ -212,7 +212,7 @@ Total    & 14,271 & 81,045 & 798 & 3,865 & 1,977   & 1,095 & 8,488 & 2,665   & 1
 
 \subsection{Redshifts}
 
-We compiled redshifts from a variety of sources to include in the GZH catalog. For each galaxy, the redshift selected is in the $\tt Z\_Best$ column of the data (see Table~\ref{tbl:catalog}), its type (spectroscopic: $\tt SPEC\_Z$, photometric: $\tt PHOTO\_Z$, or grism: $ \tt GRISM\_Z$) is listed in the column $\tt Z\_BEST\_TYPE$, and the source catalog ($\tt Griffith$ \citep{gri12}, $\tt 3DHST$ \citep{mom15}, $\tt MUSYC$ \citep{car10}, or $\tt UltraVISTA$ \citep{ilb13}) of the redshift is in column $\tt Z\_BEST\_SOURCE$.
+We compiled redshifts from a variety of sources to include in the GZH catalog. For each galaxy, the redshift selected is in the $\tt Z\_Best$ column of the data (see Table~\ref{tbl:catalog_hst}), its type (spectroscopic: $\tt SPEC\_Z$, photometric: $\tt PHOTO\_Z$, or grism: $ \tt GRISM\_Z$) is listed in the column $\tt Z\_BEST\_TYPE$, and the source catalog ($\tt Griffith$ \citep{gri12}, $\tt 3DHST$ \citep{mom15}, $\tt MUSYC$ \citep{car10}, or $\tt UltraVISTA$ \citep{ilb13}) of the redshift is in column $\tt Z\_BEST\_SOURCE$.
 
 For galaxies which have redshifts from multiple sources, we use the following algorithm to select the $\tt Z\_BEST$ redshift. We first prioritize spectroscopic redshifts; these are provided in the Griffith, 3DHST, and MUSYC catalogs. If a high quality spec-z exists in the Griffith catalog we use that, else 3DHST, else MUSYC. We show in Figure~\ref{fig:speczs} that over 98\% of the the spec-z's are consistent with each other, and therefore the priority order of selection makes no negligible difference. If no spectroscipic redshifts are available, we compare the 1-$\sigma$ errors of the photometric (Griffith, 3DHST, MUSYC, UltraVISTA) and grism (UltraVISTA) redshifts, and use the redshift with the smallest error. Table~\ref{tbl:redshifts} shows the results of this selection. 
  
@@ -513,7 +513,7 @@ We corrected for the biases described for the first question of the GZH decision
 \tablecolumns{13}
 \tablewidth{0pc}
 \tablecaption{GZH morphological classifications for AEGIS, COSMOS, GEMS, and GOODS images} 
-\label{tbl:catalog}
+\label{tbl:catalog_hst}
 \tabletypesize{\scriptsize}
 \tablehead{
  & & & RA & dec  &  
@@ -561,6 +561,131 @@ AGZ00083jc  & 8878      & GOODS-S-FULLDEPTH &          &            & 0        &
 % Why are most of the full-depth GOODS weighted fractions identical to the raw fractions?
 
 \tabletypesize{\scriptsize}
+\begin{deluxetable}{lllllcrllllll|c}
+\centering
+\rotate
+\tablecolumns{13}
+\tablewidth{0pc}
+\tablecaption{GZH morphological classifications for desaturated Hubble images} 
+\label{tbl:catalog_desaturated}
+\tabletypesize{\scriptsize}
+\tablehead{
+ & & & RA & dec  &  
+\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
+\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\colhead{$\ldots$}
+\\
+\colhead{Project ID} & 
+\colhead{Hubble ID} & 
+\colhead{Imaging} & 
+\colhead{J2000} & 
+\colhead{J2000} & 
+\colhead{Correction} & 
+\colhead{$N_\mathrm{votes}$} & 
+\colhead{fraction} & 
+\colhead{weighted} & 
+\colhead{debiased} & 
+\colhead{best} &
+\colhead{lower~limit} & 
+\colhead{upper~limit} &
+\colhead{}
+}
+\small
+\startdata
+AHZF000001  &   20000002    &   COSMOS  &   &   &   1   &   160 &  0.708   &     0.755   &   0.228    &    0.754 &   0.325 &   0.829  \\
+AHZF000003  &   20000004    &   COSMOS  &   &   &   3   &   301 &  0.367   &     0.379   &   0.100    &    0.379 &   0.198 &   0.198  \\
+AHZF000004  &   20000006    &   COSMOS  &   &   &   3   &   319 &  0.265   &     0.271   &   0.010    &    0.270 &   $-$	&   $-$    \\
+AHZF00000z  &   20000102    &   COSMOS  &   &   &   1   &   150 &  0.727   &     0.78    &   0.233    &    0.780 &   0.316 &   0.820  \\
+AHZF000010  &   20000104    &   COSMOS  &   &   &   2   &   164 &  0.811   &     0.849   &   0.904    &    0.848 &   $-$	&   $-$    \\
+\enddata
+\tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 3,927~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
+\end{deluxetable}
+
+\tabletypesize{\scriptsize}
+\begin{deluxetable}{lllllcrllllll|c}
+\centering
+\rotate
+\tablecolumns{13}
+\tablewidth{0pc}
+\tablecaption{GZH morphological classifications for color-inverted images} 
+\label{tbl:catalog_inverted}
+\tabletypesize{\scriptsize}
+\tablehead{
+ & & & RA & dec  &  
+\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
+\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\colhead{$\ldots$}
+\\
+\colhead{Project ID} & 
+\colhead{Hubble ID} & 
+\colhead{Imaging} & 
+\colhead{J2000} & 
+\colhead{J2000} & 
+\colhead{Correction} & 
+\colhead{$N_\mathrm{votes}$} & 
+\colhead{fraction} & 
+\colhead{weighted} & 
+\colhead{debiased} & 
+\colhead{best} &
+\colhead{lower~limit} & 
+\colhead{upper~limit} &
+\colhead{}
+}
+\small
+\startdata
+AHZC000001	&   20000002	&   COSMOS	&   &   &   1	&   168	&   0.615   &   0.664   &   0.160   &  0.663   &  0.271    &  0.775    \\
+AHZC000003	&   20000004	&   COSMOS	&   &   &   0	&   235	&   0.333   &   0.364   &   0.002   &  0.002   &  0.063    &  0.063    \\
+AHZC000004	&   20000006	&   COSMOS	&   &   &   3	&   316	&   0.235   &   0.252   & $-0.011$  &  0.252   &  $-$	    &  $-$      \\
+AHZC00000z	&   20000102	&   COSMOS	&   &   &   1	&   207	&   0.755   &   0.757   &   0.272   &  0.756   &  0.249    &  0.796    \\
+AHZC000010	&   20000104	&   COSMOS	&   &   &   2	&   158	&   0.843   &   0.882   &   0.936   &  0.881   &  $-$	    &  $-$      \\
+\enddata
+\tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 3,927~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
+\end{deluxetable}
+
+\tabletypesize{\scriptsize}
+\begin{deluxetable}{lllllcrllllll|c}
+\centering
+\rotate
+\tablecolumns{13}
+\tablewidth{0pc}
+\tablecaption{GZH morphological classifications for GOODS 2-epoch images} 
+\label{tbl:catalog_desaturated}
+\tabletypesize{\scriptsize}
+\tablehead{
+ & & & RA & dec  &  
+\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
+\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\colhead{$\ldots$}
+\\
+\colhead{Project ID} & 
+\colhead{Hubble ID} & 
+\colhead{Imaging} & 
+\colhead{J2000} & 
+\colhead{J2000} & 
+\colhead{Correction} & 
+\colhead{$N_\mathrm{votes}$} & 
+\colhead{fraction} & 
+\colhead{weighted} & 
+\colhead{debiased} & 
+\colhead{best} &
+\colhead{lower~limit} & 
+\colhead{upper~limit} &
+\colhead{}
+}
+\small
+\startdata
+AHZ3000001  &   50000000    &     GOODS-N   &   &   &   0   &   123	&   0.390   &   0.415	&   0.090 &   0.090 &   $-$     &   $-$      \\
+AHZ3000002  &   50000001    &     GOODS-N   &   &   &   2   &   126	&   0.341	&   0.355	&   0.356 &   0.356 &   0.220	&   0.279    \\
+AHZ3000003  &   50000005    &     GOODS-N   &   &   &   1   &   129	&   0.760   &   0.826	&   0.633 &   0.825 &   0.596	&   0.834    \\
+AHZ3000004  &   50000008    &     GOODS-N   &   &   &   1   &   120	&   0.758	&   0.787	&   0.639 &   0.787 &   0.658	&   0.834    \\
+AHZ3000005  &   50000010    &     GOODS-N   &   &   &   1   &   123	&   0.854	&   0.890   &   0.611 &   0.889 &   0.597	&   0.914    \\
+\enddata
+\tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 6,144~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
+\end{deluxetable}
+
+
+
+\tabletypesize{\scriptsize}
 \begin{deluxetable}{lllllcrllll|c}
 \centering
 \rotate
@@ -576,11 +701,11 @@ AGZ00083jc  & 8878      & GOODS-S-FULLDEPTH &          &            & 0        &
 \colhead{$\ldots$}
 \\
 \colhead{Project ID} & 
-\colhead{Hubble ID} & 
+\colhead{SDSS DR7 ObjID} & 
 \colhead{Imaging} & 
 \colhead{J2000} & 
 \colhead{J2000} & 
-\colhead{Correction$^{1}$} & 
+\colhead{Correction} & 
 \colhead{$N_\mathrm{votes}$} & 
 \colhead{fraction} & 
 \colhead{weighted} & 
@@ -602,7 +727,6 @@ AHZ5000009  &   587730845812720640  &   SDSS    &   &   &     4 &   43  &   0.0	
 AHZ500000a  &   587730845812720699  &   SDSS    &   &   &     2 &   40  &   0.425   &    0.478  &   0.588   &   0.477   \\
 $\ldots$    & $\ldots$  & $\ldots$  & $\ldots$  & $\ldots$   & $\ldots$ &  $\ldots$ & $\ldots$ & $\ldots$ \\
 \enddata
-\tablenotetext{1}{Flag indicating how the vote fractions for this galaxy were corrected through debiasing (\S\ref{ssec:zeta_results}), if possible. 0~=~correctable, 1~=~uncorrectable ($p_{raw}$ --- $p_{adj}$ is not single-valued), 2~=~uncorrected ($z_{\rm gal} < 0.3$), 3~=~uncorrectable (insufficient FERENGI galaxies in this $z$-$\mu$ bin), 4~=~uncorrectable (no galaxy redshift available).}
 \tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 21,522~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
 \end{deluxetable}
 
@@ -624,11 +748,11 @@ $\ldots$    & $\ldots$  & $\ldots$  & $\ldots$  & $\ldots$   & $\ldots$ &  $\ldo
 \colhead{$\ldots$}
 \\
 \colhead{Project ID} & 
-\colhead{Hubble ID} & 
+\colhead{SDSS DR7 ObjID} & 
 \colhead{Imaging} & 
 \colhead{J2000} & 
 \colhead{J2000} & 
-\colhead{Correction$^{1}$} & 
+\colhead{Correction} & 
 \colhead{$N_\mathrm{votes}$} & 
 \colhead{fraction} & 
 \colhead{weighted} & 
@@ -650,7 +774,6 @@ AHZ6000009  & 8647474690312372931   &   SDSS    &   &   &    4  & 47  & 0.553   
 AHZ600000a  & 8647474690312373190   &   SDSS    &   &   &    4  & 47  & 0.574   &    0.559  &   1.008   &   0.559   & \\
 $\ldots$    & $\ldots$  & $\ldots$  & $\ldots$  & $\ldots$   & $\ldots$ &  $\ldots$ & $\ldots$ & $\ldots$ \\
 \enddata
-\tablenotetext{1}{Flag indicating how the vote fractions for this galaxy were corrected through debiasing (\S\ref{ssec:zeta_results}), if possible. 0~=~correctable, 1~=~uncorrectable ($p_{raw}$ --- $p_{adj}$ is not single-valued), 2~=~uncorrected ($z_{\rm gal} < 0.3$), 3~=~uncorrectable (insufficient FERENGI galaxies in this $z$-$\mu$ bin), 4~=~uncorrectable (no galaxy redshift available).}
 \tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 30,339~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
 \end{deluxetable}
 
