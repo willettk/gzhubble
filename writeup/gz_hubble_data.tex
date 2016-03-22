@@ -58,6 +58,7 @@
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{deluxetable}
+\usepackage{url}
 \bibliographystyle{mn2e}
 
 \begin{document}
@@ -173,7 +174,7 @@ FERENGI images.
 \tablecolumns{12}
 \tablewidth{0pc}
 \tablecaption{GZH redshifts by survey} 
-\label{tab:redshifts}
+\label{tbl:redshifts}
 \tabletypesize{\scriptsize}
 \tablehead{
  &   
@@ -211,9 +212,9 @@ Total    & 14,271 & 81,045 & 798 & 3,865 & 1,977   & 1,095 & 8,488 & 2,665   & 1
 
 \subsection{Redshifts}
 
-We compiled redshifts from a variety of sources to include in the GZH catalog. For each galaxy, the redshift selected is in the $\tt Z\_Best$ column of the data (see Table~\ref{tab:catalog}), its type (spectroscopic: $\tt SPEC\_Z$, photometric: $\tt PHOTO\_Z$, or grism: $ \tt GRISM\_Z$) is listed in the column $\tt Z\_BEST\_TYPE$, and the source catalog ($\tt Griffith$ \citep{gri12}, $\tt 3DHST$ \citep{mom15}, $\tt MUSYC$ \citep{car10}, or $\tt UltraVISTA$ \citep{ilb13}) of the redshift is in column $\tt Z\_BEST\_SOURCE$.
+We compiled redshifts from a variety of sources to include in the GZH catalog. For each galaxy, the redshift selected is in the $\tt Z\_Best$ column of the data (see Table~\ref{tbl:catalog_hst}), its type (spectroscopic: $\tt SPEC\_Z$, photometric: $\tt PHOTO\_Z$, or grism: $ \tt GRISM\_Z$) is listed in the column $\tt Z\_BEST\_TYPE$, and the source catalog ($\tt Griffith$ \citep{gri12}, $\tt 3DHST$ \citep{mom15}, $\tt MUSYC$ \citep{car10}, or $\tt UltraVISTA$ \citep{ilb13}) of the redshift is in column $\tt Z\_BEST\_SOURCE$.
 
-For galaxies which have redshifts from multiple sources, we use the following algorithm to select the $\tt Z\_BEST$ redshift. We first prioritize spectroscopic redshifts; these are provided in the Griffith, 3DHST, and MUSYC catalogs. If a high quality spec-z exists in the Griffith catalog we use that, else 3DHST, else MUSYC. We show in Figure~\ref{fig:speczs} that over 98\% of the the spec-z's are consistent with each other, and therefore the priority order of selection makes no negligible difference. If no spectroscipic redshifts are available, we compare the 1-$\sigma$ errors of the photometric (Griffith, 3DHST, MUSYC, UltraVISTA) and grism (UltraVISTA) redshifts, and use the redshift with the smallest error. Table~\ref{tab:redshifts} shows the results of this selection. 
+For galaxies which have redshifts from multiple sources, we use the following algorithm to select the $\tt Z\_BEST$ redshift. We first prioritize spectroscopic redshifts; these are provided in the Griffith, 3DHST, and MUSYC catalogs. If a high quality spec-z exists in the Griffith catalog we use that, else 3DHST, else MUSYC. We show in Figure~\ref{fig:speczs} that over 98\% of the the spec-z's are consistent with each other, and therefore the priority order of selection makes no negligible difference. If no spectroscipic redshifts are available, we compare the 1-$\sigma$ errors of the photometric (Griffith, 3DHST, MUSYC, UltraVISTA) and grism (UltraVISTA) redshifts, and use the redshift with the smallest error. Table~\ref{tbl:redshifts} shows the results of this selection. 
  
 \begin{figure*}
 \includegraphics[width=160mm]{figures/specz_comparison.pdf}
@@ -361,7 +362,7 @@ f_\textrm{features,debiased} = 1 - (1 - f)e^{\frac{z-z_0}{\hat\zeta}}.
 \label{eqn:fzeta_mod}
 \end{equation}
 
-\subsection{Results of $\zeta$ approach}
+\subsection{Results of $\zeta$ approach}\label{ssec:zeta_results}
 
 \begin{figure}
 \begin{center}
@@ -391,7 +392,7 @@ Figure~\ref{fig:p_vs_p} shows that the relationship between $p_{\rm features,z}$
 
 Our criteria for determining whether a region of this space is single-valued, and therefore correctable, is as follows: In each surface brightness and redshift bin, we model the relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ by fitting the data with a polynomials of degrees 3, 2, and 1, and use the best fit out of the three. These fits are shown as the dashed black lines in Figure~\ref{fig:6a}. Any flat regions of the polynomial fits are areas in which there is not a clear single-valued relationship between $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$; we quantify this by setting a minimum slope cut of 0.4. Any data in which the polynomial fit has a slope less than this value is considered \emph{not} one-to-one, and therefore ``uncorrectable.'' These regions are highlighted in blue in figure ~\ref{fig:6a}. Uncolored (white) regions of the plot have sufficiently high slopes for us to consider the relationship to be single-valued; galaxies in these regions are considered ``correctable'', and only these are used in measuring the parameters for the $\zeta$ function (Section \ref{sec:zeta}). Only surface brightness/redshift bins with at least 5 galaxies were considered; regions with fewer than 5 galaxies we consider to have ``not enough information'' to determine the  $p_{\rm features,z}$ and $p_{\rm features,z=0.3}$ relationship, these are colored gray in Figure~\ref{fig:6a}.
 
-The unshaded regions in Figure~\ref{fig:6a} define discrete ranges of redshift, surface brightness, and $\pfeatures$ a galaxy must have in order for the $\zeta$ approach to be confidentely applied to a galaxy in the GZH sample. While the appropriate correctable regions were defined discretely, we assume the true correctable region is a smooth function of z, $\mu$, and $\pfeatures$. To define this smooth space, we use a convex hull method to enclose the correctable and uncorrectable \ferengi{} galaxies is z-$\mu$-$\pfeatures$ space. Due to scatter, the boundaries of the resulting hulls overlap. The boundaries are then adjusted until the contamination from both groups is minimized. We use the resulting hulls to define the correctable and uncorrectable regions for categorizing the Hubble galaxies. The results of this method and final categorization of the Hubble sample is displayed in Table~\ref{hubble_debiasable}. We find that of the galaxies at redshift higher than $z=z_{0}=0.3$, 17\% of these are able to be debiased using the $\zeta$ method, 27\% cannot be debiased, and 56\% cannot be determined, due to a lack of redshift or information or due to a lack of \ferengi{} data corresponding to those galaxies' redshift/surface brightness values.
+The unshaded regions in Figure~\ref{fig:6a} define discrete ranges of redshift, surface brightness, and $\pfeatures$ a galaxy must have in order for the $\zeta$ approach to be confidentely applied to a galaxy in the GZH sample. While the appropriate correctable regions were defined discretely, we assume the true correctable region is a smooth function of z, $\mu$, and $\pfeatures$. To define this smooth space, we use a convex hull method to enclose the correctable and uncorrectable \ferengi{} galaxies is z-$\mu$-$\pfeatures$ space. Due to scatter, the boundaries of the resulting hulls overlap. The boundaries are then adjusted until the contamination from both groups is minimized. We use the resulting hulls to define the correctable and uncorrectable regions for categorizing the Hubble galaxies. The results of this method and final categorization of the Hubble sample is displayed in Table~\ref{tbl:hubble_debiasable}. We find that of the galaxies at redshift higher than $z=z_{0}=0.3$, 17\% of these are able to be debiased using the $\zeta$ method, 27\% cannot be debiased, and 56\% cannot be determined, due to a lack of redshift or information or due to a lack of \ferengi{} data corresponding to those galaxies' redshift/surface brightness values.
 
 For the ``uncorrectable'' galaxies, those for which we cannot confidentely assign a single debiased $p_{\rm features}$ value, we instead determine a likely \emph{range} of debiased values, using a method visualized in Figure~\ref{fig:6c}. Here we again use the \ferengi{} simulated data to analyze the range of intrinsic $p_{\rm features,z=0.3}$ values for any given observed $p_{\rm features}$ value, again as a function of surface brightness and redshift. In each z,$\mu$ bin, we examine the spread of intrinsic values of $p_{\rm features,z=0.3}$ for 4 ranges of observed $p_{\rm features}$. We quantify the range of intrinsic values as the inner 80\% of the data; this range is represented by the orange bars in Figure~\ref{fig:6c}. For any galaxy which can't be directly debiased by the $\zeta$ method, then, we use these ranges to denote the upper and lower limits on what we expect $p_{features,z=0.3}$ to be for any observed value of $p_{\rm features}$. 
 
@@ -416,7 +417,7 @@ Each FERENGI image does not have the same number of users answering each questio
 In the FERENGI data, we find that this places large limitations on the amount of information we can extract for the higher order questions. We require that at least 5 users answer each question for a galaxy image at $z=0.3$ \emph{and} its image at higher $z$. This requirement placed on both images is not met by a significant number of galaxies for questions beyond question 1. Without sufficient galaxies in each surface brightness/redshift bin, we cannot accurately measure a relationship between vote fractions and redshift; for this reason we only offer debiased vote fractions for question 1. \textbf{perhaps compute number of galaxies that can be fit to zeta for each question, show a table? overkill?} In Section \ref{sec:ferengi_bar} we show results of an attempt to measure $\zeta$ for $\rm p_{bar}$. 
 
 \begin{itemize}
-\item talk about where the Hubble sample falls in this space, reference table \ref{hubble_debiasable} 
+\item talk about where the Hubble sample falls in this space, reference table \ref{tbl:hubble_debiasable} 
 \item justify $N>5$ and spread $< 0.2$ (or find a better way to choose criteria)
 \item check out corrections for correctable and NEI, show some sample images of corrected galaxies
 \item show some data for $\pbar$, determine or justify why we won't debiase them  
@@ -424,17 +425,17 @@ In the FERENGI data, we find that this places large limitations on the amount of
 
  
 \begin{table*}
-\caption{Breakdown of what we can correct out of the GZH data, by sample.  \emph{updated from 3-8-16: Switching to full depth for all GOODS data. Shallow depth information in appendix.}\label{hubble_debiasable}}
-\begin{tabular}{lrrrrrrrr}
+\caption{Breakdown of what we can correct out of the GZH data, by sample.  \emph{updated from 3-8-16: Switching to full depth for all GOODS data. Shallow depth information in appendix.}\label{tbl:hubble_debiasable}}
+\begin{tabular}{lcrrrrrrr}
 \hline\hline
-                                  & AEGIS   & COSMOS & GEMS & GOODS-N & GOODS-S         & SDSS    & Total \\
+                                   & Correction type & AEGIS   & COSMOS & GEMS & GOODS-N & GOODS-S    & SDSS    & Total \\
 \hline
-Correctable                        & 1,654   & 15,170 & 1,837 & 993    & 835     	& 0       & 20,489\\
-Uncorrectable                      & 1,917   & 26,113 & 2,423 & 1,385  & 1,282   	& 0       & 33,120\\
-No Correction Needed ($z \le 0.3$) & 955     & 11,926 & 1,175 & 415    & 400     	& 37,545  & 52,416\\ 
-NEI                                & 2,847   & 34,511 & 3,308 & 2,535  & 2,523   	& 0       & 45,724\\
-No Redshift Information            & 1,134   & 5,088  & 561   & 687    & 102   		& 14,316  & 21,888\\
-Total                              & 8,507   & 92,808 & 9,304 & 6,015  & 5,142   	& 51,861  & 173,637\\
+Correctable                        & 0               & 1,654   & 15,170 & 1,837 & 993    & 835     	& 0       & 20,489\\
+Uncorrectable                      & 1               & 1,917   & 26,113 & 2,423 & 1,385  & 1,282   	& 0       & 33,120\\
+No Correction Needed ($z \le 0.3$) & 2               & 955     & 11,926 & 1,175 & 415    & 400     	& 37,545  & 52,416\\ 
+NEI                                & 3               & 2,847   & 34,511 & 3,308 & 2,535  & 2,523   	& 0       & 45,724\\
+No Redshift Information            & 4               & 1,134   & 5,088  & 561   & 687    & 102   		& 14,316  & 21,888\\
+Total                              &                 & 8,507   & 92,808 & 9,304 & 6,015  & 5,142   	& 51,861  & 173,637\\
 \hline\hline
 \end{tabular}
 \end{table*}
@@ -506,61 +507,280 @@ The GZH vote fractions can be largely dependent on the resolution of the image. 
 We corrected for the biases described for the first question of the GZH decision tree, which asks ``Is the galaxy smooth and round, with no sign of a disk?'' The method is described in Section~\ref{sec:debiasing}. For this question, we provide the additional parameters $\tt debiased$, $\tt lower~limit$, $\tt upper~limit$, and $\tt best$ vote fractions. The $\tt best$ fraction for $p_{features}$is chosen based on the categorization of the galaxy: if it is ``correctable'', $\tt best = debiased$, if ``uncorrectable'', $\tt best = lower~limit$, and if neither, $\tt best = weighted$. The debiased vote fractions for $\tt p_{smooth}$ were calculated on the critera that vote fractions for all answers must sum to unity. Explicitely: $\tt p_{smooth} = 1 - p_{features} - p_{artifact}$. 
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable}{lrrllcrrrrrr|c}
+\begin{deluxetable}{lllllcrllllll|c}
 \centering
 \rotate
-\tablecolumns{12}
+\tablecolumns{13}
 \tablewidth{0pc}
-\tablecaption{GZH morphological classifications} 
-\label{tab:catalog}
+\tablecaption{GZH morphological classifications for AEGIS, COSMOS, GEMS, and GOODS images} 
+\label{tbl:catalog_hst}
 \tabletypesize{\scriptsize}
 \tablehead{
- &  &   &  &  
+ & & & RA & dec  &  
 \multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
 \multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
-\colhead{$\dots$}
+\colhead{$\ldots$}
 \\
-\colhead{OBJNO} & 
-\colhead{RA} & 
-\colhead{DEC} & 
+\colhead{Project ID} & 
+\colhead{Hubble ID} & 
 \colhead{Imaging} & 
-\colhead{Correctable Category} & 
+\colhead{J2000} & 
+\colhead{J2000} & 
+\colhead{Correction$^{1}$} & 
 \colhead{$N_\mathrm{votes}$} & 
 \colhead{fraction} & 
 \colhead{weighted} & 
 \colhead{debiased} & 
+\colhead{best} &
 \colhead{lower~limit} & 
 \colhead{upper~limit} &
+\colhead{}
+}
+\small
+\startdata
+AHZ100002g  & 10010842  & AEGIS             &          &            & 0        & 948       & 0.118    & 0.128     & 0.085    & 0.085    & 0.226     & 0.226    \\
+AHZ100002h  & 10010870  & AEGIS             &          &            & 4        & 429       & 0.567    & 0.592     & 0.927    & 0.592    & $-$       & $-$      \\
+$\ldots$    & $\ldots$  & $\ldots$          & $\ldots$ & $\ldots$   & $\ldots$ &  $\ldots$ & $\ldots$ & $\ldots$  & $\ldots$ & $\ldots$ & $\ldots$  & $\ldots$ \\
+AHZ20004kd  & 20014731  & COSMOS            &          &            & 3        & 185       & 0.682    & 0.675     & 0.147    & 0.675    & $-$       & $-$      \\
+AHZ20004ke  & 20014732  & COSMOS            &          &            & 2        & 149       & 0.689    & 0.756     & 0.893    & 0.756    & $-$       & $-$      \\
+$\ldots$    & $\ldots$  & $\ldots$          & $\ldots$ & $\ldots$   & $\ldots$ &  $\ldots$ & $\ldots$ & $\ldots$  & $\ldots$ & $\ldots$ & $\ldots$  & $\ldots$ \\
+AHZ400043g  & 90022729  & GEMS              &          &            & 1        & 400       & 0.702    & 0.733     & 0.487    & 0.734    & 0.483     & 0.800    \\
+AHZ4000416  & 90022735  & GEMS              &          &            & 1        & 463       & 0.646    & 0.698     & 0.508    & 0.698    & 0.171     & 0.727    \\
+$\ldots$    & $\ldots$  & $\ldots$          & $\ldots$ & $\ldots$   & $\ldots$ &  $\ldots$ & $\ldots$ & $\ldots$  & $\ldots$ & $\ldots$ & $\ldots$  & $\ldots$ \\
+AGZ0007z47  & 10014     & GOODS-N-FULLDEPTH &          &            & 1        & 40        & 0.475    & 0.475     & 0.197    & 0.475    & 0.011     & 0.496    \\
+AGZ0007z48  & 10017     & GOODS-N-FULLDEPTH &          &            & 3        & 40        & 0.675    & 0.675     & 0.048    & 0.675    & 0.168     & 0.669    \\
+$\ldots$    & $\ldots$  & $\ldots$          & $\ldots$ & $\ldots$   & $\ldots$ &  $\ldots$ & $\ldots$ & $\ldots$  & $\ldots$ & $\ldots$ & $\ldots$  & $\ldots$ \\
+AGZ00083jb  & 8869      & GOODS-S-FULLDEPTH &          &            & 1        & 40        & 0.425    & 0.425     & 0.109    & 0.425    & 0.070     & 0.548    \\
+AGZ00083jc  & 8878      & GOODS-S-FULLDEPTH &          &            & 0        & 40        & 0.205    & 0.205     & 0.048    & 0.048    & $-$0.005  & 0.287    \\
+\enddata
+\tablenotetext{1}{Flag indicating how the vote fractions for this galaxy were corrected through debiasing (\S\ref{ssec:zeta_results}), if possible. 0~=~correctable, 1~=~uncorrectable ($p_{raw}$ --- $p_{adj}$ is not single-valued), 2~=~uncorrected ($z_{\rm gal} < 0.3$), 3~=~uncorrectable (insufficient FERENGI galaxies in this $z$-$\mu$ bin), 4~=~uncorrectable (no galaxy redshift available).}
+\tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 118,425~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
+\end{deluxetable}
+
+% Why are some values negative?
+% Why are most of the full-depth GOODS weighted fractions identical to the raw fractions?
+
+\tabletypesize{\scriptsize}
+\begin{deluxetable}{lllllcrllllll|c}
+\centering
+\rotate
+\tablecolumns{13}
+\tablewidth{0pc}
+\tablecaption{GZH morphological classifications for desaturated Hubble images} 
+\label{tbl:catalog_desaturated}
+\tabletypesize{\scriptsize}
+\tablehead{
+ & & & RA & dec  &  
+\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
+\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\colhead{$\ldots$}
+\\
+\colhead{Project ID} & 
+\colhead{Hubble ID} & 
+\colhead{Imaging} & 
+\colhead{J2000} & 
+\colhead{J2000} & 
+\colhead{Correction} & 
+\colhead{$N_\mathrm{votes}$} & 
+\colhead{fraction} & 
+\colhead{weighted} & 
+\colhead{debiased} & 
+\colhead{best} &
+\colhead{lower~limit} & 
+\colhead{upper~limit} &
+\colhead{}
+}
+\small
+\startdata
+AHZF000001  &   20000002    &   COSMOS  &   &   &   1   &   160 &  0.708   &     0.755   &   0.228    &    0.754 &   0.325 &   0.829  \\
+AHZF000003  &   20000004    &   COSMOS  &   &   &   3   &   301 &  0.367   &     0.379   &   0.100    &    0.379 &   0.198 &   0.198  \\
+AHZF000004  &   20000006    &   COSMOS  &   &   &   3   &   319 &  0.265   &     0.271   &   0.010    &    0.270 &   $-$	&   $-$    \\
+AHZF00000z  &   20000102    &   COSMOS  &   &   &   1   &   150 &  0.727   &     0.78    &   0.233    &    0.780 &   0.316 &   0.820  \\
+AHZF000010  &   20000104    &   COSMOS  &   &   &   2   &   164 &  0.811   &     0.849   &   0.904    &    0.848 &   $-$	&   $-$    \\
+\enddata
+\tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 3,927~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
+\end{deluxetable}
+
+\tabletypesize{\scriptsize}
+\begin{deluxetable}{lllllcrllllll|c}
+\centering
+\rotate
+\tablecolumns{13}
+\tablewidth{0pc}
+\tablecaption{GZH morphological classifications for color-inverted images} 
+\label{tbl:catalog_inverted}
+\tabletypesize{\scriptsize}
+\tablehead{
+ & & & RA & dec  &  
+\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
+\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\colhead{$\ldots$}
+\\
+\colhead{Project ID} & 
+\colhead{Hubble ID} & 
+\colhead{Imaging} & 
+\colhead{J2000} & 
+\colhead{J2000} & 
+\colhead{Correction} & 
+\colhead{$N_\mathrm{votes}$} & 
+\colhead{fraction} & 
+\colhead{weighted} & 
+\colhead{debiased} & 
+\colhead{best} &
+\colhead{lower~limit} & 
+\colhead{upper~limit} &
+\colhead{}
+}
+\small
+\startdata
+AHZC000001	&   20000002	&   COSMOS	&   &   &   1	&   168	&   0.615   &   0.664   &   0.160   &  0.663   &  0.271    &  0.775    \\
+AHZC000003	&   20000004	&   COSMOS	&   &   &   0	&   235	&   0.333   &   0.364   &   0.002   &  0.002   &  0.063    &  0.063    \\
+AHZC000004	&   20000006	&   COSMOS	&   &   &   3	&   316	&   0.235   &   0.252   & $-0.011$  &  0.252   &  $-$	    &  $-$      \\
+AHZC00000z	&   20000102	&   COSMOS	&   &   &   1	&   207	&   0.755   &   0.757   &   0.272   &  0.756   &  0.249    &  0.796    \\
+AHZC000010	&   20000104	&   COSMOS	&   &   &   2	&   158	&   0.843   &   0.882   &   0.936   &  0.881   &  $-$	    &  $-$      \\
+\enddata
+\tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 3,927~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
+\end{deluxetable}
+
+\tabletypesize{\scriptsize}
+\begin{deluxetable}{lllllcrllllll|c}
+\centering
+\rotate
+\tablecolumns{13}
+\tablewidth{0pc}
+\tablecaption{GZH morphological classifications for GOODS 2-epoch images} 
+\label{tbl:catalog_desaturated}
+\tabletypesize{\scriptsize}
+\tablehead{
+ & & & RA & dec  &  
+\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
+\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\colhead{$\ldots$}
+\\
+\colhead{Project ID} & 
+\colhead{Hubble ID} & 
+\colhead{Imaging} & 
+\colhead{J2000} & 
+\colhead{J2000} & 
+\colhead{Correction} & 
+\colhead{$N_\mathrm{votes}$} & 
+\colhead{fraction} & 
+\colhead{weighted} & 
+\colhead{debiased} & 
+\colhead{best} &
+\colhead{lower~limit} & 
+\colhead{upper~limit} &
+\colhead{}
+}
+\small
+\startdata
+AHZ3000001  &   50000000    &     GOODS-N   &   &   &   0   &   123	&   0.390   &   0.415	&   0.090 &   0.090 &   $-$     &   $-$      \\
+AHZ3000002  &   50000001    &     GOODS-N   &   &   &   2   &   126	&   0.341	&   0.355	&   0.356 &   0.356 &   0.220	&   0.279    \\
+AHZ3000003  &   50000005    &     GOODS-N   &   &   &   1   &   129	&   0.760   &   0.826	&   0.633 &   0.825 &   0.596	&   0.834    \\
+AHZ3000004  &   50000008    &     GOODS-N   &   &   &   1   &   120	&   0.758	&   0.787	&   0.639 &   0.787 &   0.658	&   0.834    \\
+AHZ3000005  &   50000010    &     GOODS-N   &   &   &   1   &   123	&   0.854	&   0.890   &   0.611 &   0.889 &   0.597	&   0.914    \\
+\enddata
+\tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 6,144~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
+\end{deluxetable}
+
+
+
+\tabletypesize{\scriptsize}
+\begin{deluxetable}{lllllcrllll|c}
+\centering
+\rotate
+\tablecolumns{13}
+\tablewidth{0pc}
+\tablecaption{GZH morphological classifications for SDSS Stripe 82 single-epoch images} 
+\label{tbl:stripe82_single}
+\tabletypesize{\scriptsize}
+\tablehead{
+ & & & RA & dec  &  
+\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
+\multicolumn{4}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\colhead{$\ldots$}
+\\
+\colhead{Project ID} & 
+\colhead{SDSS DR7 ObjID} & 
+\colhead{Imaging} & 
+\colhead{J2000} & 
+\colhead{J2000} & 
+\colhead{Correction} & 
+\colhead{$N_\mathrm{votes}$} & 
+\colhead{fraction} & 
+\colhead{weighted} & 
+\colhead{debiased} & 
 \colhead{best} &
 \colhead{}
 }
 \small
 \startdata
-13035128            & 214.99  & 53.02    & AEGIS   &  correctable  		&  121 &  0.46 &  0.50 & 0.12 & 0.14 & 0.73 & 0.12 \\
-13035131            & 215.01  & 53.02    & AEGIS   &  nei           		&  134 &  0.61 &  0.65 & 0.20 &      &      & 0.65 \\
-    ...             & ...     & ...      &  ...    &  ...              		&  ... & ...   &  ...  & ...  & ...  & ...  & ...  \\
-20055697            & 150.52  & 2.09     & COSMOS  &  correctable   		&  52  &  0.52 &  0.55 & 0.38 & 0.55 & 0.81 & 0.38  \\
-20055698            & 150.50  & 2.09     & COSMOS  &  uncorrectable 		&  31  &  0.61 &  0.70 & 0.47 & 0.47 & 0.80 & 0.70 \\
-    ...             & ...     & ...      &  ...    &  ...              		&  ... & ...   &  ...  & ...  & ...  & ...  & ...  \\
-90021901            & 53.29   & -27.85   & GEMS    &  correctable   		&  131 &  0.21 &  0.21 & 0.15 & 0.14 & 0.35 & 0.15 \\
-90021903            & 53.34   & -27.83   & GEMS    &  $z<0.3$         		&  142 &  0.78 &  0.80 & 1.04 &      &      & 0.80 \\
-    ...             & ...     & ...      &  ...    &  ...              		&  ... & ...   &  ...  & ...  & ...  & ...  & ...  \\
-GDS\_N\_2333        & 189.02  & 62.12    & GOODS-N & $\rm nei\_needs\_redshift$ &  40  &  0.33 &  0.33 & 0.87 &      &      & 0.33 \\
-GDS\_S\_3132        & 53.04   & -27.71   & GOODS-S & uncorrectable              &  40  &  0.83 &  0.83 & 0.45 & 0.38 & 0.85 & 0.83 \\
-    ...             & ...     & ...      &  ...    &  ...              		&  ... & ...   &  ...  & ...  & ...  & ...  & ...  \\
-587731173843665742  & 315.58  & 0.25     & SDSS    & $z<0.3$                    &  48  & 0.79  & 0.89  & 1.23 &      &      & 0.89 \\
-587731173843730515  & 315.61  & 0.30     & SDSS    & $z<0.3$                    &  53  & 0.68  & 0.75  & 1.06 &      &      & 0.75 \\
-
+AHZ5000001  &   587730845812064684  &   SDSS    &   &   &     2 &   41  &   0.585   &    0.595  &   0.759   &   0.594   \\
+AHZ5000002  &   587730845812065247  &   SDSS    &   &   &     2 &   46  &   0.609   &    0.651  &   0.897   &   0.651   \\
+AHZ5000003  &   587730845812196092  &   SDSS    &   &   &     2 &   51  &   0.039   &    0.044  &   0.067   &   0.043   \\
+AHZ5000004  &   587730845812196825  &   SDSS    &   &   &     2 &   35  &   0.514   &    0.605  &   0.928   &   0.605   \\
+AHZ5000005  &   587730845812524122  &   SDSS    &   &   &     2 &   47  &   0.766   &    0.812  &   1.038   &   0.810   \\
+AHZ5000006  &   587730845812654984  &   SDSS    &   &   &     2 &   42  &   0.5	    &    0.542  &   0.680   &   0.541   \\
+AHZ5000007  &   587730845812655541  &   SDSS    &   &   &     2 &   41  &   0.488   &    0.526  &   0.697   &   0.525   \\
+AHZ5000008  &   587730845812720365  &   SDSS    &   &   &     2 &   53  &   0.792   &    0.84   &   1.050   &   0.839   \\
+AHZ5000009  &   587730845812720640  &   SDSS    &   &   &     4 &   43  &   0.0	    &    0.0    &   0.0	    &   0.0	    \\
+AHZ500000a  &   587730845812720699  &   SDSS    &   &   &     2 &   40  &   0.425   &    0.478  &   0.588   &   0.477   \\
+$\ldots$    & $\ldots$  & $\ldots$  & $\ldots$  & $\ldots$   & $\ldots$ &  $\ldots$ & $\ldots$ & $\ldots$ \\
 \enddata
-\tablecomments{Full version is online at some website, here are 10 rows out of 181,101 in the full version.}
+\tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 21,522~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
 \end{deluxetable}
 
 
 
+\tabletypesize{\scriptsize}
+\begin{deluxetable}{lllllcrllll|c}
+\centering
+\rotate
+\tablecolumns{13}
+\tablewidth{0pc}
+\tablecaption{GZH morphological classifications for SDSS Stripe 82 coadded images} 
+\label{tbl:stripe82_coadd}
+\tabletypesize{\scriptsize}
+\tablehead{
+ & & & RA & dec  &  
+\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
+\multicolumn{4}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\colhead{$\ldots$}
+\\
+\colhead{Project ID} & 
+\colhead{SDSS DR7 ObjID} & 
+\colhead{Imaging} & 
+\colhead{J2000} & 
+\colhead{J2000} & 
+\colhead{Correction} & 
+\colhead{$N_\mathrm{votes}$} & 
+\colhead{fraction} & 
+\colhead{weighted} & 
+\colhead{debiased} & 
+\colhead{best} &
+\colhead{}
+}
+\small
+\startdata
+AHZ6000001  & 8647474690312306978   &   SDSS    &   &   &    4  & 40  & 0.275   &    0.289  &   0.762   &   0.289   & \\
+AHZ6000002  & 8647474690312307154   &   SDSS    &   &   &    2  & 43  & 0.605   &    0.634  &   0.858   &   0.635   & \\
+AHZ6000003  & 8647474690312307877   &   SDSS    &   &   &    2  & 51  & 0.608   &    0.627  &   0.906   &   0.627   & \\
+AHZ6000004  & 8647474690312308301   &   SDSS    &   &   &    4  & 52  & 0.038   &    0.038  &   0.723   &   0.038   & \\
+AHZ6000005  & 8647474690312308318   &   SDSS    &   &   &    2  & 44  & 0.614   &    0.632  &   0.776   &   0.631   & \\
+AHZ6000006  & 8647474690312308880   &   SDSS    &   &   &    2  & 36  & 0.667   &    0.683  &   0.901   &   0.683   & \\
+AHZ6000007  & 8647474690312372644   &   SDSS    &   &   &    4  & 48  & 0.646   &    0.674  &   1.145   &   0.674   & \\
+AHZ6000008  & 8647474690312372789   &   SDSS    &   &   &    4  & 45  & 0.489   &    0.571  &   0.964   &   0.570   & \\
+AHZ6000009  & 8647474690312372931   &   SDSS    &   &   &    4  & 47  & 0.553   &    0.587  &   0.926   &   0.587   & \\
+AHZ600000a  & 8647474690312373190   &   SDSS    &   &   &    4  & 47  & 0.574   &    0.559  &   1.008   &   0.559   & \\
+$\ldots$    & $\ldots$  & $\ldots$  & $\ldots$  & $\ldots$   & $\ldots$ &  $\ldots$ & $\ldots$ & $\ldots$ \\
+\enddata
+\tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 30,339~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
+\end{deluxetable}
+
 To include: detailed description of each column in the machine-readable tables. 
 
 Needs some test cases for extracting a given set of objects (eg, clump galaxies in a particular redshift range) and evaluation of the results. Possibly include suggested thresholds, \'a la GZ2. 
-\section{Using the Catalog}
+\section{Using the catalog}
 \label{sec:cookbook}
 Include cookbook for selecting morphologies. 
 \section{Analysis}
