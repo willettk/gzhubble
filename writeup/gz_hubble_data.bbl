@@ -1,4 +1,4 @@
-\begin{thebibliography}{64}
+\begin{thebibliography}{65}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Astropy Collaboration} {et~al}\mbox{.}(2013){Astropy Collaboration},
@@ -20,6 +20,11 @@
   {Lintott}, {Schawinski}, {Slosar}, {Szalay}, {Thomas}, {Torki}, {Andreescu},
   {Edmondson}, {Miller}, {Murray}, {Raddick}, \& {Vandenberg}}]{bam09}
 {Bamford} S.~P. {et~al.}, 2009, \mnras, 393, 1324
+
+\bibitem[{{Bamford} {et~al}\mbox{.}(2008){Bamford}, {Rojas}, {Nichol},
+  {Miller}, {Wasserman}, {Genovese}, \& {Freeman}}]{bam08}
+{Bamford} S.~P., {Rojas} A.~L., {Nichol} R.~C., {Miller} C.~J., {Wasserman} L.,
+  {Genovese} C.~R., {Freeman} P.~E., 2008, \mnras, 391, 607
 
 \bibitem[{{Barden} {et~al}\mbox{.}(2008){Barden}, {Jahnke}, \&
   {H{\"a}u{\ss}ler}}]{bar08a}
@@ -55,7 +60,7 @@
 {Conselice} C.~J., 2003, \apjs, 147, 1
 
 \bibitem[{{Conselice}(2014)}]{con14}
-{Conselice} C.~J., 2014, ArXiv e-prints, 1403.2783
+{Conselice} C.~J., 2014, \araa, 52, 291
 
 \bibitem[{{Darg} {et~al}\mbox{.}(2010){Darg}, {Kaviraj}, {Lintott},
   {Schawinski}, {Sarzi}, {Bamford}, {Silk}, {Andreescu}, {Murray}, {Nichol},
