@@ -1,4 +1,4 @@
-\begin{thebibliography}{19}
+\begin{thebibliography}{21}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Astropy Collaboration} {et~al}\mbox{.}(2013){Astropy Collaboration},
@@ -26,8 +26,10 @@
   {Wisotzki}, \& {Wolf}}]{cal08}
 {Caldwell} J.~A.~R. {et~al.}, 2008, \apjs, 174, 136
 
-\bibitem[{{Cardamone} {et~al}\mbox{.}(2010){Carolin N. Cardamone}, {Pieter G. van Dokkum}, {C. Megan Urry}, {Yoshi Taniguchi}, {Eric Gawiser}, {Gabriel Brammer}, {Edward Taylor}, {Maaike Damen}, {Ezequiel Treister}, {Bethany E. Cobb}, {Nicholas Bond},{Kevi Schawinski}, {Paulina Lira}, {Takashi Murayama}, {Tomoki Saito}. {Kentaro Sumikawa}}]{car10}
-{Cardamone} C. {et~al.}, 2010, \apjs, 189, 270
+\bibitem[{{Cardamone} {et~al}\mbox{.}(2010){Cardamone}, {van Dokkum}, {Urry},
+  {Taniguchi}, {Gawiser}, {Brammer}, {Taylor}, {Damen}, {Treister}, {Cobb},
+  {Bond}, {Schawinski}, {Lira}, {Murayama}, {Saito}, \& {Sumikawa}}]{car10}
+{Cardamone} C.~N. {et~al.}, 2010, \apjs, 189, 270
 
 \bibitem[{{Davis} {et~al}\mbox{.}(2007){Davis}, {Guhathakurta}, {Konidaris},
   {Newman}, {Ashby}, {Biggs}, {Barmby}, {Bundy}, {Chapman}, {Coil},
@@ -104,6 +106,16 @@
   {Kneib}, {LeFevre}, {Lilly}, {Mobasher}, {Renzini}, {Rich}, {Sanders},
   {Schinnerer}, {Schminovich}, {Shopbell}, {Taniguchi}, \& {Tyson}}]{sco07}
 {Scoville} N. {et~al.}, 2007, \apjs, 172, 1
+
+\bibitem[{{Simmons} {et~al}\mbox{.}(2014){Simmons}, {Melvin}, {Lintott},
+  {Masters}, {Willett}, {Keel}, {Smethurst}, {Cheung}, {Nichol}, {Schawinski},
+  {Rutkowski}, {Kartaltepe}, {Bell}, {Casteels}, {Conselice}, {Almaini},
+  {Ferguson}, {Fortson}, {Hartley}, {Kocevski}, {Koekemoer}, {McIntosh},
+  {Mortlock}, {Newman}, {Ownsworth}, {Bamford}, {Dahlen}, {Faber},
+  {Finkelstein}, {Fontana}, {Galametz}, {Grogin}, {Gr{\"u}tzbauch}, {Guo},
+  {H{\"a}u{\ss}ler}, {Jek}, {Kaviraj}, {Lucas}, {Peth}, {Salvato}, {Wiklind},
+  \& {Wuyts}}]{sim14}
+{Simmons} B.~D. {et~al.}, 2014, \mnras, 445, 3466
 
 \bibitem[{{Strauss} {et~al}\mbox{.}(2002){Strauss}, {Weinberg}, {Lupton},
   {Narayanan}, {Annis}, {Bernardi}, {Blanton}, {Burles}, {Connolly},
