@@ -1,4 +1,4 @@
-\begin{thebibliography}{65}
+\begin{thebibliography}{69}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Astropy Collaboration} {et~al}\mbox{.}(2013){Astropy Collaboration},
@@ -34,6 +34,9 @@
   {Caldwell}, {Ferguson}, {Hook}, {Lucas}, {Bergeron}, {Corbin}, {Jogee},
   {Panagia}, {Robberto}, {Royle}, {Somerville}, \& {Sosey}}]{bec06}
 {Beckwith} S.~V.~W. {et~al.}, 2006, \aj, 132, 1729
+
+\bibitem[{{Bertin} \& {Arnouts}(1996)}]{ber96}
+{Bertin} E., {Arnouts} S., 1996, \aaps, 117, 393
 
 \bibitem[{{Caldwell} {et~al}\mbox{.}(2008){Caldwell}, {McIntosh}, {Rix},
   {Barden}, {Beckwith}, {Bell}, {Borch}, {Heymans}, {H{\"a}u{\ss}ler},
@@ -148,6 +151,12 @@
   {Wuyts}, {Yan}, \& {Yun}}]{gro11}
 {Grogin} N.~A. {et~al.}, 2011, \apjs, 197, 35
 
+\bibitem[{{H{\"a}ussler} {et~al}\mbox{.}(2007){H{\"a}ussler}, {McIntosh},
+  {Barden}, {Bell}, {Rix}, {Borch}, {Beckwith}, {Caldwell}, {Heymans},
+  {Jahnke}, {Jogee}, {Koposov}, {Meisenheimer}, {S{\'a}nchez}, {Somerville},
+  {Wisotzki}, \& {Wolf}}]{hau07}
+{H{\"a}ussler} B. {et~al.}, 2007, \apjs, 172, 615
+
 \bibitem[{{Hinshaw} {et~al}\mbox{.}(2013){Hinshaw}, {Larson}, {Komatsu},
   {Spergel}, {Bennett}, {Dunkley}, {Nolta}, {Halpern}, {Hill}, {Odegard},
   {Page}, {Smith}, {Weiland}, {Gold}, {Jarosik}, {Kogut}, {Limon}, {Meyer},
@@ -218,6 +227,11 @@
 
 \bibitem[{{Lotz} {et~al}\mbox{.}(2004){Lotz}, {Primack}, \& {Madau}}]{lot04}
 {Lotz} J.~M., {Primack} J., {Madau} P., 2004, \aj, 128, 163
+
+\bibitem[{{Lupton} {et~al}\mbox{.}(2004){Lupton}, {Blanton}, {Fekete}, {Hogg},
+  {O'Mullane}, {Szalay}, \& {Wherry}}]{lup04}
+{Lupton} R., {Blanton} M.~R., {Fekete} G., {Hogg} D.~W., {O'Mullane} W.,
+  {Szalay} A., {Wherry} N., 2004, \pasp, 116, 133
 
 \bibitem[{{Masters} {et~al}\mbox{.}(2011){Masters}, {Nichol}, {Hoyle},
   {Lintott}, {Bamford}, {Edmondson}, {Fortson}, {Keel}, {Schawinski}, {Smith},
@@ -315,6 +329,13 @@
   {Szalay}, {Vanden Berk}, {Vogeley}, {Yanny}, {Yasuda}, {York}, \&
   {Zehavi}}]{str02}
 {Strauss} M.~A. {et~al.}, 2002, \aj, 124, 1810
+
+\bibitem[{{Taniguchi} {et~al}\mbox{.}(2007){Taniguchi}, {Scoville}, {Murayama},
+  {Sanders}, {Mobasher}, {Aussel}, {Capak}, {Ajiki}, {Miyazaki}, {Komiyama},
+  {Shioya}, {Nagao}, {Sasaki}, {Koda}, {Carilli}, {Giavalisco}, {Guzzo},
+  {Hasinger}, {Impey}, {LeFevre}, {Lilly}, {Renzini}, {Rich}, {Schinnerer},
+  {Shopbell}, {Kaifu}, {Karoji}, {Arimoto}, {Okamura}, \& {Ohta}}]{tan07}
+{Taniguchi} Y. {et~al.}, 2007, \apjs, 172, 9
 
 \bibitem[{{Toomre} \& {Toomre}(1972)}]{too72}
 {Toomre} A., {Toomre} J., 1972, \apj, 178, 623
