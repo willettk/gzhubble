@@ -51,7 +51,7 @@ rev=0
 for f in `ls -1 frames/*.png | grep -v "movie\-1.png" | sort -nr`; do
     n=`printf "%03d" $rev`
     # Rename frames for ffmpeg's format style
-    convert $f -crop 1280x850+0+0 $n.png
+    convert $f -crop 1280x1320+0+0 $n.png
     let rev+=1
 done
 
