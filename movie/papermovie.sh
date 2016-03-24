@@ -10,6 +10,11 @@
 #   Fixed font list via http://stackoverflow.com/questions/24696433/why-font-list-is-empty-for-imagemagick
 #   Original codec (libx264) did not work on current version of ffmpeg
 
+if [ "$#" -ne 1 ] || ! [ -f "$1" ]; then
+  echo "Usage: $0 filename" >&2
+  exit 1
+fi
+
 filename=$1
 
 # Set the remote and/or branches for the git repository
@@ -34,7 +39,7 @@ while read p; do
         cp $filename $revpad.pdf
         
         # Use ImageMagick to turn the paginated PDF into a single image
-        montage $revpad.pdf -tile 7x3 -background white -geometry 213x275-15+4 frames/$revpad.png
+        montage $revpad.pdf -tile 6x4 -background white -geometry 213x275-15+4 frames/$revpad.png
 
         let rev+=1
     fi
@@ -64,7 +69,6 @@ rm -f commits.txt
 rm -f *.pdf
 rm -f *.png
 rm -f frames/*.png
-rmdir frames/
 
 # Checkout the most recent version again
 git pull $remote $branch
