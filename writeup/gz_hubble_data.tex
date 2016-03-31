@@ -23,7 +23,7 @@
 %
 % List of people who have contributed (not sure if everyone will be author)
 % Definitely: Lintott, Bamford, Edmondson, Masters, Simmons, Melvin, Willett, Galloway, Fortson, Schawinski, Cheung
-% Others on GZ science team: Urry, Cardamone, Nichol, Kaviraj, Keel, Skibba, Thomas, Scarlata, Beck, Smethurst
+% Others on GZ science team: Urry, Cardamone, Nichol, Kaviraj, Keel, Skibba, Thomas, Wong, Scarlata, Beck, Smethurst
 % Tech: Smith, Parrish, Simpson, other devs?
 % External: Han, Griffith
 %
@@ -133,9 +133,9 @@ total                         & $-$         & $-$                              &
 
 \subsection{Galaxy selection}
 
-For images from the ACS-GC \citet{gri12}, galaxies are identified using a combination of SExtractor \citep{ber96} and the galaxy-profile fitting framework \textsc{Galapagos} \citep{hau07}. We select all galaxies with $m < 23.5$, where $m$ is in the \Iband, \zband, or \iband{} for the AEGIS + COSMOS, GEMS + GOODS-S, and GOODS-N surveys, respectively. 
+For images from the ACS-GC \citet{gri12}, galaxies are identified using a combination of \sextractor{} \citep{ber96} and the galaxy-profile fitting framework \textsc{Galapagos} \citep{hau07}. We selected all galaxies with $m < 23.5$, where $m$ is in the \Iband, \zband, or \iband{} for the AEGIS + COSMOS, GEMS + GOODS-S, and GOODS-N surveys, respectively. This yielded a total of 113,166~images (Table~\ref{tbl:gzh_numbers}).
 
-Single-epoch images from SDSS Stripe~82 were selected using the same criteria from \citet{wil13}, which required limits of \texttt{petroR90\_r}$ > 3$\arcsec~(where \texttt{petroR90\_r} is the radius containing 90\% of the $r^\prime$ Petrosian flux) and a magnitude brighter than $m_r < 17.77$. Coadded images from Stripe~82 were selected from the union of galaxies with coadded magnitudes brighter than $17.77$~mag and the galaxies detected in the single-depth images and matched to a coadd source. Of the images in the coadded sample, 5144/30339 (17 percent) are dimmer than this initial magnitude cut. 
+Single-epoch images from SDSS Stripe~82 were selected using the same criteria from \citet{wil13}, which required limits of \texttt{petroR90\_r}$ > 3$\arcsec~(where \texttt{petroR90\_r} is the radius containing 90\% of the $r^\prime$ Petrosian flux) and a magnitude brighter than $m_r < 17.77$. 21,522 galaxies in SDSS met these criteria. Coadded images from Stripe~82 were selected from the union of galaxies with coadded magnitudes brighter than $17.77$~mag and the galaxies detected in the single-depth images and matched to a coadd source. This resulted in a larger set of 30,339 images. Of the images in the coadded sample, 5144 (17~percent) are dimmer than the initial magnitude cut of 17.77. 
 
 \subsection{Image creation}
 
@@ -168,13 +168,11 @@ Two sets of simulated AGN were generated in GZH. The first set (version~1) was a
 
 Images with simulated AGN were classified in the main interface in an identical manner and evenly distributed with unaltered images of the galaxies. Classifiers were not explicitly told that the images had been altered, as the goal was to measure the effect on normal classifications in as unbiased a manner as possible. 
 
-\subsection{Artifically-redshifted images}
+\subsection{Galaxy metadata}
 
-FERENGI images (ask Edmond to write this?) Should contain much of the information in \S\ref{sec:debiasing} right now.
+Photometric data for the bulk of the GZH sample is largely drawn from the tables provided in \citet{gri12}. This includes photometric parameters from both \sextractor{} and \galfit, such as the fluxes, magnitudes, radii, ellipticities, position angles, and positions. \galfit{} also provides the parametric S\'{e}rsic index and effective half-light radius for the best-fit model. All parameters are measured in both bands of the ACS imaging, with the exception of the single-band COSMOS images.
 
-\subsection{Redshifts}
-
-We compiled redshifts from a variety of sources to include in the GZH catalog. For each galaxy, the redshift selected is in the $\tt Z\_Best$ column of the data (see Table~\ref{tbl:catalog_hst}), its type (spectroscopic: $\tt SPEC\_Z$, photometric: $\tt PHOTO\_Z$, or grism: $ \tt GRISM\_Z$) is listed in the column $\tt Z\_BEST\_TYPE$, and the source catalog ($\tt ACSGC$ \citep{gri12}, $\tt 3DHST$ \citep{mom15}, $\tt MUSYC$ \citep{car10}, or $\tt UltraVISTA$ \citep{ilb13}) of the redshift is in column $\tt Z\_BEST\_SOURCE$.
+Redshifts for the GZH catalog are compiled from a variety of sources to include in the GZH catalog. For each galaxy, the redshift selected is in the $\tt Z\_Best$ column of the data (see Table~\ref{tbl:catalog_hst}), its type (spectroscopic: $\tt SPEC\_Z$, photometric: $\tt PHOTO\_Z$, or grism: $ \tt GRISM\_Z$) is listed in the column $\tt Z\_BEST\_TYPE$, and the source catalog ($\tt ACSGC$ \citep{gri12}, $\tt 3DHST$ \citep{mom15}, $\tt MUSYC$ \citep{car10}, or $\tt UltraVISTA$ \citep{ilb13}) of the redshift is in column $\tt Z\_BEST\_SOURCE$.
 
 For galaxies which have redshifts from multiple sources, we use the following algorithm to select the $\tt Z\_BEST$ redshift. We first prioritize spectroscopic redshifts; these are provided in the ACS-GC, 3DHST, and MUSYC catalogs. If a high quality spec-z exists in the ACS-GC. we use that, else 3DHST, else MUSYC. We show in Figure~\ref{fig:speczs} that over 98\% of the the spec-z's are consistent with each other, and therefore the priority order of selection makes no negligible difference. If no spectroscipic redshifts are available, we compare the 1-$\sigma$ errors of the photometric (ACS-GC, 3DHST, MUSYC, UltraVISTA) and grism (UltraVISTA) redshifts, and use the redshift with the smallest error. Table~\ref{tbl:redshifts} shows the results of this selection. 
  
@@ -226,6 +224,8 @@ SDSS     & 0      & 0      & 0   &  0    &  0      & 0     & 0     & 0       & 3
 Total    & 14,271 & 81,045 & 798 & 3,865 & 1,977   & 1,095 & 8,488 & 2,665   & 114,204 & 184,794\\
 \enddata
 \end{deluxetable}
+
+Photometric and spectroscopic data for the SDSS Stripe~82 galaxies are taken from the CasJobs DR7 tables. This includes $ugriz$ Petrosian magnitudes and fluxes, as well as the relative de~Vaucouleurs and exponential fits from the model magnitudes. Redshifts used for the Sloan galaxies are all spectroscopic. 82.6\% of galaxies in the single-depth images and 65.1\% of galaxies in the coadd images have a measured DR7 spectroscopic redshift. 
 
 
 \section{Galaxy Zoo interface and classifications}\label{sec:interface}
@@ -376,7 +376,7 @@ f_\textrm{features,debiased} = 1 - (1 - f)e^{\frac{z-z_0}{\hat\zeta}}.
 \label{fig:p_vs_p}
 \end{figure*}
 
-In Figure~\ref{fig:p_vs_p} we examine the change in \pfeatures{} for the \ferengi{} galaxies relative to their lowest simulated redshift. In this analysis, only galaxies whose lowest simulated redshift image was ($\rm z_{sim}=0.3$) were used (see Table \ref{tbl:ferengivalues}), and only those which had detectable surface brightness measurements in \sextractor{}; this includes 3,950 of the total 6,466 images. For each simulated redshift value $z$, and at a fixed surface brightness $\mu$, we plot \pfeaturesz, the value measured at that simulated redshift, vs \pfeaturesrest, the value measured for the same galaxy imaged at $z=0.3$. 
+In Figure~\ref{fig:p_vs_p} we examine the change in \pfeatures{} for the \ferengi{} galaxies relative to their lowest simulated redshift. In this analysis, only galaxies whose lowest simulated redshift image was ($\rm z_{sim}=0.3$) were used (see Table \ref{tbl:ferengivalues}), and only those which had detectable surface brightness measurements in \sextractor; this includes 3,950 of the total 6,466 images. For each simulated redshift value $z$, and at a fixed surface brightness $\mu$, we plot \pfeaturesz, the value measured at that simulated redshift, vs \pfeaturesrest, the value measured for the same galaxy imaged at $z=0.3$. 
  
 Our objective is to use these data to predict, for a galaxy with a measured \pfeaturesz{} value, what its \pfeatures{} value \emph{would have been} if it had been viewed at $z=0.3$. This predicted value is defined as the debiased vote fraction \pfeaturesdebiased, and is calculated by applying a correction to the measured value of \pfeatures, determined by the $\zeta$ function described in the previous section. A reliable predicted value can be obtained so long as the relationship between \pfeaturesz{} and \pfeaturesrest{} is single-valued; that is, for a given \pfeaturesz, there is exactly one corresponding value of \pfeatures{} at $z=0.3$. 
 
