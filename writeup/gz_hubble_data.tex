@@ -236,7 +236,9 @@ Photometric and spectroscopic data for the SDSS Stripe~82 galaxies are taken fro
 \end{figure*}
 
 \subsection{User weighting}\label{ssec:weighting}
-The votes of individual users who classified galaxies in GZH are combined to make a vote fraction for each question on the classification tree. Users' votes are weighted slightly \citep[in a method identical to that described in][]{wil13} such that users who frequently disagree with all other users end up having very low weights. The majority of users have weights very close to $w=1.0$ ({\bf STEVEN: Is this true for GZH - do you have a plot of the distribution of user weights or consistencies we can include here?}. 
+The votes of individual users who classified galaxies in GZH are combined to make a vote fraction for each question on the classification tree. Users' votes are weighted slightly \citep[in a method identical to that described in][]{wil13} such that users who frequently disagree with all other users end up having very low weights. The majority of users have weights very close to $w=1.0$ 
+
+{\note STEVEN: Is this true for GZH - do you have a plot of the distribution of user weights or consistencies we can include here?}.
 
 
 \section{Correcting for redshift-dependent classification bias}\label{sec:debiasing}
@@ -406,14 +408,20 @@ Total                              & 3,950   & 100\% \\
 \subsection{Challenges of debiasing questions beyond ``smooth or features''}
 Each FERENGI image does not have the same number of users answering each question, due to the structure of the decision tree. Every user answers the first question, ``Is the galaxy smooth and rounded, with no sign of a disk?''; as such the vote fractions $\rm p_{smooth}, p_{features}$, and $\rm p_{artifact}$ are all computed with the minimum statistical error for any question, with roughly 40 total answers (see Section~\ref{sec:gz_interface}). The number of users to answer any subsequent question, however, is always equal to or less than the number to answer the preceding question. For this reason, some galaxies may have very few (or even zero) answers to a question further down the tree (see Figure make-figure-of-count-distribution-for-each-question). To minimize statistical error in computing vote fractions, a cut on the number of answers to a given question is always implemented. 
 
-In the FERENGI data, we find that this places large limitations on the amount of information we can extract for the higher order questions. We require that at least 5 users answer each question for a galaxy image at $z=0.3$ \emph{and} its image at higher $z$. This requirement placed on both images is not met by a significant number of galaxies for questions beyond question 1. Without sufficient galaxies in each surface brightness/redshift bin, we cannot accurately measure a relationship between vote fractions and redshift; for this reason we only offer debiased vote fractions for question 1. \textbf{perhaps compute number of galaxies that can be fit to zeta for each question, show a table? overkill?} In Section \ref{sec:ferengi_bar} we show results of an attempt to measure $\zeta$ for $\rm p_{bar}$. 
+In the FERENGI data, we find that this places large limitations on the amount of information we can extract for the higher order questions. We require that at least 5 users answer each question for a galaxy image at $z=0.3$ \emph{and} its image at higher $z$. This requirement placed on both images is not met by a significant number of galaxies for questions beyond question 1. Without sufficient galaxies in each surface brightness/redshift bin, we cannot accurately measure a relationship between vote fractions and redshift; for this reason we only offer debiased vote fractions for question 1. 
 
+{\note Perhaps compute number of galaxies that can be fit to zeta for each question, show a table? overkill?} 
+
+In Section \ref{sec:ferengi_bar} we show results of an attempt to measure $\zeta$ for $\rm p_{bar}$. 
+
+{\note
 \begin{itemize}
 \item talk about where the \hst{} sample falls in this space, reference Table~\ref{tbl:hubble_debiasable} 
 \item justify $N>5$ and spread $< 0.2$ (or find a better way to choose criteria)
 \item check out corrections for correctable and NEI, show some sample images of corrected galaxies
 \item show some data for $\pbar$, determine or justify why we won't debias them  
 \end{itemize}
+}
 
  
 \begin{table*}
@@ -801,12 +809,14 @@ $\ldots$    \\
 \tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 2,961~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
 \end{deluxetable}
 
-To include: detailed description of each column in the machine-readable tables. 
+{\note To include: detailed description of each column in the machine-readable tables. }
+
+\section{Using the catalog}\label{sec:cookbook}
+
+Include cookbook for selecting morphologies. 
 
 Needs some test cases for extracting a given set of objects (eg, clump galaxies in a particular redshift range) and evaluation of the results. Possibly include suggested thresholds, \'a la GZ2. 
 
-\section{Using the catalog}\label{sec:cookbook}
-Include cookbook for selecting morphologies. 
 
 \section{Analysis}\label{sec:analysis}
 
@@ -831,7 +841,7 @@ Compare GZH data to:
     \item expert visual inspection?
 \end{itemize}
 
-\textit{Address trends seen in broad morphological classes, possible reasons for difference. Also should attempt to map between the GZH vote fractions and whatever classification systems are used in the above systems.}
+{\note \textit{Address trends seen in broad morphological classes, possible reasons for difference. Also should attempt to map between the GZH vote fractions and whatever classification systems are used in the above systems.}}
 
 \section{Summary}\label{sec:summary}
 
