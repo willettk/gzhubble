@@ -235,6 +235,16 @@ Photometric and spectroscopic data for the SDSS Stripe~82 galaxies are taken fro
 \caption{Screenshot of the Galaxy Zoo: Hubble interface showing an example COSMOS image at the first step in the decision tree.\label{fig:interface}}
 \end{figure*}
 
+
+\begin{figure*}
+\begin{center}
+\includegraphics[width=\textwidth]{figures/gzh_decision_tree.pdf}
+\caption{}
+\label{fig:decisiontree}
+\end{center}
+\end{figure*}
+
+
 \subsection{User weighting}\label{ssec:weighting}
 The votes of individual users who classified galaxies in GZH are combined to make a vote fraction for each question on the classification tree. Users' votes are weighted slightly \citep[in a method identical to that described in][]{wil13} such that users who frequently disagree with all other users end up having very low weights. The majority of users have weights very close to $w=1.0$ ({\bf STEVEN: Is this true for GZH - do you have a plot of the distribution of user weights or consistencies we can include here?}. 
 
@@ -806,7 +816,65 @@ To include: detailed description of each column in the machine-readable tables.
 Needs some test cases for extracting a given set of objects (eg, clump galaxies in a particular redshift range) and evaluation of the results. Possibly include suggested thresholds, \'a la GZ2. 
 
 \section{Using the catalog}\label{sec:cookbook}
-Include cookbook for selecting morphologies. 
+
+The intended purpose of the GZH catalog is to provide simple, yet flexible, means of identifying samples of galaxies with a desired morphological type. Here we provide instructions for creating such samples using the vote fractions corresponding to the tasks shown in Figure~\ref{fig:decisiontree}. We stress that the selection process may vary based on the particular science case in question. 
+
+To select galaxies of a morphological type identified with a Task offered in the decision tree (see Figure~\ref{fig:decisiontree}, a cut is placed on the vote fraction for that Task ($p_{\rm task}$), as well as the vote fractions for the Tasks preceding it. For example, to select barred galaxies, a cut may be placed on $p_{\rm bar}$ such that only galaxies where a high fraction of votes for this task voted for the $bar,yes$ answer. This is not the only necessary cut, however, since not all users answer this question; only those who have previously selected ``features'' in Task 01, ``not clumpy'' in Task 12, and ``not edge-on'', \emph{or} previously selected ``features'' in Task 01, ``clumpy'' in Task 12, ``$>$ 2 clumps'' in Task 16, and ``spiral arrangement'' in Task 15 will have the opportunity to vote on the bar question, Task 03. Therefore to ensure the value of $p_{\rm bar}$ is well-sampled, cuts on all previous tasks must be applied. 
+
+The flexibility of this catalog allows the user to set their own selection criteria for vote fraction thresholds to create a morphological sample particular to their science case. In Table~\ref{tab:prev_tasks} we offer baseline cuts for selecting galaxies of desired morphologies. As an example: to select barred galaxies, one should select objects with $p_{\rm features}>0.52, p_{\rm clumpy,no} > 0.55,$ and $p_{edgeon,no}>x.xx$ \emph{or} objects with $p_{\rm features}>0.52, p_{\rm clumpy,yes} > x.xx, (p_{\rm clump~count, 3}+p_{\rm clump~count,4}+p_{\rm clump~count,>4}+p_{\rm clump~count,can't~tell})>x.xx,$ and $p_{\rm clump~arrangement,spiral}>x.xx.$ These cuts define a sample of galaxies of ``bar candidates''; ie galaxies for which answering the bar question makes physical sense and the vote fraction $p_{\rm bar}$ is well-sampled. In this example, such galaxies are featured, non-clumpy, non-edgeon galaxies, or featured, clumpy, spiral galaxies. At this point a cut can be made on $p_{\rm bar}$ to select a clean sample of only strong bars $p_{\rm bar}>0.8$, or a complete sample of weak and strong bars $p_{\rm bar}>0.3$, or the value most appropriate to the science case. 
+
+
+
+
+\begin{itemize}
+\item explain decision tree format; vote fractions are dependent on previous task vote fractions
+\item provide example of how to select bars
+\item discuss difference between conservative/clean sample and loose/complete sample, emphasize goals differ depending on science case
+\end{itemize}
+ 
+\begin{table*}
+\caption{Cookbook \label{tab:prev_tasks}}
+\begin{tabular}{llll}
+\hline\hline
+Task No. &  Task 	        & Previous Task  & Vote Fraction Cut \\
+         &            	        &                & $N_{task} \ge 20$ \\
+\hline
+01       & smooth or features   &  -                  & -                 \\
+02       & edge on              & 01, 12              & $p_{\rm clumpy,no}>0.55$              \\
+03       & bar		        & 01, 12, 02          & $p_{\rm edgeon,no}>$                 \\
+         &                      & 01, 12, 16, 15      & $p_{\rm arrangement,spiral}>$         \\
+04       & spiral arms          & 01, 12, 02          & $p_{\rm edgeon,no}>$                  \\
+         &                      & 01, 12, 16, 15      & $p_{\rm arrangement,spiral}>$         \\
+05       & bulge prominence     & 01, 12, 02          & $p_{\rm edgeon,no}>$                 \\
+         &                      & 01, 12, 16, 15      & $p_{\rm arrangement,spiral}>$         \\
+06       & odd yes/no           & -                   &                   \\
+07       & rounded              & 01                  & $p_{\rm smooth}>0.45$               \\
+08       & odd feature          & 06                  & $p_{\rm odd,yes}>$                  \\
+09       & bulge shape          & 01, 12, 02          & $p_{\rm edgeon,yes}>$               \\
+10       & arms winding         & 01, 12, 02, 04      & $p_{\rm spiral,yes}>$                  \\
+         &                      & 01, 12, 16, 15, 04  & $p_{\rm spiral,yes}>$                  \\
+11       & arms number          & 01, 12, 02, 04      & $p_{\rm spiral,yes}>$                 \\
+         &                      & 01, 12, 16, 15, 04  & $p_{\rm spiral,yes}>$                  \\
+12       & clumpy               & 01                  & $p_{\rm features}>0.52$              \\
+13       & bright clump         & 01, 12, 16          & $p_{\rm one clump}<$                 \\
+14       & bright central clump & 01, 12, 16, 13      & $p_{\rm bright clump,yes}>$           \\
+15       & clump arrangement    & 01, 12, 16          & $p_{\rm one clump}<$                \\
+16       & clump count          & 01, 12              & $p_{\rm clumpy,yes}>0.55$              \\
+17       & clumps symmetrical   & 01, 12, 16          & $p_{\rm one clump}<$                \\
+18       & clumps embedded      & 01, 12, 16          &  $p_{\rm one clump}<$                 \\
+ 
+
+
+
+
+
+
+
+
+\hline\hline
+\end{tabular}
+\end{table*}
+
 
 \section{Analysis}\label{sec:analysis}
 
