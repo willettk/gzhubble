@@ -244,10 +244,7 @@ Photometric and spectroscopic data for the SDSS Stripe~82 galaxies are taken fro
 
 
 \subsection{User weighting}\label{ssec:weighting}
-The votes of individual users who classified galaxies in GZH are combined to make a vote fraction for each question on the classification tree. Users' votes are weighted slightly \citep[in a method identical to that described in][]{wil13} such that users who frequently disagree with all other users end up having very low weights. The majority of users have weights very close to $w=1.0$ 
-
-{\note STEVEN: Is this true for GZH - do you have a plot of the distribution of user weights or consistencies we can include here?}.
-
+The votes of individual users who classified galaxies in GZH are combined to make a vote fraction for each question on the classification tree. Users' votes are weighted slightly \citep[in a method identical to that described in][]{wil13} such that users who frequently disagree with all other users end up having very low weights. The user weighting $w$ is 1 for the top 95\% of users as ranked by consistency. For the bottom 5\% of users, $w$ drops smoothly and is effectively zero for only the bottom 1\% of classifiers in the CDF. The overall effect on the GZH dataset is relatively small, but this method is effective at filtering out contributions from random or delibrately malicious classifiers.
 
 \section{Correcting for redshift-dependent classification bias}\label{sec:debiasing}
 
