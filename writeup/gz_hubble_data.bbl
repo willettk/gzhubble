@@ -1,4 +1,4 @@
-\begin{thebibliography}{69}
+\begin{thebibliography}{72}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Astropy Collaboration} {et~al}\mbox{.}(2013){Astropy Collaboration},
@@ -26,6 +26,11 @@
 {Bamford} S.~P., {Rojas} A.~L., {Nichol} R.~C., {Miller} C.~J., {Wasserman} L.,
   {Genovese} C.~R., {Freeman} P.~E., 2008, \mnras, 391, 607
 
+\bibitem[{{Barden} {et~al}\mbox{.}(2012){Barden}, {H{\"a}u{\ss}ler}, {Peng},
+  {McIntosh}, \& {Guo}}]{bar12}
+{Barden} M., {H{\"a}u{\ss}ler} B., {Peng} C.~Y., {McIntosh} D.~H., {Guo} Y.,
+  2012, \mnras, 422, 449
+
 \bibitem[{{Barden} {et~al}\mbox{.}(2008){Barden}, {Jahnke}, \&
   {H{\"a}u{\ss}ler}}]{bar08a}
 {Barden} M., {Jahnke} K., {H{\"a}u{\ss}ler} B., 2008, \apjs, 175, 105
@@ -37,6 +42,10 @@
 
 \bibitem[{{Bertin} \& {Arnouts}(1996)}]{ber96}
 {Bertin} E., {Arnouts} S., 1996, \aaps, 117, 393
+
+\bibitem[{{Bundy} {et~al}\mbox{.}(2005){Bundy}, {Ellis}, \&
+  {Conselice}}]{bun05}
+{Bundy} K., {Ellis} R.~S., {Conselice} C.~J., 2005, \apj, 625, 621
 
 \bibitem[{{Caldwell} {et~al}\mbox{.}(2008){Caldwell}, {McIntosh}, {Rix},
   {Barden}, {Beckwith}, {Bell}, {Borch}, {Heymans}, {H{\"a}u{\ss}ler},
@@ -151,11 +160,11 @@
   {Wuyts}, {Yan}, \& {Yun}}]{gro11}
 {Grogin} N.~A. {et~al.}, 2011, \apjs, 197, 35
 
-\bibitem[{{H{\"a}ussler} {et~al}\mbox{.}(2007){H{\"a}ussler}, {McIntosh},
+\bibitem[{{H{\"a}u{\ss}ler} {et~al}\mbox{.}(2007){H{\"a}u{\ss}ler}, {McIntosh},
   {Barden}, {Bell}, {Rix}, {Borch}, {Beckwith}, {Caldwell}, {Heymans},
   {Jahnke}, {Jogee}, {Koposov}, {Meisenheimer}, {S{\'a}nchez}, {Somerville},
   {Wisotzki}, \& {Wolf}}]{hau07}
-{H{\"a}ussler} B. {et~al.}, 2007, \apjs, 172, 615
+{H{\"a}u{\ss}ler} B. {et~al.}, 2007, \apjs, 172, 615
 
 \bibitem[{{Hinshaw} {et~al}\mbox{.}(2013){Hinshaw}, {Larson}, {Komatsu},
   {Spergel}, {Bennett}, {Dunkley}, {Nolta}, {Halpern}, {Hill}, {Odegard},
@@ -224,6 +233,12 @@
   {Land}, {Bamford}, {Thomas}, {Raddick}, {Nichol}, {Szalay}, {Andreescu},
   {Murray}, \& {Vandenberg}}]{lin08}
 {Lintott} C.~J. {et~al.}, 2008, \mnras, 389, 1179
+
+\bibitem[{{Lotz} {et~al}\mbox{.}(2008){Lotz}, {Davis}, {Faber}, {Guhathakurta},
+  {Gwyn}, {Huang}, {Koo}, {Le Floc'h}, {Lin}, {Newman}, {Noeske}, {Papovich},
+  {Willmer}, {Coil}, {Conselice}, {Cooper}, {Hopkins}, {Metevier}, {Primack},
+  {Rieke}, \& {Weiner}}]{lot08}
+{Lotz} J.~M. {et~al.}, 2008, \apj, 672, 177
 
 \bibitem[{{Lotz} {et~al}\mbox{.}(2004){Lotz}, {Primack}, \& {Madau}}]{lot04}
 {Lotz} J.~M., {Primack} J., {Madau} P., 2004, \aj, 128, 163

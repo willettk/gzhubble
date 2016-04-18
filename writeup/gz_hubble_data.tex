@@ -131,7 +131,7 @@ total                         & $-$         & $-$                              &
 
 \subsection{Galaxy selection}
 
-For images from the ACS-GC \citet{gri12}, galaxies are identified using a combination of \sextractor{} \citep{ber96} and the galaxy-profile fitting framework \textsc{Galapagos} \citep{hau07}. We selected all galaxies with $m < 23.5$, where $m$ is in the \Iband, \zband, or \iband{} for the AEGIS + COSMOS, GEMS + GOODS-S, and GOODS-N surveys, respectively. This yielded a total of 113,166~images (Table~\ref{tbl:gzh_numbers}).
+For images from the ACS-GC \citet{gri12}, galaxies are identified using a combination of \sextractor{} \citep{ber96} and the galaxy-profile fitting framework \textsc{Galapagos} \citep{bar12}. We selected all galaxies with $m < 23.5$, where $m$ is in the \Iband, \zband, or \iband{} for the AEGIS + COSMOS, GEMS + GOODS-S, and GOODS-N surveys, respectively. This yielded a total of 113,166~images (Table~\ref{tbl:gzh_numbers}).
 
 Single-epoch images from SDSS Stripe~82 were selected using the same criteria from \citet{wil13}, which required limits of \texttt{petroR90\_r}$ > 3$\arcsec~(where \texttt{petroR90\_r} is the radius containing 90\% of the $r^\prime$ Petrosian flux) and a magnitude brighter than $m_r < 17.77$. 21,522 galaxies in SDSS met these criteria. Coadded images from Stripe~82 were selected from the union of galaxies with coadded magnitudes brighter than $17.77$~mag and the galaxies detected in the single-depth images and matched to a coadd source. This resulted in a larger set of 30,339 images. Of the images in the coadded sample, 5144 (17~percent) are dimmer than the initial magnitude cut of 17.77. 
 
@@ -869,7 +869,7 @@ No.      &  Task 	            & Previous              & Vote fraction threshold 
 
 \section{Analysis}\label{sec:analysis}
 
-\subsection{Effect of changing depth (GOODS, Stripe 82)}
+%\subsection{Effect of changing depth (GOODS, Stripe 82)}
 
 \subsection{Demographics of morphology}
 
@@ -884,10 +884,9 @@ Compare GZH data to:
     \item Tasca (COSMOS)
     \item Cassata (COSMOS)
     \item Zajmoski (COSMOS)
-    \item GEMS morphologies?
-    \item AEGIS morphologies?
-    \item GOODS N/S morphologies?
-    \item expert visual inspection?
+    \item GEMS morphologies \citep{hau07}
+    \item AEGIS morphologies \citep{lot08}
+    \item GOODS N/S morphologies \citep{bun05}
 \end{itemize}
 
 {\note \textit{Address trends seen in broad morphological classes, possible reasons for difference. Also should attempt to map between the GZH vote fractions and whatever classification systems are used in the above systems.}}
