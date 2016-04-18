@@ -12,9 +12,10 @@
 \usepackage{subfigure}
 \usepackage{deluxetable}
 \usepackage{url}
+\usepackage[normalem]{ulem}
 \bibliographystyle{mn2e}
 
-\input{gzh_macros.tex}
+\input{macros.tex}
 
 \begin{document}
 
@@ -884,10 +885,29 @@ Compare GZH data to:
     \item Tasca (COSMOS)
     \item Cassata (COSMOS)
     \item Zajmoski (COSMOS)
-    \item GEMS morphologies \citep{hau07}
+    \item \sout{GEMS morphologies} \citep{hau07}
     \item AEGIS morphologies \citep{lot08}
     \item GOODS N/S morphologies \citep{bun05}
 \end{itemize}
+
+Morphologies for galaxies in GEMS imaging have been measured by \citet{hau07}, who perform a careful comparison of single-component \sersic{} fits to the F850LP imaging using both the \galfit{} and \gimtwod{} codes. We compare the GZH morphological vote fractions to the \galfit{} parameters, which are evaluated by \citet{hau07} as more reliable due to \galfit's ability to fit multiple galaxies and handle crowded fields. 
+
+A single \sersic{} fit is often a poor fit to the light profile of a resolved galaxy, since large numbers of classical spirals have both a de~Vaucouleurs bulge at the center and an exponential disc at larger radii. If a single parameter is used, however, a common division in the literature is to split on the \sersic~index $n$ into disc-dominated galaxies ($n<2.5$) and bulge-dominated galaxies ($n>2.5$), where $n$ is the exponent in the radial surface brightness profile such that $\Sigma(r)=\Sigma_e \exp{\left(-\kappa[(r/r_e)^{1/n} - 1]\right)}$. 
+
+A 1\arcsec~positional match for the GEMS galaxies in Table~9 in \citet{hau07} to the GZH sample gives 8,846~galaxies found in both samples. We analyze galaxies for which the \galfit{} parameters are flagged as being constrained within plausible physical limits, indicating a moderately robust fit. There is a strong correlation between $n$ and \pbest; the average value for disk-dominated galaxies ($n<2.5$) is $\langle$\pbest$\rangle=0.44\pm0.26$, compared to $\langle$\pbest$\rangle=0.30\pm0.25$ for bulge-dominated galaxies ($n>2.5$). The correlation is stronger for bulge-dominated galaxies; for $n>2.5$, most galaxies have \pbest$<0.2$. In contrast, while $n<2.5$ do have higher \pbest~values, the spread is larger and there are significant numbers of galaxies even at the highest \pbest{} values. 
+
+Inverting the comparison, we split the GZH galaxies into three samples: ``clean'' disks (\pbest$\ge0.8$), ``clean'' ellipticals (\pbest$\le0.2$), and ``intermediate'' ($0.2<$\pbest$<0.8$) galaxies \citep[eg,][]{sch14}. Splitting by $n<2.5/n>2.5$, clean disks are $85\%/17\%$, intermediates $84\%/16\%$, and clean ellipticals $59\%/41\%$. There is a strong dependence for these ratios on the brightness of the galaxy, which affects both automatic fits and visual accuracy. Limiting the sample to galaxies with $m_{850LP}<21$ gives fractions of: clean disks are $77\%/23\%$, intermediates $52\%/48\%$, and clean ellipticals $38\%/62\%$. While the clean disk fraction is largely unchanged, intermediates are more evenly balanced and there is a larger population of smooth galaxies with high $n$, as expected.  
+
+Clumpy galaxies in GZH have $n$ and $R_e$ \galfit{} parameters more consistent with disky, $n<2.5$ galaxies than spheroids (Figure~\ref{fig:clumpy_gems}). 
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.50\textwidth]{figures/gems_clumpy.png}
+\caption{Parameter distributions for GEMS galaxies in \citet{hau07} and GZH. Red and blue points indicate galaxies split by their \sersic~index into disk- and bulge-dominated galaxies. Galaxies identified as ``clumpy'' in GZH are labeled in green.}
+\label{fig:clumpy_gems}
+\end{center}
+\end{figure}
+
 
 {\note \textit{Address trends seen in broad morphological classes, possible reasons for difference. Also should attempt to map between the GZH vote fractions and whatever classification systems are used in the above systems.}}
 
