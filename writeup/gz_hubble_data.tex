@@ -1,8 +1,38 @@
-%\documentclass[twocolumn]{emulateapj}
-%\documentclass[12pt,preprint]{aastex}
-\documentclass[usenatbib]{mn2e}
+\documentclass[twocolumn]{aastex6}
 
-\voffset-1.25cm
+%% The other main article choice is a tightly typeset, two-column article
+%% that more closely resembles the final typeset pdf article.
+%%
+%% \documentclass[twocolumn]{aastex6}
+%% 
+%% There are other optional arguments one can envoke to allow other 
+%% actions. 
+%%
+% These are the available options:
+%   manuscript	: onecolumn, doublespace, 12pt fonts
+%   preprint	: onecolumn, single space, 10pt fonts
+%   preprint2	: twocolumn, single space, 10pt fonts
+%   twocolumn	: a two column article. Probably not needed, but here just in case.
+%   onecolumn	: a one column article; default option.
+%   twocolappendix: make 2 column appendix
+%   onecolappendix: make 1 column appendix is the default. 
+%   astrosymb	: Loads Astrosymb font and define \astrocommands. 
+%   tighten	: Makes baselineskip slightly smaller
+%   times	: uses times font instead of the default
+%   linenumbers	: turn on lineno package.
+%   trackchanges : required to see the revision mark up and print output
+%   numberedappendix: Labels appendix sections A, B, ... This is the default.
+%   appendixfloats: Needed. Resets figure and table counters to zero
+
+%% these can be used in any combination, e.g.
+%%
+%% \documentclass[twocolumn,twocolappendix,linenumbers,trackchanges]{aastex6}
+
+\shorttitle{Galaxy Zoo: Hubble}
+\shortauthors{Willett et al.}
+
+%% This is the end of the preamble.  Indicate the beginning of the
+%% paper itself with \begin{document}.
 
 \usepackage{epsfig}
 \usepackage{color,soul}
@@ -10,7 +40,6 @@
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{subfigure}
-\usepackage{deluxetable}
 \usepackage{url}
 \usepackage[normalem]{ulem}
 \bibliographystyle{mn2e}
@@ -19,8 +48,23 @@
 
 \begin{document}
 
-\title[Galaxy Zoo Hubble Data]{Galaxy Zoo: Morphological Classifications for Galaxies in HST Legacy Imaging}
-\author[Lead Author \etal]{Lead Author and other Galaxy Zoo science team members\\
+%% LaTeX will automatically break titles if they run longer than
+%% one line. However, you may use \\ to force a line break if
+%% you desire.
+
+\title{Galaxy Zoo: Morphological Classifications for Galaxies in HST Legacy Imaging}
+%% Use \author, \affil, plus the \and command to format author and affiliation 
+%% information.  If done correctly the peer review system will be able to
+%% automatically put the author and affiliation information from the manuscript
+%% and save the corresponding author the trouble of entering it by hand.
+%%
+%% The \affil should be used to document primary affiliations and the
+%% \altaffil should be used for secondary affiliations, titles, or email.
+
+%% Authors with the same affiliation can be grouped in a single
+%% \author and \affil call.
+\author{Kyle W. Willett\altaffilmark{1,2}, Melanie A. Galloway\altaffilmark{1}, Chris J. Lintott\altaffilmark{3}, B.D. Simmons\altaffilmark{3,4,5,6}, Karen L. Masters\altaffilmark{7,8}, Tom Melvin\altaffilmark{7}, Steven P. Bamford\altaffilmark{9}, Edward M. Edmondson\altaffilmark{7}, Lucy F. Fortson\altaffilmark{1}, Kevin Schawinski\altaffilmark{10}, Edmond Cheung\altaffilmark{11}, Claudia Scarlata\altaffilmark{1}, Melanie Beck\altaffilmark{1}, Arfon M. Smith\altaffilmark{3,12,13}, Michael Parrish\altaffilmark{12}, Roger L. Griffith\altaffilmark{14,15}, Anna Han\altaffilmark{16}
+}
 %
 % List of people who have contributed (not sure if everyone will be author)
 % Definitely: Lintott, Bamford, Edmondson, Masters, Simmons, Melvin, Willett, Galloway, Fortson, Schawinski, Cheung
@@ -40,26 +84,38 @@
 %$^6$School of Physics and Astronomy, University of Minnesota, Minneapolis, MN 55455, USA\\
 %$^7$Department of Physics \& Astronomy, 206 Gallalee Hall, 514 University Blvd., University of Alabama, Tuscaloosa, AL 35487-0234, USA\\
 %$^8$Einstein Fellow\\ 
-\\
- $^*$This publication has been made possible by the participation of more than 200,000 volunteers in the Galaxy Zoo project. \\ Their contributions are individually acknowledged at \texttt{http://authors.galaxyzoo.org/authors.html}. \\
-\\
-{\tt E-mail: lead.author@university.edu}
- }
 
-%\date{Accepted for publication in MNRAS, 7th October 2010.}
-%\pagerange{1--10} \pubyear{2010}
+%\altaffiltext{1}{School of Physics and Astronomy, University of Minnesota, USA}
+%\altaffiltext{2}{Department of Physics and Astronomy, University of Kentucky, USA}
+%\altaffiltext{3}{Oxford Astrophysics, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, UK}
+%\altaffiltext{4}{Center for Astrophysics and Space Sciences (CASS), Department of Physics, University of California, San Diego, CA 92093, USA}
+%\altaffiltext{5}{Balliol College}
+%\altaffiltext{6}{Einstein Fellow}
+%\altaffiltext{7}{Institute of Cosmology and Gravitation, University of Portsmouth, UK}
+%\altaffiltext{8}{SEPnet, South East Physics Network, UK}
+%\altaffiltext{9}{University of Nottingham, UK}
+%\altaffiltext{10}{ETH Z\"urich, Switzerland}
+%\altaffiltext{11}{Kavli Institute for the Physics and Mathematics of the Universe (WPI), Japan}
+%\altaffiltext{12}{Adler Planetarium, USA}
+%\altaffiltext{13}{GitHub}
+%\altaffiltext{14}{University of California, Berkeley, USA}
+%\altaffiltext{15}{Penn State University, USA}
+%\altaffiltext{16}{Yale University, USA}
 
-\maketitle
-
+%% Mark off the abstract in the ``abstract'' environment. 
 \begin{abstract}
 
-This will be the data release paper for GZ:Hubble. We present the classifications, the methodology for data reduction and corrections for redshift dependent biases in the observed morphologies. 
+% Note: 250-word limit
+This is the data release paper for GZ:Hubble\footnote{This publication has been made possible by the participation of more than 200,000 volunteers in the Galaxy Zoo project. Their contributions are individually acknowledged at \url{http://authors.galaxyzoo.org/authors.html}.}. We present the classifications, the methodology for data reduction and corrections for redshift dependent biases in the observed morphologies. 
 
 \end{abstract}
 
-%\keywords{galaxies: distances and redshifts --- galaxies: clusters --- galaxies: fundamental parameters --- distance scale --- cosmological parameters}
+%% Keywords should appear after the \end{abstract} command. 
+%% See the online documentation for the full list of available subject
+%% keywords and the rules for their use.
+\keywords{galaxies --- catalogs --- surveys}
 
-\section{Introduction}
+\section{Introduction} \label{sec:intro}
 
 The morphology of galaxies encodes information on the orbital parameters and assembly history of the contents, including gas, dust, stars, and the central black hole. The morphology is also closely related to the local environment of the galaxy, as mutual interactions such as gravitational tides, shocks in cluster environments and direct mergers can all change the shape of the galaxy's potential. For $M^\star$~galaxies in the local Universe, this typically manifests at the most basic level as the difference between bulge-dominated, virialized systems resembling ellipticals (early-types) and disk-dominated, rotationally-supported disks (late-types) frequently exhibiting spiral arms. This dichotomy has been used to explore much of the astrophysics encoding galaxy formation and evolution, and has been shown to be closely linked with other galactic properties such as stellar mass, halo mass, luminosity, black hole activity, size, and the relative ages of the stellar populations. 
 
@@ -183,9 +239,7 @@ For galaxies which have redshifts from multiple sources, we use the following al
 
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable}{l|rr|rrr|rr|r|rr}
-\centering
-\rotate
+\begin{deluxetable*}{l|rr|rrr|rr|r|rr}
 \tablecolumns{12}
 \tablewidth{0pc}
 \tablecaption{GZH redshifts by survey\label{tbl:redshifts}} 
@@ -222,7 +276,7 @@ SDSS     & 0      & 0      & 0   &  0    &  0      & 0     & 0     & 0       & 3
 \hline
 Total    & 14,271 & 81,045 & 798 & 3,865 & 1,977   & 1,095 & 8,488 & 2,665   & 114,204 & 184,794\\
 \enddata
-\end{deluxetable}
+\end{deluxetable*}
 
 Photometric and spectroscopic data for the SDSS Stripe~82 galaxies are taken from the CasJobs DR7 tables. This includes $ugriz$ Petrosian magnitudes and fluxes, as well as the relative de~Vaucouleurs and exponential fits from the model magnitudes. Redshifts used for the Sloan galaxies are all spectroscopic. 82.6\% of galaxies in the single-depth images and 65.1\% of galaxies in the coadd images have a measured DR7 spectroscopic redshift. 
 
@@ -514,9 +568,8 @@ We split the data products for GZH by the type of image being classified. Table~
 
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable}{lllcrllllll|c}
+\begin{deluxetable*}{lllcrllllll|c}
 \centering
-\rotate
 \tablecolumns{13}
 \tablewidth{0pc}
 \tablecaption{GZH morphological classifications for \hst{} images from AEGIS, COSMOS, GEMS, and GOODS\label{tbl:catalog_hst}} 
@@ -560,15 +613,14 @@ $\ldots$    \\
 \enddata
 \tablenotetext{1}{Flag indicating how the vote fractions for this galaxy were corrected through debiasing (\S\ref{ssec:zeta_results}), if possible. 0~=~correctable, 1~=~uncorrectable ($p_{raw}$ --- $p_{adj}$ is not single-valued), 2~=~uncorrected ($z_{\rm gal} < 0.3$), 3~=~uncorrectable (insufficient FERENGI galaxies in this $z$-$\mu$ bin), 4~=~uncorrectable (no galaxy redshift available).}
 \tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 118,425~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
-\end{deluxetable}
+\end{deluxetable*}
 
 % Why are some values negative?
 % Why are most of the full-depth GOODS weighted fractions identical to the raw fractions?
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable}{lllcrllllll|c}
+\begin{deluxetable*}{lllcrllllll|c}
 \centering
-\rotate
 \tablecolumns{13}
 \tablewidth{0pc}
 \tablecaption{GZH morphological classifications for color-faded Hubble images\label{tbl:catalog_faded}} 
@@ -602,12 +654,11 @@ AHZF000010  &   20000104    &   COSMOS  &   2   &   53 &  0.811   &     0.849   
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 3,927~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
-\end{deluxetable}
+\end{deluxetable*}
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable}{lllcrllllll|c}
+\begin{deluxetable*}{lllcrllllll|c}
 \centering
-\rotate
 \tablecolumns{13}
 \tablewidth{0pc}
 \tablecaption{GZH morphological classifications for color-inverted Hubble images\label{tbl:catalog_recoloured}} 
@@ -641,12 +692,11 @@ AHZC000010	&   20000104	&   COSMOS	&   2	&   158	&   0.843   &   0.882   &   0.9
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 3,927~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
-\end{deluxetable}
+\end{deluxetable*}
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable}{lllcrllllll|c}
+\begin{deluxetable*}{lllcrllllll|c}
 \centering
-\rotate
 \tablecolumns{13}
 \tablewidth{0pc}
 \tablecaption{GZH morphological classifications for GOODS 2-epoch images\label{tbl:catalog_goods_shallow}} 
@@ -680,14 +730,13 @@ AHZ3000005  &   50000010    &     GOODS-N   &   1   &   123	&   0.854	&   0.890 
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 6,144~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
-\end{deluxetable}
+\end{deluxetable*}
 
 
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable}{lllcrllll|c}
+\begin{deluxetable*}{lllcrllll|c}
 \centering
-\rotate
 \tablecolumns{13}
 \tablewidth{0pc}
 \tablecaption{GZH morphological classifications for SDSS Stripe 82 single-epoch images\label{tbl:stripe82_single}} 
@@ -724,13 +773,12 @@ AHZ500000a  &   587730845812720699  &   SDSS    &     2 &   40  &   0.425   &   
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 21,522~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
-\end{deluxetable}
+\end{deluxetable*}
 
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable}{lllcrllll|c}
+\begin{deluxetable*}{lllcrllll|c}
 \centering
-\rotate
 \tablecolumns{13}
 \tablewidth{0pc}
 \tablecaption{GZH morphological classifications for SDSS Stripe 82 coadded images\label{tbl:stripe82_coadd}} 
@@ -767,12 +815,11 @@ AHZ600000a  & 8647474690312373190   &   SDSS    &    4  & 47  & 0.574   &    0.5
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 30,339~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
-\end{deluxetable}
+\end{deluxetable*}
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable}{lllccccrrrrrrr|c}
+\begin{deluxetable*}{lllccccrrrrrrr|c}
 \centering
-\rotate
 \tablecolumns{14}
 \tablewidth{0pc}
 \tablecaption{GZH morphological classifications for \hst{} images with simulated AGN\label{tbl:fake_agn}} 
@@ -816,7 +863,7 @@ $\ldots$    \\
 \enddata
 \tablenotetext{1}{Flag indicating the color of the PSF in the simulated AGN. 0~=~no simulated AGN, 1~=~blue, 2~=~flat, 3~=~red.}
 \tablecomments{The full version of this table is available in electronic form, as well as at \url{http://data.galaxyzoo.org}. The complete version includes data for 2,961~galaxies and morphological information for all tasks in the tree. A subset of the information is shown here to illustrate form and content.}
-\end{deluxetable}
+\end{deluxetable*}
 
 {\note To include: detailed description of each column in the machine-readable tables. }
 
@@ -937,7 +984,7 @@ This project made heavy use of the Astropy packages in Python \citep{ast13}, the
 
 \hubble{} acknowledgements.
 
-Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. The SDSS website is http://www.sdss.org/. 
+Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. The SDSS website is \url{http://www.sdss.org/}. 
 
 The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. The Participating Institutions are the American Museum of Natural History, Astrophysical  Institute Potsdam, University of Basel, University of Cambridge, Case Western Reserve University, University of Chicago, Drexel University, Fermilab, the Institute for Advanced Study, the Japan Participation Group, Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, the Kavli Institute for Particle Astrophysics and Cosmology, the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), the Max-Planck-Institute for Astrophysics (MPA), New Mexico State University, Ohio State University, University of Pittsburgh, University of Portsmouth, Princeton University, the United States Naval Observatory and the University of Washington. 
 
@@ -1073,3 +1120,4 @@ Total                              & 3,950   & 100\% \\
 
 
 \end{document}
+
