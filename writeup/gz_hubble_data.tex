@@ -886,9 +886,13 @@ Compare GZH data to:
     \item Cassata (COSMOS)
     \item Zajmoski (COSMOS)
     \item \sout{GEMS morphologies} \citep{hau07}
-    \item AEGIS morphologies \citep{lot08}
+    \item \sout{AEGIS morphologies} \citep{lot08}
     \item GOODS N/S morphologies \citep{bun05}
 \end{itemize}
+
+{\note \textit{Address trends seen in broad morphological classes, possible reasons for difference. Also should attempt to map between the GZH vote fractions and whatever classification systems are used in the above systems.}}
+
+\subsubsection{GEMS}
 
 Morphologies for galaxies in GEMS imaging have been measured by \citet{hau07}, who perform a careful comparison of single-component \sersic{} fits to the F850LP imaging using both the \galfit{} and \gimtwod{} codes. We compare the GZH morphological vote fractions to the \galfit{} parameters, which are evaluated by \citet{hau07} as more reliable due to \galfit's ability to fit multiple galaxies and handle crowded fields. 
 
@@ -902,6 +906,16 @@ We visually inspect galaxies for which the \galfit{} and GZH measurements indica
 
 Clumpy galaxies in GZH have \galfit{} parameters more consistent with disky, $n<2.5$ galaxies than spheroids (Figure~\ref{fig:clumpy_gems}). Using the thresholds in Table~\ref{tbl:thresholds}, GZH clumpy galaxies have average values of $n=1.6\pm1.2$ and $R_e=32\pm16$~pix, with only 11\% of clumpy galaxies falling in the bulge-dominated region of $n>2.5$. 
 
+\subsubsection{AEGIS}
+
+Galaxies in AEGIS were morphologically classified using non-parametric measurements by \citet{lot08}. They use the Gini coefficient ($G$), which measures the relative inequality in pixel brightness, and $M_{20}$, the second-order moment of the brightest 20\% of the light \citep{lot04}. A linear combination of $G$ and $M_{20}$ to delineate three broad categories of galaxy morphology: E/S0/Sa (bulge-dominated/spheroids), Sb/Sc/Ir (disk-dominated/irregulars), and mergers.  
+
+We compare the GZH vote fractions to the morphological categories defined by their $G$-$M_{20}$ values, which are measured in both $V$- and $I$-band. A 1\arcsec{} positional match on AEGIS from \citet{lot08} and GZH yields 7,508~galaxies; of those, we analyze a subsample of 4,031 with reliably-measured morphologies and $S/N>3$ in both bands. 
+
+The GZH morphologies are reasonably correlated with the $G$-$M_{20}$ morphological categories. For galaxies labeled as Sb/Sc/Ir by \citet{lot08}, 58\% of the galaxies in $I$-band (61\% in $V$-band) have \pbest{} above a nominal cut of 0.5. E/S0/Sa galaxies have a tighter relation, with 78\% of galaxies in $I$-band (79\% in $V$-band) having $p_\mathrm{smooth}>0.5$. Galaxies with high \pbest{} are largely concentrated in the E/S0/Sa region of $G$-$M_{20}$ space; the small overlaps into mergers and E/S0/Sa are close to what we expect for loosely defined boundaries. Galaxies with low \pbest{} have a much broader range of $G$-$M_{20}$ values, with nearly half lying well within the Sb/Sc/Ir region. 
+
+Of the 47~galaxies identified by GZH as mergers in the cross-matched AEGIS sample (selected as \pmerger$>0.5$ and $N_\mathrm{merger}\ge20$), roughly two-thirds fall in the merger region of $G$-$M_{20}$ space defined in \citet{lot08}; almost all the remainder would be classified as Sb/Sc/Ir. Galaxies identified as mergers by $G$-$M_{20}$, in contrast, typically have lower \pmerger{} values; 66\%/50\% in $V$-band and $I$-band, respectively. While the total number of mergers identified in GZH is roughly $\times10$ fewer than the volume-limited $G$-$M_{20}$ sample, we do confirm the result of a non-evolving merger fraction between $0.2<z<1.2$. %The average bulge statistic for the GZH mergers \citep[as defined in][]{sny15} is $F=-0.3\pm0.5$ in $V$-band and $F=-0.2\pm0.5$ in $I$-band. 
+
 \begin{figure}
 \begin{center}
 \includegraphics[width=0.50\textwidth]{figures/gems_clumpy.png}
@@ -911,15 +925,13 @@ Clumpy galaxies in GZH have \galfit{} parameters more consistent with disky, $n<
 \end{figure}
 
 
-{\note \textit{Address trends seen in broad morphological classes, possible reasons for difference. Also should attempt to map between the GZH vote fractions and whatever classification systems are used in the above systems.}}
-
 \section{Summary}\label{sec:summary}
 
 Now people go and do science with these awesome GZH classifications.  
  
 \paragraph*{ACKNOWLEDGEMENTS.} 
 
-We thank Meg Schwamb and the ASIAA for hosting the ``Citizen Science in Astronomy'' workshop, 3-7 Mar 2014 in Taipei, Taiwan, at which some of this analysis was done. 
+We thank Meg Schwamb and the ASIAA for hosting the ``Citizen Science in Astronomy'' workshop, 3-7 Mar 2014 in Taipei, Taiwan, at which some of this analysis was done. We also thank Jennifer Lotz for sharing her $G$-$M_{20}$ measurements for the AEGIS sample.
 
 This project made heavy use of the Astropy packages in Python \citep{ast13}, the \texttt{seaborn} plotting package \citep{was15}, and astroML \citep{van12}. Modified code from Nick~Wherry and David~Schlegel was used to create the JPG images. 
 
