@@ -1,4 +1,4 @@
-\begin{thebibliography}{72}
+\begin{thebibliography}{73}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Astropy Collaboration} {et~al}\mbox{.}(2013){Astropy Collaboration},
@@ -42,6 +42,11 @@
 
 \bibitem[{{Bertin} \& {Arnouts}(1996)}]{ber96}
 {Bertin} E., {Arnouts} S., 1996, \aaps, 117, 393
+
+\bibitem[{{Brinchmann} {et~al}\mbox{.}(1998){Brinchmann}, {Abraham}, {Schade},
+  {Tresse}, {Ellis}, {Lilly}, {Le F{\`e}vre}, {Glazebrook}, {Hammer},
+  {Colless}, {Crampton}, \& {Broadhurst}}]{bri98a}
+{Brinchmann} J. {et~al.}, 1998, \apj, 499, 112
 
 \bibitem[{{Bundy} {et~al}\mbox{.}(2005){Bundy}, {Ellis}, \&
   {Conselice}}]{bun05}

@@ -923,7 +923,7 @@ No.      &  Task 	            & Previous              & Vote fraction threshold 
 
 {\note \it Summarize the broad trends that are seen regarding the fraction of galaxies with various morphologies, how that relates to color, size, etc. Briefly discuss results as compared with literature and theory.}
 
-\subsection{Comparison to other catalogs}
+\subsection{Comparison to other catalogs}\ref{ssec:comparisons}
 
 Compare GZH data to:
 
@@ -934,7 +934,7 @@ Compare GZH data to:
     \item Zajmoski (COSMOS)
     \item \sout{GEMS morphologies} \citep{hau07}
     \item \sout{AEGIS morphologies} \citep{lot08}
-    \item GOODS N/S morphologies \citep{bun05}
+    \item \sout{GOODS N/S morphologies} \citep{bun05}
 \end{itemize}
 
 {\note \textit{Address trends seen in broad morphological classes, possible reasons for difference. Also should attempt to map between the GZH vote fractions and whatever classification systems are used in the above systems.}}
@@ -953,6 +953,14 @@ We visually inspect galaxies for which the \galfit{} and GZH measurements indica
 
 Clumpy galaxies in GZH have \galfit{} parameters more consistent with disky, $n<2.5$ galaxies than spheroids (Figure~\ref{fig:clumpy_gems}). Using the thresholds in Table~\ref{tbl:thresholds}, GZH clumpy galaxies have average values of $n=1.6\pm1.2$ and $R_e=32\pm16$~pix, with only 11\% of clumpy galaxies falling in the bulge-dominated region of $n>2.5$. 
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.50\textwidth]{figures/gems_clumpy.png}
+\caption{Parameter distributions for GEMS galaxies in \citet{hau07} and GZH. Red and blue points indicate galaxies split by their \sersic~index (at $n=2.5$) into disk- and bulge-dominated galaxies, respectively. Galaxies identified as ``clumpy'' in GZH are labeled in green.}
+\label{fig:clumpy_gems}
+\end{center}
+\end{figure}
+
 \subsubsection{AEGIS}
 
 Galaxies in AEGIS were morphologically classified using non-parametric measurements by \citet{lot08}. They use the Gini coefficient ($G$), which measures the relative inequality in pixel brightness, and $M_{20}$, the second-order moment of the brightest 20\% of the light \citep{lot04}. A linear combination of $G$ and $M_{20}$ to delineate three broad categories of galaxy morphology: E/S0/Sa (bulge-dominated/spheroids), Sb/Sc/Ir (disk-dominated/irregulars), and mergers.  
@@ -963,20 +971,19 @@ The GZH morphologies are reasonably correlated with the $G$-$M_{20}$ morphologic
 
 Of the 47~galaxies identified by GZH as mergers in the cross-matched AEGIS sample (selected as \pmerger$>0.5$ and $N_\mathrm{merger}\ge20$), roughly two-thirds fall in the merger region of $G$-$M_{20}$ space defined in \citet{lot08}; almost all the remainder would be classified as Sb/Sc/Ir. Galaxies identified as mergers by $G$-$M_{20}$, in contrast, typically have lower \pmerger{} values; 66\%/50\% in $V$-band and $I$-band, respectively. While the total number of mergers identified in GZH is roughly $\times10$ fewer than the volume-limited $G$-$M_{20}$ sample, we do confirm the result of a non-evolving merger fraction between $0.2<z<1.2$. %The average bulge statistic for the GZH mergers \citep[as defined in][]{sny15} is $F=-0.3\pm0.5$ in $V$-band and $F=-0.2\pm0.5$ in $I$-band. 
 
-\begin{figure}
-\begin{center}
-\includegraphics[width=0.50\textwidth]{figures/gems_clumpy.png}
-\caption{Parameter distributions for GEMS galaxies in \citet{hau07} and GZH. Red and blue points indicate galaxies split by their \sersic~index (at $n=2.5$) into disk- and bulge-dominated galaxies, respectively. Galaxies identified as ``clumpy'' in GZH are labeled in green.}
-\label{fig:clumpy_gems}
-\end{center}
-\end{figure}
+\subsubsection{GOODS}
 
+Galaxies in the GOODS-N and GOODS-S fields down to a limit of $z_{AB}=22.5$ have been visually classified by a single expert (R.S.~Ellis), inspecting both $z$-band and composite $Viz$ color images \citep{bun05}. These morphologies are assigned a numerical value based on categories in \citet{bri98a}; these are combined into broader categories of ``E/S0'' (classes 0,1,2), ``Spirals'' (classes 3,4,5), and ``Peculiar/Irregular'' (classes 6,7,8). \citet{bun05} use these morphologies to show that there are an increasing proportion of early-type galaxies observed at later times. 
+
+Matching the \citet{bun05} catalog to GZH with a 0.5\arcsec{} radius yields 2435 galaxies (1300 in GOODS-N, 1135 in GOODS-S). We compare their broad morphological categories to \pbest{} in GZH; demographics of the separate GOODS-N and GOODS-S samples are highly consistent. ``E/S0'' galaxies are dominated by high smooth fractions in GZH, with an average value of $\langle p_\mathrm{smooth,best}\rangle=0.54\pm0.20$. The effect is stronger when examining sub-divisions; pure E galaxies have the highest $p_\mathrm{smooth,best}$ values, while S0 have the lowest. Visual inspection of galaxies designated as S0 show numerous examples of both edge-on galaxies and visible substructure in the disk, including spiral arms. This is consistent with the design of the GZH decision tree, and likely reflects that the expert categories are using different criteria. 
+
+``Spiral'' galaxies in \citet{bun05} have robustly high GZH vote fractions of features and/or disks, with $\langle p_\mathrm{features,best}\rangle=0.59\pm0.06$. The vote fraction increases with Hubble type, with Scd galaxies having the highest average \pbest{} values. ``Peculiar/Irregular'' galaxies have similar ranges of \pbest{} to the ``Spiral'' galaxies, but can be sub-selected with cutoffs on $p_\mathrm{odd}$ and $p_\mathrm{irregular}$ or $p_\mathrm{merger}$. We note that mergers are not strongly correlated in GZH and the expert visual classifications; between 20\%--30\% have GZH merger fractions of zero, while even clear tidal tails can be as low as $p_\mathrm{merger}\sim0.1$. The total number of major mergers is small enough that expert visual inspection can be practically done on all candidates; a combination of methods may be the most accurate way of identifying these rarer objects, especially when the signs of interaction are relatively subtle. 
 
 \section{Summary}\label{sec:summary}
 
-Now people go and do science with these awesome GZH classifications.  
+Now people go and do science with these awesome GZH classifications. 
  
-\paragraph*{ACKNOWLEDGEMENTS.} 
+\acknowledgments
 
 We thank Meg Schwamb and the ASIAA for hosting the ``Citizen Science in Astronomy'' workshop, 3-7 Mar 2014 in Taipei, Taiwan, at which some of this analysis was done. We also thank Jennifer Lotz for sharing her $G$-$M_{20}$ measurements for the AEGIS sample.
 
@@ -986,7 +993,7 @@ This project made heavy use of the Astropy packages in Python \citep{ast13}, the
 
 Funding for the SDSS and SDSS-II has been provided by the Alfred P. Sloan Foundation, the Participating Institutions, the National Science Foundation, the U.S. Department of Energy, the National Aeronautics and Space Administration, the Japanese Monbukagakusho, the Max Planck Society, and the Higher Education Funding Council for England. The SDSS website is \url{http://www.sdss.org/}. 
 
-The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. The Participating Institutions are the American Museum of Natural History, Astrophysical  Institute Potsdam, University of Basel, University of Cambridge, Case Western Reserve University, University of Chicago, Drexel University, Fermilab, the Institute for Advanced Study, the Japan Participation Group, Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, the Kavli Institute for Particle Astrophysics and Cosmology, the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), the Max-Planck-Institute for Astrophysics (MPA), New Mexico State University, Ohio State University, University of Pittsburgh, University of Portsmouth, Princeton University, the United States Naval Observatory and the University of Washington. 
+The SDSS is managed by the Astrophysical Research Consortium for the Participating Institutions. The Participating Institutions are the American Museum of Natural History, Astrophysical Institute Potsdam, University of Basel, University of Cambridge, Case Western Reserve University, University of Chicago, Drexel University, Fermilab, the Institute for Advanced Study, the Japan Participation Group, Johns Hopkins University, the Joint Institute for Nuclear Astrophysics, the Kavli Institute for Particle Astrophysics and Cosmology, the Korean Scientist Group, the Chinese Academy of Sciences (LAMOST), Los Alamos National Laboratory, the Max-Planck-Institute for Astronomy (MPIA), the Max-Planck-Institute for Astrophysics (MPA), New Mexico State University, Ohio State University, University of Pittsburgh, University of Portsmouth, Princeton University, the United States Naval Observatory and the University of Washington. 
 
 \bibliography{kwrefs}
 
