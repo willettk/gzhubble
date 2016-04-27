@@ -1,5 +1,9 @@
-\begin{thebibliography}{73}
+\begin{thebibliography}{77}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Abraham} {et~al}\mbox{.}(2003){Abraham}, {van den Bergh}, \&
+  {Nair}}]{abr03}
+{Abraham} R.~G., {van den Bergh} S., {Nair} P., 2003, \apj, 588, 218
 
 \bibitem[{{Astropy Collaboration} {et~al}\mbox{.}(2013){Astropy Collaboration},
   {Robitaille}, {Tollerud}, {Greenfield}, {Droettboom}, {Bray}, {Aldcroft},
@@ -67,6 +71,16 @@
   {Taniguchi}, {Gawiser}, {Brammer}, {Taylor}, {Damen}, {Treister}, {Cobb},
   {Bond}, {Schawinski}, {Lira}, {Murayama}, {Saito}, \& {Sumikawa}}]{car10}
 {Cardamone} C.~N. {et~al.}, 2010, \apjs, 189, 270
+
+\bibitem[{{Cassata} {et~al}\mbox{.}(2005){Cassata}, {Cimatti}, {Franceschini},
+  {Daddi}, {Pignatelli}, {Fasano}, {Rodighiero}, {Pozzetti}, {Mignoli}, \&
+  {Renzini}}]{cas05}
+{Cassata} P. {et~al.}, 2005, \mnras, 357, 903
+
+\bibitem[{{Cassata} {et~al}\mbox{.}(2007){Cassata}, {Guzzo}, {Franceschini},
+  {Scoville}, {Capak}, {Ellis}, {Koekemoer}, {McCracken}, {Mobasher},
+  {Renzini}, {Ricciardelli}, {Scodeggio}, {Taniguchi}, \& {Thompson}}]{cas07}
+{Cassata} P. {et~al.}, 2007, \apjs, 172, 270
 
 \bibitem[{{Chevance} {et~al}\mbox{.}(2012){Chevance}, {Weijmans}, {Damjanov},
   {Abraham}, {Simard}, {van den Bergh}, {Caris}, \& {Glazebrook}}]{che12}
@@ -356,6 +370,9 @@
   {Hasinger}, {Impey}, {LeFevre}, {Lilly}, {Renzini}, {Rich}, {Schinnerer},
   {Shopbell}, {Kaifu}, {Karoji}, {Arimoto}, {Okamura}, \& {Ohta}}]{tan07}
 {Taniguchi} Y. {et~al.}, 2007, \apjs, 172, 9
+
+\bibitem[{{Tasca} \& {et al.}(2011)}]{tas11}
+{Tasca} L.~A.~M., {et al.}, 2011, VizieR Online Data Catalog, 7265
 
 \bibitem[{{Toomre} \& {Toomre}(1972)}]{too72}
 {Toomre} A., {Toomre} J., 1972, \apj, 178, 623

@@ -127,7 +127,7 @@ Observational studies of galaxies at high-redshift also display a wide range of 
 
 Space-based observatories, particularly the \hubble, have been responsible for the bulk of imaging studies of high-redshift galaxies. Observations of fixed fields with very deep imaging \citep[eg,][]{wil96,gia04,bec06,dav07,sco07,gro11} give the photometric sensitivity necessary to detect $L^\star$ galaxies at $z>1$, while also providing the angular resolution to distinguish internal structure and characterize the morphology. While these measurements are helped by the fact that the angular diameter distance is relatively flat at $z>1$ in a flat $\Lambda$CDM cosmology, the scales are only of the order $\sim5-10~\mathrm{kpc}/^{\prime\prime}$ \citep{wri06}. \hst{} can thus resolve much of the structure for a Milky Way-sized galaxy (at least for distinguishing a disk from a bulge), but will be limited for more compact structures. Since the size of galaxies evolves as roughly $r\propto(1+z)^{-1}$ \citep{law12a}, the more compact sizes of earlier galaxies make detailed morphologies a challenge even for \hst{} \citep{che12}. The public availability of more than $10^5$~galaxies in archival imaging across various studies gives a data sample with the potential for high statistical significance. 
 
-One of the major difficulties in studying the morphologies of galaxies in large samples lies in the system of measurement. Visual classification by experts has been used for many years \citep[eg,][]{hub26,dev59,san61,van76,nai10,bai11,kar15}. These methods have advantages in using the significant processing power of the human brain to identify patterns, but suffer from issues such as lack of scaling to large surveys and potential issues with replicability and calibration. Automated measurements, both parametric \citep{pen02a,sim11,lac12} and non-parametric \citep{con03,lot04,sca07,bam08,fre13}, scale well to arbitrary sample sizes, but do not always fully capture the relevant features, especially for asymmetric galaxies that become increasingly common at high redshifts. The Galaxy Zoo project \citep{lin08,lin11} utilizes crowdsourced visual classifications to measure galaxies in color-composite images. With $>2\times10^5$~classifiers, this allows for multiple independent classifications of each image which are combined and calibrated to give a distribution of vote fractions proportional to the probability of a feature being visible. While the crowdsourced data require extensive calibration \citep{bam09,wil13}, they have a proven reliability and have been used in dozens of papers \citep[eg,][]{lan08,bam09,dar10,mas11c,ski12,sim13,sch14,wil15}. 
+One of the major difficulties in studying the morphologies of galaxies in large samples lies in the system of measurement. Visual classification by experts has been used for many years \citep[eg,][]{hub26,dev59,san61,van76,nai10,bai11,kar15}. These methods have advantages in using the significant processing power of the human brain to identify patterns, but suffer from issues such as lack of scaling to large surveys and potential issues with replicability and calibration. Automated measurements, both parametric \citep{pen02a,sim11,lac12} and non-parametric \citep{abr03,con03,lot04,sca07,bam08,fre13}, scale well to arbitrary sample sizes, but do not always fully capture the relevant features, especially for asymmetric galaxies that become increasingly common at high redshifts. The Galaxy Zoo project \citep{lin08,lin11} utilizes crowdsourced visual classifications to measure galaxies in color-composite images. With $>2\times10^5$~classifiers, this allows for multiple independent classifications of each image which are combined and calibrated to give a distribution of vote fractions proportional to the probability of a feature being visible. While the crowdsourced data require extensive calibration \citep{bam09,wil13}, they have a proven reliability and have been used in dozens of papers \citep[eg,][]{lan08,bam09,dar10,mas11c,ski12,sim13,sch14,wil15}. 
 
 This paper presents the results from the Galaxy Zoo Hubble (GZH) project. GZH was the third phase of Galaxy Zoo, following its initial results classifying $\sim900,000$~SDSS~images into primarily early/late~types \citep{lin11} and Galaxy~Zoo~2, which covered $\sim250,000$~SDSS~images using a more detailed classification scheme that included bars, spiral arms, and galactic bulges \citep{wil13}. GZH used a similarly detailed classification scheme, but focused for the first time on images of high-redshift galaxies taken with the \hubble.
 
@@ -205,7 +205,7 @@ I_\mathrm{channel,new} = I_\mathrm{channel,old} \times \frac{\arcsinh(b\times r)
 
 \noindent We adopt a value of $b=3$ for the \hst{} images in \citet{gri12}. 
 
-Since the majority of the data in Legacy surveys described in \S\ref{ssec:legacy_surveys} had images in only 1 or 2~bands available when GZH was launched, making standard 3-channel RGB images in the same method used for the SDSS images in the original Galaxy Zoo was not possible. For surveys with images in two bands (AEGIS, GEMS, and the two-epoch GOODS-N and GOODS-S), the lower-wavelength band is mapped to the blue channel, the higher-wavelength band to the red channel, and the green channel created by taking the geometric mean of the two. Bands used in each of the surveys are listed in Table~\ref{tbl:gzh_numbers}. Note that the 2-epoch GOODS-N and GOODS-S images use different filters --- this was a deliberate choice made so that the GEMS images could be directly compared with the overlapping coverage of GOODS-S (Figure~\ref{fig:filtercurves}). 
+Since the majority of the data in Legacy surveys described in \S\ref{ssec:legacy_surveys} had images in only 1 or 2~bands available when GZH was launched, making standard 3-channel RGB images in the same method used for the SDSS images in the original Galaxy Zoo was not possible. For surveys with images in two bands (AEGIS, GEMS, and the two-epoch GOODS-N and GOODS-S), the lower-wavelength band is mapped to the blue channel, the higher-wavelength band to the red channel, and the green channel created by taking the geometric mean of the two. Bands used in each of the surveys are listed in Table~\ref{tbl:gzh_numbers}. The 2-epoch GOODS-N and GOODS-S images use different filters --- this was a deliberate choice made so that the GEMS images could be directly compared with the overlapping coverage of GOODS-S (Figure~\ref{fig:filtercurves}). 
 
 By the time that the 5-epoch sets of GOODS data were put into GZH, coverage in four separate \hst{} bands had become publicly available. The deeper GOODS images were created using the arithmetic mean of \Bband{} and \Vband in the blue channel, \Iband{} in the red channel, and \zband in the green channel. These images also had the speckled noise pixels decolorized. 
 
@@ -284,6 +284,7 @@ Photometric and spectroscopic data for the SDSS Stripe~82 galaxies are taken fro
 \section{Galaxy Zoo interface and classifications}\label{sec:interface}
 
 \begin{figure*}
+\center
 \includegraphics[width=160mm]{figures/gzh_interface.png}
 \caption{Screenshot of the Galaxy Zoo: Hubble interface showing an example COSMOS image at the first step in the decision tree.\label{fig:interface}}
 \end{figure*}
@@ -366,6 +367,7 @@ $z_{\rm target}$ & $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $e_{\rm max}$ & $N
 \end{table}
 
 \begin{figure*}
+\center
 \includegraphics[width=160mm]{figures/example_ferengi.pdf}
 \caption{Examples of two galaxies which have been run through the FERENGI code to produce simulated \hst{} images. The value of \pfeatures{} for each panel is (1) Top row: \pfeatures~= 0.9, 0.625, 0.35, 0.35, 0.225 and (2) Bottom row: \pfeatures~= 1.00, 0.875, 0.875, 0.625, 0.375. \label{fig:exampleFERENGI}}
 \end{figure*}
@@ -923,7 +925,7 @@ No.      &  Task 	            & Previous              & Vote fraction threshold 
 
 {\note \it Summarize the broad trends that are seen regarding the fraction of galaxies with various morphologies, how that relates to color, size, etc. Briefly discuss results as compared with literature and theory.}
 
-\subsection{Comparison to other catalogs}\ref{ssec:comparisons}
+\subsection{Comparison to other catalogs}\label{ssec:comparisons}
 
 Compare GZH data to:
 
@@ -978,6 +980,14 @@ Galaxies in the GOODS-N and GOODS-S fields down to a limit of $z_{AB}=22.5$ have
 Matching the \citet{bun05} catalog to GZH with a 0.5\arcsec{} radius yields 2435 galaxies (1300 in GOODS-N, 1135 in GOODS-S). We compare their broad morphological categories to \pbest{} in GZH; demographics of the separate GOODS-N and GOODS-S samples are highly consistent. ``E/S0'' galaxies are dominated by high smooth fractions in GZH, with an average value of $\langle p_\mathrm{smooth,best}\rangle=0.54\pm0.20$. The effect is stronger when examining sub-divisions; pure E galaxies have the highest $p_\mathrm{smooth,best}$ values, while S0 have the lowest. Visual inspection of galaxies designated as S0 show numerous examples of both edge-on galaxies and visible substructure in the disk, including spiral arms. This is consistent with the design of the GZH decision tree, and likely reflects that the expert categories are using different criteria. 
 
 ``Spiral'' galaxies in \citet{bun05} have robustly high GZH vote fractions of features and/or disks, with $\langle p_\mathrm{features,best}\rangle=0.59\pm0.06$. The vote fraction increases with Hubble type, with Scd galaxies having the highest average \pbest{} values. ``Peculiar/Irregular'' galaxies have similar ranges of \pbest{} to the ``Spiral'' galaxies, but can be sub-selected with cutoffs on $p_\mathrm{odd}$ and $p_\mathrm{irregular}$ or $p_\mathrm{merger}$. We note that mergers are not strongly correlated in GZH and the expert visual classifications; between 20\%--30\% have GZH merger fractions of zero, while even clear tidal tails can be as low as $p_\mathrm{merger}\sim0.1$. The total number of major mergers is small enough that expert visual inspection can be practically done on all candidates; a combination of methods may be the most accurate way of identifying these rarer objects, especially when the signs of interaction are relatively subtle. 
+
+\subsubsection{COSMOS}
+
+The COSMOS galaxies have several published datasets automatically classifying their morphologies, all using a variation of non-parametric measurements clustered with machine algorithms and trained on a visually-classified reference set of several hundred galaxies. \citet{cas07} use a combination of $C$, $A$, $G$, and $M_{20}$ \citep{cas05} to classify all galaxies with $m_\mathrm{I,petro}<25$. They divide galaxies into three broad morphological categories: early-type, spirals, and irregulars. A very similar method is employed by \citet{tas11}; they use the same non-parametric indices to determine galaxy morphology, but with a slightly different method of calculating the Petrosian radius. 64\% of the galaxies have identical classifications in \citet{cas07} and \citet{tas11}; roughly two-thirds of the disagreements are galaxies originally classified as ``irregular'' in \citet{cas07} but ``spiral'' in \citet{tas11}. 
+
+Using a 0.5\arcsec{} positional match, we find 76,241 galaxies with morphologies in both GZH and \citet{cas07}. 
+
+% Show the fraction of galaxies in each category as a function of p_features and p_odd?
 
 \section{Summary}\label{sec:summary}
 
