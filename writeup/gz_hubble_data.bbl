@@ -39,6 +39,7 @@
   {Caldwell}, {Ferguson}, {Hook}, {Lucas}, {Bergeron}, {Corbin}, {Jogee},
   {Panagia}, {Robberto}, {Royle}, {Somerville}, \& {Sosey}}]{bec06}
 {Beckwith} S.~V.~W. {et~al.}, 2006, \aj, 132, 1729
+\bibitem[Behrendt et al.(2016)]{beh16} Behrendt, M., Burkert, A., \& Schartmann, M.\ 2016, \apjl, 819, L2 
 
 \bibitem[{{Bertin} \& {Arnouts}(1996)}]{ber96}
 {Bertin} E., {Arnouts} S., 1996, \aaps, 117, 393
@@ -72,6 +73,8 @@
   {Abraham}, {Simard}, {van den Bergh}, {Caris}, \& {Glazebrook}}]{che12}
 {Chevance} M., {Weijmans} A.-M., {Damjanov} I., {Abraham} R.~G., {Simard} L.,
   {van den Bergh} S., {Caris} E., {Glazebrook} K., 2012, \apjl, 754, L24
+
+\bibitem[Cheung et al.(2015)]{che15} Cheung, E., Trump, J.~R., Athanassoula, E., et al.\ 2015, \mnras, 447, 506 
 
 \bibitem[{{Conselice}(2003)}]{con03}
 {Conselice} C.~J., 2003, \apjs, 147, 1
@@ -111,6 +114,10 @@
 {Elmegreen} D.~M., {Elmegreen} B.~G., {Rubin} D.~S., {Schaffer} M.~A., 2005,
   \apj, 631, 85
 
+\bibitem[Elmegreen et al.(2009)]{elm09} Elmegreen, D.~M., Elmegreen, B.~G., Marcus, M.~T., et al.\ 2009, \apj, 701, 306 
+
+\bibitem[Elmegreen \& Elmegreen(2014)]{elm14} Elmegreen, D.~M., \& Elmegreen, B.~G.\ 2014, \apj, 781, 11 
+
 \bibitem[{{F{\"o}rster Schreiber} {et~al}\mbox{.}(2011){F{\"o}rster Schreiber},
   {Shapley}, {Erb}, {Genzel}, {Steidel}, {Bouch{\'e}}, {Cresci}, \&
   {Davies}}]{for11a}
@@ -122,6 +129,8 @@
   {Conselice}, {Koekemoer}, {Lotz}, \& {Mozena}}]{fre13}
 {Freeman} P.~E., {Izbicki} R., {Lee} A.~B., {Newman} J.~A., {Conselice} C.~J.,
   {Koekemoer} A.~M., {Lotz} J.~M., {Mozena} M., 2013, \mnras, 434, 282
+
+\bibitem[Galloway et al.(2015)]{gal15} Galloway, M.~A., Willett, K.~W., Fortson, L.~F., et al.\ 2015, \mnras, 448, 3442 
 
 \bibitem[{{Genel} {et~al}\mbox{.}(2014){Genel}, {Vogelsberger}, {Springel},
   {Sijacki}, {Nelson}, {Snyder}, {Rodriguez-Gomez}, {Torrey}, \&
@@ -164,6 +173,7 @@
   Wel}, {Villforth}, {Wechsler}, {Weiner}, {Wiklind}, {Wild}, {Wilson},
   {Wuyts}, {Yan}, \& {Yun}}]{gro11}
 {Grogin} N.~A. {et~al.}, 2011, \apjs, 197, 35
+\bibitem[Guo et al.(2015)]{guo15} Guo, Y., Ferguson, H.~C., Bell, E.~F., et al.\ 2015, \apj, 800, 39 
 
 \bibitem[{{H{\"a}u{\ss}ler} {et~al}\mbox{.}(2007){H{\"a}u{\ss}ler}, {McIntosh},
   {Barden}, {Bell}, {Rix}, {Borch}, {Beckwith}, {Caldwell}, {Heymans},
@@ -257,6 +267,10 @@
   {Lintott}, {Bamford}, {Edmondson}, {Fortson}, {Keel}, {Schawinski}, {Smith},
   \& {Thomas}}]{mas11c}
 {Masters} K.~L. {et~al.}, 2011, \mnras, 411, 2026
+
+\bibitem[Mandelker et al.(2015)]{man15} Mandelker, N., Dekel, A., Ceverino, D., et al.\ 2015, arXiv:1512.08791
+ 
+\bibitem[Melvin et al.(2014)]{mel14} Melvin, T., Masters, K., Lintott, C., et al.\ 2014, \mnras, 438, 2882 
 
 \bibitem[{{Momcheva} {et~al}\mbox{.}(2015){Momcheva}, {Brammer}, {van Dokkum},
   {Skelton}, {Whitaker}, {Nelson}, {Fumagalli}, {Maseda}, {Leja}, {Franx},
