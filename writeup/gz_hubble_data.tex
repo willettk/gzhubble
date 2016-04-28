@@ -951,9 +951,9 @@ Compare GZH data to:
 
 \begin{itemize}
     \item \citet[ZEST;][]{sca07} (COSMOS)
-    \item Tasca (COSMOS)
-    \item Cassata (COSMOS)
-    \item Zajmoski (COSMOS)
+    \item \sout{Tasca (COSMOS)} \citep{tas11}
+    \item \sout{Cassata (COSMOS)} \citep{cas07}
+    \item \sout{Zamojski (COSMOS)} - \citet{zam07} measure parameters, but no assignation to discrete categories
     \item \sout{GEMS morphologies} \citep{hau07}
     \item \sout{AEGIS morphologies} \citep{lot08}
     \item \sout{GOODS N/S morphologies} \citep{bun05}
@@ -1005,9 +1005,20 @@ Matching the \citet{bun05} catalog to GZH with a 0.5\arcsec{} radius yields 2435
 
 The COSMOS galaxies have several published datasets automatically classifying their morphologies, all using a variation of non-parametric measurements clustered with machine algorithms and trained on a visually-classified reference set of several hundred galaxies. \citet{cas07} use a combination of $C$, $A$, $G$, and $M_{20}$ \citep{cas05} to classify all galaxies with $m_\mathrm{I,petro}<25$. They divide galaxies into three broad morphological categories: early-type, spirals, and irregulars. A very similar method is employed by \citet{tas11}; they use the same non-parametric indices to determine galaxy morphology, but with a slightly different method of calculating the Petrosian radius. 64\% of the galaxies have identical classifications in \citet{cas07} and \citet{tas11}; roughly two-thirds of the disagreements are galaxies originally classified as ``irregular'' in \citet{cas07} but ``spiral'' in \citet{tas11}. 
 
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.50\textwidth]{figures/cosmos_comparisons.png}
+\caption{Distributions of morphological parameters for COSMOS galaxies matched in GZH and various machine-learning catalogs. The left column of plots shows the fraction of overall galaxies in discrete morphology \citep{cas07,tas11,sca07} as a function of \pbest in GZH. The right column shows the same split into morphological categories as a function of \podd.}
+\label{fig:cosmos_comparisons}
+\end{center}
+\end{figure}
+
+
 Using a 0.5\arcsec{} positional match, we find 76,241 galaxies with morphologies in both GZH and \citet{cas07}. At the lowest values of \pbest, $\sim10\%$ of the \citet{cas07} galaxies are classified as irregular, only $\sim30\%$ as early-type, and $60\%$ as spiral. The early-type fraction drops with increasing \pbest, with an increasing proportion of irregulars. The \podd{} vote fraction distinguishes sharply between spirals and irregulars at \podd$>0.2$. 
 
 Despite using a similar classification method to \citet{cas07}, the \citet{tas11} classifications show significantly different trends as a function of GZH classifications. Spiral galaxies consistently make up $\sim60\%$ of the sample at \emph{all} \pbest, with a mild increase at \pbest$\simeq1.0$. Early-type and irregular galaxies make up the remainder, smoothly varying between irregulars at low \pbest{} and early-types and high \pbest. 
+
+\citet{sca07} provide a more extensive classification of the COSMOS galaxies using a non-parametric analysis based on $A$, $C$, $G$, $M_{20}$, ellipticity ($\epsilon$), and $n$ and use a principal component analysis to assign galaxies with $m_\mathrm{I,AB}$ to discrete morphological categories. 
 
 % Show the fraction of galaxies in each category as a function of p_features and p_odd?
 
