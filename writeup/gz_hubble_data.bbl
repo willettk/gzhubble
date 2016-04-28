@@ -1,5 +1,9 @@
-\begin{thebibliography}{75}
+\begin{thebibliography}{82}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
+
+\bibitem[{{Abraham} {et~al}\mbox{.}(2003){Abraham}, {van den Bergh}, \&
+  {Nair}}]{abr03}
+{Abraham} R.~G., {van den Bergh} S., {Nair} P., 2003, \apj, 588, 218
 
 \bibitem[{{Astropy Collaboration} {et~al}\mbox{.}(2013){Astropy Collaboration},
   {Robitaille}, {Tollerud}, {Greenfield}, {Droettboom}, {Bray}, {Aldcroft},
@@ -68,6 +72,22 @@
   {Bond}, {Schawinski}, {Lira}, {Murayama}, {Saito}, \& {Sumikawa}}]{car10}
 {Cardamone} C.~N. {et~al.}, 2010, \apjs, 189, 270
 
+\bibitem[{{Cassata} {et~al}\mbox{.}(2005){Cassata}, {Cimatti}, {Franceschini},
+  {Daddi}, {Pignatelli}, {Fasano}, {Rodighiero}, {Pozzetti}, {Mignoli}, \&
+  {Renzini}}]{cas05}
+{Cassata} P. {et~al.}, 2005, \mnras, 357, 903
+
+\bibitem[{{Cassata} {et~al}\mbox{.}(2007){Cassata}, {Guzzo}, {Franceschini},
+  {Scoville}, {Capak}, {Ellis}, {Koekemoer}, {McCracken}, {Mobasher},
+  {Renzini}, {Ricciardelli}, {Scodeggio}, {Taniguchi}, \& {Thompson}}]{cas07}
+{Cassata} P. {et~al.}, 2007, \apjs, 172, 270
+
+\bibitem[{Cheung {et~al}\mbox{.}(2015)Cheung, Trump, Athanassoula, Bamford,
+  Bell, Bosma, Cardamone, Casteels, Faber, Fang, Fortson, Kocevski, Koo, Laine,
+  Lintott, Masters, Melvin, Nichol, Schawinski, Simmons, Smethurst, \&
+  Willett}]{che15}
+Cheung E. {et~al.}, 2015, \mnras, 447, 510
+
 \bibitem[{{Chevance} {et~al}\mbox{.}(2012){Chevance}, {Weijmans}, {Damjanov},
   {Abraham}, {Simard}, {van den Bergh}, {Caris}, \& {Glazebrook}}]{che12}
 {Chevance} M., {Weijmans} A.-M., {Damjanov} I., {Abraham} R.~G., {Simard} L.,
@@ -100,6 +120,9 @@
 
 \bibitem[{{Dressler}(1980)}]{dre80}
 {Dressler} A., 1980, \apj, 236, 351
+
+\bibitem[{{Elmegreen} \& {Elmegreen}(2014)}]{elm14}
+{Elmegreen} D.~M., {Elmegreen} B.~G., 2014, \apj, 781, 11
 
 \bibitem[{{Elmegreen} {et~al}\mbox{.}(2007){Elmegreen}, {Elmegreen},
   {Ferguson}, \& {Mullan}}]{elm07}
@@ -367,6 +390,9 @@
   {Shopbell}, {Kaifu}, {Karoji}, {Arimoto}, {Okamura}, \& {Ohta}}]{tan07}
 {Taniguchi} Y. {et~al.}, 2007, \apjs, 172, 9
 
+\bibitem[{{Tasca}(2011)}]{tas11}
+{Tasca} L.~A.~M., 2011, VizieR Online Data Catalog, 7265
+
 \bibitem[{{Toomre} \& {Toomre}(1972)}]{too72}
 {Toomre} A., {Toomre} J., 1972, \apj, 178, 623
 
@@ -433,5 +459,14 @@ Waskom M. {et~al.}, 2015, seaborn: v0.6.0 (june 2015)
   {Tremonti}, {Tucker}, {Uomoto}, {Vanden Berk}, {Vogeley}, {Waddell}, {Wang},
   {Watanabe}, {Weinberg}, {Yanny}, {Yasuda}, \& {SDSS Collaboration}}]{yor00}
 {York} D.~G. {et~al.}, 2000, \aj, 120, 1579
+
+\bibitem[{{Zamojski} {et~al}\mbox{.}(2007){Zamojski}, {Schiminovich}, {Rich},
+  {Mobasher}, {Koekemoer}, {Capak}, {Taniguchi}, {Sasaki}, {McCracken},
+  {Mellier}, {Bertin}, {Aussel}, {Sanders}, {Le F{\`e}vre}, {Ilbert},
+  {Salvato}, {Thompson}, {Kartaltepe}, {Scoville}, {Barlow}, {Forster},
+  {Friedman}, {Martin}, {Morrissey}, {Neff}, {Seibert}, {Small}, {Wyder},
+  {Bianchi}, {Donas}, {Heckman}, {Lee}, {Madore}, {Milliard}, {Szalay},
+  {Welsh}, \& {Yi}}]{zam07}
+{Zamojski} M.~A. {et~al.}, 2007, \apjs, 172, 468
 
 \end{thebibliography}
