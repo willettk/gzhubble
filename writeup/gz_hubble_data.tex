@@ -149,6 +149,7 @@ This paper uses the WMAP9 cosmology parameters of $(\Omega_m,\Omega_\Lambda,h)=(
 The GZH project contains images drawn from a number of different dedicated surveys and sample selection criteria, which we describe below. The majority of the images (as implied by the project name) are taken directly from \hst{} Legacy Surveys.
 
 \begin{figure*}
+\center
 \includegraphics[width=160mm]{figures/filter_curves.pdf}
 \caption{Transmission curves of the filters used by \hst{} Advanced Camera for Surveys (ACS) in wide-field channel mode for the various surveys in Galaxy Zoo: Hubble. The unfilled black curves show the filters for the Suprime Camera on the \textit{Subaru} telescope which were used to create color gradients in the composite images for COSMOS.\label{fig:filtercurves}}
 \end{figure*}
@@ -232,6 +233,7 @@ Redshifts for the GZH catalog are compiled from a variety of sources to include 
 For galaxies which have redshifts from multiple sources, we use the following algorithm to select the $\tt Z\_BEST$ redshift. We first prioritize spectroscopic redshifts; these are provided in the ACS-GC, 3DHST, and MUSYC catalogs. If a high quality spec-z exists in the ACS-GC. we use that, else 3DHST, else MUSYC. We show in Figure~\ref{fig:speczs} that over 98\% of the the spec-z's are consistent with each other, and therefore the priority order of selection makes no negligible difference. If no spectroscipic redshifts are available, we compare the 1-$\sigma$ errors of the photometric (ACS-GC, 3DHST, MUSYC, UltraVISTA) and grism (UltraVISTA) redshifts, and use the redshift with the smallest error. Table~\ref{tbl:redshifts} shows the results of this selection. 
  
 \begin{figure*}
+\center
 \includegraphics[width=160mm]{figures/specz_comparison.pdf}
 \caption{Spectroscopic redshifts from the ACS-GC, 3DHST, and MUSYC catalogs. The number in the upper left of each plot is the percentage of redshifts which agree within $\Delta z < 0.05$ between the two catalogs being compared in each panel. Within this range there is over 98\% agreement in redshifts between all three catalogs.}
 \label{fig:speczs}
@@ -284,17 +286,17 @@ Photometric and spectroscopic data for the SDSS Stripe~82 galaxies are taken fro
 \section{Galaxy Zoo interface and classifications}\label{sec:interface}
 
 \begin{figure*}
+\center
 \includegraphics[width=160mm]{figures/gzh_interface.png}
 \caption{Screenshot of the Galaxy Zoo: Hubble interface showing an example COSMOS image at the first step in the decision tree.\label{fig:interface}}
 \end{figure*}
 
 
 \begin{figure*}
-\begin{center}
+\center
 \includegraphics[width=\textwidth]{figures/gzh_decision_tree.pdf}
 \caption{Flowchart of the questions presented to GZH users, labeled with the corresponding Task numbers. Tasks in the decision tree are color-coded by tier level: Gray-colored Tasks are 1st tier questions which are asked of all users. Tasks colored green, blue, purple, and pink (respectively) are one, two, three, or four steps below branching points in the decision tree.}
 \label{fig:decisiontree}
-\end{center}
 \end{figure*}
 
 
@@ -366,6 +368,7 @@ $z_{\rm target}$ & $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $e_{\rm max}$ & $N
 \end{table}
 
 \begin{figure*}
+\center
 \includegraphics[width=160mm]{figures/example_ferengi.pdf}
 \caption{Examples of two galaxies which have been run through the FERENGI code to produce simulated \hst{} images. The value of \pfeatures{} for each panel is (1) Top row: \pfeatures~= 0.9, 0.625, 0.35, 0.35, 0.225 and (2) Bottom row: \pfeatures~= 1.00, 0.875, 0.875, 0.625, 0.375. \label{fig:exampleFERENGI}}
 \end{figure*}
@@ -384,11 +387,10 @@ f_{\mu,z} = \left(f_{\mu,z=0.3}\right) \times e^{{\frac{z-z_0}{\zeta}}},
 \noindent where $f_{\mu,z=0.3}$ is the ``calibrated'' vote fraction at the lowest redshift in the \ferengi{} bins ($z=0.3$) and $\zeta$ is a positive parameter that controls the rate at which $f$ decreases with increasing redshift. This formula fits the data relatively well (with almost no exceptions, the vote fractions for featured galaxies decrease monotonically with increasing redshift), and the exponential function bounds the observed vote fractions between $f_{\mu,z=0.3}$ and zero. Figure~\ref{fig:zeta_examples} show examples of the change in vote fraction and their fits to Equation~\ref{eqn:fzeta} for a random selection of galaxies in the \ferengi{} images. 
 
 \begin{figure*}
-\begin{center}
+\center
 \includegraphics[width=\textwidth]{figures/zeta_examples.pdf}
 \caption{Behavior of the normalized, weighted vote fractions of features visible in a galaxy ($f_\textrm{features}$) as a function of redshift in the artifical \ferengi{} images. Galaxies are a random selection of images with $e=0$ and at least three detectable images in redshift bins of $z\ge0.3$. The measured vote fractions (red points) are fit with an exponential function (Equation~\ref{eqn:fzeta}); the best-fit parameters are given above each plot. Error bars are Poissonian, assuming a median of 40~votes per galaxy.}
 \label{fig:zeta_examples}
-\end{center}
 \end{figure*}
 
 We use the values of $\zeta$ for \emph{all} sets of artifically redshifted galaxies to fit the overall distribution as a function of surface brightness, since we expect the correction being applied to vary as a function of the intrinsic galaxy properties. We restrict the galaxies that can be used to measure the calibration to those with data at the pivot redshift of $z=0.3$, non-zero $f_\textrm{features}$ at $z=0.3$, and with a reasonable fit to the exponential model ($\Delta \chi^2 > 3.0$). 
@@ -396,11 +398,10 @@ We use the values of $\zeta$ for \emph{all} sets of artifically redshifted galax
 Figure~\ref{fig:zeta_mu} shows the results of fitting the \ferengi{} images with Equation~\ref{eqn:fzeta}; the correction is a weak function of galaxy surface brightness. Higher-surface brightness galaxies have stronger average corrections, likely because these galaxies are more likely to have larger $f_\textrm{features}$ values at high redshifts. Low surface brightness galaxies are more likely to begin low and remain low; the bounded nature of the dropoff (and Poissonian-like variance among the individual voters) means that the average magnitude of $\zeta$ will be less. 
 
 \begin{figure}
-\begin{center}
+\center
 \includegraphics[width=0.50\textwidth]{figures/zeta_mu.pdf}
 \caption{All fits for the vote fraction dropoff parameter $\zeta$ for $f_\textrm{features}$ in the \ferengi{} galaxies as a function of surface brightness. This includes only the 37~galaxies with a reasonably bounded range on the dropoff ($-10<\log(\zeta)<10$) and sufficient points to fit the function.}
 \label{fig:zeta_mu}
-\end{center}
 \end{figure}
 
 We fit the data in Figure~\ref{fig:zeta_mu} with a linear function such that:
@@ -504,19 +505,17 @@ Total                              &                 & 8,507   & 92,808 & 9,304 
 \end{table*}
 
 \begin{figure*}
-\begin{center}
+\center
 \includegraphics[width=\textwidth]{figures/hubble_z_mu_p_distributions.pdf}
 \caption{Distributions of redshift, surface brightness, and $p_{features}$ for correctable (purple), uncorrectable (green), and NEI (pink) galaxies in the full GZH sample. The uncorrectable galaxies tend towards higher redshift, slightly lower in surface brightness, and lower values of $p_{features}$ than the correctable galaxies. The long tail of NEI galaxies in redshift and surface brightness demonstrates the limits of the \ferengi{} sample, for which there is no data at $z>1$ or $\mu>24$.}
 \label{fig:z_mu_p}
-\end{center}
 \end{figure*}
 
 \begin{figure*}
-\begin{center}
+\center
 \includegraphics[width=\textwidth]{figures/debiased_corrections.pdf}
 \caption{Debiased $p_{features}$ corrected to $z=0.3$ vs weighted $p_{features}$ for the correctable (left), uncorrectable (middle), and NEI (right) galaxies in the GZH sample.}
 \label{fig:debiased_corrections}
-\end{center}
 \end{figure*}
 
 
