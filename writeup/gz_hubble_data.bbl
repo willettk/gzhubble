@@ -1,4 +1,4 @@
-\begin{thebibliography}{82}
+\begin{thebibliography}{85}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Abraham} {et~al}\mbox{.}(2003){Abraham}, {van den Bergh}, \&
@@ -43,6 +43,10 @@
   {Caldwell}, {Ferguson}, {Hook}, {Lucas}, {Bergeron}, {Corbin}, {Jogee},
   {Panagia}, {Robberto}, {Royle}, {Somerville}, \& {Sosey}}]{bec06}
 {Beckwith} S.~V.~W. {et~al.}, 2006, \aj, 132, 1729
+
+\bibitem[{{Behrendt} {et~al}\mbox{.}(2016){Behrendt}, {Burkert}, \&
+  {Schartmann}}]{beh16}
+{Behrendt} M., {Burkert} A., {Schartmann} M., 2016, \apjl, 819, L2
 
 \bibitem[{{Bertin} \& {Arnouts}(1996)}]{ber96}
 {Bertin} E., {Arnouts} S., 1996, \aaps, 117, 393
@@ -132,6 +136,11 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
 {Elmegreen} D.~M., {Elmegreen} B.~G., {Ferguson} T., {Mullan} B., 2007, \apj,
   663, 734
 
+\bibitem[{{Elmegreen} {et~al}\mbox{.}(2009){Elmegreen}, {Elmegreen}, {Marcus},
+  {Shahinyan}, {Yau}, \& {Petersen}}]{elm09}
+{Elmegreen} D.~M., {Elmegreen} B.~G., {Marcus} M.~T., {Shahinyan} K., {Yau} A.,
+  {Petersen} M., 2009, \apj, 701, 306
+
 \bibitem[{{Elmegreen} {et~al}\mbox{.}(2005){Elmegreen}, {Elmegreen}, {Rubin},
   \& {Schaffer}}]{elm05}
 {Elmegreen} D.~M., {Elmegreen} B.~G., {Rubin} D.~S., {Schaffer} M.~A., 2005,
@@ -195,6 +204,12 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
   Wel}, {Villforth}, {Wechsler}, {Weiner}, {Wiklind}, {Wild}, {Wilson},
   {Wuyts}, {Yan}, \& {Yun}}]{gro11}
 {Grogin} N.~A. {et~al.}, 2011, \apjs, 197, 35
+
+\bibitem[{{Guo} {et~al}\mbox{.}(2015){Guo}, {Ferguson}, {Bell}, {Koo},
+  {Conselice}, {Giavalisco}, {Kassin}, {Lu}, {Lucas}, {Mandelker}, {McIntosh},
+  {Primack}, {Ravindranath}, {Barro}, {Ceverino}, {Dekel}, {Faber}, {Fang},
+  {Koekemoer}, {Noeske}, {Rafelski}, \& {Straughn}}]{guo15}
+{Guo} Y. {et~al.}, 2015, \apj, 800, 39
 
 \bibitem[{{H{\"a}u{\ss}ler} {et~al}\mbox{.}(2007){H{\"a}u{\ss}ler}, {McIntosh},
   {Barden}, {Bell}, {Rix}, {Borch}, {Beckwith}, {Caldwell}, {Heymans},
