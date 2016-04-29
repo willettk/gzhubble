@@ -62,6 +62,9 @@
   {Wisotzki}, \& {Wolf}}]{cal08}
 {Caldwell} J.~A.~R. {et~al.}, 2008, \apjs, 174, 136
 
+\bibitem[{{Cameron}(2011)}]{cam11}
+{Cameron} E., 2011, \pasa, 28, 128
+
 \bibitem[{{Cameron} {et~al}\mbox{.}(2011){Cameron}, {Carollo}, {Oesch},
   {Bouwens}, {Illingworth}, {Trenti}, {Labb{\'e}}, \& {Magee}}]{cam11a}
 {Cameron} E., {Carollo} C.~M., {Oesch} P.~A., {Bouwens} R.~J., {Illingworth}
@@ -459,14 +462,5 @@ Waskom M. {et~al.}, 2015, seaborn: v0.6.0 (june 2015)
   {Tremonti}, {Tucker}, {Uomoto}, {Vanden Berk}, {Vogeley}, {Waddell}, {Wang},
   {Watanabe}, {Weinberg}, {Yanny}, {Yasuda}, \& {SDSS Collaboration}}]{yor00}
 {York} D.~G. {et~al.}, 2000, \aj, 120, 1579
-
-\bibitem[{{Zamojski} {et~al}\mbox{.}(2007){Zamojski}, {Schiminovich}, {Rich},
-  {Mobasher}, {Koekemoer}, {Capak}, {Taniguchi}, {Sasaki}, {McCracken},
-  {Mellier}, {Bertin}, {Aussel}, {Sanders}, {Le F{\`e}vre}, {Ilbert},
-  {Salvato}, {Thompson}, {Kartaltepe}, {Scoville}, {Barlow}, {Forster},
-  {Friedman}, {Martin}, {Morrissey}, {Neff}, {Seibert}, {Small}, {Wyder},
-  {Bianchi}, {Donas}, {Heckman}, {Lee}, {Madore}, {Milliard}, {Szalay},
-  {Welsh}, \& {Yi}}]{zam07}
-{Zamojski} M.~A. {et~al.}, 2007, \apjs, 172, 468
 
 \end{thebibliography}
