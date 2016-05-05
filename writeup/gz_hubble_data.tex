@@ -468,10 +468,11 @@ Total                              & 3,950   & 100\% \\
 \end{table}
 
 \subsection{Challenges of debiasing questions beyond ``smooth or features''}
-
+\label{ssec:higher_order_tasks}
 As with the HST images, each FERENGI subject has a varying number of users answering the various questions in the hierarchical decision tree. Every user answers the first question, ``Is the galaxy smooth and rounded, with no sign of a disk?''; as such the vote fractions $\rm p_{smooth}, p_{features}$, and $\rm p_{artifact}$ are all computed with the minimum statistical error for any question, with roughly 40 total answers (see Section~\ref{sec:interface}). The number of users to answer any subsequent question, however, is always equal to or less than the number to answer the preceding question. The average number of responses per task for fourth- or fifth-tier questions such as spiral arm structure (Tasks 12--14) is only $4\pm4$ for the FERENGI sample; while this is distribution is strongly bimodal (reflecting the true morphologies of selected galaxies), the very low absolute numbers of votes introduce very high variance when attempting to calculate a statistical correction.
 
-In the FERENGI data, these numbers severely limit the amount of information we can extract for the higher-tier questions. The debiasing technique used (Section~\ref{ssec:zeta}) require that at least 10~users answer each question for a galaxy image at $z=0.3$ \emph{and} its image at higher redshift. This requirement is by default met by all galaxies when analyzing the first question, since it is asked of all users. This requirement is often \emph{not} met for questions beyond Task~01; on average 60.0\% of the galaxies do not have sufficient data to measure a correction, as compared to 2.0\% acheived for Task~01 (see Table~\ref{tbl:ferengi_corrections}). Of the remaining FERENGI galaxies which did meet this requirement, polynomials were fit to the data in each redshift-surface brightness bin, as was done for Task~01 (described above). The goodness-of-fit was evaluated in each bin, for each Task, using the value of the sum of the square residuals (SSR). The mean SSR for all Tasks was $\mu_{\rm SSR}$ = 0.46, $\sigma$ = 0.36, which was not considered sufficiently low in any Task for the fits to accurately model the data. An example of the debiasing technique applied to $p_{\rm bar}$ is shown in Section \ref{sec:ferengi_bar}; visual inspection of Figure~\ref{fig:p_vs_p_bar} confirms the available data in each bin is scattered to a degree at which no correlation may be confidently obtained. For these reasons, debiased vote fractions are only offered for Task~01 (smooth/features).  
+In the FERENGI data, these numbers severely limit the amount of information that can be extracted for the higher-tier questions. The debiasing technique used (Section~\ref{ssec:zeta}) requires that at least 10~users answer each question for a galaxy with $z_\mathrm{sim}=0.3$ \emph{and} the corresponding image at higher redshift. This requirement is (by default) met by all galaxies for the smooth/features question. However, this is often \emph{not} met for questions beyond Task~01; on average. $60\%\pm24\%$ of the galaxies do not have sufficient data to measure a correction, as compared to 2.0\% achieved for Task~01 (Table~\ref{tbl:ferengi_corrections}). Of the remaining FERENGI galaxies which did meet this requirement, polynomials were fit to the data in each redshift-surface brightness bin, as was done for Task~01. The goodness-of-fit was evaluated in each bin, for each Task, using a normalized $\chi^2$ metric. The mean $\chi^2$ for all higher-order tasks was $0.10\pm0.04$, significantly larger than the Task 01 value of $0.04$. Based on this statistic, the data cannot not be modeled with sufficient confidence for the higher order tasks. An example of the debiasing technique applied to $p_{\rm bar}$ is shown in Section~\ref{sec:ferengi_bar}; visual inspection of Figure~\ref{fig:p_vs_p_bar} confirms that the points in each bin are scattered to a degree at which no strong correlation is present. For these reasons, debiased vote fractions are only offered in the GZH catalog for Task~01 (smooth/features).  
+
 \begin{table*}
 \caption{Correctable fractions for the top-level task in GZH, split by survey.}\label{tbl:hubble_debiasable}
 \begin{tabular}{lcrrrrrrr}
@@ -988,13 +989,13 @@ GZH used both 5-epoch and 2-epoch sets of data to construct the GOODS set of ima
 
 Of the 11,157 galaxies in the GOODS-N and GOODS-S full depth sample, 4,461 of these are in the shallow-depth sample. Figure~\ref{fig:shallow_vs_full} shows a strong correlation between $\rm p_{features}$ for both sets of images. The mean change in $\rm p_{features}$ from the shallow to full depth images  $\rm p_{features,full} - p_{features,shallow} \equiv \Delta p = 0.00$, with a standard deviation of $\sigma = 0.17$. While there is some variance in $\Delta p$ in the whole sample, the change is usually small and not often significant enough to change a morphological classification. Defining a clean sample of disk galaxies as those with $p_{features,best}>0.8$, elliptical galaxies as those with  $p_{smooth,best}<0.2$, and intermediate as those in between, 75\% of the sample would not change morphology. Of the remaining 25\% that would change morphology, only 0.3\% (representing 10 galaxies total) drastically change morphology from smooth to featured or visa versa, while the rest would transition to or from the ``intermediate'' morphology. Details can be seen in Table~\ref{tbl:shallow_to_full_stats} and examples of images representing the 9 possible changes (or lack of) in morphology are shown in Figures~\ref{fig:shallow_smooth},\ref{fig:shallow_intermediate}, and \ref{fig:shallow_featured}.
 
-\begin{figure}
+\begin{figure*}
 \begin{center}
 \includegraphics[width=0.50\textwidth]{figures/full_shallow_p_plot.pdf}
-\caption{shallowfull}
+\caption{Distribution of $p_{\rm features}$ for the 4,461 GOODS galaxies with both shallow (2-epoch) and full-depth (5-epoch) images morphologically classified in GZH. For most galaxies, the value of $p_{\rm features}$ is consistent ($\Delta p_\mathrm{features}<0.2$) between depths. Examples of galaxies with sharp changes in $p_{\rm features}$, as well as those with little to no change are shown in Figures~\ref{fig:shallow_smooth}-\ref{fig:shallow_featured}.}
 \label{fig:shallow_vs_full}
 \end{center}
-\end{figure}
+\end{figure*}
 
 \begin{table}
 \caption{Properties of galaxies whose morphologies changed or stayed the same in the shallow vs full images. Featured here is defined as $p_{features,best}>0.8$, intermediate = $0.2<p_{features,best}<0.8$, smooth = $p_{smooth,best}<0.2$. \label{tbl:shallow_to_full_stats}}
@@ -1061,6 +1062,9 @@ Total                         & 4,461   & 100      &              & \\
 
 \subsection{FERENGI analysis of pbar}
 \label{sec:ferengi_bar}
+
+To determine the rate at which the vote fraction for any Task decreases with redshift or surface brightness, data from simluated FERENGI images were modeled with functions in discrete redshift and surface brightness bins (Section~\ref{ssec:zeta_results}). A cut of $N>10$ was placed on the number of votes to reduce the error in the vote fractions and ensure they were well-sampled before applying a fit to the data. This requirement was only met for Task~01, which significantly reduced the goodness-of-fit for the model functions as compared with to the smooth/features task. Here we show an example of results obtained for the bar Task. Figure~\ref{fig:p_vs_p_bar} shows that both the low sample rate and the degree of scatter in each bin inhibit fitting a reliable function that predicts $p_\mathrm{bar,z=0.3}$. Table~\ref{tbl:ferengi_bar} summarizes the correction types for the FERENGI data ; 71\% of the galaxies simulated did not meet the GZH requirements for well-sampled vote fractions for $p_\mathrm{bar}$, as compared to 2\% for $p_\mathrm{features}$. Similar results were obtained for all higher-order Tasks in GZH, as described in Section~\ref{ssec:higher_order_tasks}.  
+
 \begin{figure*}
 \centering
 \subfigure{[a]\label{a}\includegraphics[width=0.5\textwidth]{figures/p_vs_p_SB_redshift_bar.pdf}}
@@ -1068,18 +1072,19 @@ Total                         & 4,461   & 100      &              & \\
 \\
 \subfigure{[c]\label{c}\includegraphics[width=0.5\textwidth]{figures/orangebars_bar.pdf}}
 \subfigure{[d]\label{d}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot2_bar.pdf}}
-\caption{Same as Figure~\ref{fig:p_vs_p}, but with the bar question.}
+\caption{Similar to Figure~\ref{fig:p_vs_p}, showing effects of redshift bias for 3,950~images in the \ferengi{} sample. [a]: Each point in a given redshift and surface brightness bin represents a unique galaxy. The $y$-axis in each bin is the \pfeatures{} value of the image of that galaxy redshifted to the value corresponding to that redshift bin. The $x$-axis is the \pfeatures{} value of the image of the same galaxy redshifted to $z=0.3$. The dashed black lines represent the best-fit polynomials to the data in each square. The solid black line represents \pfeaturesz=\pfeaturesrest. Regions in which there is a single-valued relationship between \pfeatures{} at high redshift and at $z=0.3$ are marked in white; those in which there is not are blue, and those with not enough data ($N<5$) are gray. \textbf{The mean normalized $\chi^2$ of 0.08 confirms that these polynomials are not good fits to the data, with no correction derived.} [b]: A larger version of the dark-outlined square in [a], containing \ferengi{} galaxies artificially redshifted to $z=1.0$ and have surface brightnesses between $20.3 < \mu < 21.0$ $\rm (mag/arcsec^2)$. [c]: The same data as [a]. Each $z,\mu$ bin is divided into 4~sub-bins to determine the range of intrinsic \pfeaturesrest{} for a given range of observed \pfeaturesz{} values. In each sub-bin, the orange bars represent the inner 80$^\mathrm{th}$ percentiles of the data, the boundaries of which are the lower and upper limits of the debiased values. [d]: The same data as [b], but highlighting the upper and lower limit regions.}
 \label{fig:p_vs_p_bar}
 \end{figure*}
 
 \begin{table}ー
+\label{tbl:ferengi_bar}
 \caption{Distribution of \ferengi{} images analysed in Figure~\ref{fig:p_vs_p_bar}. Correctable images had a single-valued relationship between their measured \pbar{} values at high and low redshifts (white regions in Figure~\ref{fig:p_vs_p_bar}). Galaxies with a lower-limit on \pbar{} had a non single-valued relationship (blue regions). NEI images had undetermined relationships due to a lack of data ($N<5$) in their corresponding $z$-$\mu$ bins (gray regions). Only 17\% (maximum) of FERENGI galaxies in the sample were considered ``correctable'', which is not sufficient to compute a $\zeta$ function applicable to the Hubble data.   \label{tbl:ferengi_bar_corrections}}
 \begin{tabular}{lrr}
 \hline \hline
 				                   & N       & \% \\
 \hline 
 Correctable                        & 664   & 17\% \\
-Lower-limi                         & 483   & 12\% \\
+Lower-limit                        & 483   & 12\% \\
 NEI                                & 2,803     & 71\%\\
 Total                              & 3,950   & 100\% \\
 \hline \hline
