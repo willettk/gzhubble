@@ -79,13 +79,18 @@ for p,ax in zip(pd,axarr.ravel()):
     #cb.set_label(r'$N$',fontsize=16)
 
     plotbins = bins[:-1] + db/2.
-    ax.errorbar(plotbins,gzc_avg,xerr=gzh_std,color=blue,marker='o',ls='-',markersize=10)
-    ax.errorbar(plotbins,gzh_avg,yerr=gzc_std,color=red,marker='o',ls='-',markersize=10)
+    ax.errorbar(gzc_avg,plotbins,xerr=gzc_std,color=blue,marker='o',ls='-',markersize=10)
+    ax.errorbar(plotbins,gzh_avg,yerr=gzh_std,color=red,marker='o',ls='-',markersize=10)
 
     ax.set_xlim(-0.05,1.05)
     ax.set_ylim(-0.05,1.05)
     ax.set_xlabel(r'GZC {0} vote fraction'.format(p['label']),fontsize=16)
     ax.set_ylabel(r'GZH {0} vote fraction'.format(p['label']),fontsize=16)
+
+    # Super kluge
+    if ax == axarr.ravel()[2]:
+        ax.set_xlabel(r'GZC features (weighted) vote fraction',fontsize=16)
+
 
 fig.tight_layout()
 plt.show()
