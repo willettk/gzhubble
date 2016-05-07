@@ -323,7 +323,7 @@ In the GZH samples, the redshift range is large enough that cosmological evoluti
 
 In order to test and correct for the effects of redshift, GZH includes a set of calibration images. These images consist of the same galaxy as it would appear over a variety of redshifts. The input images are from the SDSS \citep{yor00,str02} and are processed using the \ferengi{} code \citep{bar08a} to match the observational properties of the \hst{} surveys out to $z=1$. These images were classified in the Galaxy Zoo interface using the same classification scheme as the original \hst{} images.
  
-\subsection{Selection of \ferengi{} input galaxies}
+\subsection{Generating images of artifically-redshifted galaxies}
 
 The GZH classifications include 288 unique galaxies originally generated from SDSS imaging and processed with the \ferengi{} code. The selection spanned a variety of galaxy morphologies (as selected by GZ2 classifications) and $r^\prime$-band surface brightnesses, and also spanned the redshift range of SDSS targets (in $N_z = 4$ bins) in order to be optimized for different target minimum redshifts in \hst{} imaging. 
 
@@ -432,7 +432,7 @@ f_\textrm{features,debiased} = 1 - (1 - f)e^{\frac{z-z_0}{\hat\zeta}}.
 \label{eqn:fzeta_mod}
 \end{equation}
 
-\subsection{Results of $\zeta$ approach}\label{ssec:zeta_results}
+\subsection{Effects of morphological debiasing}\label{ssec:zeta_results}
 
 \begin{figure}
 \begin{center}
@@ -541,7 +541,7 @@ Total                              &                 & 8,507   & 92,808 & 9,304 
 %\end{figure}
 %%-----------------------------------------------------------------------------------------------------------------------------------
 
-\section{The GZH catalog}\label{sec:results}
+\section{The Galaxy Zoo: Hubble catalog}\label{sec:results}
 
 The data release for GZH includes morphological data for 181,101~images (generated from a total of 150,771~unique galaxies). The full table can be accessed at \url{http://data.galaxyzoo.org}. The online data also includes a secondary metadata table, which is drawn from a variety of sources detailed in Section \ref{sec:data}.
 
@@ -877,7 +877,7 @@ Tasks 03, 04 and 05 have an additional possible pathway; as shown in Figure~\ref
 
 This section described how to use the previous Task thresholds in Table~\ref{tbl:thresholds} to select well-sampled galaxies which may or may not contain the feature associated with a unique Task. The following two examples show to use the vote fractions for a particular Task to obtain a sample of galaxies with a certain morpholgical type.
 
-\subsection{Example 1: Selecting bars} 
+\subsection{Example 1: Selecting barred galaxies} 
 
 A sample of barred disk galaxies is created by applying cuts on the previous tasks as listed in Table~\ref{tbl:thresholds}. 11,049 ``bar candidates'', galaxies for which asking the bar question is meaningful, were selected by applying the cuts $N_{bar} \ge 20$, $p_{\rm features}>0.23, p_{\rm clumpy,no} > 0.30,$ and $p_{edgeon,no}>0.25$. These galaxies are featured, non-clumpy, non-edge~on galaxies. Of these, a pure sample of 730 barred disks was identified by applying a cut of $p_{bar}>0.7$. A subsample of 50 galaxies were visually inspected and 94\% were found to contain strong bars. A complete sample of strong and weak bars was created by applying a cut of $p_{bar}>0.3$. This sample contained 3,218 galaxies, 86\% of which were found to contain weak or strong bars through visual inspection in a subsample of 50.
 
@@ -969,9 +969,9 @@ As the data shown in Figure~\ref{fig:comparisons} cover a wide range of redshift
 
 %Now people go and do science with these awesome GZH classifications. 
 
-This paper presents the catalog release for the Galaxy Zoo: Hubble project, which uses crowdsourced visual classifications to measure galaxy morphologies. The first two phases of Galaxy Zoo \citep{lin11,wil13} used images of low-redshift galaxies from SDSS; this is the first phase of the project with space-based images of high-redshift targets (in addition to the Galaxy Zoo: CANDELS collaboration; Simmons et al., submitted). The final sample includes classifications for 181,101~images generated from 150,771~unique galaxies. Galaxies were selected from a brightness-limited sample from multiple Legacy surveys using the Advanced Camera for Surveys on the Hubble Space Telescope, including AEGIS, GEMS, GOODS-N, GOODS-S, and COSMOS. The catalog also includes classifications for 51,861 Sloan Digital Sky Survey images in Stripe~82 at relatively low redshift; these serve both as a low-redshift anchor for cosmological studies and a potential comparison for the different epochs of classification between GZH and Galaxy Zoo 2 \citep{wil13}. 
+This paper presents the catalog release for the Galaxy Zoo: Hubble project, which uses crowdsourced visual classifications to measure galaxy morphologies. The first two phases of Galaxy Zoo \citep{lin11,wil13} used images of low-redshift galaxies from SDSS; this is the first result of the project with space-based images of high-redshift targets (in addition to the Galaxy Zoo: CANDELS collaboration; Simmons et al., submitted). The final sample includes classifications for 181,101~images generated from 150,771~unique galaxies. Galaxies were selected from a brightness-limited sample from multiple Legacy surveys using the Advanced Camera for Surveys on the Hubble Space Telescope, including AEGIS, GEMS, GOODS-N, GOODS-S, and COSMOS. The catalog also includes classifications for 51,861 Sloan Digital Sky Survey images in Stripe~82 at relatively low redshift; these serve both as a low-redshift anchor for cosmological studies and a potential comparison for the different epochs of classification between GZH and Galaxy Zoo 2 \citep{wil13}. 
 
-The data for the GZH catalogs has been extensively tested and reduced. The dominant effect is a known bias against identifying disky and asymmetric sub-structures at either low resolution or surface brightness. This can be the result either of genuinely small or dim galaxies, or a perceived effect from observing galaxies at further distances (higher redshift). To calibrate this \emph{without} potentially overcorrecting for the genuine morphological evolution of galaxies over cosmic time, the GZH project uses SDSS images of low-redshift galaxies, processes them to appear as if they were at higher redshift, and classifies them through the GZH interface in an identical fashion. The resulting change in \pfeatures{} as a function of $z$,$\mu$ is applied as a multiplicative correction to the top-level vote fractions for $\sim50\%$ of the GZH galaxies. 
+The data for the GZH catalogs has been extensively tested and reduced. The dominant effect is a known bias against identifying disky and asymmetric sub-structures at either low resolution or surface brightness. This can be the result either of genuinely small or dim galaxies, or a perceived effect from observing galaxies at further distances (higher redshift). To calibrate this \emph{without} potentially overcorrecting for the genuine morphological evolution of galaxies over cosmic time, the GZH project uses SDSS images of low-redshift galaxies, processes them to appear as if they were at higher redshift, and classifies them through the GZH interface in an identical fashion. The resulting change in \pfeatures{} as a function of $z$ and $\mu$ is applied as a multiplicative correction to the top-level vote fractions for $\sim50\%$ of the GZH galaxies. 
 
 Galaxies in GZH show significant changes in the disk/elliptical fraction as a function of redshift, along with an increasing number of galaxies dominated by smaller clumps and presumed to be in the process of building up their baryonic mass through a combination of hierarchical merging and in-situ star formation. While the majority of scientific interpretation is left to future work, this paper confirms the decrease in observed bar fraction with increasing redshift \citep{mel14} and identify a new way for identifying clumpy galaxies as a function of clump multiplicity.
 
@@ -981,7 +981,7 @@ The full data tables for the catalogs can be accessed in machine-readable form f
 
 We thank Meg Schwamb and the ASIAA for hosting the ``Citizen Science in Astronomy'' workshop, 3-7 Mar 2014 in Taipei, Taiwan, at which some of this analysis was done. We also thank Jennifer Lotz for sharing her $G$-$M_{20}$ measurements for the AEGIS sample.
 
-This project made heavy use of the Astropy packages in Python \citep{ast13}, the \texttt{seaborn} plotting package \citep{was15}, astroML \citep{van12}, and TOPCAT \citep{tay05,tay11}. Modified code from Nick~Wherry and David~Schlegel was used to create the JPG images. 
+This project made heavy use of the Astropy packages in Python \citep{ast13}, the \texttt{seaborn} plotting package \citep{was15}, astroML \citep{van12}, and TOPCAT \citep{tay05,tay11}. Modified code from Nick~Wherry and David~Schlegel was used to create the JPG images. Figure~\ref{fig:sankey} was generated with \url{http://sankeymatic.com/}.
 
 This work is based on (GO-10134, GO-09822, GO-09425.01, GO-09583.01, GO-9500) program observations with the NASA/ESA Hubble Space Telescope, obtained at the Space Telescope Science Institute, which is operated by the Association of Universities for Research in Astronomy, Inc., under NASA contract NAS 5-26555. 
 
