@@ -5,7 +5,7 @@
 %%
 %% \documentclass[twocolumn]{aastex6}
 %% 
-%% There are other optional arguments one can envoke to allow other 
+%% There are other optional arguments one can invoke to allow other 
 %% actions. 
 %%
 % These are the available options:
@@ -926,7 +926,9 @@ No.      &  Task 	            & Previous         & Vote fraction threshold      
 
 \subsection{Demographics of morphology}
 
-{\note Summarize the broad trends that are seen regarding the fraction of galaxies with various morphologies, how that relates to color, size, etc. Briefly discuss results as compared with literature and theory.}
+Any analysis of the morphological distribution of galaxies must properly consider morphology with respect to other physical properties of the sample, such as color, mass, size, environment, and redshift. We defer such analyses to later papers, and comment here only on a few broad characteristics of the overall GZH sample. 
+
+Figure~\ref{fig:sankey} shows the breakdown of morphologies for the combined surveys in GZH as a Sankey~diagram, where each node represents a task and the flows between the nodes represent the possible responses. The width of the flows is proportional to the number of galaxies associated with that response; Figure~\ref{fig:sankey} uses a simple plurality vote to assign the combined set of labels for each galaxy. This method is likely to undersample some of the categories; visual inspection of images suggests that $p_\mathrm{features}\gtrsim0.3$ identifies disk-dominated or irregular galaxies reliably, for example. This method also does not use the suggested thresholds in Table~\ref{tbl:thresholds}. 
 
 \begin{figure*}
 \center
@@ -935,6 +937,9 @@ No.      &  Task 	            & Previous         & Vote fraction threshold      
 \label{fig:sankey}
 \end{figure*}
 
+Given these caveats, the overall distribution of galaxy types is significantly different than the low-redshift sample classified in SDSS imaging from GZ1 and GZ2. \citet{lin11} found that elliptical galaxies exceeded spiral galaxies by a factor of $\sim2:1$ in the main spectroscopic sample if using a plurality vote criterion (although \citealt{bam09} show that this strongly depends on the selection method; spirals are the dominant population in a volume-limited sample at $z<0.088$, for example). The weighted votes for GZH have smooth galaxies outnumbering disks and clumpy galaxies by a factor of $\sim3:1$, however. The fraction of objects identified as stars or artifact is also much higher in the Hubble imaging; by plurality votes, these encompass only $\sim0.1\%$ of images in SDSS \citep{wil13}, but 6\% of images in GZH. 
+
+Within the sample of galaxies identified as ``not smooth'', it is clear that the addition of the clumpy branch is necessary to describe a large fraction of the sample; disk-dominated galaxies outnumber clumpy morphologies by less than a factor of 2. Disk galaxies are primarily unbarred \citet{mel14} and possessing two visible spiral arms over a flat distribution of pitch angles and bulge prominences. Clumpy galaxies are identified across the full range of clump multiplicities, with the exception of 1-clump galaxies (which would be difficult to differentiate from compact spheroids). Roughly half of the galaxies have at least 1~clump identified as the brightest; the clumps are most commonly asymmetrically arranged in clusters and are not often seen embedded in larger structures. 
 
 \subsection{Comparing GZH morphologies to other catalogs}\label{ssec:comparisons}
 
@@ -964,6 +969,8 @@ Even within the same sample of galaxies in COSMOS, different techniques of measu
 The second set of plots in Figure~\ref{fig:comparisons} indicates that \podd{} is largely an effective method for separating irregular and/or peculiar galaxies from spirals. Despite the somewhat vague wording of the {\it ``anything odd?''} question in GZH, the AEGIS, COSMOS, and GOODS all show a marked increase in the irregular fraction increasing with \podd. Any threshold value for distinguishing between the two, however, depends strongly on survey/redshift~range. 
 
 As the data shown in Figure~\ref{fig:comparisons} cover a wide range of redshifts and sizes, a volume-limited sample of galaxies (or at least binning by redshift) is likely a much more appropriate comparison. While detailed analysis is left to a further paper, we note that there is no strong change in the proportion of galaxies when binning by redshift intervals of $\Delta z=0.2$ out to $z=1.0$. 
+
+Finally, we note that there are 7,681~galaxies in the GOODS-S field with morphological classifications in both GZH and the Galaxy~Zoo:~CANDELS project (Simmons et~al., submitted). Since both the sensitivity and filters for the two sets of images differ (and there is no debiased correction applied to GZC), there is no prior reason to expect a perfect correlation between the separate vote fractions for the projects. Briefly, we note that the \pfeatures{} value for GZH is on average higher than GZC; the effect is strongest at $p_\mathrm{features,GZC}<0.3$, for which roughly half the galaxies have $p_\mathrm{features,GZH}>0.5$. However, the correlation between vote fractions is single-valued (although not linear, with a Pearson correlation coefficient of $r=0.6$), and should be possible to calibrate using a similar approach to that described in Section~\ref{sec:debiasing}; the correlation between other tasks, such as edge-on galaxies is significantly stronger ($r=0.9$). So while the raw vote fractions are not directly comparable, the initial analysis indicates that the broad morphologies are at least consistent.
 
 \section{Summary}\label{sec:summary}
 
