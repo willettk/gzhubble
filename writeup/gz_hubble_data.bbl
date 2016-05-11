@@ -1,4 +1,4 @@
-\begin{thebibliography}{86}
+\begin{thebibliography}{89}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Abraham} {et~al}\mbox{.}(2003){Abraham}, {van den Bergh}, \&
@@ -331,6 +331,13 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
 \bibitem[{{Nair} \& {Abraham}(2010)}]{nai10}
 {Nair} P.~B., {Abraham} R.~G., 2010, \apjs, 186, 427
 
+\bibitem[{{Nieto-Santisteban} {et~al}\mbox{.}(2004){Nieto-Santisteban},
+  {Szalay}, \& {Gray}}]{nie04}
+{Nieto-Santisteban} M.~A., {Szalay} A.~S., {Gray} J., 2004, in Astronomical
+  Society of the Pacific Conference Series, Vol. 314, Astronomical Data
+  Analysis Software and Systems (ADASS) XIII, {Ochsenbein} F., {Allen} M.~G.,
+  {Egret} D., eds., p. 666
+
 \bibitem[{{Peng} {et~al}\mbox{.}(2002){Peng}, {Ho}, {Impey}, \& {Rix}}]{pen02a}
 {Peng} C.~Y., {Ho} L.~C., {Impey} C.~D., {Rix} H.-W., 2002, \aj, 124, 266
 
@@ -415,6 +422,15 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
 
 \bibitem[{{Tasca}(2011)}]{tas11}
 {Tasca} L.~A.~M., 2011, VizieR Online Data Catalog, 7265
+
+\bibitem[{{Taylor}(2011)}]{tay11}
+{Taylor} M., 2011, {TOPCAT: Tool for OPerations on Catalogues And Tables}.
+  Astrophysics Source Code Library
+
+\bibitem[{{Taylor}(2005)}]{tay05}
+{Taylor} M.~B., 2005, in Astronomical Society of the Pacific Conference Series,
+  Vol. 347, Astronomical Data Analysis Software and Systems XIV, {Shopbell} P.,
+  {Britton} M., {Ebert} R., eds., p.~29
 
 \bibitem[{{Toomre} \& {Toomre}(1972)}]{too72}
 {Toomre} A., {Toomre} J., 1972, \apj, 178, 623

@@ -32,7 +32,8 @@ pd = [
       {'gzc_col':'t16_merging_tidal_debris_a0_merging_frac',
        'gzh_col':'t08_odd_feature_a06_merger_weighted_fraction',
        'label':'merger',
-       'constraints':{'t01_smooth_or_features_a03_star_or_artifact_weighted_fraction':0.10,'t06_odd_total_weight':20}},
+       'constraints':{'t01_smooth_or_features_a03_star_or_artifact_weighted_fraction':0.10,'t06_odd_total_weight':20},
+       'nbins':6},
        ]
 
 
@@ -44,6 +45,19 @@ fig,axarr = plt.subplots(2,3,figsize=(16,10))
 blue = '#377EB8'
 red = '#E41A1C'
 green = '#4DAF4A'
+
+def err(data,midrange = 0.68):
+
+    arr = np.array(data)
+    arr.sort()
+    lower = arr[int(len(arr)*(1.-midrange)/2.)]
+    upper = arr[int(len(arr)*(1.+midrange)/2.)]
+    median = arr[int(len(arr)*0.5)]
+
+    lbar = median - lower
+    ubar = upper - median
+
+    return lbar,ubar
 
 for p,ax in zip(pd,axarr.ravel()):
     if p.has_key('constraints'):
@@ -58,29 +72,47 @@ for p,ax in zip(pd,axarr.ravel()):
 
     # Bin by the _other_ axis
 
-    nbins = 10
+    if p.has_key('nbins'):
+        nbins = p['nbins']
+    else:
+        nbins = 11
     bins = np.linspace(0,1,nbins)
     db = bins[1] - bins[0]
 
     gzc_avg,gzc_std = np.zeros(nbins-1),np.zeros(nbins-1)
     gzh_avg,gzh_std = np.zeros(nbins-1),np.zeros(nbins-1)
+    gzc_68 = np.zeros((2,nbins-1))
+    gzh_68 = np.zeros((2,nbins-1))
     for i,b in enumerate(bins[:-2]):
-        gzc_avg[i] = np.mean(gzc[(gzh >= b) & (gzh < b+db)])
-        gzh_avg[i] = np.mean(gzh[(gzc >= b) & (gzc < b+db)])
+        gzc_avg[i] = np.median(gzc[(gzh >= b) & (gzh < b+db)])
+        gzh_avg[i] = np.median(gzh[(gzc >= b) & (gzc < b+db)])
         gzc_std[i] = np.std(gzc[(gzh >= b) & (gzh < b+db)])
         gzh_std[i] = np.std(gzh[(gzc >= b) & (gzc < b+db)])
-    gzc_avg[-1] =  np.mean(gzc[(gzh > bins[-2]) & (gzh <= bins[-1])])
-    gzh_avg[-1] =  np.mean(gzh[(gzc > bins[-2]) & (gzc <= bins[-1])])
+        gzc_68[:,i] = err(gzc[(gzh >= b) & (gzh < b+db)])
+        gzh_68[:,i] = err(gzh[(gzc >= b) & (gzc < b+db)])
+    gzc_avg[-1] =  np.median(gzc[(gzh > bins[-2]) & (gzh <= bins[-1])])
+    gzh_avg[-1] =  np.median(gzh[(gzc > bins[-2]) & (gzc <= bins[-1])])
     gzc_std[-1] =  np.std(gzc[(gzh > bins[-2]) & (gzh <= bins[-1])])
     gzh_std[-1] =  np.std(gzh[(gzc > bins[-2]) & (gzc <= bins[-1])])
+    try:
+        gzc_68[:,-1] = err(gzc[(gzh > bins[-2]) & (gzh <= bins[-1])])
+    except:
+        gzc_68[:,-1] = 0,0
+    try:
+        gzh_68[:,-1] = err(gzh[(gzc > bins[-2]) & (gzc <= bins[-1])])
+    except:
+        gzh_68[:,-1] = 0,0
 
     hex1 = ax.hexbin(gzc,gzh,gridsize=50,cmap=plt.cm.gray_r,norm=LogNorm())
     cb = plt.colorbar(hex1,ax=ax)
     #cb.set_label(r'$N$',fontsize=16)
 
     plotbins = bins[:-1] + db/2.
-    ax.errorbar(gzc_avg,plotbins,xerr=gzc_std,color=blue,marker='o',ls='-',markersize=10)
-    ax.errorbar(plotbins,gzh_avg,yerr=gzh_std,color=red,marker='o',ls='-',markersize=10)
+    ax.errorbar(gzc_avg,plotbins,xerr=gzc_68,color=blue,marker='o',ls='-',markersize=10)
+    ax.errorbar(plotbins,gzh_avg,yerr=gzh_68,color=red,marker='o',ls='-',markersize=10)
+
+    from scipy.stats.stats import pearsonr
+    #print "Correlation {0}: {1:.2f}".format(p['label'],pearsonr(gzh,gzc)[0])
 
     ax.set_xlim(-0.05,1.05)
     ax.set_ylim(-0.05,1.05)
