@@ -1,3 +1,11 @@
+# TeX stuff
+#
+writeup/gz_hubble_data.aux
+writeup/gz_hubble_data.blg
+writeup/gz_hubble_data.dvi
+writeup/gz_hubble_data.log
+writeup/gz_hubble_data.synctex.gz
+
 # Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
