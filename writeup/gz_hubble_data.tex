@@ -550,18 +550,17 @@ co-add images had a measured DR7 spectroscopic redshift.
 
 \subsection{Classifier weighting}\label{ssec:weighting}
 
-The votes of individual classifiers in GZH were combined to
-make a vote fraction for each response ($f_{response}$) to a question in the
-classification tree. Votes were weighted \citep[in a method identical to
-that described in][]{wil13} such that classifiers who frequently disagreed with
-others ended up having very low weights. The weighting $(w)$ was 1
-for the top 95\% of classifiers, as ranked by consistency. For the bottom 5\% of
+The votes of individual classifiers in GZH were combined to make a vote
+fraction for each response ($f_{response}$) to a question in the classification
+tree. Votes were weighted in a method similar that in previous versions of
+Galaxy~Zoo \citep{lan08,wil13}, such that classifiers who frequently disagreed
+with others ended up having very low weights. The weighting $(w)$ was 1 for the
+top 95\% of classifiers, as ranked by consistency. For the bottom 5\% of
 classifiers, $w$ was designed to drop smoothly and was effectively zero for the
-bottom 1\%.  Since this only affected a tiny percentage of
-the classifiers (and an even smaller percentage of the classifications) the
-overall effect on the GZH dataset was minimal. The method was effective,
-however, at filtering out contributions from random or deliberately
-malicious classifiers.
+bottom 1\%.  Since this only affected a tiny percentage of the classifiers (and
+an even smaller percentage of the classifications) the overall effect on the
+GZH dataset was minimal. The method was effective, however, at filtering out
+contributions from random or deliberately malicious classifiers.
 
 Classifications were aggregated and weighted only if the classifier was logged
 into GZH under their username (which was encouraged, but not required for
