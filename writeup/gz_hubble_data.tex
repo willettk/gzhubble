@@ -101,7 +101,7 @@
 % Note: 250-word limit
 We present the data release paper for the Galaxy Zoo: Hubble (GZH)
 project.\footnote{This publication has been made possible by the participation
-of more than 200,000 volunteers in the Galaxy Zoo project. Their contributions
+of more than 200,000~volunteers in the Galaxy Zoo project. Their contributions
 are individually acknowledged at
 \url{http://authors.galaxyzoo.org/authors.html}.} This is the third phase in a
 large effort to measure reliable, detailed morphologies of galaxies by using
@@ -548,26 +548,26 @@ co-add images had a measured DR7 spectroscopic redshift.
 
 \section{GZH interface and classifications}\label{sec:interface}
 
-\subsection{User weighting}\label{ssec:weighting}
+\subsection{Classifier weighting}\label{ssec:weighting}
 
-The votes of individual users who classified galaxies in GZH were combined to
+The votes of individual classifiers in GZH were combined to
 make a vote fraction for each response ($f_{response}$) to a question in the
-classification tree. Users' votes were weighted \citep[in a method identical to
-that described in][]{wil13} such that users who frequently disagreed with all
-other users ended up having very low weights. The user weighting $(w)$ was 1
-for the top 95\% of users, as ranked by consistency. For the bottom 5\% of
-users, $w$ was designed to drop smoothly and was effectively zero for the
-bottom 1\% of classifiers.  Since this only affected a tiny percentage of
-the users (and an even smaller percentage of the classifications) the
+classification tree. Votes were weighted \citep[in a method identical to
+that described in][]{wil13} such that classifiers who frequently disagreed with
+others ended up having very low weights. The weighting $(w)$ was 1
+for the top 95\% of classifiers, as ranked by consistency. For the bottom 5\% of
+classifiers, $w$ was designed to drop smoothly and was effectively zero for the
+bottom 1\%.  Since this only affected a tiny percentage of
+the classifiers (and an even smaller percentage of the classifications) the
 overall effect on the GZH dataset was minimal. The method was effective,
 however, at filtering out contributions from random or deliberately
 malicious classifiers.
 
-Classifications each user were aggregated and weighted only if they
-were logged into GZH under their username (which was encouraged, but not
-required for participation). Classifications by users not logged in were marked
-as ``Anonymous''; no weighting was applied to these classifications, but they
-were otherwise treated identically in the data processing. 
+Classifications were aggregated and weighted only if the classifier was logged
+into GZH under their username (which was encouraged, but not required for
+participation). Classifications by participants who were not logged in were marked as
+``Anonymous''; no weighting was applied, but the data were otherwise treated
+identically in the data processing. 
 
 \subsection{Interface and decision tree}\label{ssec:interface}
 
@@ -575,61 +575,62 @@ were otherwise treated identically in the data processing.
 \center
 \includegraphics[width=160mm]{figures/gzh_interface.png}
 \caption{Screenshot of the GZH interface (\url{http:/zoo3.galaxyzoo.org}) at
-the beginning of a classification, with the user ready to select an answer for
+the beginning of a classification, with the classifier ready to select an answer for
 the first question in the decision tree.\label{fig:interface}}
 \end{figure*}
 
 Classifications for GZH were made using a web-based interface
 (Figure~\ref{fig:interface}), similar in design to Galaxy~Zoo and Galaxy~Zoo~2.
 The front-end runs on a Ruby~on~Rails framework with classifications stored in
-a MySQL backend. Users were shown a randomly-selected color composite image from
+a MySQL backend. Classifiers were shown a randomly-selected color composite image from
 the GZH sample; the default showed the image with a black sky background,
-although users had the option to invert the color palette if desired. The
+although they had the option to invert the color palette if desired. The
 questions and responses for morphology appeared on the right side of the image as
 a panel, including both text and icons. There was no tutorial required for
-participation, although users could access an extensive ``Help'' section
+participation, although classifiers could access an extensive ``Help'' section
 containing example images and descriptive text for all the morphological
 labels. 
 
 \begin{figure*}
 \center
 \includegraphics[width=\textwidth]{figures/gzh_decision_tree.pdf}
-\caption{Flowchart of the questions presented to GZH users, labeled with the
-corresponding Task numbers. Tasks in the decision tree are color-coded by tier
-level: Gray-colored Tasks are 1$^\mathrm{st}$-tier questions which are asked of
-all users. Tasks colored green, blue, purple, and pink (respectively) are one,
-two, three, or four steps below branching points in the decision tree.}
+\caption{Flowchart of the questions presented to GZH classifiers, labeled with
+the corresponding Task numbers. Tasks in the decision tree are color-coded by
+tier level: Gray-colored Tasks are 1$^\mathrm{st}$-tier questions which are
+asked in every classification. Tasks colored green, blue, purple, and pink
+(respectively) are one, two, three, or four steps below branching points in the
+decision tree.}
 \label{fig:decisiontree}
 \end{figure*}
 
 The procedure for classifying an image in GZH followed a hierarchical decision
-tree (Figure~\ref{fig:decisiontree}). Every classification began with the user
+tree (Figure~\ref{fig:decisiontree}). Every classification began with the step of
 identifying whether the object at the center of the image was a smooth galaxy,
 a galaxy with a disk or other features, or a star/artifact. Subsequent
-questions in the tree depended on the previous answer(s) given by the user; the
-decision tree as designed so that the user answered every question relevant to
-the morphology in the process of being identified. Questions that were not
+questions in the tree depended on the previous answer(s) given by the classifier; the
+decision tree was designed so that every question relevant to
+the morphology in the process of being identified was answered. Questions that were not
 answered were implicitly assumed to be absent in the image --- for example, if
-the user identified a galaxy as being smooth, they were not asked to count the
-number of spiral arms. For every task, the user chose a single answer before
+the classifier identified a galaxy as being smooth, they were not asked to count the
+number of spiral arms. For every task, the classifier chose a single answer before
 continuing to the next question; they also had the option to restart any
 classification in-progress. 
 
-The GZH decision tree had four broad sets of morphologies classified by the
-users. The first option designated stars or image artifacts
-(the result of either bad data or incorrect classification by the ACS pipeline
-as a galaxy); in this case, the classification process ended and no further questions
-were asked of the user. The second set were smooth galaxies, intended to select
-ellipticals/early-types; users also measure the relative axial ratio
-(roundness) for these galaxies. The third set was for disk/late-type galaxies,
-which measured the features necessary to place a galaxy on the standard Hubble
-tuning fork (bars, spiral arm, strength of the central bulge). The final set,
-which was new in this phase of Galaxy~Zoo and designed for high-redshift targets, asked users to identify
+The GZH decision tree had four broad sets of morphologies. The first option
+designated stars or image artifacts (the result of either bad data or incorrect
+classification by the ACS pipeline as a galaxy); in this case, the
+classification process ended and no further questions were asked. The second
+set were smooth galaxies, intended to select ellipticals/early-types;
+classifiers also measured the relative axial ratio (roundness) for these
+galaxies. The third set was for disk/late-type galaxies, which measured the
+features necessary to place a galaxy on the standard Hubble tuning fork (bars,
+spiral arm, strength of the central bulge). The final set, which was new in
+this phase of Galaxy~Zoo and designed for high-redshift targets, identified
 objects dominated by clumpy morphologies. Further annotations for clumpy
 galaxies included assessing the number, arrangement, relative brightness, and
 location of the clumps within the galaxy. Finally, every classification of a
-galaxy gave users the option of identifying ``odd'' features within the image;
-these labels were for relatively rare $(\lesssim1\%)$ phenomena, including dust
+galaxy gave the option of identifying ``odd'' features within the image; these
+labels were for relatively rare $(\lesssim1\%)$ phenomena, including dust
 lanes, gravitational lenses, and mergers. 
 
 The number of independent classifications per subject collected by GZH was on
@@ -788,15 +789,15 @@ from GZH for the images in each panel are (1) Top row: \ffeatures~= (0.900,
 
 \subsection{Correcting morphologies for classification bias}\label{ssec:zeta}
 
-The approach used in GZH for correcting the weighted classifications for user
+The approach used in GZH for correcting the weighted classifications for redshift
 bias rests on the assumption that the \emph{amount} of bias is a function of
 the apparent size and brightness of the image as seen on screen. This is
 controlled by two types of parameters: \textbf{intrinsic} properties of the
 galaxy itself, such as its physical diameter and luminosity, and
 \textbf{extrinsic} properties, such as the distance (redshift) of the galaxy
-and its relative orientation. There are likely other parameters that affect
-user accuracy, such as the proximity of close companions \citep[``distraction
-bias''; see][]{joh15} or bias as a function of individual user ability and
+and its relative orientation. There may also be other parameters that affect
+classifier accuracy, such as the proximity of close companions \citep[``distraction
+bias''; see][]{joh15} or bias as a function of individual classifier ability and
 skill. The combination of all such parameters forms a high-dimensional space,
 and it is not clear how to separate this into individual effects. Instead, the
 method used here employs only two parameters intended to capture the bulk of
@@ -1066,14 +1067,14 @@ for the correctable (left), lower-limit (middle), and NEI (right) galaxies in
 
 \subsection{Challenges of debiasing questions beyond ``smooth or features''}\label{ssec:higher_order_tasks}
 
-As with the HST images, each \ferengi{} subject has a varying number of users
-answering the various questions in the hierarchical decision tree. Every user
+As with the HST images, each \ferengi{} subject had a varying number of classifiers
+answering the various questions in the hierarchical decision tree. Every classifier
 answers the first question, {\it ``Is the galaxy smooth and rounded, with no
 sign of a disk?''}; as such the vote fractions \fsmooth, \ffeatures, and
 \fartifact{} are all computed with the minimum statistical error for any
 question, with between 40 and 140~responses (see Section~\ref{sec:interface}).
-The number of users to answer any subsequent question, however, is always equal
-to or less than the number to answer the preceding question. The average number
+The number of participants answering subsequent questions, however, is always equal
+to or less than the number who answered the preceding question. The average number
 of responses per task for fourth- or fifth-tier questions such as spiral arm
 structure (Tasks 12--14) is only $4\pm4$ for the \ferengi{} sample; while this
 is distribution is strongly bimodal (reflecting the true morphologies of
@@ -1082,7 +1083,7 @@ variance when attempting to calculate a statistical correction.
 
 In the \ferengi{} data, these numbers severely limit the amount of information
 that can be extracted for the higher-tier questions. The debiasing technique
-used (Section~\ref{ssec:zeta}) requires that at least 10~users answer each
+used (Section~\ref{ssec:zeta}) requires that at least 10~classifiers answer each
 question for a galaxy with $z_\mathrm{sim}=0.3$ \emph{and} the corresponding
 image at higher redshift. This requirement is (by default) met by all galaxies
 for the smooth/features question. However, this is often \emph{not} met for
@@ -1175,9 +1176,9 @@ Each image is listed under a unique project ID (eg,~AHZ000001); the actual
 galaxy in the image is identified by the combination of the OBJNO and original
 survey. For each of the 55~responses in the GZH decision tree, the following
 classification data is provided: for each question, $\tt N_{votes}$ is the
-number of users to answer that question. For each unique answer, $\tt fraction$
-is the fraction of users to select that answer ($\rm N_{answer}/N_{votes}$, and
-$\tt weighted$ is the weighted fraction, which takes into account user
+number of classifiers who answered that question. For each unique answer, $\tt fraction$
+is the fraction of classifiers who selected that answer ($\rm N_{answer}/N_{votes}$, and
+$\tt weighted$ is the weighted fraction, which takes into account overall
 consistency (Section~\ref{ssec:weighting}). 
 
 The GZH vote fractions can be largely dependent on the resolution of the image.
@@ -1585,17 +1586,17 @@ studies would make use of such large samples, in which statistical significance
 is a crucial factor in evaluating results. \citet{mas11c,mel14,che15}, and
 \citet{gal15} are examples of GZ papers which select morphologies in this way. 
 
-In GZH, volunteers answer questions about a galaxy's morphology in a decision
-tree format. With this structure, questions shown to a user are dependent on
+In GZH, participants answered questions about a galaxy's morphology in a decision
+tree format. With this structure, questions shown to a classifier were dependent on
 their answers to the previous questions (Section~\ref{ssec:interface}).
 Figure~\ref{fig:decisiontree} shows the possible paths available for answering
 the questions offered in GZH. The colors represent the tier level of Tasks,
 which indicate the number of previous Tasks the given Task is dependent upon.
 The arm-number question, Task~11, is a 5$^\mathrm{th}$-tier Task, meaning that
-whether this question is seen by a user is dependent on four Tasks preceding
-it. In this case, it is only shown to volunteers who voted the galaxy was
+whether this question is seen by a classifier was dependent on four Tasks preceding
+it. In this case, it as only shown to classifiers who identified the galaxy as
 featured/disk-shaped in Task~01, not clumpy in Task~12, not edge-on in Task~02,
-and had spiral structure in Task~10.  
+and having spiral structure in Task~10.  
 
 To select galaxies of a morphological type identified with a particular Task, a
 cut is placed on the vote fraction for that Task ($f_{\rm task}$), \emph{as
@@ -1603,20 +1604,20 @@ well as} the vote fractions for the Tasks preceding it, because of the
 dependency induced by the decision-tree structure. For example, to select
 barred galaxies, a cut may be placed on \fbar{} such that only galaxies where a
 high fraction of votes for this task voted for the $bar,yes$ answer. This is
-not the only necessary cut, however, since not all users answer this question;
+not the only necessary cut, however, since not all classifiers answer this question;
 only those who have previously selected ``features'' in Task~01, ``not clumpy''
 in Task~12, and ``not edge-on'' in Task~02 will have the opportunity to vote on
 the bar question, Task~03. To ensure that \fbar{} is well-sampled, cuts on all
 previous tasks must be applied. 
 
-The flexibility of this catalog allows the user to set their own selection
+The flexibility of this catalog allows users to set their own selection
 criteria for vote fraction thresholds to create a morphologically pure sample.
 Table~\ref{tbl:thresholds} provides baseline cuts for selecting galaxies of a
 variety of morphologies. These thresholds are determined by a visual inspection
-of subsamples. For each Task, at least 20 users are required to have voted on
+of subsamples. For each Task, at least 20 classifiers are required to have voted on
 the given question along with a cut on the vote fraction is applied to the
 previous task. We visually analyzed subsamples of 50~galaxies meeting both
-criteria, as well as a control sample of galaxies which had 20~users vote on
+criteria, as well as a control sample of galaxies which had 20~classifiers vote on
 the task, but did not meet the threshold cut set for the previous task. The
 threshold cut was adjusted and new subsamples were inspected until both the
 original and control samples achieved $>80\%$ purity.
@@ -1632,7 +1633,7 @@ this point a cut can be made on $f_{\rm arm~number=3}$ to select spirals with
 three arms. 
 
 Tasks 03, 04 and 05 have an additional possible pathway; as shown in
-Figure~\ref{fig:decisiontree}, a user might also be shown this question if they
+Figure~\ref{fig:decisiontree}, a classifier might also be shown this question if they
 select ``featured/disk'' in Task~01, ``clumpy'' in Task~12, two or more clumps
 in Task~16, and ``spiral arrangement'' in Task~15. After applying the
 appropriate thresholds for this path, $< 0.5\%$ of the galaxies which have $\ge
@@ -2058,7 +2059,7 @@ GZH used both 5-epoch and 2-epoch sets of data to construct the GOODS set of
 images. The 11,157 full depth 5-epoch images are used in the main catalog; the
 classifications for the 7,464 shallow depth 2-epoch images are provided as a
 supplementary table. This section analyzes the effect of image depth on the
-ability of the GZ users to identify features or disk structure in the images. 
+ability of the GZ classifiers to identify features or disk structure in the images. 
 
 \subsection{Comparing shallow and full depth morphologies}
 
