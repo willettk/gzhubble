@@ -1,4 +1,4 @@
-\documentclass[twocolumn]{aastex6}
+\documentclass[twocolumn]{aastex}
 
 %% The other main article choice is a tightly typeset, two-column article
 %% that more closely resembles the final typeset pdf article.
@@ -551,25 +551,10 @@ co-add images had a measured DR7 spectroscopic redshift.
 
 \section{GZH interface and classifications}\label{sec:interface}
 
-\subsection{Classifier weighting}\label{ssec:weighting}
-
-The votes of individual classifiers in GZH were combined to make a vote
-fraction for each response ($f_{response}$) to a question in the classification
-tree. Votes were weighted in a method similar that in previous versions of
-Galaxy~Zoo \citep{lan08,wil13}, such that classifiers who frequently disagreed
-with others ended up having very low weights. The weighting $(w)$ was 1 for the
-top 95\% of classifiers, as ranked by consistency. For the bottom 5\% of
-classifiers, $w$ was designed to drop smoothly and was effectively zero for the
-bottom 1\%.  Since this only affected a tiny percentage of the classifiers (and
-an even smaller percentage of the classifications) the overall effect on the
-GZH dataset was minimal. The method was effective, however, at filtering out
-contributions from random or deliberately malicious classifiers.
-
-Classifications were aggregated and weighted only if the classifier was logged
-into GZH under their username (which was encouraged, but not required for
-participation). Classifications by participants who were not logged in were marked as
-``Anonymous''; no weighting was applied, but the data were otherwise treated
-identically in the data processing. 
+Below we describe the classification structure of GZH, including the software 
+interface and the hierarchical structure of a classification. Section \ref{ssec:weighting}
+describes the process of combining individual classifications into vote fractions for each
+galaxy.
 
 \subsection{Interface and decision tree}\label{ssec:interface}
 
@@ -656,8 +641,8 @@ split by survey.}
 The GZH project was launched on 23~Apr~2010 with the inclusion of the AEGIS,
 GEMS, GOODS 2-epoch, and SDSS Stripe~82 images. Images from COSMOS and the
 simulated AGN were activated in Dec 2010, as well as a small sample of
-AEGIS/GEMS/GOODS images mistakenly excluded from the original sample based on
-an overly restrictive cut on blended and/or saturated objects. The main GZH
+images from AEGIS, GEMS, and GOODS that were previously excluded from the original sample
+due to cuts on blended and/or saturated objects and subsequently confirmed as classifiable galaxies. The main GZH
 site collected data until its replacement, the fourth phase of
 Galaxy~Zoo\footnote{\url{http://zoo4.galaxyzoo.org}} (including data from both
 the \hst{} CANDELS survey and SDSS DR8) began on 10~Sep~2012. Classifications
@@ -665,6 +650,31 @@ for the GOODS 5-epoch images were separately obtained from Mar-Jun 2015 on
 the fourth version of the Galaxy~Zoo site. The GZH project had a total of
 10,349,357~classifications from 93,898 registered participants. 
 % Sum is the total of the GZH SQL table plus the GOODS full-depth imaging in GZ4.
+
+
+\subsection{Classifier weighting}\label{ssec:weighting}
+
+As a first step to producing consensus classifications of each galaxy, 
+the votes of individual classifiers in GZH were combined to make a vote
+fraction for each response ($f_{response}$) to a question in the classification
+tree. Votes were subsequently weighted and re-combined in an iterative method similar that in 
+previous versions of Galaxy~Zoo \citep{lan08,wil13}, using a method chosen 
+to be as egalitarian as possible while also identifying and downweighting classifiers 
+who frequently disagreed with others. The weighting factor $(w)$ was 1 for the
+top 95\% of classifiers, as ranked by consistency. For the bottom 5\% of
+classifiers, $w$ was designed to drop smoothly and was effectively zero for the
+bottom 1\%.  Since this only affected a tiny percentage of the classifiers (and
+% would be good to quantify "tiny" and "even smaller [than tiny]"
+an even smaller percentage of the classifications) the overall effect on the
+GZH dataset was minimal. The method was effective, however, at filtering out
+contributions from random or deliberately malicious classifiers.
+
+Classifications were aggregated and weighted only if the classifier was logged
+into GZH under their username (which was encouraged, but not required for
+participation). Classifications by participants who were not logged in were marked as
+``Anonymous'' and assumed to have $w = 1$. 
+% We should also try to estimate how many anonymous classifiers there were, if possible. 
+
 
 \section{Correcting for redshift-dependent classification bias}\label{sec:debiasing}
 
