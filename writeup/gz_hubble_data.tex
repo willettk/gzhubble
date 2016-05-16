@@ -445,15 +445,17 @@ $(0.2,1.0,2.0,5.0,10.0,50.0)$. Combining these parameters generated 15~images
 with different simulated AGN for each host. 
 
 Two sets of simulated AGN were generated in GZH. The first set (version~1) was
-assembled from 95~galaxies from GEMS imaging and PSFs from \texttt{daophot}.
+assembled from 95~galaxies from GOODS-S imaging and empirical PSFs made by combining stars in the GOODS fields using the PSF creation tools in \texttt{daophot}. 
 The second set (version~2) was assembled from 96~galaxies in GOODS-S; this
-version used deeper imaging and improved PSFs from \texttt{TinyTim}. 
+version used simulated PSFs from \texttt{TinyTim} \citep{kri93}, drizzled using the same procedures as those used in reduction of the GOODS-S images \citep{koe02,koe03,gia04}. The use of these 2 versions facilitates comparisons between these different PSF creation methods, which are widely used in AGN host galaxy morphology studies \citep[e.g.,][]{san04,sim08,pie10a,simm11}. 
+% okay so I'm a cheeky self-citing biyotch
+Each PSF creation method has advantages and disadvantages: the empirical PSFs better represent the nuances of the PSF in the specific data being used and look more realistic at lower luminosities, but the extended features of the noiseless \texttt{TinyTim} PSFs are visually more realistic at higher luminosities.
 
 Images with simulated AGN were classified in the main interface in an identical
 manner and evenly distributed with unaltered images of the galaxies.
-Classifiers were not explicitly told that the images had been altered, as the
+Classifiers were not explicitly told that the images had been altered during classification, as the
 goal was to measure the effect on normal classifications in as unbiased a
-manner as possible. 
+manner as possible. Following classification, a classifier could view a page with additional details about each galaxy they had classified; where applicable these pages contained further information regarding image modifications.
 
 \subsection{Galaxy metadata}
 
