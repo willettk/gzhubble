@@ -68,7 +68,7 @@ suprime_filters = {'B':{'label':r'$B_J$','labelpos':(3500,0.50)},
                     'g':{'label':r'$g^+$','labelpos':(5100,0.80)},
                     'r':{'label':r'$r^+$','labelpos':(6300,0.70)}}
 
-gzh = {'AEGIS':('F606W','F814W'),'COSMOS':('F814W',),'GEMS, GOODS-S':('F606W','F850LP'),'GOODS-N':('F606W','F775W'),'deep GOODS-N,-S':('F435W','F606W','F775W','F814W')}
+gzh = {'AEGIS':('F606W','F814W'),'COSMOS':('F814W',),'GEMS, GOODS-S':('F606W','F850LP'),'GOODS-N':('F606W','F775W'),'deep GOODS-N,-S':('F435W','F606W','F775W','F850LP')}
 kwargs = dict(fontsize=14, ha='center', va='center')
 
 for survey,ax in zip(gzh,axarr.ravel()):

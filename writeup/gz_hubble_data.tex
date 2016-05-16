@@ -480,9 +480,11 @@ priority is spectroscopic redshifts; these were taken from the ACS-GC
 high-quality spectroscopic redshift in the ACS-GC is the primary option; if
 none is available, then $\tt Z\_BEST$ uses the spectroscopic redshifts in
 3DHST, and then MUSYC. For galaxies with multiple spectroscopic redshifts, more
-than 98\% are consistent at $\Delta z<0.001$, and so the order of selection
-made no practical difference. Those which are inconsistent ($\Delta z>0.001$) between any of the three catalogs are marked with a Boolean flag in the column $\tt z\_spec\_conflict\_flag$ in Table~\ref{tbl:catalog_hst}. If no spectroscopic redshifts were available,
-the 1-$\sigma$ errors of the photometric \citep[ACS-GC, 3DHST, MUSYC,
+than 98\% are consistent ($\Delta z<0.001$), and so the order of selection
+made no practical difference. Galaxies with inconsistent spectroscopic
+redshifts between any pair of catalogs are marked with a flag in
+Table~\ref{tbl:catalog_hst}. If no spectroscopic redshifts were available, the
+1-$\sigma$ errors of the photometric \citep[ACS-GC, 3DHST, MUSYC,
 UltraVISTA;][]{ilb13} and UltraVISTA grism data were used to select the
 redshift with the smallest error. 
 %Table~\ref{tbl:redshifts} shows the results of this selection. 
