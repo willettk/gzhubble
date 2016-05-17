@@ -1,0 +1,61 @@
+Name	Type	Unit	Description
+zooniverse_id	String	-	unique ID given by Zooniverse
+survey_id	String	-	SDSS DR7 ObjID
+imaging	String	-	survey source of image
+RUN	Short	-	specific scan from SDSS telescope
+RERUN	Short	-	post-processing designation
+CAMCOL	Short	-	scanline within run
+FIELD	Short	-	field within run
+OBJ	Short	-	object number within field
+RA	Double	J2000 degrees	right ascension
+DEC	Double	J2000 degrees	declination
+PETROR50_R	Float	arcsec	Petrosian 50% angular radius in r-band 
+PETROR90_R	Float	arcsec	Petrosian 90% angular radius in r-band
+PETROMAG_U	Float	mag	Petrosian apparent magnitude in u-band
+PETROMAG_G	Float	mag	Petrosian apparent magnitude in g-band
+PETROMAG_R	Float	mag	Petrosian apparent magnitude in r-band
+PETROMAG_I	Float	mag	Petrosian apparent magnitude in i-band 
+PETROMAG_Z	Float	mag	Petrosian apparent magnitude in z-band 
+PETROMAGERR_U	Float	mag	Petrosian apparent magnitude error in u-band 
+PETROMAGERR_G	Float	mag	Petrosian apparent magnitude error in g-band 
+PETROMAGERR_R	Float	mag	Petrosian apparent magnitude error in r-band 
+PETROMAGERR_I	Float	mag	Petrosian apparent magnitude error in i-band 
+PETROMAGERR_Z	Float	mag	Petrosian apparent magnitude error in z-band
+PSFMAG_R	Float	mag	PSF magnitude in r-band 
+FIBERMAG_R	Float	mag	Spectroscopic fiber (3 arcsec) magnitude in r-band
+DEVMAG_R	Float	mag	model magnitude from pure deVaucouleurs profile fit in r-band [mag]
+DEVMAGERR_R	Float	mag	model magnitude error from pure deVaucouleurs profile fit in r-band 
+EXPMAG_R	Float	mag	model magnitude from pure exponential profile fit in r-band 
+EXPMAGERR_R	Float	mag	model magnitude error from pure exponential profile fit in r-band 
+FRACDEV_R	Float	-	coefficient of deVaoucouleurs component in linear combination of models in r-band
+MU50_R	Double	mag/arcsec^2	surface brightness within Petrosian 50% r-band radius 
+EXTINCTION_U	Float	mag	extinction in u-band 
+EXTINCTION_G	Float	mag	extinction in g-band 
+EXTINCTION_R	Float	mag	extinction in r-band 
+EXTINCTION_I	Float	mag	extinction in i-band 
+EXTINCTION_Z	Float	mag	extinction in z-band 
+ROWC_U	Float	pixel	row center position (r' coordinates) in u-band
+COLC_U	Float	pixel	column center position (r' coordinates) in u-band
+ROWC_G	Float	pixel	row center position (r' coordinates) in g-band
+COLC_G	Float	pixel	column center position (r' coordinates) in g-band
+ROWC_R	Float	pixel	row center position (r' coordinates) in r-band
+COLC_R	Float	pixel	column center position (r' coordinates) in r-band
+ROWC_I	Float	pixel	row center position (r' coordinates) in i-band
+COLC_I	Float	pixel	column center position (r' coordinates) in i-band
+ROWC_Z	Float	pixel	row center position (r' coordinates) in z-band
+COLC_Z	Float	pixel	column center position (r' coordinates) in z-band
+CMODELMAG_R	Double	mag	composite model magnitude in r-band 
+CMODELMAGERR_R	Double	mag	composite model magnitude error in r-band 
+REDSHIFT	Float	-	spectroscopic redshift
+REDSHIFTERR	Float	-	spectroscopic redshift error
+PETROMAG_MU	Float	mag	Petrosian absolute magnitude in u-band 
+PETROMAG_MG	Float	mag	Petrosian absolute magnitude in g-band 
+PETROMAG_MR	Float	mag	Petrosian absolute magnitude in r-band 
+PETROMAG_MI	Float	mag	Petrosian absolute magnitude in i-band 
+PETROMAG_MZ	Float	mag	Petrosian absolute magnitude in z-band 
+PETROMAGERR_MU	Float	mag	Petrosian absolute magnitude error in u-band 
+PETROMAGERR_MG	Float	mag	Petrosian absolute magnitude error in g-band 
+PETROMAGERR_MR	Float	mag	Petrosian absolute magnitude error in r-band 
+PETROMAGERR_MI	Float	mag	Petrosian absolute magnitude error in i-band 
+PETROMAGERR_MZ	Float	mag	Petrosian absolute magnitude error in z-band 
+PETROR50_R_KPC	Float	kpc	physical Petrosian half-light radius 

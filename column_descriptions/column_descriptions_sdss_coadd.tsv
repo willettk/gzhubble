@@ -1,0 +1,170 @@
+Name	Type	Description
+zooniverse_id	String	unique ID given by Zooniverse
+RA	Double	J2000.0 right ascension (decimal degrees)
+DEC	Double	J2000.0 declination (decimal degrees)
+survey_id	String	unique ID given by target survey, match to SDSS DR7 ObjID
+imaging	String	survey source of image 
+correction_type	Short	Correction sample type: 0=correctable, 1=lower limit, 2=z<0.3, 3=NEI, 4=no redshift information (see Willett & Galloway et al. 2016, Section 4)
+total_count	Short	total number of classifications for this galaxy
+total_weight	Float	total number of votes for each response, summed over all classifications
+t01_smooth_or_features_a01_smooth_fraction	Float	fraction of votes for 'smooth' out of all responses to Task 01
+t01_smooth_or_features_a01_smooth_weighted_fraction	Float	consistency-weighted fraction of votes for 'smooth' out of all responses to Task 01
+t01_smooth_or_features_a01_smooth_debiased_fraction	Double	debiased fraction of votes for 'smooth' out of all responses to Task 01; only reliable if correction_type=0
+t01_smooth_or_features_a01_smooth_best_fraction	Double	recommended vote fraction to use. best_fraction = (debiased_fraction if correction_type=0, upper_limit if correction_type=1, and weighted_fraction if correction_type = 2,3,or 4). (see Willett & Galloway et al. 2016, Section 5)
+t01_smooth_or_features_a01_smooth_lower_limit	Double	lower-limit estimate of 'smooth' vote fraction corrected to z=0.3; applicable if correction_type=0 or 1
+t01_smooth_or_features_a01_smooth_upper_limit	Double	upper-limit estimate of 'smooth' vote fraction corrected to z=0.3; applicable if correction_type=0 or 1
+t01_smooth_or_features_a01_smooth_flag	Boolean	flag for 'smooth'  - 1 if galaxy is in clean sample, 0 otherwise
+t01_smooth_or_features_a02_features_or_disk_fraction	Float	fraction of votes for 'features' out of all responses to Task 01
+t01_smooth_or_features_a02_features_or_disk_weighted_fraction	Float	consistency-weighted fraction of votes for 'features' out of all responses to Task 01
+t01_smooth_or_features_a02_features_or_disk_debiased_fraction	Double	debiased fraction of votes for 'features' out of all responses to Task 01; only reliable if correction_type=0
+t01_smooth_or_features_a02_features_or_disk_best_fraction	Double	recommended vote fraction to use. best_fraction = (debiased_fraction if correction_type=0, lower_limit if correction_type=1, and weighted_fraction if correction_type = 2,3,or 4). (see Willett & Galloway et al. 2016, Section 5)
+t01_smooth_or_features_a02_features_or_disk_lower_limit	Double	lower-limit estimate of 'features' vote fraction corrected to z=0.3; applicable if correction_type=0 or 1
+t01_smooth_or_features_a02_features_or_disk_upper_limit	Double	upper-limit estimate of 'features' vote fraction corrected to z=0.3; applicable if correction_type=0 or 1
+t01_smooth_or_features_a02_features_or_disk_flag	Boolean	flag for 'features or disk'  - 1 if galaxy is in clean sample, 0 otherwise
+t01_smooth_or_features_a03_star_or_artifact_fraction	Float	fraction of votes for 'star or artifact' out of all responses to Task 01
+t01_smooth_or_features_a03_star_or_artifact_weighted_fraction	Float	consistency-weighted fraction of votes for 'star or artifact' out of all responses to Task 01
+t01_smooth_or_features_a03_star_or_artifact_flag	Boolean	flag for 'star or artifact'  - 1 if galaxy is in clean sample, 0 otherwise
+t01_smooth_or_features_total_count	Short	number of responses to Task 01
+t01_smooth_or_features_total_weight	Float	consistency-weighted number responses to Task 01
+t02_edgeon_a01_yes_fraction	Float	fraction of votes for 'edge-on' out of all responses to Task 02
+t02_edgeon_a01_yes_weighted_fraction	Float	consistency-weighted fraction of votes for 'edge-on' out of all responses to Task 02
+t02_edgeon_a02_no_fraction	Float	fraction of votes for 'not edge-on' out of all responses to Task 02
+t02_edgeon_a02_no_weighted_fraction	Float	consistency-weighted fraction of votes for 'not edge-on' out of all responses to Task 02
+t02_edgeon_total_count	Short	number of responses to Task 02
+t02_edgeon_total_weight	Float	consistency-weighted number responses to Task 02
+t03_bar_a01_bar_fraction	Float	fraction of votes for 'bar' out of all responses to Task 03
+t03_bar_a01_bar_weighted_fraction	Float	consistency-weighted fraction of votes for 'bar' out of all responses to Task 03
+t03_bar_a02_no_bar_fraction	Float	fraction of votes for 'no bar' out of all responses to Task 03
+t03_bar_a02_no_bar_weighted_fraction	Float	consistency-weighted fraction of votes for 'no bar' out of all responses to Task 03
+t03_bar_total_count	Short	number of responses to Task 03
+t03_bar_total_weight	Float	consistency-weighted number responses to Task 03
+t04_spiral_a01_spiral_fraction	Float	fraction of votes for 'spiral' out of all responses to Task 04
+t04_spiral_a01_spiral_weighted_fraction	Float	consistency-weighted fraction of votes for 'spiral' out of all responses to Task 04
+t04_spiral_a02_no_spiral_fraction	Float	fraction of votes for 'no spiral' out of all responses to Task 04
+t04_spiral_a02_no_spiral_weighted_fraction	Float	consistency-weighted fraction of votes for 'no spiral' out of all responses to Task 04
+t04_spiral_total_count	Short	number of responses to Task 04
+t04_spiral_total_weight	Float	consistency-weighted number responses to Task 04
+t05_bulge_prominence_a01_no_bulge_fraction	Float	fraction of votes for 'no bulge' out of all responses to Task 05
+t05_bulge_prominence_a01_no_bulge_weighted_fraction	Float	consistency-weighted fraction of votes for 'no bulge' out of all responses to Task 05
+t05_bulge_prominence_a02_just_noticeable_fraction	Float	fraction of votes for 'just noticeable bulge' out of all responses to Task 05
+t05_bulge_prominence_a02_just_noticeable_weighted_fraction	Float	consistency-weighted fraction of votes for 'just noticeable bulge' out of all responses to Task 05
+t05_bulge_prominence_a03_obvious_fraction	Float	fraction of votes for 'obvious bulge' out of all responses to Task 05
+t05_bulge_prominence_a03_obvious_weighted_fraction	Float	consistency-weighted fraction of votes for 'obvious bulge' out of all responses to Task 05
+t05_bulge_prominence_a04_dominant_fraction	Float	fraction of votes for 'dominant bulge' out of all responses to Task 05
+t05_bulge_prominence_a04_dominant_weighted_fraction	Float	consistency-weighted fraction of votes for 'dominant bulge' out of all responses to Task 05
+t05_bulge_prominence_total_count	Short	number of responses to Task 05
+t05_bulge_prominence_total_weight	Float	consistency-weighted number responses to Task 05
+t06_odd_a01_yes_fraction	Float	fraction of votes for 'something odd' out of all responses to Task 06
+t06_odd_a01_yes_weighted_fraction	Float	consistency-weighted fraction of votes for 'something odd' out of all responses to Task 06
+t06_odd_a02_no_fraction	Float	fraction of votes for 'nothing odd' out of all responses to Task 06
+t06_odd_a02_no_weighted_fraction	Float	consistency-weighted fraction of votes for 'nothing odd' out of all responses to Task 06
+t06_odd_total_count	Short	number of responses to Task 06
+t06_odd_total_weight	Float	consistency-weighted number responses to Task 06
+t07_rounded_a01_completely_round_fraction	Float	fraction of votes for 'smooth and completely round' out of all responses to Task 07
+t07_rounded_a01_completely_round_weighted_fraction	Float	consistency-weighted fraction of votes for 'smooth and completely round' out of all responses to Task 07
+t07_rounded_a02_in_between_fraction	Float	fraction of votes for 'smooth and in-between roundness' out of all responses to Task 07
+t07_rounded_a02_in_between_weighted_fraction	Float	consistency-weighted fraction of votes for 'smooth and in-between roundness' out of all responses to Task 07
+t07_rounded_a03_cigar_shaped_fraction	Float	fraction of votes for 'smooth and cigar-shaped' out of all responses to Task 07
+t07_rounded_a03_cigar_shaped_weighted_fraction	Float	consistency-weighted fraction of votes for 'smooth and cigar-shaped' out of all responses to Task 07
+t07_rounded_total_count	Short	number of responses to Task 07
+t07_rounded_total_weight	Float	consistency-weighted number responses to Task 07
+t08_odd_feature_a01_ring_fraction	Float	fraction of votes for 'odd feature is a ring' out of all responses to Task 08
+t08_odd_feature_a01_ring_weighted_fraction	Float	consistency-weighted fraction of votes for 'odd feature is a ring' out of all responses to Task 08
+t08_odd_feature_a02_lens_or_arc_fraction	Float	fraction of votes for 'odd feature is a lens or arc' out of all responses to Task 08
+t08_odd_feature_a02_lens_or_arc_weighted_fraction	Float	consistency-weighted fraction of votes for 'odd feature is a lens or arc' out of all responses to Task 08
+t08_odd_feature_a03_disturbed_fraction	Float	fraction of votes for 'odd feature is a disturbed' galaxy out of all responses to Task 08
+t08_odd_feature_a03_disturbed_weighted_fraction	Float	consistency-weighted fraction of votes for 'odd feature is a disturbed galaxy out of all responses to Task 08
+t08_odd_feature_a04_irregular_fraction	Float	fraction of votes for 'odd feature is an irregular' galaxy out of all responses to Task 08
+t08_odd_feature_a04_irregular_weighted_fraction	Float	consistency-weighted fraction of votes for 'odd feature is an irregular galaxy out of all responses to Task 08
+t08_odd_feature_a05_other_fraction	Float	fraction of votes for 'odd feature is something else' out of all responses to Task 08
+t08_odd_feature_a05_other_weighted_fraction	Float	consistency-weighted fraction of votes for 'odd feature is something else' out of all responses to Task 08
+t08_odd_feature_a06_merger_fraction	Float	fraction of votes for 'odd feature is a merger' out of all responses to Task 08
+t08_odd_feature_a06_merger_weighted_fraction	Float	consistency-weighted fraction of votes for 'odd feature is a merger' out of all responses to Task 08
+t08_odd_feature_a07_dust_lane_fraction	Float	fraction of votes for 'odd feature is a dust lane' out of all responses to Task 08
+t08_odd_feature_a07_dust_lane_weighted_fraction	Float	consistency-weighted fraction of votes for 'odd feature is a dust lane' out of all responses to Task 08
+t08_odd_feature_total_count	Short	number of responses to Task 08
+t08_odd_feature_total_weight	Float	consistency-weighted number responses to Task 08
+t09_bulge_shape_a01_rounded_fraction	Float	fraction of votes for 'edge-on bulge is rounded' out of all responses to Task 09
+t09_bulge_shape_a01_rounded_weighted_fraction	Float	consistency-weighted fraction of votes for 'edge-on bulge is rounded' out of all responses to Task 09
+t09_bulge_shape_a02_boxy_fraction	Float	fraction of votes for 'edge-on bulge is boxy' out of all responses to Task 09
+t09_bulge_shape_a02_boxy_weighted_fraction	Float	consistency-weighted fraction of votes for 'edge-on bulge is boxy' out of all responses to Task 09
+t09_bulge_shape_a03_no_bulge_fraction	Float	fraction of votes for 'no edge-on bulge' out of all responses to Task 09
+t09_bulge_shape_a03_no_bulge_weighted_fraction	Float	consistency-weighted fraction of votes for 'no edge-on bulge' out of all responses to Task 09
+t09_bulge_shape_total_count	Short	number of responses to Task 09
+t09_bulge_shape_total_weight	Float	consistency-weighted number responses to Task 09
+t10_arms_winding_a01_tight_fraction	Float	fraction of votes for 'tightly wound spiral arms' out of all responses to Task 10
+t10_arms_winding_a01_tight_weighted_fraction	Float	consistency-weighted fraction of votes for 'tightly wound spiral arms' out of all responses to Task 10
+t10_arms_winding_a02_medium_fraction	Float	fraction of votes for 'medium wound spiral arms' out of all responses to Task 10
+t10_arms_winding_a02_medium_weighted_fraction	Float	consistency-weighted fraction of votes for 'medium wound spiral arms' out of all responses to Task 10
+t10_arms_winding_a03_loose_fraction	Float	fraction of votes for 'loosely wound spiral arms' out of all responses to Task 10
+t10_arms_winding_a03_loose_weighted_fraction	Float	consistency-weighted fraction of votes for 'loosely wound spiral arms' out of all responses to Task 10
+t10_arms_winding_total_count	Short	number of responses to Task 10
+t10_arms_winding_total_weight	Float	consistency-weighted number responses to Task 10
+t11_arms_number_a01_1_fraction	Float	fraction of votes for '1 spiral arm' out of all responses to Task 11
+t11_arms_number_a01_1_weighted_fraction	Float	consistency-weighted fraction of votes for the '1 spiral arm' response to Task 11
+t11_arms_number_a02_2_fraction	Float	fraction of votes for '2 spiral arms' out of all responses to Task 11
+t11_arms_number_a02_2_weighted_fraction	Float	consistency-weighted fraction of votes for '2 spiral arms' out of all responses to Task 11
+t11_arms_number_a03_3_fraction	Float	fraction of votes for '3 spiral arms' out of all responses to Task 11
+t11_arms_number_a03_3_weighted_fraction	Float	consistency-weighted fraction of votes for '3 spiral arms' out of all responses to Task 11
+t11_arms_number_a04_4_fraction	Float	fraction of votes for '4 spiral arms' out of all responses to Task 11
+t11_arms_number_a04_4_weighted_fraction	Float	consistency-weighted fraction of votes for '4 spiral arms' out of all responses to Task 11
+t11_arms_number_a05_more_than_4_fraction	Float	fraction of votes for 'more than 4 spiral arms' out of all responses to Task 11
+t11_arms_number_a05_more_than_4_weighted_fraction	Float	consistency-weighted fraction of votes for 'more than 4 spiral arms' out of all responses to Task 11
+t11_arms_number_a06_cant_tell_fraction	Float	fraction of votes for 'spiral arms present, but can't tell how many' out of all responses to Task 11
+t11_arms_number_a06_cant_tell_weighted_fraction	Float	consistency-weighted fraction of votes for 'spiral arms present, but can't tell how many' out of all responses to Task 11
+t11_arms_number_total_count	Short	number of responses to Task 11
+t11_arms_number_total_weight	Float	consistency-weighted number responses to Task 11
+t12_clumpy_a01_yes_fraction	Float	fraction of votes for 'clumpy' out of all responses to Task 12
+t12_clumpy_a01_yes_weighted_fraction	Float	consistency-weighted fraction of votes for 'clumpy' out of all responses to Task 12
+t12_clumpy_a02_no_fraction	Float	fraction of votes for 'not clumpy' out of all responses to Task 12
+t12_clumpy_a02_no_weighted_fraction	Float	consistency-weighted fraction of votes for 'not clumpy' out of all responses to Task 12
+t12_clumpy_total_count	Short	number of responses to Task 12
+t12_clumpy_total_weight	Float	consistency-weighted number responses to Task 12
+t13_bright_clump_a01_yes_fraction	Float	fraction of votes for 'clumpy with a bright clump' out of all responses to Task 13
+t13_bright_clump_a01_yes_weighted_fraction	Float	consistency-weighted fraction of votes for 'clumpy with a bright clump' out of all responses to Task 13
+t13_bright_clump_a02_no_fraction	Float	fraction of votes for 'clumpy but no bright clump' out of all responses to Task 13
+t13_bright_clump_a02_no_weighted_fraction	Float	consistency-weighted fraction of votes for 'clumpy but no bright clump' out of all responses to Task 13
+t13_bright_clump_total_count	Short	number of responses to Task 13
+t13_bright_clump_total_weight	Float	consistency-weighted number responses to Task 13
+t14_bright_clump_central_a01_yes_fraction	Float	fraction of votes for 'bright clump is centrally located' out of all responses to Task 14
+t14_bright_clump_central_a01_yes_weighted_fraction	Float	consistency-weighted fraction of votes for 'bright clump is centrally located' out of all responses to Task 14
+t14_bright_clump_central_a02_no_fraction	Float	fraction of votes for 'bright clump is not centrally located' out of all responses to Task 14
+t14_bright_clump_central_a02_no_weighted_fraction	Float	consistency-weighted fraction of votes for 'bright clump is not centrally located' out of all responses to Task 14
+t14_bright_clump_central_total_count	Short	number of responses to Task 14
+t14_bright_clump_central_total_weight	Float	consistency-weighted number responses to Task 14
+t15_clumps_arrangement_a01_line_fraction	Float	fraction of votes for 'clumps are arranged in a line' out of all responses to Task 15
+t15_clumps_arrangement_a01_line_weighted_fraction	Float	consistency-weighted fraction of votes for 'clumps are arranged in a line' out of all responses to Task 15
+t15_clumps_arrangement_a02_chain_fraction	Float	fraction of votes for 'clumps are arranged in a chain' out of all responses to Task 15
+t15_clumps_arrangement_a02_chain_weighted_fraction	Float	consistency-weighted fraction of votes for 'clumps are arranged in a chain' out of all responses to Task 15
+t15_clumps_arrangement_a03_cluster_fraction	Float	fraction of votes for 'clumps are arranged in a cluster' out of all responses to Task 15
+t15_clumps_arrangement_a03_cluster_weighted_fraction	Float	consistency-weighted fraction of votes for 'clumps are arranged in a cluster' out of all responses to Task 15
+t15_clumps_arrangement_a04_spiral_fraction	Float	fraction of votes for 'clumps are arranged in a spiral' out of all responses to Task 15
+t15_clumps_arrangement_a04_spiral_weighted_fraction	Float	consistency-weighted fraction of votes for 'clumps are arranged in a spiral' out of all responses to Task 15
+t15_clumps_arrangement_total_count	Short	number of responses to Task 15
+t15_clumps_arrangement_total_weight	Float	consistency-weighted number responses to Task 15
+t16_clumps_count_a01_1_fraction	Float	fraction of votes for '1 clump' out of all responses to Task 16
+t16_clumps_count_a01_1_weighted_fraction	Float	consistency-weighted fraction of votes for the '1 clump' out of all responses to Task 16
+t16_clumps_count_a02_2_fraction	Float	fraction of votes for '2 clumps' out of all responses to Task 16
+t16_clumps_count_a02_2_weighted_fraction	Float	consistency-weighted fraction of votes for '2 clumps' out of all responses to Task 16
+t16_clumps_count_a03_3_fraction	Float	fraction of votes for '3 clumps' out of all responses to Task 16
+t16_clumps_count_a03_3_weighted_fraction	Float	consistency-weighted fraction of votes for '3 clumps' out of all responses to Task 16
+t16_clumps_count_a04_4_fraction	Float	fraction of votes for '4 clumps' out of all responses to Task 16
+t16_clumps_count_a04_4_weighted_fraction	Float	consistency-weighted fraction of votes for '4 clumps' out of all responses to Task 16
+t16_clumps_count_a05_more_than_4_fraction	Float	fraction of votes for 'more than 4 clumps' out of all responses to Task 16
+t16_clumps_count_a05_more_than_4_weighted_fraction	Float	consistency-weighted fraction of votes for 'more than 4 clumps' out of all responses to Task 16
+t16_clumps_count_a06_cant_tell_fraction	Float	fraction of votes for 'clumps present, but can't tell how many' out of all responses to Task 16
+t16_clumps_count_a06_cant_tell_weighted_fraction	Float	consistency-weighted fraction of votes for 'clumps present, but can't tell how many' out of all responses to Task 16
+t16_clumps_count_total_count	Short	number of responses to Task 16
+t16_clumps_count_total_weight	Float	consistency-weighted number responses to Task 16
+t17_clumps_symmetrical_a01_yes_fraction	Float	fraction of votes for 'symmetrical' out of all responses to Task 17
+t17_clumps_symmetrical_a01_yes_weighted_fraction	Float	consistency-weighted fraction of votes for 'symmetrical' out of all responses to Task 17
+t17_clumps_symmetrical_a02_no_fraction	Float	fraction of votes for 'not symmetrical' out of all responses to Task 17
+t17_clumps_symmetrical_a02_no_weighted_fraction	Float	consistency-weighted fraction of votes for 'not symmetrical' out of all responses to Task 17
+t17_clumps_symmetrical_total_count	Short	number of responses to Task 17
+t17_clumps_symmetrical_total_weight	Float	consistency-weighted number responses to Task 17
+t18_clumps_embedded_a01_yes_fraction	Float	fraction of votes for 'the clumps are embedded within a larger object' out of all responses to Task 18
+t18_clumps_embedded_a01_yes_weighted_fraction	Float	consistency-weighted fraction of votes for 'the clumps are embedded within a larger object'  out of all responses to Task 18
+t18_clumps_embedded_a02_no_fraction	Float	fraction of votes for 'the clumps are not embedded within a larger object'  out of all responses to Task 18
+t18_clumps_embedded_a02_no_weighted_fraction	Float	consistency-weighted fraction of votes for 'the clumps are not embedded within a larger object'  out of all responses to Task 18
+t18_clumps_embedded_total_count	Short	number of responses to Task 18
+t18_clumps_embedded_total_weight	Float	consistency-weighted number responses to Task 18
