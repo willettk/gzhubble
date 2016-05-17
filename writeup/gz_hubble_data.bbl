@@ -1,4 +1,4 @@
-\begin{thebibliography}{89}
+\begin{thebibliography}{100}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Abraham} {et~al}\mbox{.}(2003){Abraham}, {van den Bergh}, \&
@@ -48,6 +48,13 @@
   {Schartmann}}]{beh16}
 {Behrendt} M., {Burkert} A., {Schartmann} M., 2016, \apjl, 819, L2
 
+\bibitem[{{Bell} {et~al}\mbox{.}(2012){Bell}, {van der Wel}, {Papovich},
+  {Kocevski}, {Lotz}, {McIntosh}, {Kartaltepe}, {Faber}, {Ferguson},
+  {Koekemoer}, {Grogin}, {Wuyts}, {Cheung}, {Conselice}, {Dekel}, {Dunlop},
+  {Giavalisco}, {Herrington}, {Koo}, {McGrath}, {de Mello}, {Rix}, {Robaina},
+  \& {Williams}}]{bel12}
+{Bell} E.~F. {et~al.}, 2012, \apj, 753, 167
+
 \bibitem[{{Bertin} \& {Arnouts}(1996)}]{ber96}
 {Bertin} E., {Arnouts} S., 1996, \aaps, 117, 393
 
@@ -59,6 +66,10 @@
 \bibitem[{{Bundy} {et~al}\mbox{.}(2005){Bundy}, {Ellis}, \&
   {Conselice}}]{bun05}
 {Bundy} K., {Ellis} R.~S., {Conselice} C.~J., 2005, \apj, 625, 621
+
+\bibitem[{{Buta}(2013)}]{but13}
+{Buta} R.~J., 2013, {Galaxy Morphology}, {Oswalt} T.~D., {Keel} W.~C., eds.,
+  Springer, pp. 1--89
 
 \bibitem[{{Caldwell} {et~al}\mbox{.}(2008){Caldwell}, {McIntosh}, {Rix},
   {Barden}, {Beckwith}, {Bell}, {Borch}, {Heymans}, {H{\"a}u{\ss}ler},
@@ -257,6 +268,25 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
   {Weiner}, \& {Wuyts}}]{kar15}
 {Kartaltepe} J.~S. {et~al.}, 2015, \apjs, 221, 11
 
+\bibitem[{{Koekemoer} {et~al}\mbox{.}(2003){Koekemoer}, {Fruchter}, \&
+  {Hack}}]{koe03}
+{Koekemoer} A., {Fruchter} A., {Hack} W., 2003, Space Telescope European
+  Coordinating Facility Newsletter, Volume 33, p.10, 33, 10
+
+\bibitem[{{Koekemoer} {et~al}\mbox{.}(2002){Koekemoer}, {Fruchter}, {Hook}, \&
+  {Hack}}]{koe02}
+{Koekemoer} A.~M., {Fruchter} A.~S., {Hook} R.~N., {Hack} W., 2002, in The 2002
+  HST Calibration Workshop : Hubble after the Installation of the ACS and the
+  NICMOS Cooling System, Proceedings of a Workshop held at the Space Telescope
+  Science Institute, Baltimore, Maryland, October 17 and 18, 2002. Edited by
+  Santiago Arribas, Anton Koekemoer, and Brad Whitmore. Baltimore, MD: Space
+  Telescope Science Institute, 2002., p.339, pp. 339--+
+
+\bibitem[{{Krist}(1993)}]{kri93}
+{Krist} J., 1993, in Astronomical Society of the Pacific Conference Series,
+  Vol.~52, Astronomical Data Analysis Software and Systems II, {R.~J.~Hanisch,
+  R.~J.~V.~Brissenden, \& J.~Barnes}, ed., pp. 536--+
+
 \bibitem[{{Lackner} \& {Gunn}(2012)}]{lac12}
 {Lackner} C.~N., {Gunn} J.~E., 2012, \mnras, 421, 2277
 
@@ -304,6 +334,9 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
 {Mandelker} N., {Dekel} A., {Ceverino} D., {DeGraf} C., {Guo} Y., {Primack} J.,
   2015, ArXiv e-prints, 1512.08791
 
+\bibitem[{{Mao} {et~al}\mbox{.}(1998){Mao}, {Mo}, \& {White}}]{mao98}
+{Mao} S., {Mo} H.~J., {White} S.~D.~M., 1998, \mnras, 297, L71
+
 \bibitem[{{Masters} {et~al}\mbox{.}(2011){Masters}, {Nichol}, {Hoyle},
   {Lintott}, {Bamford}, {Edmondson}, {Fortson}, {Keel}, {Schawinski}, {Smith},
   \& {Thomas}}]{mas11c}
@@ -341,11 +374,22 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
 \bibitem[{{Peng} {et~al}\mbox{.}(2002){Peng}, {Ho}, {Impey}, \& {Rix}}]{pen02a}
 {Peng} C.~Y., {Ho} L.~C., {Impey} C.~D., {Rix} H.-W., 2002, \aj, 124, 266
 
+\bibitem[{{Pierce} {et~al}\mbox{.}(2010){Pierce}, {Lotz}, {Primack}, {Rosario},
+  {Griffith}, {Conselice}, {Faber}, {Koo}, {Coil}, {Salim}, {Koekemoer},
+  {Laird}, {Ivison}, \& {Yan}}]{pie10a}
+{Pierce} C.~M. {et~al.}, 2010, \mnras, 405, 718
+
 \bibitem[{{Rix} {et~al}\mbox{.}(2004){Rix}, {Barden}, {Beckwith}, {Bell},
   {Borch}, {Caldwell}, {H{\"a}ussler}, {Jahnke}, {Jogee}, {McIntosh},
   {Meisenheimer}, {Peng}, {Sanchez}, {Somerville}, {Wisotzki}, \&
   {Wolf}}]{rix04}
 {Rix} H.-W. {et~al.}, 2004, \apjs, 152, 163
+
+\bibitem[{{S{\'a}nchez} {et~al}\mbox{.}(2004){S{\'a}nchez}, {Jahnke},
+  {Wisotzki}, {McIntosh}, {Bell}, {Barden}, {Beckwith}, {Borch}, {Caldwell},
+  {H{\"a}ussler}, {Jogee}, {Meisenheimer}, {Peng}, {Rix}, {Somerville}, \&
+  {Wolf}}]{san04}
+{S{\'a}nchez} S.~F. {et~al.}, 2004, \apj, 614, 586
 
 \bibitem[{{Sandage}(1961)}]{san61}
 {Sandage} A., 1961, {The Hubble atlas of galaxies}. {Carnegie Institute of
@@ -399,10 +443,21 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
   \& {Wuyts}}]{sim14}
 {Simmons} B.~D. {et~al.}, 2014, \mnras, 445, 3466
 
+\bibitem[{{Simmons} \& {Urry}(2008)}]{sim08}
+{Simmons} B.~D., {Urry} C.~M., 2008, \apj, 683, 644
+
+\bibitem[{{Simmons} {et~al}\mbox{.}(2011){Simmons}, {Van Duyne}, {Urry},
+  {Treister}, {Koekemoer}, {Grogin}, \& {The GOODS Team}}]{simm11}
+{Simmons} B.~D., {Van Duyne} J., {Urry} C.~M., {Treister} E., {Koekemoer}
+  A.~M., {Grogin} N.~A., {The GOODS Team}, 2011, \apj, 734, 121
+
 \bibitem[{{Skibba} {et~al}\mbox{.}(2012){Skibba}, {Masters}, {Nichol},
   {Zehavi}, {Hoyle}, {Edmondson}, {Bamford}, {Cardamone}, {Keel}, {Lintott}, \&
   {Schawinski}}]{ski12}
 {Skibba} R.~A. {et~al.}, 2012, \mnras, 423, 1485
+
+\bibitem[{{Steinmetz} \& {Navarro}(2002)}]{ste02}
+{Steinmetz} M., {Navarro} J.~F., 2002, \na, 7, 155
 
 \bibitem[{{Strauss} {et~al}\mbox{.}(2002){Strauss}, {Weinberg}, {Lupton},
   {Narayanan}, {Annis}, {Bernardi}, {Blanton}, {Burles}, {Connolly},
