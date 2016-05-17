@@ -1,69 +1,44 @@
 import os
 import urllib2
-
-import numpy as np
+from astropy.io.votable import parse_single_table
 from matplotlib import pyplot as plt
-from matplotlib.patches import Arrow
-from astropy.io import fits
-import glob
 
-def fetch_acs_filter(filt,efficiency=True,synphot=False):
+'''
+Deprecated locations for filter curves:
 
-    # Can't select both
+ACS:
+    http://www.stsci.edu/hst/acs/analysis/throughputs/tables/wfc_{0}.dat'.format(filt)
+    http://www.stsci.edu/hst/observatory/crds/SIfileInfo/pysynphottables/current_acs_throughput_html
 
-    if synphot + efficiency == 1:
+Suprime:
 
-        if efficiency:
+    http://www.astro.caltech.edu/~capak/filters/{0}.res'.format(filename)
 
-            url = 'http://www.stsci.edu/hst/acs/analysis/throughputs/tables/wfc_{0}.dat'.format(filt)
-            
-            if not os.path.exists('downloads'):
-                os.makedirs('downloads')
-
-            loc = os.path.join('downloads', '%s.dat' % filt)
-            if not os.path.exists(loc):
-                print "downloading from %s" % url
-                F = urllib2.urlopen(url)
-                open(loc, 'w').write(F.read())
-
-            F = open(loc)
-                
-            data = np.loadtxt(F)
-
-        # Deprecated by suggestion of B. Simmons and S. Bamford
-        # Alternate method of showing throughput
-        # from http://www.stsci.edu/hst/observatory/crds/SIfileInfo/pysynphottables/current_acs_throughput_html
-
-        if synphot:
-            filenames = glob.glob("downloads/acs*{0}*wfc*.fits".format(filt))
-            if len(filenames) > 0:
-                data = fits.getdata(filenames[0],1)
-
-        return data
-
-    else:
-        print "efficiency = {0}, synphot = {1} - must choose only one option".format(efficiency,synphot)
-        return None
-
-def fetch_subaru_filter(filt):
-
-    filename = '{0}_subaru'.format(filt)
-    url = 'http://www.astro.caltech.edu/~capak/filters/{0}.res'.format(filename)
+'''
     
+def fetch_filter(telescope,instrument,filt):
+
+    # Downloads filter transmission curves as VOTables from Spanish Virtual Observatory
+
+    # Use -81C for HST, operating temperature since 2006
+    if instrument == 'ACS_WFC':
+        filt += '_81'
+
+    url = 'http://svo2.cab.inta-csic.es/svo/theory/fps3/fps.php?ID={0}/{1}.{2}'.format(telescope,instrument,filt)
+
     if not os.path.exists('downloads'):
         os.makedirs('downloads')
 
-    loc = os.path.join('downloads', '%s.dat' % filename)
+    loc = os.path.join('downloads', '{0}.{1}.{2}.vot'.format(telescope,instrument,filt))
     if not os.path.exists(loc):
         print "downloading from %s" % url
         F = urllib2.urlopen(url)
         open(loc, 'w').write(F.read())
 
-    F = open(loc)
+    table = parse_single_table(loc)
+    data = table.array
         
-    data = np.loadtxt(F)
     return data
-
 
 #----------------------------------------------------------------------
 # Plot filters in color with a single spectrum
@@ -76,61 +51,47 @@ acs_filters = {'F435W':{'color':'b','labelpos':4300},
                 'F850LP':{'color':'k','labelpos':9200}}
 
 suprime_filters = {'B':{'label':r'$B_J$','labelpos':(3500,0.50)},
-                    'g':{'label':r'$g^+$','labelpos':(5100,0.80)},
-                    'r':{'label':r'$r^+$','labelpos':(6300,0.70)}}
+                    'SDSS_g':{'label':r'$g^+$','labelpos':(5100,0.80)},
+                    'SDSS_r':{'label':r'$r^+$','labelpos':(6300,0.70)}}
 
-gzh = {'AEGIS':('F606W','F814W'),'COSMOS':('F814W',),'GEMS, GOODS-S':('F606W','F850LP'),'GOODS-N':('F606W','F775W'),'deep GOODS-N,-S':('F435W','F606W','F775W','F850LP')}
+gzh = [{'name':'AEGIS','filters':('F606W','F814W')},
+        {'name':'COSMOS','filters':('F814W',)},
+        {'name':'GEMS, GOODS-S','filters':('F606W','F850LP')},
+        {'name':'GOODS-N','filters':('F606W','F775W')},
+        {'name':'5-epoch GOODS-N,-S','filters':('F435W','F606W','F775W','F850LP')},
+        ]
 kwargs = dict(fontsize=14, ha='center', va='center')
 
 efficiency = True
 synphot = False
 
 for survey,ax in zip(gzh,axarr.ravel()):
-    for acs_filter in gzh[survey]:
+    
+    for filt in survey['filters']:
 
-        if efficiency:
+        telescope = 'HST'
+        instrument = 'ACS_WFC'
+        X = fetch_filter(telescope,instrument,filt)
+        c = acs_filters[filt]['color']
+        ax.fill(X['Wavelength'], X['Transmission'], ec=c, fc=c, alpha=0.4)
+        ax.text(acs_filters[filt]['labelpos'], 0.02, filt, color=c, **kwargs)
 
-            X = fetch_acs_filter(acs_filter,efficiency=True)
-            c = acs_filters[acs_filter]['color']
-            ax.fill(X[:, 0], X[:, 1], ec=c, fc=c, alpha=0.4)
-            ax.text(acs_filters[acs_filter]['labelpos'], 0.02, acs_filter, color=c, **kwargs)
-
-        if synphot:
-            X = fetch_acs_filter(acs_filter.lower(),synphot=True)
-            if acs_filter == 'F850LP':
-                dlambda = 0.001
-                X = np.append(X,np.array([(X['WAVELENGTH'][-1] + dlambda,0.0)],dtype=X.dtype))
-            c = acs_filters[acs_filter]['color']
-            ax.fill(X['WAVELENGTH'], X['THROUGHPUT'], ec=c, fc=c, alpha=0.4)
-            pos = 0.12 if ('F775W' in gzh[survey] and 'F814W' in gzh[survey] and acs_filter == 'F814W') else 0.02
-            ax.text(acs_filters[acs_filter]['labelpos'], pos, acs_filter, color=c, **kwargs)
-
-    if survey == 'COSMOS':
-        with open('downloads/suprime_QE.txt','r') as fn:
-            QE = np.loadtxt(fn)
-        with open('downloads/suprime_PFU_transmission.txt','r') as fn:
-            PFU = np.loadtxt(fn)
-        with open('downloads/suprime_reflectivity.txt','r') as fn:
-            RF = np.loadtxt(fn)
-        for sf in ('Bgr'):
-            X = fetch_subaru_filter(sf)
-            transmission = []
-            for x,y in zip(X[:, 0], X[:, 1]):
-                transmission.append(QE[(np.abs(QE[:,0]-x)).argmin(),1] * PFU[(np.abs(PFU[:,0]-x)).argmin(),1] * RF[(np.abs(RF[:,0]-x)).argmin(),1] * y)
-            ax.plot(X[:, 0], X[:, 1], color='k')
-            ax.text(suprime_filters[sf]['labelpos'][0],suprime_filters[sf]['labelpos'][1], suprime_filters[sf]['label'], color='k', **kwargs)
+    if survey['name'] == 'COSMOS':
+        telescope = 'Subaru'
+        instrument = 'Suprime'
+        for filt in suprime_filters:
+            X = fetch_filter(telescope,instrument,filt)
+            ax.plot(X['Wavelength'], X['Transmission'], color='k')
+            ax.text(suprime_filters[filt]['labelpos'][0],suprime_filters[filt]['labelpos'][1], suprime_filters[filt]['label'], color='k', **kwargs)
 
     ax.set_xlim(3000, 11000)
     ax.set_ylim(0,1)
     ax.set_xticks((3000,5000,7000,9000,11000))
-    ax.set_title(survey,fontsize=20)
-    ax.set_xlabel(r'wavelength [$\AA$]')
-    ax.set_ylabel('system throughput')
+    ax.set_title(survey['name'],fontsize=20)
+    ax.set_xlabel(r'wavelength [$\AA$]',fontsize=16)
+    ax.set_ylabel('transmission',fontsize=16)
 
 fig.delaxes(axarr.ravel()[-1])
 
-
 plt.tight_layout()
 plt.show()
-
-
