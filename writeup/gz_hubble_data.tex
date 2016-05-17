@@ -107,19 +107,21 @@ are individually acknowledged at
 large effort to measure reliable, detailed morphologies of galaxies by using
 crowdsourced visual classifications of color composite images. Images in GZH
 were selected from various \textit{Hubble Space Telescope} Legacy programs
-using the Advanced Camera for Surveys (AEGIS, COSMOS, GEMS, GOODS-N, and
-GOODS-S), with filters that probe the rest-frame optical emission from galaxies
-out to $z\sim1$. The galaxies selected for GZH classifications go down to
-magnitude limits of $m_{I814W}<23.5$ and have a median redshift of $\langle
-z\rangle=0.9\pm0.6$, with a tail extending out to $z\simeq4$. The GZH
-morphological data include measurements of both bulge- and disk-dominated
-galaxies, details on spiral disk structure that relate to the Hubble type, bar
-identification, and numerous measuremenst of clump identification and geometry.
-This paper also describes a new method for calibrating morphological bias by
-using artificially-redshifted galaxy images as a baseline. The GZH catalog
-contains both raw and calibrated morphological vote fractions for
-$150,771$~galaxies, providing the largest data set to date suitable for
-large-scale studies of galaxy evolution out to $z\sim1$. 
+using the Advanced Camera for Surveys, with filters that probe the rest-frame
+optical emission from galaxies out to $z\sim1$.  The bulk of the sample is
+selected to have $m_{I814W}<23.5$ across AEGIS, COSMOS, GEMS, and 2-epoch
+exposures in GOODS-N and GOODS-S. Full-depth 5-epoch images from the GOODS
+fields are also included and have $m_{I814W}<26.8$. The median redshift of the
+combined samples is $\langle z\rangle=0.9\pm0.6$, with a tail extending out to
+$z\simeq4$. The GZH morphological data include measurements of both bulge- and
+disk-dominated galaxies, details on spiral disk structure that relate to the
+Hubble type, bar identification, and numerous measuremenst of clump
+identification and geometry.  This paper also describes a new method for
+calibrating morphologies for galaxies of different luminosities and at
+different redshifts by using artificially-redshifted galaxy images as a
+baseline. The GZH catalog contains both raw and calibrated morphological vote
+fractions for $150,771$~galaxies, providing the largest dataset to date
+suitable for large-scale studies of galaxy evolution out to $z\sim1$. 
 \end{abstract}
 
 \keywords{galaxies:structure --- galaxies:high redshift --- galaxies:evolution --- methods:data analysis --- catalogs}
@@ -129,33 +131,34 @@ large-scale studies of galaxy evolution out to $z\sim1$.
 The morphology of galaxies encodes information on the orbital parameters and
 assembly history of their contents, including gas, dust, stars, and the central
 black hole. The morphology is also closely related to the local environment of
-a galaxy, as interactions such as tides, shocks in cluster environments and
-direct mergers can all influence a galaxy's internal structure.  For
-$M^\star$~galaxies in the local Universe, this interplay between the physical
-development of a galaxy and its external appearance typically manifests at the
-most basic level as the difference between bulge-dominated systems with
-no/little spiral structure (early-types) and disk-dominated,
-rotationally-supported galaxies (late-types) frequently exhibiting spiral arms.
-This dichotomy has been used to explore much of the astrophysics governing
-galaxy formation and evolution, and has been shown to be closely linked with
-other galactic properties such as stellar mass, halo mass, bolometric
-luminosity, black hole activity, effective radius, and the relative ages of the
-stellar populations.
+the galaxy, as mutual interactions such as tides, shocks in cluster
+environments, and direct mergers can all change the shape of the galaxy's
+gravitational potential. For $M^\star$~galaxies in the local Universe, this
+interplay between the physical development of a galaxy and its external
+appearance typically manifests at the most basic level as the difference
+between bulge-dominated systems with no/little spiral structure (early-types)
+and disk-dominated, rotationally-supported galaxies (late-types) frequently
+exhibiting spiral arms.  This dichotomy has been used to explore much of the
+astrophysics governing galaxy formation and evolution, and has been shown to be
+closely linked with other galactic properties such as stellar mass, halo mass,
+bolometric luminosity, black hole activity, effective radius, and the relative
+ages of the stellar populations.
 
 The advent of larger telescopes in an increasing range of observing wavelengths
 has revealed that the distribution and properties of galaxy morphology have
 strongly evolved over the lifetime of the Universe. At redshift $z\simeq1$
 (roughly 6~Gyr after the Big Bang), many galaxies are still in the process of
-assembling the baryonic and stellar mass required to reproduce the mature,
-coherent structures seen at the present day. This growth occurs via a variety
-of pathways, including accretion from large-scale galactic filaments onto halos
-via streaming, mergers of individual halos, conversion of gas into stars via
-gravitational collapse, etc. The accrual of baryons can be slowed or even
-reversed via feedback from stellar winds, supernovae, and active black holes.
-Each of these processes affects galaxy morphology in different ways, and so an
-accurate measurement of morphological demographics as a function of redshift
-provides an extremely powerful observational constraint on the physics involved
-\citep[for recent reviews see][]{but13,con14}. 
+assembling the baryonic mass required to reproduce the mature, coherent
+structures seen in the present day. This growth occurs in a variety of
+pathways, including accretion of baryons from large-scale galactic filaments
+onto halos via streaming, mergers of individual dark matter halos along with
+their baryons, conversion of gas into stars through gravitational collapse and
+star formation, etc. The process can also be slowed or even reversed via
+feedback from stellar winds, supernovae, and active black holes.  Each of these
+processes affects the galaxy morphology in different ways, and so an accurate
+measurement of the demographics as a function of redshift provides an extremely
+powerful observational constraint on the physics involved \citep[for recent
+reviews see][]{but13,con14}. 
 
 Theoretical predictions for the morphology of galaxies as a function of
 redshift are primarily computed within the $\Lambda$CDM cosmological framework.
@@ -175,14 +178,14 @@ spirals; asymmetric profiles with strong density contrasts dominate simulated
 populations in the early Universe until at least $z\sim1$ \citep{bel12,gen14}. 
 
 Observational studies of galaxies at high-redshift also display a wide range of
-morphological types, many of which are rare or absent at $z\sim0$. Although
-spheroids and disks are present, they are typically much more compact than
-those in the local Universe. There is also a significant population of more
-irregular, massive galaxies, including mergers, tadpoles, chains,
-double-clumps, and clump-clusters \citep{elm05,elm07,cam11a,for11a,kar15}. In
-contrast, while grand-design spirals have been observed as far back as $z=2.18$
-\citep{law12}, their spatial density suggests that they are exceedingly rare,
-with a very low fraction of undisturbed disks \citep{mor13}. Current
+morphological types, many of which are rare or absent at $z\sim0$.  These
+include spheroids and disks (akin to the ellipticals and spirals seen in the
+local Universe), but also a significant population of massive, more irregular
+galaxies, including mergers, tadpoles, chains, double-clumps, and
+clump-clusters \citep{elm05,elm07,cam11a,for11a,kar15}.  In contrast, while
+grand-design spirals have been observed as far back as $z=2.18$ \citep{law12},
+their spatial density suggests that they are exceedingly rare at these high
+redshifts, with a very low overall disk fraction \citep{mor13}. Current
 observational data thus strongly suggests that the classical Hubble
 sequence/tuning fork \citep{hub36} is not a suitable framework for
 characterizing high-redshift morphology. 
@@ -197,13 +200,14 @@ characterize the morphology. While these measurements are helped by the fact
 that the angular diameter distance is relatively flat beyond $z>1$ in a flat
 $\Lambda$CDM cosmology, the relevant angular scales are only of the order
 $\sim5-10~\mathrm{kpc}/^{\prime\prime}$ \citep{wri06}. \hst{} can thus resolve
-much of the structure for a Milky Way-sized galaxy (at least for distinguishing
-a disk from a bulge), but will be limited for more compact structures. Since
-the size of galaxies evolves as roughly $r\propto(1+z)^{-1}$
-\citep{mao98,law12a}, the compact sizes of high-redshift galaxies make detailed
-morphologies a challenge even for \hst{} \citep{che12}. The public availability
-of more than $10^5$~galaxies in archival imaging across various studies gives a
-data sample with the potential for high statistical significance.
+much of the structure for a Milky Way-sized galaxy out to moderately high
+redshifts (at least distinguishing a disk from a bulge), but is limited for
+more compact structures. Since the size of galaxies evolves as roughly
+$r\propto(1+z)^{-1}$ \citep{mao98,law12a}, the compact sizes of high-redshift
+galaxies make detailed morphologies a challenge even for \hst{} \citep{che12}.
+The public availability of more than $10^5$~galaxies in archival imaging across
+various studies gives a data sample with the potential for high statistical
+significance.
 
 One of the major difficulties in studying the morphologies of galaxies lies in
 the techniques used for measurement. Visual classification by experts has been
@@ -353,7 +357,7 @@ total                                   & $-$          & $-$                    
 \subsection{Galaxy selection}
 
 In the ACS-GC \citep{gri12}, individual galaxies were identified using a
-combination of \sextractor{} \citep{ber96} and the galaxy-profile fitting
+combination of \sextractor{} \citep{ber96} and the \sersic-profile fitting
 framework \galapagos{} \citep{bar12}. GZH included all galaxies with $m<23.5$,
 where $m$ is in the \Iband, \zband, or \iband{} for the AEGIS + COSMOS, GEMS +
 GOODS-S, and GOODS-N surveys, respectively. This yielded a total of
@@ -411,7 +415,8 @@ between 0.95\arcsec{} and 1.05\arcsec{} \citep{tan07}.
 Stripe~82 single-epoch images were taken directly from the DR7 SDSS Skyserver,
 which combined $g^{\prime}$, $r^{\prime}$, and $i^{\prime}$ exposures into the
 RGB channels. The co-added Stripe~82 images were assembled from runs 106 and
-206 in DR7 and processed into color composites in a corresponding manner.
+206 in DR7 and processed into color composites in the same manner as previous
+iterations of Galaxy~Zoo.
 
 In some cases, we found that attempting to emphasize faint features in the
 images resulted in the sky noise taking the appearance of brightly colored
@@ -435,21 +440,35 @@ inserting a bright source near the center of a real galaxy. For each image, the
 simulated AGN was assigned one of three colors -- either blue, red, or flat
 (white) as seen in the color images -- and a range of brightnesses such that
 $L_\mathrm{ratio} \equiv L_\mathrm{galaxy}/L_\mathrm{AGN}$ is in
-$(0.2,1.0,2.0,5.0,10.0,50.0)$. Combining these parameters generated 15~images
-with different simulated AGN for each host. 
+$(0.2,1.0,2.0,5.0,10.0,50.0)$. This range was selected to run from AGN which
+were all but undetectable through to those which dominate the galaxy, providing
+coverage of all plausible effects. Combining these parameters generated
+15~images with different simulated AGN for each host. 
 
 Two sets of simulated AGN were generated in GZH. The first set (version~1) was
-assembled from 95~galaxies from GOODS-S imaging and empirical PSFs made by combining stars in the GOODS fields using the PSF creation tools in \texttt{daophot}. 
-The second set (version~2) was assembled from 96~galaxies in GOODS-S; this
-version used simulated PSFs from \texttt{TinyTim} \citep{kri93}, drizzled using the same procedures as those used in reduction of the GOODS-S images \citep{koe02,koe03,gia04}. The use of these 2 versions facilitates comparisons between these different PSF creation methods, which are widely used in AGN host galaxy morphology studies \citep[e.g.,][]{san04,sim08,pie10a,simm11}. 
+assembled from 95~galaxies from GOODS-S imaging and empirical PSFs made by
+combining stars in the GOODS fields using the PSF creation tools in
+\texttt{daophot}.  The second set (version~2) was assembled from 96~galaxies in
+GOODS-S; this version used simulated PSFs from \texttt{TinyTim} \citep{kri93},
+drizzled using the same procedures as those used in reduction of the GOODS-S
+images \citep{koe02,koe03,gia04}. The use of these 2 versions facilitates
+comparisons between these different PSF creation methods, which are widely used
+in AGN host galaxy morphology studies
+\citep[e.g.,][]{san04,sim08,pie10a,simm11}.  Each PSF creation method has
+advantages and disadvantages: the empirical PSFs better represent the nuances
+of the PSF in the specific data being used and look more realistic at lower
+luminosities, but the extended features of the noiseless \texttt{TinyTim} PSFs
+are visually more realistic at higher luminosities.
 % okay so I'm a cheeky self-citing biyotch
-Each PSF creation method has advantages and disadvantages: the empirical PSFs better represent the nuances of the PSF in the specific data being used and look more realistic at lower luminosities, but the extended features of the noiseless \texttt{TinyTim} PSFs are visually more realistic at higher luminosities.
 
 Images with simulated AGN were classified in the main interface in an identical
 manner and evenly distributed with unaltered images of the galaxies.
-Classifiers were not explicitly told that the images had been altered during classification, as the
-goal was to measure the effect on normal classifications in as unbiased a
-manner as possible. Following classification, a classifier could view a page with additional details about each galaxy they had classified; where applicable these pages contained further information regarding image modifications.
+Classifiers were not explicitly told that the images had been altered during
+classification, as the goal was to measure the effect on normal classifications
+in as unbiased a manner as possible. Following classification, a classifier
+could view a page with additional details about each galaxy they had
+classified; where applicable these pages contained further information
+regarding image modifications.
 
 \subsection{Galaxy metadata}
 
@@ -470,19 +489,17 @@ $\tt Z\_BEST\_TYPE$, and the source catalog of the redshift is included as $\tt
 Z\_BEST\_SOURCE$. 
 
 For galaxies which have published redshifts from multiple sources, the
-following algorithm was used to select the $\tt Z\_BEST$ quantity. The first
-priority is spectroscopic redshifts; these were taken from the ACS-GC
-\citep{gri12}, 3DHST \citep{mom15}, and MUSYC \citep{car10} catalogs. A
-high-quality spectroscopic redshift in the ACS-GC is the primary option; if
-none is available, then $\tt Z\_BEST$ uses the spectroscopic redshifts in
-3DHST, and then MUSYC. For galaxies with multiple spectroscopic redshifts, more
-than 98\% are consistent ($\Delta z<0.001$), and so the order of selection
-made no practical difference. Galaxies with inconsistent spectroscopic
-redshifts between any pair of catalogs are marked with a flag in
-Table~\ref{tbl:catalog_hst}. If no spectroscopic redshifts were available, the
-1-$\sigma$ errors of the photometric \citep[ACS-GC, 3DHST, MUSYC,
-UltraVISTA;][]{ilb13} and UltraVISTA grism data were used to select the
-redshift with the smallest error. 
+following algorithm was used to select the $\tt Z\_BEST$ quantity. A
+high-quality spectroscopic redshift in the ACS-GC is the primary option,
+provided in the ACS-GC \citep{gri12}, 3DHST \citep{mom15}, and MUSYC
+\citep{car10} catalogs and used in that order. For galaxies with multiple
+spectroscopic redshifts, more than 98\% are consistent ($\Delta z<0.001$), and
+so the order of selection made no practical difference. Galaxies with
+inconsistent spectroscopic redshifts between any pair of catalogs are marked
+with a flag in Table~\ref{tbl:catalog_hst}. If no spectroscopic redshifts were
+available, the 1-$\sigma$ errors of the photometric \citep[ACS-GC, 3DHST,
+MUSYC, UltraVISTA;][]{ilb13} and UltraVISTA grism data were used to select the
+estimated redshift with the smallest error. 
 %Table~\ref{tbl:redshifts} shows the results of this selection. 
  
 %\begin{figure*}
@@ -598,12 +615,14 @@ number of spiral arms. For every task, the classifier chose a single answer befo
 continuing to the next question; they also had the option to restart any
 classification in-progress. 
 
-The GZH decision tree had four broad sets of morphologies. The first option
+The GZH decision tree was designed to remain close to that used by GZ2 while
+taking account of the likely differences in high redshift systems, and has four
+broad sets of morphologies classified by the users.  The first option
 designated stars or image artifacts (the result of either bad data or incorrect
-classification by the ACS pipeline as a galaxy); in this case, the
+identification as a galaxy by the ACS pipeline); in this case, the
 classification process ended and no further questions were asked. The second
-set were smooth galaxies, intended to select ellipticals/early-types;
-classifiers also measured the relative axial ratio (roundness) for these
+set was smooth galaxies, intended to select ellipticals/early-types;
+volunteers also indicate the relative axial ratio (roundness) for these
 galaxies. The third set was for disk/late-type galaxies, which measured the
 features necessary to place a galaxy on the standard Hubble tuning fork (bars,
 spiral arm, strength of the central bulge). The final set, which was new in
@@ -649,20 +668,21 @@ the fourth version of the Galaxy~Zoo site. The GZH project had a total of
 
 \subsection{Classifier weighting}\label{ssec:weighting}
 
-As a first step to producing consensus classifications of each galaxy, 
-the votes of individual classifiers in GZH were combined to make a vote
-fraction for each response ($f_{response}$) to a question in the classification
-tree. Votes were subsequently weighted and re-combined in an iterative method similar that in 
-previous versions of Galaxy~Zoo \citep{lan08,wil13}, using a method chosen 
-to be as egalitarian as possible while also identifying and downweighting classifiers 
-who frequently disagreed with others. The weighting factor $(w)$ was 1 for the
-top 95\% of classifiers, as ranked by consistency. For the bottom 5\% of
-classifiers, $w$ was designed to drop smoothly and was effectively zero for the
-bottom 1\%.  Since this only affected a tiny percentage of the classifiers (and
+As a first step to producing a consensus measurement of each galaxy, the votes
+of individual volunteers who classified galaxies in GZH were combined to make a
+vote fraction for each response ($f_{response}$) to a question in the decision
+tree. Votes were subsequently weighted and re-combined in an iterative method
+similar that in previous versions of Galaxy~Zoo \citep{lan08,wil13}, using a
+method chosen to be as egalitarian as possible while also identifying and
+downweighting classifiers who frequently disagreed with others. The weighting
+factor $(w)$ was 1 for the top 95\% of classifiers, as ranked by consistency.
+For the bottom 5\% of classifiers, $w$ was designed to drop smoothly and was
+effectively zero for the bottom 1\% in the distribution function. Since this
+only affected a tiny percentage of the classifiers (and an even smaller
+percentage of the classifications) the overall effect on the GZH dataset was
+minimal. The method was effective, however, at filtering out contributions from
+randomly classifying or malicious participants.
 % would be good to quantify "tiny" and "even smaller [than tiny]"
-an even smaller percentage of the classifications) the overall effect on the
-GZH dataset was minimal. The method was effective, however, at filtering out
-contributions from random or deliberately malicious classifiers.
 
 Classifications were aggregated and weighted only if the classifier was logged
 into GZH under their username (which was encouraged, but not required for
@@ -680,7 +700,7 @@ was assumed that there was no cosmological evolution of the morphologies of
 galaxies and therefore any observed changes in the distribution of galaxies
 with different consensus morphologies was due to the effects of redshift on the
 image quality (\ie, the reduction in physical resolution, surface brightness
-dimming, etc). For both previous releases of GZ morphologies, a correction for
+dimming, etc). For both previous releases of Galaxy~Zoo morphologies, a correction for
 redshift-dependent bias was applied based on matching the classification
 fractions at the highest redshifts with those at the lowest redshift.
 \citet{bam09} and \citet{wil13} provide complete descriptions of the process
@@ -708,8 +728,7 @@ The GZH classifications include 288 unique galaxies originally generated from
 SDSS imaging and processed with the \ferengi{} code. The selection spanned a
 variety of galaxy morphologies (as selected by GZ2 classifications) and
 $r^\prime$-band surface brightnesses, and also spanned the redshift range of
-SDSS targets (in $N_z = 4$ bins) in order to be optimized for different target
-minimum redshifts in \hst{} imaging. 
+SDSS targets that maximuze the coverage of parameter space. 
 
 %The selection criteria for the different morphological categories is summarized in Table \ref{tbl:morphologies}. 
 The surface brightness selection ($N_\mu = 3$) for the \ferengi{} galaxies was
@@ -759,10 +778,10 @@ redshifted images is simply an empirical addition to the magnitude of a galaxy
 of the form $M' = e\times z + M$, where $M'$ is the corrected magnitude, and
 $e$ is the evolutionary correction in magnitudes (i.e., $e=-1$ essentially
 brightens the galaxy by 1~magnitude by $z=1$). \ferengi{} was run on the images
-for values of $e$ starting from $e=0$ and decreasing to $e=-3.5$ in increments
-of $\Delta e = 0.5$. Figure~\ref{fig:exampleFERENGI} shows several examples
-of the effects of ``losing'' spiral/disc features with increasing redshift
-for two galaxies with $e=0$. 
+for values of $e$ starting from $e=0$ and increasing the effect to $e=-3.5$ in
+increments of $\Delta e = 0.5$. Figure~\ref{fig:exampleFERENGI} shows
+several examples of the effects of ``losing'' spiral/disc features with
+increasing redshift for two galaxies with $e=0$. 
 
 The final number of \ferengi{} images produced for each galaxy is ultimately a
 function of galaxy's redshift (since the new images cannot be resampled at
@@ -797,7 +816,7 @@ from GZH for the images in each panel are (1) Top row: \ffeatures~= (0.900,
 \subsection{Correcting morphologies for classification bias}\label{ssec:zeta}
 
 The approach used in GZH for correcting the weighted classifications for redshift
-bias rests on the assumption that the \emph{amount} of bias is a function of
+bias rests on the assumption that the \emph{degree} of bias is a function of
 the apparent size and brightness of the image as seen on screen. This is
 controlled by two types of parameters: \textbf{intrinsic} properties of the
 galaxy itself, such as its physical diameter and luminosity, and
@@ -813,8 +832,8 @@ and redshift ($z$; extrinsic).
 
 The change in bias as a function of $\mu_r$ and \zsim{} is measured using the
 \ferengi{} images over all the evolutionary correction factors. It is assumed
-that the ``true'' (ie, debiased) vote fraction $f_{\mu,z}$ for a galaxy can be
-expressed as:
+that the ``true'' (ie, debiased) vote fraction $f_{\mu,z}$ for an
+artificially-redshifted galaxy can be expressed as:
 
 \begin{equation}
 f_{\mu,z} = \left(f_{\mu,z=0.3}\right) \times e^{{\frac{z-z_0}{\zeta}}},
@@ -1084,7 +1103,7 @@ The number of participants answering subsequent questions, however, is always eq
 to or less than the number who answered the preceding question. The average number
 of responses per task for fourth- or fifth-tier questions such as spiral arm
 structure (Tasks 12--14) is only $4\pm4$ for the \ferengi{} sample; while this
-is distribution is strongly bimodal (reflecting the true morphologies of
+distribution is strongly bimodal (reflecting the true morphologies of
 selected galaxies), the very low absolute numbers of votes introduce very high
 variance when attempting to calculate a statistical correction.
 
@@ -1203,9 +1222,8 @@ question of the GZH decision tree (Section~\ref{sec:debiasing}), which asks
 question, the catalog provides the additional parameters $\tt debiased$, $\tt
 lower~limit$, $\tt upper~limit$, and $\tt best$ vote fractions. The $\tt best$
 fraction for \ffeatures{} is chosen based on the categorization of the galaxy:
-if it is ``correctable'', $\tt best = debiased$; if it is a lower limit, 
-$\tt best = lower~limit$; if neither condition applies, then 
-$\tt best = weighted$. Flags are also given for the three responses of Task 01 to identify clean samples of galaxies with high likelihoods of being smooth, featured, or an artifact.  These are set as $\tt smooth/featured/artifact\_flag=1$ if $\rm f_{smooth/features/artifact\_best}>0.8$. For a galaxy to be flagged as ``smooth'', an additional criterion of $\tt correction\_type =~$0, 1, or 2 is applied. This is to account for the uncertainty in distinguishing between genuine ellipticals and disks whose features have been washed out due to surface brightness and redshift effects, as described in Section~\ref{sec:debiasing}.
+if it is ``correctable'', $\tt best = debiased$; if it is a lower limit, $\tt
+best = lower~limit$; if neither condition applies, then $\tt best = weighted$.
 
 The debiased and best vote fractions for \fsmooth{} are calculated on the
 criteria that vote fractions for all answers must sum to unity:
@@ -1222,6 +1240,16 @@ In these cases, the constraint of Equation~\ref{eqn:constraint} is met by
 setting \fsmooth$=0.0$ and decreasing \fbest{} accordingly. This correction is
 typically small, with a median decrease/increase of
 $f_\mathrm{features}/f_\mathrm{smooth}$ of $\Delta f = 0.04$.
+
+Tables~\ref{tbl:catalog_hst}-\ref{tbl:simulated_agn} also contain flags for
+Task 01 that identify clean (but not complete) samples of galaxies with high
+likelihoods of being either smooth, featured, or a star/artifact.  These are
+set as $\tt smooth/featured/artifact\_flag=1$ if $\rm
+f_{smooth/features/artifact\_best}>0.8$. For a galaxy to be flagged as
+``smooth'', an additional criterion of $\tt correction\_type =~$0, 1, or 2 is
+applied. This accounts for the uncertainty in distinguishing between genuine
+ellipticals and disks whose features have been washed out due to surface
+brightness and redshift effects (Section~\ref{sec:debiasing}).
 
 Data products for GZH are split by the type of image being classified.
 Table~\ref{tbl:catalog_hst} contains the classifications for the \hst{} images
@@ -1275,20 +1303,20 @@ artificial point sources intended to simulate the effect of a bright AGN (see
 }
 \small
 \startdata
-AHZ100002g  & 10010842  & AEGIS             & 0        & 127       & 0.118    & 0.128     & 0.085    & 0.085    & 0.226     & 0.226 & 0   \\
-AHZ100002h  & 10010870  & AEGIS             & 4        & 127       & 0.567    & 0.592     & 0.927    & 0.592    & $-$       & $-$   &0   \\
+AHZ100002g  & 10010842  & AEGIS             & 0        & 127       & 0.118    & 0.128     & 0.085    & 0.085    & 0.226     & 0.226 & 0  \\
+AHZ100002h  & 10010870  & AEGIS             & 4        & 127       & 0.567    & 0.592     & 0.927    & 0.592    & $-$       & $-$   & 0  \\
 $\ldots$    \\
-AHZ20004kd  & 20014731  & COSMOS            & 3        &  44       & 0.682    & 0.675     & 0.147    & 0.675    & $-$       & $-$   &0   \\
-AHZ20004ke  & 20014732  & COSMOS            & 2        &  45       & 0.689    & 0.756     & 0.893    & 0.756    & $-$       & $-$   &0   \\
+AHZ20004kd  & 20014731  & COSMOS            & 3        &  44       & 0.682    & 0.675     & 0.147    & 0.675    & $-$       & $-$   & 0  \\
+AHZ20004ke  & 20014732  & COSMOS            & 2        &  45       & 0.689    & 0.756     & 0.893    & 0.756    & $-$       & $-$   & 0  \\
 $\ldots$    \\
-AHZ400043g  & 90022729  & GEMS              & 1        & 121       & 0.702    & 0.733     & 0.487    & 0.734    & 0.483     & 0.800 &0   \\
-AHZ4000416  & 90022735  & GEMS              & 1        & 127       & 0.646    & 0.698     & 0.508    & 0.698    & 0.171     & 0.727 &0   \\
+AHZ400043g  & 90022729  & GEMS              & 1        & 121       & 0.702    & 0.733     & 0.487    & 0.734    & 0.483     & 0.800 & 0  \\
+AHZ4000416  & 90022735  & GEMS              & 1        & 127       & 0.646    & 0.698     & 0.508    & 0.698    & 0.171     & 0.727 & 0  \\
 $\ldots$    \\
-AGZ0007z47  & 10014     & GOODS-N-FULLDEPTH & 1        & 40        & 0.475    & 0.475     & 0.197    & 0.475    & 0.011     & 0.496 &0   \\
-AGZ0007z48  & 10017     & GOODS-N-FULLDEPTH & 3        & 40        & 0.675    & 0.675     & 0.048    & 0.675    & 0.168     & 0.669 &0  \\
+AGZ0007z47  & 10014     & GOODS-N-FULLDEPTH & 1        & 40        & 0.475    & 0.475     & 0.197    & 0.475    & 0.011     & 0.496 & 0  \\
+AGZ0007z48  & 10017     & GOODS-N-FULLDEPTH & 3        & 40        & 0.675    & 0.675     & 0.048    & 0.675    & 0.168     & 0.669 & 0  \\
 $\ldots$    \\
-AGZ00083jb  & 8869      & GOODS-S-FULLDEPTH & 1        & 40        & 0.425    & 0.425     & 0.109    & 0.425    & 0.070     & 0.548 &0   \\
-AGZ00083jc  & 8878      & GOODS-S-FULLDEPTH & 0        & 40        & 0.205    & 0.205     & 0.048    & 0.048    & $-$0.005  & 0.287 &0   \\
+AGZ00083jb  & 8869      & GOODS-S-FULLDEPTH & 1        & 40        & 0.425    & 0.425     & 0.109    & 0.425    & 0.070     & 0.548 & 0  \\
+AGZ00083jc  & 8878      & GOODS-S-FULLDEPTH & 0        & 40        & 0.205    & 0.205     & 0.048    & 0.048    & $-$0.005  & 0.287 & 0  \\
 $\ldots$    \\
 \enddata
 \tablenotetext{1}{Flag indicating how the vote fractions for this galaxy were
@@ -1336,11 +1364,11 @@ content.}
 }
 \small
 \startdata
-AHZF000001  &   20000002    &   COSMOS  &   1   &   48 &  0.708   &     0.755   &   0.228    &    0.754 &   0.325   &   0.829 &0 \\
-AHZF000003  &   20000004    &   COSMOS  &   3   &   49 &  0.367   &     0.379   &   0.100    &    0.379 &   0.198   &   0.198 &0 \\
-AHZF000004  &   20000006    &   COSMOS  &   3   &   49 &  0.265   &     0.271   &   0.010    &    0.270 &   $-$	    &   $-$   &0 \\
-AHZF00000z  &   20000102    &   COSMOS  &   1   &   44 &  0.727   &     0.78    &   0.233    &    0.780 &   0.316   &   0.820 &0 \\
-AHZF000010  &   20000104    &   COSMOS  &   2   &   53 &  0.811   &     0.849   &   0.904    &    0.848 &   $-$	    &   $-$   &0 \\
+AHZF000001  &   20000002    &   COSMOS  &   1   &   48 &  0.708   &     0.755   &   0.228    &    0.754 &   0.325   &   0.829 & 0 \\
+AHZF000003  &   20000004    &   COSMOS  &   3   &   49 &  0.367   &     0.379   &   0.100    &    0.379 &   0.198   &   0.198 & 0 \\
+AHZF000004  &   20000006    &   COSMOS  &   3   &   49 &  0.265   &     0.271   &   0.010    &    0.270 &   $-$	    &   $-$   & 0 \\
+AHZF00000z  &   20000102    &   COSMOS  &   1   &   44 &  0.727   &     0.78    &   0.233    &    0.780 &   0.316   &   0.820 & 0 \\
+AHZF000010  &   20000104    &   COSMOS  &   2   &   53 &  0.811   &     0.849   &   0.904    &    0.848 &   $-$	    &   $-$   & 0 \\
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form,
@@ -1379,11 +1407,11 @@ content.}
 }
 \small
 \startdata
-AHZC000001	&   20000002	&   COSMOS	&   1	&   168	&   0.615   &   0.664   &   0.160   &  0.663   &  0.271    &  0.775 &0   \\
-AHZC000003	&   20000004	&   COSMOS	&   0	&   235	&   0.333   &   0.364   &   0.002   &  0.002   &  0.063    &  0.063 &0   \\
-AHZC000004	&   20000006	&   COSMOS	&   3	&   316	&   0.235   &   0.252   & $-0.011$  &  0.252   &  $-$	    &  $-$  &1    \\
-AHZC00000z	&   20000102	&   COSMOS	&   1	&   207	&   0.755   &   0.757   &   0.272   &  0.756   &  0.249    &  0.796 &0   \\
-AHZC000010	&   20000104	&   COSMOS	&   2	&   158	&   0.843   &   0.882   &   0.936   &  0.881   &  $-$	    &  $-$  &1    \\
+AHZC000001	&   20000002	&   COSMOS	&   1	&   168	&   0.615   &   0.664   &   0.160   &  0.663   &  0.271   &  0.775  & 0  \\
+AHZC000003	&   20000004	&   COSMOS	&   0	&   235	&   0.333   &   0.364   &   0.002   &  0.002   &  0.063   &  0.063  & 0  \\
+AHZC000004	&   20000006	&   COSMOS	&   3	&   316	&   0.235   &   0.252   & $-0.011$  &  0.252   &  $-$	  &  $-$    & 1  \\
+AHZC00000z	&   20000102	&   COSMOS	&   1	&   207	&   0.755   &   0.757   &   0.272   &  0.756   &  0.249   &  0.796  & 0  \\
+AHZC000010	&   20000104	&   COSMOS	&   2	&   158	&   0.843   &   0.882   &   0.936   &  0.881   &  $-$	  &  $-$    & 1  \\
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form,
@@ -1422,11 +1450,11 @@ content.}
 }
 \small
 \startdata
-AHZ3000001  &   50000000    &     GOODS-N   &   0   &   123	&   0.390   &   0.415	&   0.090 &   0.090 &   $-$     &   $-$ &0     \\
-AHZ3000002  &   50000001    &     GOODS-N   &   2   &   126	&   0.341	&   0.355	&   0.356 &   0.356 &   0.220	&   0.279 &0   \\
-AHZ3000003  &   50000005    &     GOODS-N   &   1   &   129	&   0.760   &   0.826	&   0.633 &   0.825 &   0.596	&   0.834 &0   \\
-AHZ3000004  &   50000008    &     GOODS-N   &   1   &   120	&   0.758	&   0.787	&   0.639 &   0.787 &   0.658	&   0.834 &0   \\
-AHZ3000005  &   50000010    &     GOODS-N   &   1   &   123	&   0.854	&   0.890   &   0.611 &   0.889 &   0.597	&   0.914 &0  \\
+AHZ3000001  &   50000000    &     GOODS-N   &   0   &   123	&   0.390   &   0.415	&   0.090 &   0.090 &   $-$     &   $-$   & 0 \\
+AHZ3000002  &   50000001    &     GOODS-N   &   2   &   126	&   0.341	&   0.355	&   0.356 &   0.356 &   0.220	&   0.279 & 0 \\
+AHZ3000003  &   50000005    &     GOODS-N   &   1   &   129	&   0.760   &   0.826	&   0.633 &   0.825 &   0.596	&   0.834 & 0 \\
+AHZ3000004  &   50000008    &     GOODS-N   &   1   &   120	&   0.758	&   0.787	&   0.639 &   0.787 &   0.658	&   0.834 & 0 \\
+AHZ3000005  &   50000010    &     GOODS-N   &   1   &   123	&   0.854	&   0.890   &   0.611 &   0.889 &   0.597	&   0.914 & 0 \\
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form,
@@ -1465,16 +1493,16 @@ content.}
 }
 \small
 \startdata
-AHZ5000001  &   587730845812064684  &   SDSS    &     2 &   41  &   0.585   &    0.595  &   0.759   &   0.594 &0  \\
-AHZ5000002  &   587730845812065247  &   SDSS    &     2 &   46  &   0.609   &    0.651  &   0.897   &   0.651 &0  \\
-AHZ5000003  &   587730845812196092  &   SDSS    &     2 &   51  &   0.039   &    0.044  &   0.067   &   0.043 &0  \\
-AHZ5000004  &   587730845812196825  &   SDSS    &     2 &   35  &   0.514   &    0.605  &   0.928   &   0.605 &0  \\
-AHZ5000005  &   587730845812524122  &   SDSS    &     2 &   47  &   0.766   &    0.812  &   1.038   &   0.810 &1  \\
-AHZ5000006  &   587730845812654984  &   SDSS    &     2 &   42  &   0.5	    &    0.542  &   0.680   &   0.541 &0  \\
-AHZ5000007  &   587730845812655541  &   SDSS    &     2 &   41  &   0.488   &    0.526  &   0.697   &   0.525 &0  \\
-AHZ5000008  &   587730845812720365  &   SDSS    &     2 &   53  &   0.792   &    0.84   &   1.050   &   0.839 &1  \\
-AHZ5000009  &   587730845812720640  &   SDSS    &     4 &   43  &   0.0	    &    0.0    &   0.0	    &   0.0   &0    \\
-AHZ500000a  &   587730845812720699  &   SDSS    &     2 &   40  &   0.425   &    0.478  &   0.588   &   0.477 &0  \\
+AHZ5000001  &   587730845812064684  &   SDSS    &     2 &   41  &   0.585   &    0.595  &   0.759   &   0.594 &  0  \\
+AHZ5000002  &   587730845812065247  &   SDSS    &     2 &   46  &   0.609   &    0.651  &   0.897   &   0.651 &  0  \\
+AHZ5000003  &   587730845812196092  &   SDSS    &     2 &   51  &   0.039   &    0.044  &   0.067   &   0.043 &  0  \\
+AHZ5000004  &   587730845812196825  &   SDSS    &     2 &   35  &   0.514   &    0.605  &   0.928   &   0.605 &  0  \\
+AHZ5000005  &   587730845812524122  &   SDSS    &     2 &   47  &   0.766   &    0.812  &   1.038   &   0.810 &  1  \\
+AHZ5000006  &   587730845812654984  &   SDSS    &     2 &   42  &   0.5	    &    0.542  &   0.680   &   0.541 &  0  \\
+AHZ5000007  &   587730845812655541  &   SDSS    &     2 &   41  &   0.488   &    0.526  &   0.697   &   0.525 &  0  \\
+AHZ5000008  &   587730845812720365  &   SDSS    &     2 &   53  &   0.792   &    0.84   &   1.050   &   0.839 &  1  \\
+AHZ5000009  &   587730845812720640  &   SDSS    &     4 &   43  &   0.0	    &    0.0    &   0.0	    &   0.0   &  0  \\
+AHZ500000a  &   587730845812720699  &   SDSS    &     2 &   40  &   0.425   &    0.478  &   0.588   &   0.477 &  0  \\
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form,
@@ -1512,16 +1540,16 @@ content.}
 }
 \small
 \startdata
-AHZ6000001  & 8647474690312306978   &   SDSS    &    4  & 40  & 0.275   &    0.289  &   0.762   &   0.289   & 0&\\
-AHZ6000002  & 8647474690312307154   &   SDSS    &    2  & 43  & 0.605   &    0.634  &   0.858   &   0.635   & 0&\\
-AHZ6000003  & 8647474690312307877   &   SDSS    &    2  & 51  & 0.608   &    0.627  &   0.906   &   0.627   & 0&\\
-AHZ6000004  & 8647474690312308301   &   SDSS    &    4  & 52  & 0.038   &    0.038  &   0.723   &   0.038   & 0&\\
-AHZ6000005  & 8647474690312308318   &   SDSS    &    2  & 44  & 0.614   &    0.632  &   0.776   &   0.631   & 0&\\
-AHZ6000006  & 8647474690312308880   &   SDSS    &    2  & 36  & 0.667   &    0.683  &   0.901   &   0.683   & 0&\\
-AHZ6000007  & 8647474690312372644   &   SDSS    &    4  & 48  & 0.646   &    0.674  &   1.145   &   0.674   & 0&\\
-AHZ6000008  & 8647474690312372789   &   SDSS    &    4  & 45  & 0.489   &    0.571  &   0.964   &   0.570   & 0&\\
-AHZ6000009  & 8647474690312372931   &   SDSS    &    4  & 47  & 0.553   &    0.587  &   0.926   &   0.587   & 0&\\
-AHZ600000a  & 8647474690312373190   &   SDSS    &    4  & 47  & 0.574   &    0.559  &   1.008   &   0.559   & 0&\\
+AHZ6000001  & 8647474690312306978   &   SDSS    &    4  & 40  & 0.275   &    0.289  &   0.762   &   0.289   & 0 \\
+AHZ6000002  & 8647474690312307154   &   SDSS    &    2  & 43  & 0.605   &    0.634  &   0.858   &   0.635   & 0 \\
+AHZ6000003  & 8647474690312307877   &   SDSS    &    2  & 51  & 0.608   &    0.627  &   0.906   &   0.627   & 0 \\
+AHZ6000004  & 8647474690312308301   &   SDSS    &    4  & 52  & 0.038   &    0.038  &   0.723   &   0.038   & 0 \\
+AHZ6000005  & 8647474690312308318   &   SDSS    &    2  & 44  & 0.614   &    0.632  &   0.776   &   0.631   & 0 \\
+AHZ6000006  & 8647474690312308880   &   SDSS    &    2  & 36  & 0.667   &    0.683  &   0.901   &   0.683   & 0 \\
+AHZ6000007  & 8647474690312372644   &   SDSS    &    4  & 48  & 0.646   &    0.674  &   1.145   &   0.674   & 0 \\
+AHZ6000008  & 8647474690312372789   &   SDSS    &    4  & 45  & 0.489   &    0.571  &   0.964   &   0.570   & 0 \\
+AHZ6000009  & 8647474690312372931   &   SDSS    &    4  & 47  & 0.553   &    0.587  &   0.926   &   0.587   & 0 \\
+AHZ600000a  & 8647474690312373190   &   SDSS    &    4  & 47  & 0.574   &    0.559  &   1.008   &   0.559   & 0 \\
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form,
@@ -1562,18 +1590,18 @@ content.}
 }
 \small
 \startdata
-AHZ7000001  &   90024700  &   GEMS    &   1   &   1   &   0.2	    &   1   &   42	&   0.238   &   0.239   &   $-$0.110  &       0.238  &  $-$0.113    &     0.287  &0\\
-AHZ7000002  &   90024700  &   GEMS    &   1   &   1   &   1.0	    &   1   &   51	&   0.255   &   0.265   &   $-$0.107  &       0.264  &  $-$0.128    &     0.272  &0\\
-AHZ7000003  &   90024700  &   GEMS    &   0   &   1   &   5.0	    &   1   &   47	&   0.170   &   0.167   &   $-$0.018  &    $-$0.018  &  $-$0.049    &     0.033  &0\\
-AHZ7000004  &   90024700  &   GEMS    &   0   &   1   &   10.0    &   1   &   41	&   0.195   &   0.195   &      0.045  &       0.045  &     0.044    &     0.127  &0\\
-AHZ7000005  &   90024700  &   GEMS    &   0   &   1   &   50.0    &   1   &   47	&   0.170   &   0.178   &      0.067  &       0.067  &     0.146    &     0.167  &0\\
+AHZ7000001  &   90024700  &   GEMS    &   1   &   1   &   0.2	    &   1   &   42	&   0.238   &   0.239   &   $-$0.110  &       0.238  &  $-$0.113    &     0.287  & 0 \\
+AHZ7000002  &   90024700  &   GEMS    &   1   &   1   &   1.0	    &   1   &   51	&   0.255   &   0.265   &   $-$0.107  &       0.264  &  $-$0.128    &     0.272  & 0 \\
+AHZ7000003  &   90024700  &   GEMS    &   0   &   1   &   5.0	    &   1   &   47	&   0.170   &   0.167   &   $-$0.018  &    $-$0.018  &  $-$0.049    &     0.033  & 0 \\
+AHZ7000004  &   90024700  &   GEMS    &   0   &   1   &   10.0    &   1   &   41	&   0.195   &   0.195   &      0.045  &       0.045  &     0.044    &     0.127  & 0 \\
+AHZ7000005  &   90024700  &   GEMS    &   0   &   1   &   50.0    &   1   &   47	&   0.170   &   0.178   &      0.067  &       0.067  &     0.146    &     0.167  & 0 \\
 $\ldots$    \\
-AHZ700013m  &   90024700  &   GEMS    &   0   &   2   &   0.0	    &   0   &   35	&   0.171   &   0.136   &      0.011  &       0.011  &     0.029    &      0.112 &0\\
-AHZ700013n  &   90024700  &   GEMS    &   1   &   2   &   0.2	    &   1   &   20	&   0.150   &   0.158   &   $-$0.278  &       0.049  &  $-$0.351    &      0.049 &0\\
-AHZ700013o  &   90024700  &   GEMS    &   1   &   2   &   1.0	    &   1   &   32	&   0.281   &   0.300   &   $-$0.086  &       0.281  &  $-$0.119    &      0.281 &0\\
-AHZ700013p  &   90024700  &   GEMS    &   0   &   2   &   5.0	    &   1   &   29	&   0.103   &   0.115   &   $-$0.098  &    $-$0.098  &  $-$0.152    &   $-$0.069 &0\\
-AHZ700013q  &   90024700  &   GEMS    &   0   &   2   &   10.0    &   1   &   35	&   0.171   &   0.181   &      0.027  &       0.027  &     0.023    &      0.106 &0\\
-AHZ700013r  &   90024700  &   GEMS    &   0   &   2   &   50.0    &   1   &   34	&   0.206   &   0.206   &   $-$0.005  &    $-$0.005  &  $-$0.056    &      0.026 &0\\
+AHZ700013m  &   90024700  &   GEMS    &   0   &   2   &   0.0	    &   0   &   35	&   0.171   &   0.136   &      0.011  &       0.011  &     0.029    &      0.112 & 0 \\
+AHZ700013n  &   90024700  &   GEMS    &   1   &   2   &   0.2	    &   1   &   20	&   0.150   &   0.158   &   $-$0.278  &       0.049  &  $-$0.351    &      0.049 & 0 \\
+AHZ700013o  &   90024700  &   GEMS    &   1   &   2   &   1.0	    &   1   &   32	&   0.281   &   0.300   &   $-$0.086  &       0.281  &  $-$0.119    &      0.281 & 0 \\
+AHZ700013p  &   90024700  &   GEMS    &   0   &   2   &   5.0	    &   1   &   29	&   0.103   &   0.115   &   $-$0.098  &    $-$0.098  &  $-$0.152    &   $-$0.069 & 0 \\
+AHZ700013q  &   90024700  &   GEMS    &   0   &   2   &   10.0    &   1   &   35	&   0.171   &   0.181   &      0.027  &       0.027  &     0.023    &      0.106 & 0 \\
+AHZ700013r  &   90024700  &   GEMS    &   0   &   2   &   50.0    &   1   &   34	&   0.206   &   0.206   &   $-$0.005  &    $-$0.005  &  $-$0.056    &      0.026 & 0 \\
 $\ldots$    \\
 \enddata
 \tablenotetext{1}{Flag indicating the color of the PSF in the simulated AGN. 0~=~no simulated AGN, 1~=~blue, 2~=~flat, 3~=~red.}
@@ -1598,7 +1626,7 @@ can be applied to obtain samples with a higher level of completeness, which
 will increase the sample size but can potentially decrease purity. Population
 studies would make use of such large samples, in which statistical significance
 is a crucial factor in evaluating results. \citet{mas11c,mel14,che15}, and
-\citet{gal15} are examples of GZ papers which select morphologies in this way. 
+\citet{gal15} are examples of Galaxy~Zoo papers which select morphologies in this way. 
 
 In GZH, participants answered questions about a galaxy's morphology in a decision
 tree format. With this structure, questions shown to a classifier were dependent on
@@ -1647,19 +1675,18 @@ this point a cut can be made on $f_{\rm arm~number=3}$ to select spirals with
 three arms. 
 
 Tasks 03, 04 and 05 have an additional possible pathway; as shown in
-Figure~\ref{fig:decisiontree}, a classifier might also be shown this question if they
-select ``featured/disk'' in Task~01, ``clumpy'' in Task~12, two or more clumps
-in Task~16, and ``spiral arrangement'' in Task~15. After applying the
-appropriate thresholds for this path, $< 0.5\%$ of the galaxies which have $\ge
-20$ answers to these questions used this pathway to arrive at these Tasks.
-Further, of these subjects, none were found to exhibit disk structure, although
-the clumps within were arranged in a spiral pattern. 
+Figure~\ref{fig:decisiontree}, a classifier might also be shown this question
+if they select ``featured/disk'' in Task~01, ``clumpy'' in Task~12, two or more
+clumps in Task~16, and ``spiral arrangement'' in Task~15. After applying
+the appropriate thresholds for this path, $< 0.5\%$ of the galaxies which
+have $\ge 20$ answers to these questions used this pathway to arrive at
+these Tasks.  Further, of these subjects, none were found to exhibit disk
+structure, although the clumps within were arranged in a spiral pattern. 
 
-This section described how to use the previous Task thresholds in
-Table~\ref{tbl:thresholds} to select well-sampled galaxies which may or may not
-contain the feature associated with a unique Task. The following two examples
-show to use the vote fractions for a particular Task to obtain a sample of
-galaxies with a certain morphological type.
+This section described how to use Table~\ref{tbl:thresholds} to select
+well-sampled galaxies for which a particular task is reliably sampled. The
+following two examples extend this and show how to use the vote fractions to
+obtain samples of galaxies with a specific morphological type.
 
 \subsection{Example 1: Selecting barred galaxies} 
 
@@ -1686,6 +1713,12 @@ total amount of disks in the sample compared to \citet{mel14}. For a more
 thorough analysis of the bar fraction, a cut on \fbar{} that evolves with
 redshift may yield more accurate results, since there are no explicit debiased
 values of \fbar{} that would take redshift induced bias into account. 
+
+Another existing study using GZH to select barred galaxies was presented in
+\citet{che15}. This study used a slightly different bar selection method to
+demonstrate that AGN hosts show no statistically significant enhancement in bar
+fraction or average bar likelihood compared to closely-matched inactive
+galaxies. 
 
 \subsection{Example 2: Identifying clump multiplicity} Clumps are known to be a
 characteristic feature of galaxies outside the local universe, and there is
@@ -1821,7 +1854,7 @@ the number of galaxies, size and magnitude limits, classification scheme, and
 the methods used for measuring morphology. These catalogs have been
 cross-matched to GZH to compare the results; this is not presented as an
 endorsement of any particular method, but as an exploration of the strengths
-and weaknesses of the GZ crowdsourced catalogs as compared to products made
+and weaknesses of the Galaxy~Zoo crowdsourced catalogs as compared to products made
 with machine learning, automatic fits, and expert visual classification. 
 
 The types and accuracy of morphological classification strongly depend on the
@@ -2015,8 +2048,10 @@ TOPCAT \citep{tay05,tay11}. Modified code from Nick~Wherry and David~Schlegel
 was used to create the JPG images. Figure~\ref{fig:sankey} was generated with
 \url{http://sankeymatic.com/}.
 
-KS gratefully acknowledges support from Swiss National Science Foundation Grant
-PP00P2\_138979/1.
+The development and hosting of Galaxy Zoo Hubble was supported by a grant from
+the Alfred P. Sloan Foundation. The Zooniverse acknowledges support from a
+Google Global Impact Award. KS gratefully acknowledges support from Swiss
+National Science Foundation Grant PP00P2\_138979/1.
 
 This work is based on (GO-10134, GO-09822, GO-09425.01, GO-09583.01, GO-9500)
 program observations with the NASA/ESA Hubble Space Telescope, obtained at the
@@ -2074,7 +2109,7 @@ GZH used both 5-epoch and 2-epoch sets of data to construct the GOODS set of
 images. The 11,157 full depth 5-epoch images are used in the main catalog; the
 classifications for the 7,464 shallow depth 2-epoch images are provided as a
 supplementary table. This section analyzes the effect of image depth on the
-ability of the GZ classifiers to identify features or disk structure in the images. 
+ability of the Galaxy~Zoo classifiers to identify features or disk structure in the images. 
 
 \subsection{Comparing shallow and full depth morphologies}
 
