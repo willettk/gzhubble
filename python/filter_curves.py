@@ -7,32 +7,43 @@ from matplotlib.patches import Arrow
 from astropy.io import fits
 import glob
 
-def fetch_acs_filter(filt):
+def fetch_acs_filter(filt,efficiency=True,synphot=False):
 
-    url = 'http://www.stsci.edu/hst/acs/analysis/throughputs/tables/wfc_{0}.dat'.format(filt)
-    
-    if not os.path.exists('downloads'):
-        os.makedirs('downloads')
+    # Can't select both
 
-    '''
-    loc = os.path.join('downloads', '%s.dat' % filt)
-    if not os.path.exists(loc):
-        print "downloading from %s" % url
-        F = urllib2.urlopen(url)
-        open(loc, 'w').write(F.read())
+    if synphot + efficiency == 1:
 
-    F = open(loc)
-        
-    data = np.loadtxt(F)
-    '''
+        if efficiency:
 
-    # Picked filter curves instead from http://www.stsci.edu/hst/observatory/crds/SIfileInfo/pysynphottables/current_acs_throughput_html
+            url = 'http://www.stsci.edu/hst/acs/analysis/throughputs/tables/wfc_{0}.dat'.format(filt)
+            
+            if not os.path.exists('downloads'):
+                os.makedirs('downloads')
 
-    filenames = glob.glob("downloads/acs*{0}*wfc*.fits".format(filt))
-    if len(filenames) > 0:
-        data = fits.getdata(filenames[0],1)
+            loc = os.path.join('downloads', '%s.dat' % filt)
+            if not os.path.exists(loc):
+                print "downloading from %s" % url
+                F = urllib2.urlopen(url)
+                open(loc, 'w').write(F.read())
 
-    return data
+            F = open(loc)
+                
+            data = np.loadtxt(F)
+
+        # Deprecated by suggestion of B. Simmons and S. Bamford
+        # Alternate method of showing throughput
+        # from http://www.stsci.edu/hst/observatory/crds/SIfileInfo/pysynphottables/current_acs_throughput_html
+
+        if synphot:
+            filenames = glob.glob("downloads/acs*{0}*wfc*.fits".format(filt))
+            if len(filenames) > 0:
+                data = fits.getdata(filenames[0],1)
+
+        return data
+
+    else:
+        print "efficiency = {0}, synphot = {1} - must choose only one option".format(efficiency,synphot)
+        return None
 
 def fetch_subaru_filter(filt):
 
@@ -71,23 +82,28 @@ suprime_filters = {'B':{'label':r'$B_J$','labelpos':(3500,0.50)},
 gzh = {'AEGIS':('F606W','F814W'),'COSMOS':('F814W',),'GEMS, GOODS-S':('F606W','F850LP'),'GOODS-N':('F606W','F775W'),'deep GOODS-N,-S':('F435W','F606W','F775W','F850LP')}
 kwargs = dict(fontsize=14, ha='center', va='center')
 
+efficiency = True
+synphot = False
+
 for survey,ax in zip(gzh,axarr.ravel()):
     for acs_filter in gzh[survey]:
-        """
-        X = fetch_acs_filter(acs_filter)
-        c = acs_filters[acs_filter]['color']
-        ax.fill(X[:, 0], X[:, 1], ec=c, fc=c, alpha=0.4)
-        ax.text(acs_filters[acs_filter]['labelpos'], 0.02, acs_filter, color=c, **kwargs)
-        """
 
-        X = fetch_acs_filter(acs_filter.lower())
-        if acs_filter == 'F850LP':
-            dlambda = 0.001
-            X = np.append(X,np.array([(X['WAVELENGTH'][-1] + dlambda,0.0)],dtype=X.dtype))
-        c = acs_filters[acs_filter]['color']
-        ax.fill(X['WAVELENGTH'], X['THROUGHPUT'], ec=c, fc=c, alpha=0.4)
-        pos = 0.12 if ('F775W' in gzh[survey] and 'F814W' in gzh[survey] and acs_filter == 'F814W') else 0.02
-        ax.text(acs_filters[acs_filter]['labelpos'], pos, acs_filter, color=c, **kwargs)
+        if efficiency:
+
+            X = fetch_acs_filter(acs_filter,efficiency=True)
+            c = acs_filters[acs_filter]['color']
+            ax.fill(X[:, 0], X[:, 1], ec=c, fc=c, alpha=0.4)
+            ax.text(acs_filters[acs_filter]['labelpos'], 0.02, acs_filter, color=c, **kwargs)
+
+        if synphot:
+            X = fetch_acs_filter(acs_filter.lower(),synphot=True)
+            if acs_filter == 'F850LP':
+                dlambda = 0.001
+                X = np.append(X,np.array([(X['WAVELENGTH'][-1] + dlambda,0.0)],dtype=X.dtype))
+            c = acs_filters[acs_filter]['color']
+            ax.fill(X['WAVELENGTH'], X['THROUGHPUT'], ec=c, fc=c, alpha=0.4)
+            pos = 0.12 if ('F775W' in gzh[survey] and 'F814W' in gzh[survey] and acs_filter == 'F814W') else 0.02
+            ax.text(acs_filters[acs_filter]['labelpos'], pos, acs_filter, color=c, **kwargs)
 
     if survey == 'COSMOS':
         with open('downloads/suprime_QE.txt','r') as fn:
@@ -109,10 +125,12 @@ for survey,ax in zip(gzh,axarr.ravel()):
     ax.set_xticks((3000,5000,7000,9000,11000))
     ax.set_title(survey,fontsize=20)
     ax.set_xlabel(r'wavelength [$\AA$]')
-    ax.set_ylabel('filter transmission')
+    ax.set_ylabel('system throughput')
 
 fig.delaxes(axarr.ravel()[-1])
 
 
 plt.tight_layout()
 plt.show()
+
+
