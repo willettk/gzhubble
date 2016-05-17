@@ -728,8 +728,7 @@ The GZH classifications include 288 unique galaxies originally generated from
 SDSS imaging and processed with the \ferengi{} code. The selection spanned a
 variety of galaxy morphologies (as selected by GZ2 classifications) and
 $r^\prime$-band surface brightnesses, and also spanned the redshift range of
-SDSS targets (in $N_z = 4$ bins) in order to be optimized for different target
-minimum redshifts in \hst{} imaging. 
+SDSS targets that maximuze the coverage of parameter space. 
 
 %The selection criteria for the different morphological categories is summarized in Table \ref{tbl:morphologies}. 
 The surface brightness selection ($N_\mu = 3$) for the \ferengi{} galaxies was
@@ -779,10 +778,10 @@ redshifted images is simply an empirical addition to the magnitude of a galaxy
 of the form $M' = e\times z + M$, where $M'$ is the corrected magnitude, and
 $e$ is the evolutionary correction in magnitudes (i.e., $e=-1$ essentially
 brightens the galaxy by 1~magnitude by $z=1$). \ferengi{} was run on the images
-for values of $e$ starting from $e=0$ and decreasing to $e=-3.5$ in increments
-of $\Delta e = 0.5$. Figure~\ref{fig:exampleFERENGI} shows several examples
-of the effects of ``losing'' spiral/disc features with increasing redshift
-for two galaxies with $e=0$. 
+for values of $e$ starting from $e=0$ and increasing the effect to $e=-3.5$ in
+increments of $\Delta e = 0.5$. Figure~\ref{fig:exampleFERENGI} shows
+several examples of the effects of ``losing'' spiral/disc features with
+increasing redshift for two galaxies with $e=0$. 
 
 The final number of \ferengi{} images produced for each galaxy is ultimately a
 function of galaxy's redshift (since the new images cannot be resampled at
@@ -1699,6 +1698,12 @@ total amount of disks in the sample compared to \citet{mel14}. For a more
 thorough analysis of the bar fraction, a cut on \fbar{} that evolves with
 redshift may yield more accurate results, since there are no explicit debiased
 values of \fbar{} that would take redshift induced bias into account. 
+
+Another existing study using GZH to select barred galaxies was presented in
+\citet{che15}. This study used a slightly different bar selection method to
+demonstrate that AGN hosts show no statistically significant enhancement in bar
+fraction or average bar likelihood compared to closely-matched inactive
+galaxies. 
 
 \subsection{Example 2: Identifying clump multiplicity} Clumps are known to be a
 characteristic feature of galaxies outside the local universe, and there is
