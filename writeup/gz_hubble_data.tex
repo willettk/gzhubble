@@ -251,16 +251,24 @@ $(\Omega_m,\Omega_\Lambda,h)=(0.282,0.718,0.697)$ \citep{hin13}.
 
 \section{Sample and Data}\label{sec:data}
 
-\subsection{Hubble Legacy Surveys}\label{ssec:legacy_surveys}
-
 The GZH project contains images drawn from a number of different dedicated
 surveys and sample selection criteria. The majority of the data (as implied by
-the project name) were taken directly from \hst{} Legacy Surveys, all of which
-primarily used imaging from the Advanced Camera for Surveys (ACS). Results from
+the project name) were sourced directly from \hst{} Legacy Surveys, all of which
+primarily used imaging from the Advanced Camera for Surveys (ACS). In addition
+to \hst{} images, the project uses images from SDSS Stripe~82, as well as
+simulated \hst{} images from multiple sources. Below we provide details on each
+source of imaging and describe the creation process for images shown to classifiers. 
+We also detail the sources of metadata for galaxies in the sample, such as 
+photometry and redshifts.
+
+\subsection{Hubble Legacy Surveys}\label{ssec:legacy_surveys}
+
+Image information from
 the individual surveys have been combined into a single photometric and
 morphological database, the Advanced Camera for Surveys General Catalog
 \citep[ACS-GC;][]{gri12}. A summary of the key parameters is given in
-Table~\ref{tbl:gzh_numbers}.
+Table~\ref{tbl:gzh_numbers}. 
+
 
 \begin{figure*}
 \center
@@ -326,6 +334,21 @@ The properties of the individual surveys are as follows:
 
 \end{itemize}
 
+%Selection of galaxies from these samples is described in Section \ref{ssec:galselect} below. 
+In the ACS-GC \citep{gri12}, individual galaxies were identified using a
+combination of \sextractor{} \citep{ber96} and the galaxy-profile fitting
+framework \galapagos{} \citep{bar12}. GZH included all galaxies with $m<23.5$,
+where $m$ is in the \Iband, \zband, or \iband{} for the AEGIS + COSMOS, GEMS +
+GOODS-S (2-epoch), and GOODS-N (2-epoch) surveys, respectively. The full-depth 
+GOODS images from both fields included galaxies with $m<26.8$. This yielded a total of
+113,166~images (Table~\ref{tbl:gzh_numbers}).
+
+Images from \hst{} legacy surveys were used to create multiple different color and grayscale 
+images using different depths and filter combinations; these are described further in Section 
+\ref{ssec:images}. Additionally, the use of a small set of \hst{} images to create simulated 
+images of active galactic nucleus (AGN) host galaxies is described in Section \ref{ssec:sim_agn}.
+
+
 % Note: galaxy counts remove the duplicate observations from gz_hst_table
 
 \begin{table*}
@@ -350,15 +373,17 @@ total                                   & $-$          & $-$                    
 \end{tabular}
 \end{table*}
 
-\subsection{Galaxy selection}
+\subsection{The Sloan Digital Sky Survey}\label{ssec:sdss}
 
-In the ACS-GC \citep{gri12}, individual galaxies were identified using a
-combination of \sextractor{} \citep{ber96} and the galaxy-profile fitting
-framework \galapagos{} \citep{bar12}. GZH included all galaxies with $m<23.5$,
-where $m$ is in the \Iband, \zband, or \iband{} for the AEGIS + COSMOS, GEMS +
-GOODS-S, and GOODS-N surveys, respectively. This yielded a total of
-113,166~images (Table~\ref{tbl:gzh_numbers}).
+The project includes images from the Sloan Digital Sky Survey \citep[SDSS;][]{yor00,str02}, 
+in particular those from Data Release 7 \citep{aba09}. A small number of images 
+were used in the creation of simulated \hst{} images, described in Sections 
+\ref{ssec:ferengi} and \ref{sec:debiasing} below; the majority of SDSS images used 
+in GZH were from Stripe~82. The Stripe~82 samples in GZH include single-epoch 
+and co-added images, intended to facilitate comparison of morphological 
+classification with image depth. 
 
+%The creation of 51,861 images from these sources is described in Section \ref{ssec:galselect} below.
 Single-epoch images from SDSS Stripe~82 were selected using the same criteria
 from \citet{wil13}, which required limits of \texttt{petroR90\_r}$ >
 3$\arcsec~(where \texttt{petroR90\_r} is the radius containing 90\% of the
@@ -371,7 +396,173 @@ single-depth images and matched to a co-add source. This resulted in a total
 set of 30,339 images. Of the images in the co-added sample, 5144 (17~percent)
 were dimmer than the initial magnitude cut of 17.77. 
 
-\subsection{Image creation}
+
+\subsection{Simulated \hst{} images}\label{ssec:simulatedimages}
+
+To facilitate correction of classifications in the presence of known biasing effects, 
+GZH includes two different samples of simulated \hst{} images: real \hst{} galaxy images 
+(Section \ref{ssec:legacy_surveys}) with nuclear emission added to simulate AGN 
+host galaxies, and lower-redshift galaxy images from SDSS (Section \ref{ssec:sdss}), 
+artificially redshifted from $0.3 \leq z \leq 1$. Each is described separately below. 
+
+\subsubsection{Images with simulated nuclear point sources}\label{ssec:sim_agn}
+
+As active galactic nuclei often have bright, unresolved optical emission, AGN have the 
+potential to mimic or distort the identification of a bulge component. GZH thus includes 
+a set of images designed to measure the effect of AGN on morphological classifications. 
+The presence of an AGN was
+simulated by modeling the point spread function (PSF) of the telescope and then
+inserting a bright source near the center of a real galaxy. For each image, the
+simulated AGN was assigned one of three colors -- either blue, red, or flat
+(white) as seen in the color images -- and a range of brightnesses such that
+$L_\mathrm{ratio} \equiv L_\mathrm{galaxy}/L_\mathrm{AGN}$ is in
+$(0.2,1.0,2.0,5.0,10.0,50.0)$. Combining these parameters generated 15~images
+with different simulated AGN for each host, in addition to the original galaxy image. 
+
+Two sets of simulated AGN were generated in GZH. The first set (version~1) was
+assembled from 95~galaxies from GOODS-S imaging and empirical PSFs made 
+by combining stars in the GOODS fields using the PSF creation tools in \texttt{daophot}. 
+The second set (version~2) was assembled from 96~galaxies in GOODS-S; this
+version used simulated PSFs from \texttt{TinyTim} \citep{kri93}, drizzled using the 
+same procedures as those used in reduction of the GOODS-S images 
+\citep{koe02,koe03,gia04}. The use of these 2 versions facilitates comparisons 
+between these different PSF creation methods, which are widely used in AGN host 
+galaxy morphology studies \citep[e.g.,][]{san04,sim08,pie10a,simm11}. 
+% okay so I'm a cheeky self-citing biyotch
+Each PSF creation method has advantages and disadvantages: the empirical 
+PSFs better represent the nuances of the PSF in the specific data being used and 
+look more realistic at lower luminosities, but the extended features of the noiseless 
+\texttt{TinyTim} PSFs are visually more realistic at higher luminosities.
+
+Images with simulated AGN were classified in the main interface in an identical
+manner and evenly distributed with unaltered images of the galaxies.
+Classifiers were not explicitly told that the images had been altered during classification, as the
+goal was to measure the effect on normal classifications in as unbiased a
+manner as possible. Following classification, a classifier could view a page with 
+additional details about each galaxy they had classified; where applicable these pages 
+contained further information regarding image modifications.
+
+
+\subsubsection{Generating images of artificially-redshifted galaxies}\label{ssec:ferengi}
+
+The dimming and resolution effects of redshift can significantly affect galaxy classifications 
+derived from any method. To facilitate corrections due to redshift, we include a sample 
+of 288 galaxies with at redshifts such that available SDSS imaging can be transformed 
+to simulate \hst{} imaging out to $z = 1$. The selection spanned a
+variety of galaxy morphologies (as selected by GZ2 classifications) and
+$r^\prime$-band surface brightnesses, and also spanned the redshift range of
+SDSS targets (in $N_z = 4$ bins) in order to optimize for different target
+minimum redshifts in \hst{} imaging. We redshifted the galaxies and produced simulated
+\hst{} imaging using the \ferengi{} code \citep{bar08a}.
+
+%The selection criteria for the different morphological categories is summarized in Table \ref{tbl:morphologies}. 
+The surface brightness selection ($N_\mu = 3$) for the \ferengi{} galaxies was
+(1) low: $\mu > 21.5$~\magarc;  (2) mid: $20.5 < \mu < 21.5$~\magarc; and (3)
+high: $\mu < 20.5$~\magarc. For each of the four ``target redshifts''
+($z_\mathrm{sim} = 0.3, 0.5, 0.8$ and $1.0$), the images were redshifted in
+$\Delta z = 0.1$ bins up to $z_\mathrm{sim}=1.0$. 
+ 
+%\begin{table*}
+%\center
+%\caption{Summary of morphological categories selected for \ferengi{} sample.\label{tbl:morphologies}}
+%\begin{tabular}{lllc}
+%\hline\hline
+%Morphology          & Label &  Selection                                                                                            & $N_{\rm objects}$ \\
+%                    &       &                                                                                                       & [$N_z \times N_\mu$] \\
+%\hline
+%Features            & Yes       & $f_{\rm features} > 0.8$, $f_{\rm odd} < 0.1$                                                         & 12 \\ 
+%                    & Int.      & $0.3 < f_{\rm smooth} < 0.6$, $f_{\rm odd} < 0.1$                                                     & 12 \\ 
+%                    & No        & $f_{\rm smooth} > 0.8$, $f_{\rm odd} < 0.1$                                                           & 12 \\ 
+%Merger              & No        & $f_{\rm features} > 0.8$, $f_{\rm odd < 0.1}$, $f_{\rm merger} < 0.1$                                 & 12 \\
+%                    & Int.      & $f_{\rm odd} > 0.5$, $0.1< f_{\rm merger} < 0.4$                                                      & 12 \\ 
+%                    & Yes       & $f_{\rm odd} > 0.5$, $f_{\rm merger} > 0.4$                                                           & 12 \\
+%Edge-on             & Yes       & $f_{\rm edgeon} > 0.8$, $f_{\rm features} > 0.5$                                                      & 12 \\
+%                    & Int.      & $0.4 < f_{\rm edgeon} < 0.8$ , $f_{\rm features} > 0.5$                                               & 12 \\
+%                    & No        & $f_{\rm edgeon} < 0.2$, $f_{\rm features} > 0.5$                                                      & 12 \\
+%Bar                 & No        & $f_{\rm bar} < 0.1$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$                                 & 24 \\
+%                    & Int.      & $0.2 < f_{\rm bar} < 0.4$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$                           & 24 \\
+%                    & Yes       & $f_{\rm bar} > 0.8$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$                                 & 24 \\
+%Visible spiral      & No        & $f_{\rm spiral} < 0.2$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$, $f_{\rm bar} < 0.1$         & 12 \\
+%                    & Int.      & $0.2 < f_{\rm spiral} < 0.8$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$, $f_{\rm bar} < 0.1$   & 12 \\
+%                    & Yes       & $f_{\rm spiral} > 0.8$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$, $f_{\rm bar} < 0.1$         & 12 \\
+%Oblique bulge size  & No        & $f_{\rm nobulge>0.6}$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.5$, $f_{\rm bar} < 0.2$          & 12 \\
+%                    & Int.      & $f_{\rm justnoticeable}>0.6$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.5$, $f_{\rm bar} < 0.2$   & 12 \\
+%                    & Yes       & $f_{\rm obvious|dominant}>0.5$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.5$, $f_{\rm bar} < 0.2$ & 12 \\
+%Edge-on bulge shape & Round     & $f_{\rm rounded}>0.5$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} > 0.5$                               & 12 \\
+%                    & Boxy      & $f_{\rm boxy}>0.4$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} > 0.2$                                  & 12 \\
+%                    & No bulge  & $f_{\rm nobulge}>0.5$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} > 0.5$                               & 12 \\
+%\hline\hline
+%\end{tabular}
+%\end{table*}
+
+In addition to the physical parameters of the input images, the \ferengi{}
+output depends on assumptions of the global galaxy evolution model. This
+evolution is a crude mechanism that mimics the brightness increase of galaxies
+with increasing redshift (out to at least $z\sim1-2$). The effect on the
+redshifted images is simply an empirical addition to the magnitude of a galaxy
+of the form $M' = e\times z + M$, where $M'$ is the corrected magnitude, and
+$e$ is the evolutionary correction in magnitudes (i.e., $e=-1$ essentially
+brightens the galaxy by 1~magnitude by $z=1$). \ferengi{} was run on the images
+for values of $e$ starting from $e=0$ and decreasing to $e=-3.5$ in increments
+of $\Delta e = 0.5$. Figure~\ref{fig:exampleFERENGI} shows several examples
+of the effects of ``losing'' spiral/disc features with increasing redshift
+for two galaxies with $e=0$. 
+
+The final number of \ferengi{} images produced for each galaxy is ultimately a
+function of galaxy's redshift (since the new images cannot be resampled at
+better angular resolution than the original SDSS data), as well as the number
+of $e$ values selected. Table~\ref{tbl:ferengivalues} summarizes the redshifted
+images produced for GZH. The use of these images to correct for redshift-dependent
+classification bias is described in Section \ref{sec:debiasing}.
+
+\begin{table}
+\caption{Summary of \ferengi{} artificial redshifting \label{tbl:ferengivalues}}
+\begin{tabular}{lccccr}
+\hline\hline
+$z_{\rm sim}$ & $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $e_{\rm max}$ & $N_{\rm galaxies}$ & $N_{\rm images}$\\
+\hline
+0.3              & 8                  & 7                   & $-3.0$        & 72             & 4032 \\
+0.5              & 6                  & 4                   & $-1.5$        & 72             & 1728 \\
+0.8              & 3                  & 3                   & $-1.0$        & 72             &  648 \\
+1.0              & 1                  & 3                   & $-1.0$        & 72             &  216 \\
+\hline\hline
+\end{tabular}
+\end{table}
+
+\begin{figure*}
+\center
+\includegraphics[width=160mm]{figures/example_ferengi.pdf}
+\caption{Examples of two galaxies which have been run through the \ferengi{}
+code to produce simulated \hst{} images. The measured value of \ffeatures{}
+from GZH for the images in each panel are (1) Top row: \ffeatures~= (0.900,
+0.625, 0.350, 0.350, 0.225) and (2) Bottom row: \ffeatures~= (1.000, 0.875,
+0.875, 0.625, 0.375). \label{fig:exampleFERENGI}}
+\end{figure*}
+
+
+
+%\subsection{Galaxy selection}\label{ssec:galselect}
+%
+%In the ACS-GC \citep{gri12}, individual galaxies were identified using a
+%combination of \sextractor{} \citep{ber96} and the galaxy-profile fitting
+%framework \galapagos{} \citep{bar12}. GZH included all galaxies with $m<23.5$,
+%where $m$ is in the \Iband, \zband, or \iband{} for the AEGIS + COSMOS, GEMS +
+%GOODS-S, and GOODS-N surveys, respectively. This yielded a total of
+%113,166~images (Table~\ref{tbl:gzh_numbers}).
+%
+%Single-epoch images from SDSS Stripe~82 were selected using the same criteria
+%from \citet{wil13}, which required limits of \texttt{petroR90\_r}$ >
+%3$\arcsec~(where \texttt{petroR90\_r} is the radius containing 90\% of the
+%$r^\prime$ Petrosian flux) and a magnitude brighter than $m_r < 17.77$. The
+%images used were three-color composites using the $g^\prime$, $r^\prime$, and
+%$i^\prime$ filters \citep{nie04}. 21,522 galaxies in SDSS met these criteria.
+%Co-added images from Stripe~82 were selected from the union of galaxies with
+%co-added magnitudes brighter than $17.77$~mag, and the galaxies detected in the
+%single-depth images and matched to a co-add source. This resulted in a total
+%set of 30,339 images. Of the images in the co-added sample, 5144 (17~percent)
+%were dimmer than the initial magnitude cut of 17.77. 
+
+\subsection{Image creation}\label{ssec:images}
 
 The images used for classification in GZH were color-composite JPEGs made from
 multi-band data. These were created followed the method of \citet{lup04}, which
@@ -419,37 +610,63 @@ speckles. This impaired the aesthetics of the images and might have been a
 distraction to visual classification.  To counteract this, a soft-edged object
 mask was applied to the color images and a desaturation operation performed.
 This masked procedure was effective in preserving the color balance for
-galaxies, retaining the visibility of faint features, but reduced the color
-contrast in the sky noise and greatly improved the appearance of the images.
+galaxies, retaining the visibility of faint features while reducing the color
+contrast in the sky noise and greatly improving the appearance of the images.
 This solution was applied to the coadded Stripe~82, COSMOS and 5-epoch GOODS
 images.
 
-\subsection{Images with simulated nuclear point sources}
+In addition to the main \hst{} legacy imaging sample with colored images described
+as above, GZH also includes samples of \hst{} galaxy images with different color
+prescriptions. In particular, there are 2 sets of 3,927 images each, drawn from the
+COSMOS sample; the first has a dramatically reduced color saturation, and the second
+has reversed the colors so that the blue and red filters have exchanged places in the
+RGB image. The `faded' galaxy set facilitates measuring of possible variations in
+classification due to the presence or absence of color features. The reversed-color set
+enables an alternative test of potential color biases in classifications.
+% I guess this means we need to say somewhere later that we don't see an effect (we don't, right?).
+% Would also be good to cite here where we have done similar things in the past...
 
-GZH also included a set of images designed to measure the effect of active
-galactic nuclei (AGN) on morphological classifications. Since galactic nuclei
-can have bright, unresolved optical emission, AGN have the potential to mimic
-or distort the identification of a bulge component. The presence of an AGN was
-simulated by modeling the point spread function (PSF) of the telescope and then
-inserting a bright source near the center of a real galaxy. For each image, the
-simulated AGN was assigned one of three colors -- either blue, red, or flat
-(white) as seen in the color images -- and a range of brightnesses such that
-$L_\mathrm{ratio} \equiv L_\mathrm{galaxy}/L_\mathrm{AGN}$ is in
-$(0.2,1.0,2.0,5.0,10.0,50.0)$. Combining these parameters generated 15~images
-with different simulated AGN for each host. 
+The simulated AGN host galaxy color images (described in Section \ref{ssec:sim_agn})
+were created using the same prescription as for the GOODS 2-epoch imaging. The
+artificially redshifted color images (Section \ref{ssec:ferengi}) were created using the
+same prescription as for the AEGIS images.
+% Edmond should verify the AEGIS bit above.
 
-Two sets of simulated AGN were generated in GZH. The first set (version~1) was
-assembled from 95~galaxies from GOODS-S imaging and empirical PSFs made by combining stars in the GOODS fields using the PSF creation tools in \texttt{daophot}. 
-The second set (version~2) was assembled from 96~galaxies in GOODS-S; this
-version used simulated PSFs from \texttt{TinyTim} \citep{kri93}, drizzled using the same procedures as those used in reduction of the GOODS-S images \citep{koe02,koe03,gia04}. The use of these 2 versions facilitates comparisons between these different PSF creation methods, which are widely used in AGN host galaxy morphology studies \citep[e.g.,][]{san04,sim08,pie10a,simm11}. 
-% okay so I'm a cheeky self-citing biyotch
-Each PSF creation method has advantages and disadvantages: the empirical PSFs better represent the nuances of the PSF in the specific data being used and look more realistic at lower luminosities, but the extended features of the noiseless \texttt{TinyTim} PSFs are visually more realistic at higher luminosities.
 
-Images with simulated AGN were classified in the main interface in an identical
-manner and evenly distributed with unaltered images of the galaxies.
-Classifiers were not explicitly told that the images had been altered during classification, as the
-goal was to measure the effect on normal classifications in as unbiased a
-manner as possible. Following classification, a classifier could view a page with additional details about each galaxy they had classified; where applicable these pages contained further information regarding image modifications.
+\subsection{Galaxy sample labels}\label{ssec:sample_labels}
+
+The full GZH sample is composed of 7 different galaxy sub-samples. Throughout this
+paper and in the published catalogs they are referred to with the following labels:
+
+\begin{itemize}
+
+%\ref{tbl:catalog_hst}
+\item \texttt{main}: \hst{} imaging with RGB colors making use of all available filters with typical saturation and in correct order, as described in Section \ref{ssec:images}. This sample includes AEGIS, COSMOS, GEMS, and full-depth GOODS (North and South) images. (118,425 galaxies)
+
+%\ref{tbl:catalog_faded}
+\item \texttt{faded}: a subset of COSMOS images with very low color saturation. (3,927 galaxies)
+
+%\ref{tbl:catalog_recolored}
+\item \texttt{recolored}: a subset of COSMOS images with red and blue channels reversed. Note: this sub-sample uses the same galaxies as the \texttt{faded} sub-sample. (3,927 galaxies)
+
+%\ref{tbl:catalog_goods_shallow}
+\item \texttt{goods-shallow}: Images from GOODS-North and GOODS-South, with color from 2 filters and imaged at 2-epoch depth. (6,144 galaxies)
+
+%\ref{tbl:stripe82_single}
+\item \texttt{stripe-82-single}: Single-epoch images from SDSS Stripe~82. (21,522 galaxies)
+
+%\ref{tbl:stripe82_coadd}
+\item \texttt{stripe-82-coadd}: Co-added images from SDSS Stripe~82. Note: this sub-sample includes all galaxies in the \texttt{stripe-82-single} sub-sample, with additional sources detected in the deeper imaging. (30,339 galaxies)
+
+%ferengi <-- no table?
+\item \texttt{redshifted}: Simulated \hst{} images constructed using SDSS images and artificially redshifted to between $0.3 \leq z \leq 1$. (288 original galaxies; 3,950 redshifted galaxies)
+
+%\ref{tbl:simulated_agn}
+\item \texttt{simulated-agn}: Simulated AGN host galaxies constructed using \hst{} images and PSFs. (96 original galaxies; 2,961 simulated AGN host galaxies)
+
+
+\end{itemize}
+
 
 \subsection{Galaxy metadata}
 
@@ -697,102 +914,12 @@ change the images even more across these redshift ranges.
 In order to test and correct for the effects of redshift, GZH includes a set of
 calibration images. These images consist of the same galaxy as it would appear
 over a variety of redshifts. The input images are from the SDSS
-\citep{yor00,str02} and are processed using the \ferengi{} code \citep{bar08a}
-to match the observational properties of the \hst{} surveys out to $z=1$. These
+\citep{yor00,str02} and are processed to match the observational properties of 
+the \hst{} surveys out to $z=1$. These
 images were classified in the GZH interface using the same classification
-scheme as the original \hst{} images.
- 
-\subsection{Generating images of artificially-redshifted galaxies}
+scheme as the original \hst{} images. Further details on the creation of these images
+is given in Section \ref{ssec:ferengi}.
 
-The GZH classifications include 288 unique galaxies originally generated from
-SDSS imaging and processed with the \ferengi{} code. The selection spanned a
-variety of galaxy morphologies (as selected by GZ2 classifications) and
-$r^\prime$-band surface brightnesses, and also spanned the redshift range of
-SDSS targets (in $N_z = 4$ bins) in order to be optimized for different target
-minimum redshifts in \hst{} imaging. 
-
-%The selection criteria for the different morphological categories is summarized in Table \ref{tbl:morphologies}. 
-The surface brightness selection ($N_\mu = 3$) for the \ferengi{} galaxies was
-(1) low: $\mu > 21.5$~\magarc;  (2) mid: $20.5 < \mu < 21.5$~\magarc; and (3)
-high: $\mu < 20.5$~\magarc. For each of the four ``target redshifts''
-($z_\mathrm{sim} = 0.3, 0.5, 0.8$ and $1.0$), the images were redshifted in
-$\Delta z = 0.1$ bins up to $z_\mathrm{sim}=1.0$. 
- 
-%\begin{table*}
-%\center
-%\caption{Summary of morphological categories selected for \ferengi{} sample.\label{tbl:morphologies}}
-%\begin{tabular}{lllc}
-%\hline\hline
-%Morphology          & Label &  Selection                                                                                            & $N_{\rm objects}$ \\
-%                    &       &                                                                                                       & [$N_z \times N_\mu$] \\
-%\hline
-%Features            & Yes       & $f_{\rm features} > 0.8$, $f_{\rm odd} < 0.1$                                                         & 12 \\ 
-%                    & Int.      & $0.3 < f_{\rm smooth} < 0.6$, $f_{\rm odd} < 0.1$                                                     & 12 \\ 
-%                    & No        & $f_{\rm smooth} > 0.8$, $f_{\rm odd} < 0.1$                                                           & 12 \\ 
-%Merger              & No        & $f_{\rm features} > 0.8$, $f_{\rm odd < 0.1}$, $f_{\rm merger} < 0.1$                                 & 12 \\
-%                    & Int.      & $f_{\rm odd} > 0.5$, $0.1< f_{\rm merger} < 0.4$                                                      & 12 \\ 
-%                    & Yes       & $f_{\rm odd} > 0.5$, $f_{\rm merger} > 0.4$                                                           & 12 \\
-%Edge-on             & Yes       & $f_{\rm edgeon} > 0.8$, $f_{\rm features} > 0.5$                                                      & 12 \\
-%                    & Int.      & $0.4 < f_{\rm edgeon} < 0.8$ , $f_{\rm features} > 0.5$                                               & 12 \\
-%                    & No        & $f_{\rm edgeon} < 0.2$, $f_{\rm features} > 0.5$                                                      & 12 \\
-%Bar                 & No        & $f_{\rm bar} < 0.1$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$                                 & 24 \\
-%                    & Int.      & $0.2 < f_{\rm bar} < 0.4$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$                           & 24 \\
-%                    & Yes       & $f_{\rm bar} > 0.8$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$                                 & 24 \\
-%Visible spiral      & No        & $f_{\rm spiral} < 0.2$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$, $f_{\rm bar} < 0.1$         & 12 \\
-%                    & Int.      & $0.2 < f_{\rm spiral} < 0.8$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$, $f_{\rm bar} < 0.1$   & 12 \\
-%                    & Yes       & $f_{\rm spiral} > 0.8$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$, $f_{\rm bar} < 0.1$         & 12 \\
-%Oblique bulge size  & No        & $f_{\rm nobulge>0.6}$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.5$, $f_{\rm bar} < 0.2$          & 12 \\
-%                    & Int.      & $f_{\rm justnoticeable}>0.6$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.5$, $f_{\rm bar} < 0.2$   & 12 \\
-%                    & Yes       & $f_{\rm obvious|dominant}>0.5$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.5$, $f_{\rm bar} < 0.2$ & 12 \\
-%Edge-on bulge shape & Round     & $f_{\rm rounded}>0.5$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} > 0.5$                               & 12 \\
-%                    & Boxy      & $f_{\rm boxy}>0.4$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} > 0.2$                                  & 12 \\
-%                    & No bulge  & $f_{\rm nobulge}>0.5$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} > 0.5$                               & 12 \\
-%\hline\hline
-%\end{tabular}
-%\end{table*}
-
-In addition to the physical parameters of the input images, the \ferengi{}
-output depends on assumptions of the global galaxy evolution model. This
-evolution is a crude mechanism that mimics the brightness increase of galaxies
-with increasing redshift (out to at least $z\sim1-2$). The effect on the
-redshifted images is simply an empirical addition to the magnitude of a galaxy
-of the form $M' = e\times z + M$, where $M'$ is the corrected magnitude, and
-$e$ is the evolutionary correction in magnitudes (i.e., $e=-1$ essentially
-brightens the galaxy by 1~magnitude by $z=1$). \ferengi{} was run on the images
-for values of $e$ starting from $e=0$ and decreasing to $e=-3.5$ in increments
-of $\Delta e = 0.5$. Figure~\ref{fig:exampleFERENGI} shows several examples
-of the effects of ``losing'' spiral/disc features with increasing redshift
-for two galaxies with $e=0$. 
-
-The final number of \ferengi{} images produced for each galaxy is ultimately a
-function of galaxy's redshift (since the new images cannot be resampled at
-better angular resolution than the original SDSS data), as well as the number
-of $e$ values selected. Table~\ref{tbl:ferengivalues} summarizes the redshifted
-images produced for GZH. 
-
-\begin{table}
-\caption{Summary of \ferengi{} artificial redshifting \label{tbl:ferengivalues}}
-\begin{tabular}{lccccr}
-\hline\hline
-$z_{\rm sim}$ & $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $e_{\rm max}$ & $N_{\rm galaxies}$ & $N_{\rm images}$\\
-\hline
-0.3              & 8                  & 7                   & $-3.0$        & 72             & 4032 \\
-0.5              & 6                  & 4                   & $-1.5$        & 72             & 1728 \\
-0.8              & 3                  & 3                   & $-1.0$        & 72             &  648 \\
-1.0              & 1                  & 3                   & $-1.0$        & 72             &  216 \\
-\hline\hline
-\end{tabular}
-\end{table}
-
-\begin{figure*}
-\center
-\includegraphics[width=160mm]{figures/example_ferengi.pdf}
-\caption{Examples of two galaxies which have been run through the \ferengi{}
-code to produce simulated \hst{} images. The measured value of \ffeatures{}
-from GZH for the images in each panel are (1) Top row: \ffeatures~= (0.900,
-0.625, 0.350, 0.350, 0.225) and (2) Bottom row: \ffeatures~= (1.000, 0.875,
-0.875, 0.625, 0.375). \label{fig:exampleFERENGI}}
-\end{figure*}
 
 \subsection{Correcting morphologies for classification bias}\label{ssec:zeta}
 
