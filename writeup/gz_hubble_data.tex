@@ -1205,7 +1205,7 @@ lower~limit$, $\tt upper~limit$, and $\tt best$ vote fractions. The $\tt best$
 fraction for \ffeatures{} is chosen based on the categorization of the galaxy:
 if it is ``correctable'', $\tt best = debiased$; if it is a lower limit, 
 $\tt best = lower~limit$; if neither condition applies, then 
-$\tt best = weighted$. 
+$\tt best = weighted$. Flags are also given for the three responses of Task 01 to identify clean samples of galaxies with high likelihoods of being smooth, featured, or an artifact.  These are set as $\tt smooth/featured/artifact\_flag=1$ if $\rm f_{smooth/features/artifact\_best}>0.8$. For a galaxy to be flagged as ``smooth'', an additional criterion of $\tt correction\_type =~$0, 1, or 2 is applied. This is to account for the uncertainty in distinguishing between genuine ellipticals and disks whose features have been washed out due to surface brightness and redshift effects, as described in Section~\ref{sec:debiasing}.
 
 The debiased and best vote fractions for \fsmooth{} are calculated on the
 criteria that vote fractions for all answers must sum to unity:
@@ -1247,7 +1247,7 @@ artificial point sources intended to simulate the effect of a bright AGN (see
 
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllcrllllll|c}
+\begin{deluxetable*}{lllcrlllllll|c}
 \centering
 \tablecolumns{13}
 \tablewidth{0pc}
@@ -1256,11 +1256,11 @@ artificial point sources intended to simulate the effect of a bright AGN (see
 \tablehead{
  & & & 
 \multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
-\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\multicolumn{7}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
 \colhead{$\ldots$}
 \\
-\colhead{Project ID} & 
-\colhead{Hubble ID} & 
+\colhead{Zooniverse ID} & 
+\colhead{Survey ID} & 
 \colhead{Imaging} & 
 \colhead{Correction$^{1}$} & 
 \colhead{$N_\mathrm{votes}$} & 
@@ -1270,24 +1270,25 @@ artificial point sources intended to simulate the effect of a bright AGN (see
 \colhead{best} &
 \colhead{lower~limit} & 
 \colhead{upper~limit} &
+\colhead{flag} &
 \colhead{}
 }
 \small
 \startdata
-AHZ100002g  & 10010842  & AEGIS             & 0        & 127       & 0.118    & 0.128     & 0.085    & 0.085    & 0.226     & 0.226    \\
-AHZ100002h  & 10010870  & AEGIS             & 4        & 127       & 0.567    & 0.592     & 0.927    & 0.592    & $-$       & $-$      \\
+AHZ100002g  & 10010842  & AEGIS             & 0        & 127       & 0.118    & 0.128     & 0.085    & 0.085    & 0.226     & 0.226 & 0   \\
+AHZ100002h  & 10010870  & AEGIS             & 4        & 127       & 0.567    & 0.592     & 0.927    & 0.592    & $-$       & $-$   &0   \\
 $\ldots$    \\
-AHZ20004kd  & 20014731  & COSMOS            & 3        &  44       & 0.682    & 0.675     & 0.147    & 0.675    & $-$       & $-$      \\
-AHZ20004ke  & 20014732  & COSMOS            & 2        &  45       & 0.689    & 0.756     & 0.893    & 0.756    & $-$       & $-$      \\
+AHZ20004kd  & 20014731  & COSMOS            & 3        &  44       & 0.682    & 0.675     & 0.147    & 0.675    & $-$       & $-$   &0   \\
+AHZ20004ke  & 20014732  & COSMOS            & 2        &  45       & 0.689    & 0.756     & 0.893    & 0.756    & $-$       & $-$   &0   \\
 $\ldots$    \\
-AHZ400043g  & 90022729  & GEMS              & 1        & 121       & 0.702    & 0.733     & 0.487    & 0.734    & 0.483     & 0.800    \\
-AHZ4000416  & 90022735  & GEMS              & 1        & 127       & 0.646    & 0.698     & 0.508    & 0.698    & 0.171     & 0.727    \\
+AHZ400043g  & 90022729  & GEMS              & 1        & 121       & 0.702    & 0.733     & 0.487    & 0.734    & 0.483     & 0.800 &0   \\
+AHZ4000416  & 90022735  & GEMS              & 1        & 127       & 0.646    & 0.698     & 0.508    & 0.698    & 0.171     & 0.727 &0   \\
 $\ldots$    \\
-AGZ0007z47  & 10014     & GOODS-N-FULLDEPTH & 1        & 40        & 0.475    & 0.475     & 0.197    & 0.475    & 0.011     & 0.496    \\
-AGZ0007z48  & 10017     & GOODS-N-FULLDEPTH & 3        & 40        & 0.675    & 0.675     & 0.048    & 0.675    & 0.168     & 0.669    \\
+AGZ0007z47  & 10014     & GOODS-N-FULLDEPTH & 1        & 40        & 0.475    & 0.475     & 0.197    & 0.475    & 0.011     & 0.496 &0   \\
+AGZ0007z48  & 10017     & GOODS-N-FULLDEPTH & 3        & 40        & 0.675    & 0.675     & 0.048    & 0.675    & 0.168     & 0.669 &0  \\
 $\ldots$    \\
-AGZ00083jb  & 8869      & GOODS-S-FULLDEPTH & 1        & 40        & 0.425    & 0.425     & 0.109    & 0.425    & 0.070     & 0.548    \\
-AGZ00083jc  & 8878      & GOODS-S-FULLDEPTH & 0        & 40        & 0.205    & 0.205     & 0.048    & 0.048    & $-$0.005  & 0.287    \\
+AGZ00083jb  & 8869      & GOODS-S-FULLDEPTH & 1        & 40        & 0.425    & 0.425     & 0.109    & 0.425    & 0.070     & 0.548 &0   \\
+AGZ00083jc  & 8878      & GOODS-S-FULLDEPTH & 0        & 40        & 0.205    & 0.205     & 0.048    & 0.048    & $-$0.005  & 0.287 &0   \\
 $\ldots$    \\
 \enddata
 \tablenotetext{1}{Flag indicating how the vote fractions for this galaxy were
@@ -1307,7 +1308,7 @@ content.}
 % Why are most of the full-depth GOODS weighted fractions identical to the raw fractions?
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllcrllllll|c}
+\begin{deluxetable*}{lllcrlllllll|c}
 \centering
 \tablecolumns{13}
 \tablewidth{0pc}
@@ -1316,11 +1317,11 @@ content.}
 \tablehead{
  & & & 
 \multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
-\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\multicolumn{7}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
 \colhead{$\ldots$}
 \\
-\colhead{Project ID} & 
-\colhead{Hubble ID} & 
+\colhead{Zooniverse ID} & 
+\colhead{Survey ID} & 
 \colhead{Imaging} & 
 \colhead{Correction} & 
 \colhead{$N_\mathrm{votes}$} & 
@@ -1330,15 +1331,16 @@ content.}
 \colhead{best} &
 \colhead{lower~limit} & 
 \colhead{upper~limit} &
+\colhead{flag} &
 \colhead{}
 }
 \small
 \startdata
-AHZF000001  &   20000002    &   COSMOS  &   1   &   48 &  0.708   &     0.755   &   0.228    &    0.754 &   0.325   &   0.829  \\
-AHZF000003  &   20000004    &   COSMOS  &   3   &   49 &  0.367   &     0.379   &   0.100    &    0.379 &   0.198   &   0.198  \\
-AHZF000004  &   20000006    &   COSMOS  &   3   &   49 &  0.265   &     0.271   &   0.010    &    0.270 &   $-$	    &   $-$    \\
-AHZF00000z  &   20000102    &   COSMOS  &   1   &   44 &  0.727   &     0.78    &   0.233    &    0.780 &   0.316   &   0.820  \\
-AHZF000010  &   20000104    &   COSMOS  &   2   &   53 &  0.811   &     0.849   &   0.904    &    0.848 &   $-$	    &   $-$    \\
+AHZF000001  &   20000002    &   COSMOS  &   1   &   48 &  0.708   &     0.755   &   0.228    &    0.754 &   0.325   &   0.829 &0 \\
+AHZF000003  &   20000004    &   COSMOS  &   3   &   49 &  0.367   &     0.379   &   0.100    &    0.379 &   0.198   &   0.198 &0 \\
+AHZF000004  &   20000006    &   COSMOS  &   3   &   49 &  0.265   &     0.271   &   0.010    &    0.270 &   $-$	    &   $-$   &0 \\
+AHZF00000z  &   20000102    &   COSMOS  &   1   &   44 &  0.727   &     0.78    &   0.233    &    0.780 &   0.316   &   0.820 &0 \\
+AHZF000010  &   20000104    &   COSMOS  &   2   &   53 &  0.811   &     0.849   &   0.904    &    0.848 &   $-$	    &   $-$   &0 \\
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form,
@@ -1349,7 +1351,7 @@ content.}
 \end{deluxetable*}
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllcrllllll|c}
+\begin{deluxetable*}{lllcrllllllll|c}
 \centering
 \tablecolumns{13}
 \tablewidth{0pc}
@@ -1358,11 +1360,11 @@ content.}
 \tablehead{
  & & & 
 \multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
-\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\multicolumn{7}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
 \colhead{$\ldots$}
 \\
-\colhead{Project ID} & 
-\colhead{Hubble ID} & 
+\colhead{Zooniverse ID} & 
+\colhead{Survey ID} & 
 \colhead{Imaging} & 
 \colhead{Correction} & 
 \colhead{$N_\mathrm{votes}$} & 
@@ -1372,15 +1374,16 @@ content.}
 \colhead{best} &
 \colhead{lower~limit} & 
 \colhead{upper~limit} &
+\colhead{flag} &
 \colhead{}
 }
 \small
 \startdata
-AHZC000001	&   20000002	&   COSMOS	&   1	&   168	&   0.615   &   0.664   &   0.160   &  0.663   &  0.271    &  0.775    \\
-AHZC000003	&   20000004	&   COSMOS	&   0	&   235	&   0.333   &   0.364   &   0.002   &  0.002   &  0.063    &  0.063    \\
-AHZC000004	&   20000006	&   COSMOS	&   3	&   316	&   0.235   &   0.252   & $-0.011$  &  0.252   &  $-$	    &  $-$      \\
-AHZC00000z	&   20000102	&   COSMOS	&   1	&   207	&   0.755   &   0.757   &   0.272   &  0.756   &  0.249    &  0.796    \\
-AHZC000010	&   20000104	&   COSMOS	&   2	&   158	&   0.843   &   0.882   &   0.936   &  0.881   &  $-$	    &  $-$      \\
+AHZC000001	&   20000002	&   COSMOS	&   1	&   168	&   0.615   &   0.664   &   0.160   &  0.663   &  0.271    &  0.775 &0   \\
+AHZC000003	&   20000004	&   COSMOS	&   0	&   235	&   0.333   &   0.364   &   0.002   &  0.002   &  0.063    &  0.063 &0   \\
+AHZC000004	&   20000006	&   COSMOS	&   3	&   316	&   0.235   &   0.252   & $-0.011$  &  0.252   &  $-$	    &  $-$  &1    \\
+AHZC00000z	&   20000102	&   COSMOS	&   1	&   207	&   0.755   &   0.757   &   0.272   &  0.756   &  0.249    &  0.796 &0   \\
+AHZC000010	&   20000104	&   COSMOS	&   2	&   158	&   0.843   &   0.882   &   0.936   &  0.881   &  $-$	    &  $-$  &1    \\
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form,
@@ -1391,7 +1394,7 @@ content.}
 \end{deluxetable*}
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllcrllllll|c}
+\begin{deluxetable*}{lllcrlllllll|c}
 \centering
 \tablecolumns{13}
 \tablewidth{0pc}
@@ -1400,11 +1403,11 @@ content.}
 \tablehead{
  & & &  
 \multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
-\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\multicolumn{7}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
 \colhead{$\ldots$}
 \\
-\colhead{Project ID} & 
-\colhead{Hubble ID} & 
+\colhead{Zooniverse ID} & 
+\colhead{Survey ID} & 
 \colhead{Imaging} & 
 \colhead{Correction} & 
 \colhead{$N_\mathrm{votes}$} & 
@@ -1414,15 +1417,16 @@ content.}
 \colhead{best} &
 \colhead{lower~limit} & 
 \colhead{upper~limit} &
+\colhead{flag} &
 \colhead{}
 }
 \small
 \startdata
-AHZ3000001  &   50000000    &     GOODS-N   &   0   &   123	&   0.390   &   0.415	&   0.090 &   0.090 &   $-$     &   $-$      \\
-AHZ3000002  &   50000001    &     GOODS-N   &   2   &   126	&   0.341	&   0.355	&   0.356 &   0.356 &   0.220	&   0.279    \\
-AHZ3000003  &   50000005    &     GOODS-N   &   1   &   129	&   0.760   &   0.826	&   0.633 &   0.825 &   0.596	&   0.834    \\
-AHZ3000004  &   50000008    &     GOODS-N   &   1   &   120	&   0.758	&   0.787	&   0.639 &   0.787 &   0.658	&   0.834    \\
-AHZ3000005  &   50000010    &     GOODS-N   &   1   &   123	&   0.854	&   0.890   &   0.611 &   0.889 &   0.597	&   0.914    \\
+AHZ3000001  &   50000000    &     GOODS-N   &   0   &   123	&   0.390   &   0.415	&   0.090 &   0.090 &   $-$     &   $-$ &0     \\
+AHZ3000002  &   50000001    &     GOODS-N   &   2   &   126	&   0.341	&   0.355	&   0.356 &   0.356 &   0.220	&   0.279 &0   \\
+AHZ3000003  &   50000005    &     GOODS-N   &   1   &   129	&   0.760   &   0.826	&   0.633 &   0.825 &   0.596	&   0.834 &0   \\
+AHZ3000004  &   50000008    &     GOODS-N   &   1   &   120	&   0.758	&   0.787	&   0.639 &   0.787 &   0.658	&   0.834 &0   \\
+AHZ3000005  &   50000010    &     GOODS-N   &   1   &   123	&   0.854	&   0.890   &   0.611 &   0.889 &   0.597	&   0.914 &0  \\
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form,
@@ -1435,7 +1439,7 @@ content.}
 
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllcrllll|c}
+\begin{deluxetable*}{lllcrlllll|c}
 \centering
 \tablecolumns{13}
 \tablewidth{0pc}
@@ -1444,11 +1448,11 @@ content.}
 \tablehead{
  & & & 
 \multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
-\multicolumn{4}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\multicolumn{5}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
 \colhead{$\ldots$}
 \\
-\colhead{Project ID} & 
-\colhead{SDSS DR7 ObjID} & 
+\colhead{Zooniverse ID} & 
+\colhead{Survey ID} & 
 \colhead{Imaging} & 
 \colhead{Correction} & 
 \colhead{$N_\mathrm{votes}$} & 
@@ -1456,20 +1460,21 @@ content.}
 \colhead{weighted} & 
 \colhead{debiased} & 
 \colhead{best} &
+\colhead{flag} &
 \colhead{}
 }
 \small
 \startdata
-AHZ5000001  &   587730845812064684  &   SDSS    &     2 &   41  &   0.585   &    0.595  &   0.759   &   0.594   \\
-AHZ5000002  &   587730845812065247  &   SDSS    &     2 &   46  &   0.609   &    0.651  &   0.897   &   0.651   \\
-AHZ5000003  &   587730845812196092  &   SDSS    &     2 &   51  &   0.039   &    0.044  &   0.067   &   0.043   \\
-AHZ5000004  &   587730845812196825  &   SDSS    &     2 &   35  &   0.514   &    0.605  &   0.928   &   0.605   \\
-AHZ5000005  &   587730845812524122  &   SDSS    &     2 &   47  &   0.766   &    0.812  &   1.038   &   0.810   \\
-AHZ5000006  &   587730845812654984  &   SDSS    &     2 &   42  &   0.5	    &    0.542  &   0.680   &   0.541   \\
-AHZ5000007  &   587730845812655541  &   SDSS    &     2 &   41  &   0.488   &    0.526  &   0.697   &   0.525   \\
-AHZ5000008  &   587730845812720365  &   SDSS    &     2 &   53  &   0.792   &    0.84   &   1.050   &   0.839   \\
-AHZ5000009  &   587730845812720640  &   SDSS    &     4 &   43  &   0.0	    &    0.0    &   0.0	    &   0.0	    \\
-AHZ500000a  &   587730845812720699  &   SDSS    &     2 &   40  &   0.425   &    0.478  &   0.588   &   0.477   \\
+AHZ5000001  &   587730845812064684  &   SDSS    &     2 &   41  &   0.585   &    0.595  &   0.759   &   0.594 &0  \\
+AHZ5000002  &   587730845812065247  &   SDSS    &     2 &   46  &   0.609   &    0.651  &   0.897   &   0.651 &0  \\
+AHZ5000003  &   587730845812196092  &   SDSS    &     2 &   51  &   0.039   &    0.044  &   0.067   &   0.043 &0  \\
+AHZ5000004  &   587730845812196825  &   SDSS    &     2 &   35  &   0.514   &    0.605  &   0.928   &   0.605 &0  \\
+AHZ5000005  &   587730845812524122  &   SDSS    &     2 &   47  &   0.766   &    0.812  &   1.038   &   0.810 &1  \\
+AHZ5000006  &   587730845812654984  &   SDSS    &     2 &   42  &   0.5	    &    0.542  &   0.680   &   0.541 &0  \\
+AHZ5000007  &   587730845812655541  &   SDSS    &     2 &   41  &   0.488   &    0.526  &   0.697   &   0.525 &0  \\
+AHZ5000008  &   587730845812720365  &   SDSS    &     2 &   53  &   0.792   &    0.84   &   1.050   &   0.839 &1  \\
+AHZ5000009  &   587730845812720640  &   SDSS    &     4 &   43  &   0.0	    &    0.0    &   0.0	    &   0.0   &0    \\
+AHZ500000a  &   587730845812720699  &   SDSS    &     2 &   40  &   0.425   &    0.478  &   0.588   &   0.477 &0  \\
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form,
@@ -1481,7 +1486,7 @@ content.}
 
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllcrllll|c}
+\begin{deluxetable*}{lllcrlllll|c}
 \centering
 \tablecolumns{13}
 \tablewidth{0pc}
@@ -1490,11 +1495,11 @@ content.}
 \tablehead{
  & & & 
 \multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
-\multicolumn{4}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\multicolumn{5}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
 \colhead{$\ldots$}
 \\
-\colhead{Project ID} & 
-\colhead{SDSS DR7 ObjID} & 
+\colhead{Zooniverse ID} & 
+\colhead{Survey ID} & 
 \colhead{Imaging} & 
 \colhead{Correction} & 
 \colhead{$N_\mathrm{votes}$} & 
@@ -1502,20 +1507,21 @@ content.}
 \colhead{weighted} & 
 \colhead{debiased} & 
 \colhead{best} &
+\colhead{flag} &
 \colhead{}
 }
 \small
 \startdata
-AHZ6000001  & 8647474690312306978   &   SDSS    &    4  & 40  & 0.275   &    0.289  &   0.762   &   0.289   & \\
-AHZ6000002  & 8647474690312307154   &   SDSS    &    2  & 43  & 0.605   &    0.634  &   0.858   &   0.635   & \\
-AHZ6000003  & 8647474690312307877   &   SDSS    &    2  & 51  & 0.608   &    0.627  &   0.906   &   0.627   & \\
-AHZ6000004  & 8647474690312308301   &   SDSS    &    4  & 52  & 0.038   &    0.038  &   0.723   &   0.038   & \\
-AHZ6000005  & 8647474690312308318   &   SDSS    &    2  & 44  & 0.614   &    0.632  &   0.776   &   0.631   & \\
-AHZ6000006  & 8647474690312308880   &   SDSS    &    2  & 36  & 0.667   &    0.683  &   0.901   &   0.683   & \\
-AHZ6000007  & 8647474690312372644   &   SDSS    &    4  & 48  & 0.646   &    0.674  &   1.145   &   0.674   & \\
-AHZ6000008  & 8647474690312372789   &   SDSS    &    4  & 45  & 0.489   &    0.571  &   0.964   &   0.570   & \\
-AHZ6000009  & 8647474690312372931   &   SDSS    &    4  & 47  & 0.553   &    0.587  &   0.926   &   0.587   & \\
-AHZ600000a  & 8647474690312373190   &   SDSS    &    4  & 47  & 0.574   &    0.559  &   1.008   &   0.559   & \\
+AHZ6000001  & 8647474690312306978   &   SDSS    &    4  & 40  & 0.275   &    0.289  &   0.762   &   0.289   & 0&\\
+AHZ6000002  & 8647474690312307154   &   SDSS    &    2  & 43  & 0.605   &    0.634  &   0.858   &   0.635   & 0&\\
+AHZ6000003  & 8647474690312307877   &   SDSS    &    2  & 51  & 0.608   &    0.627  &   0.906   &   0.627   & 0&\\
+AHZ6000004  & 8647474690312308301   &   SDSS    &    4  & 52  & 0.038   &    0.038  &   0.723   &   0.038   & 0&\\
+AHZ6000005  & 8647474690312308318   &   SDSS    &    2  & 44  & 0.614   &    0.632  &   0.776   &   0.631   & 0&\\
+AHZ6000006  & 8647474690312308880   &   SDSS    &    2  & 36  & 0.667   &    0.683  &   0.901   &   0.683   & 0&\\
+AHZ6000007  & 8647474690312372644   &   SDSS    &    4  & 48  & 0.646   &    0.674  &   1.145   &   0.674   & 0&\\
+AHZ6000008  & 8647474690312372789   &   SDSS    &    4  & 45  & 0.489   &    0.571  &   0.964   &   0.570   & 0&\\
+AHZ6000009  & 8647474690312372931   &   SDSS    &    4  & 47  & 0.553   &    0.587  &   0.926   &   0.587   & 0&\\
+AHZ600000a  & 8647474690312373190   &   SDSS    &    4  & 47  & 0.574   &    0.559  &   1.008   &   0.559   & 0&\\
 $\ldots$    \\
 \enddata
 \tablecomments{The full version of this table is available in electronic form,
@@ -1526,7 +1532,7 @@ content.}
 \end{deluxetable*}
 
 \tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllccccrrrrrrr|c}
+\begin{deluxetable*}{lllccccrrrrrrrr|c}
 \centering
 \tablecolumns{14}
 \tablewidth{0pc}
@@ -1534,11 +1540,11 @@ content.}
 \tabletypesize{\scriptsize}
 \tablehead{
  & & & & & & & &
-\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\multicolumn{7}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
 \colhead{$\ldots$}
 \\
-\colhead{Project ID} & 
-\colhead{SDSS DR7 ObjID} & 
+\colhead{Zooniverse ID} & 
+\colhead{Survey ID} & 
 \colhead{Imaging} & 
 \colhead{Correction} & 
 \colhead{Version} & 
@@ -1551,22 +1557,23 @@ content.}
 \colhead{best} &
 \colhead{lower limit} &
 \colhead{upper limit} &
+\colhead{flag} &
 \colhead{}
 }
 \small
 \startdata
-AHZ7000001  &   90024700  &   GEMS    &   1   &   1   &   0.2	    &   1   &   42	&   0.238   &   0.239   &   $-$0.110  &       0.238  &  $-$0.113    &     0.287  \\
-AHZ7000002  &   90024700  &   GEMS    &   1   &   1   &   1.0	    &   1   &   51	&   0.255   &   0.265   &   $-$0.107  &       0.264  &  $-$0.128    &     0.272  \\
-AHZ7000003  &   90024700  &   GEMS    &   0   &   1   &   5.0	    &   1   &   47	&   0.170   &   0.167   &   $-$0.018  &    $-$0.018  &  $-$0.049    &     0.033  \\
-AHZ7000004  &   90024700  &   GEMS    &   0   &   1   &   10.0    &   1   &   41	&   0.195   &   0.195   &      0.045  &       0.045  &     0.044    &     0.127  \\
-AHZ7000005  &   90024700  &   GEMS    &   0   &   1   &   50.0    &   1   &   47	&   0.170   &   0.178   &      0.067  &       0.067  &     0.146    &     0.167  \\
+AHZ7000001  &   90024700  &   GEMS    &   1   &   1   &   0.2	    &   1   &   42	&   0.238   &   0.239   &   $-$0.110  &       0.238  &  $-$0.113    &     0.287  &0\\
+AHZ7000002  &   90024700  &   GEMS    &   1   &   1   &   1.0	    &   1   &   51	&   0.255   &   0.265   &   $-$0.107  &       0.264  &  $-$0.128    &     0.272  &0\\
+AHZ7000003  &   90024700  &   GEMS    &   0   &   1   &   5.0	    &   1   &   47	&   0.170   &   0.167   &   $-$0.018  &    $-$0.018  &  $-$0.049    &     0.033  &0\\
+AHZ7000004  &   90024700  &   GEMS    &   0   &   1   &   10.0    &   1   &   41	&   0.195   &   0.195   &      0.045  &       0.045  &     0.044    &     0.127  &0\\
+AHZ7000005  &   90024700  &   GEMS    &   0   &   1   &   50.0    &   1   &   47	&   0.170   &   0.178   &      0.067  &       0.067  &     0.146    &     0.167  &0\\
 $\ldots$    \\
-AHZ700013m  &   90024700  &   GEMS    &   0   &   2   &   0.0	    &   0   &   35	&   0.171   &   0.136   &      0.011  &       0.011  &     0.029    &      0.112 \\
-AHZ700013n  &   90024700  &   GEMS    &   1   &   2   &   0.2	    &   1   &   20	&   0.150   &   0.158   &   $-$0.278  &       0.049  &  $-$0.351    &      0.049 \\
-AHZ700013o  &   90024700  &   GEMS    &   1   &   2   &   1.0	    &   1   &   32	&   0.281   &   0.300   &   $-$0.086  &       0.281  &  $-$0.119    &      0.281 \\
-AHZ700013p  &   90024700  &   GEMS    &   0   &   2   &   5.0	    &   1   &   29	&   0.103   &   0.115   &   $-$0.098  &    $-$0.098  &  $-$0.152    &   $-$0.069 \\
-AHZ700013q  &   90024700  &   GEMS    &   0   &   2   &   10.0    &   1   &   35	&   0.171   &   0.181   &      0.027  &       0.027  &     0.023    &      0.106 \\
-AHZ700013r  &   90024700  &   GEMS    &   0   &   2   &   50.0    &   1   &   34	&   0.206   &   0.206   &   $-$0.005  &    $-$0.005  &  $-$0.056    &      0.026 \\
+AHZ700013m  &   90024700  &   GEMS    &   0   &   2   &   0.0	    &   0   &   35	&   0.171   &   0.136   &      0.011  &       0.011  &     0.029    &      0.112 &0\\
+AHZ700013n  &   90024700  &   GEMS    &   1   &   2   &   0.2	    &   1   &   20	&   0.150   &   0.158   &   $-$0.278  &       0.049  &  $-$0.351    &      0.049 &0\\
+AHZ700013o  &   90024700  &   GEMS    &   1   &   2   &   1.0	    &   1   &   32	&   0.281   &   0.300   &   $-$0.086  &       0.281  &  $-$0.119    &      0.281 &0\\
+AHZ700013p  &   90024700  &   GEMS    &   0   &   2   &   5.0	    &   1   &   29	&   0.103   &   0.115   &   $-$0.098  &    $-$0.098  &  $-$0.152    &   $-$0.069 &0\\
+AHZ700013q  &   90024700  &   GEMS    &   0   &   2   &   10.0    &   1   &   35	&   0.171   &   0.181   &      0.027  &       0.027  &     0.023    &      0.106 &0\\
+AHZ700013r  &   90024700  &   GEMS    &   0   &   2   &   50.0    &   1   &   34	&   0.206   &   0.206   &   $-$0.005  &    $-$0.005  &  $-$0.056    &      0.026 &0\\
 $\ldots$    \\
 \enddata
 \tablenotetext{1}{Flag indicating the color of the PSF in the simulated AGN. 0~=~no simulated AGN, 1~=~blue, 2~=~flat, 3~=~red.}
