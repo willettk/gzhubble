@@ -374,62 +374,56 @@ were dimmer than the initial magnitude cut of 17.77.
 
 \subsection{Image creation}
 
-The images used for classification in GZH were color-composite JPGs made from
-multi-band data. The exact process for creating the images depended on the bands
-and resolutions in the surveys. 
+The images used for classification in GZH were color-composite JPEGs made from
+multi-band data. These were created followed the method of \citet{lup04}, which
+preserves colour information irrespective of intensity.  An asinh intensity
+mapping was applied to enhance the appearance of faint features while avoiding
+saturating galaxy centers. The relative scalings of the filter bands were
+chosen while trying to reproduce the color appearance of the SDSS images in
+previous iterations of Galaxy Zoo.
 
-For galaxies in the ACS-GC, color composites were made using a fixed pixel
-intensity scaling with weights of
-$[2.4\times10^{-4},3\times10^{-4},3\times10^{-4}]$ in the red, green, and blue
-channels respectively. A nonlinear mapping was applied to each pixel to
-emphasize the contrast in faint features \citep{lup04}, taking the form of:
+Many of the Legacy surveys described in Section~\ref{ssec:legacy_surveys}
+provided images in only two filters. For these, the shorter-wavelength band was
+mapped to the blue channel, the longer-wavelength band to the red channel, and
+the green channel created by taking the arithmetic mean of the two. The bands
+used in each of the surveys are listed in Table~\ref{tbl:gzh_numbers}.
+Although four bands were available for the GOODS survey, only two bands were
+used to create the original 2-epoch images, for consistency with AEGIS and
+GEMS. The 2-epoch GOODS-N and GOODS-S images were created using different
+filters --- this was a deliberate choice made so that the GEMS images could be
+directly compared with the overlapping coverage of GOODS-S
+(Figure~\ref{fig:filtercurves}).
 
-\begin{equation}
-I_\mathrm{channel,new} = I_\mathrm{channel,old} \times \frac{\arcsinh(b\times r)}{(b\times r)}
-\label{eqn:nonlinear}
-\end{equation}
+Only 2-epoch GOODS images were included at the launch of GZH.  Deeper, 5-epoch 
+GOODS images were added into GZH later (in March 2015). These images made
+use of the full four-band data by using the arithmetic mean of \Bband{} and
+\Vband{} in the blue channel, \Iband{} in the green channel, and \zband{} in
+the red channel.
 
-\noindent GZH images from \citet{gri12} used a value of $b=3$. 
-
-The majority of the data in Legacy surveys described in
-Section~\ref{ssec:legacy_surveys} had images in only one or two filters
-available when the GZH project was first launched, making standard 3-channel
-RGB images in the same method used for the SDSS images in the original Galaxy
-Zoo impossible. For surveys with images in two bands (AEGIS, GEMS, and the
-two-epoch GOODS-N and GOODS-S), the lower-wavelength band was mapped to the
-blue channel, the higher-wavelength band to the red channel, and the green
-channel created by taking the geometric mean of the two. Bands used in each of
-the surveys are listed in Table~\ref{tbl:gzh_numbers}. The 2-epoch GOODS-N and
-GOODS-S images used different filters --- this was a deliberate choice made so
-that the GEMS images could be directly compared with the overlapping coverage
-of GOODS-S (Figure~\ref{fig:filtercurves}). 
-
-By the time that the 5-epoch sets of GOODS data were put into GZH (in March
-2015), coverage in four separate \hst{} bands were publicly available. The
-deeper GOODS images were created using the arithmetic mean of \Bband{} and
-\Vband{} in the blue channel, \Iband{} in the red channel, and \zband{} in the
-green channel. These images also had their speckled noise pixels decolorized. 
-
-The COSMOS images only had the \Iband{} imaging available at the time of
-classification in GZH. For these galaxies, GZH used ``pseudocolor'' images
-created by using the ACS \Iband{} data as an illumination map and ground-based
-imaging from the \subaru{} telescope in $B_J$, $r^+$, and $i^+$ filters to
-provide the color gradients \citep[see][for further details]{gri12}. This
-resulted in images with the angular resolution of \hst{}
-($\sim0.05$~\arcsec/pixel) for the overall intensity, but color gradients at
-ground-based resolution, with seeing between 0.95\arcsec{} and 1.05\arcsec{}
-\citep{tan07}.
+The COSMOS survey provided only \Iband{} HST imaging at the time of the GZH
+launch.  These galaxies used ``pseudocolor'' images created by using
+the ACS \Iband{} data as an illumination map and ground-based imaging from the
+\subaru{} telescope in $B_J$, $r^+$, and $i^+$ filters to provide color
+information (see \citealt{gri12} for further details). This resulted in images
+with the angular resolution of \hst{} ($\sim0.05$~\arcsec/pixel) for the
+overall intensity, but color gradients at ground-based resolution, with seeing
+between 0.95\arcsec{} and 1.05\arcsec{} \citep{tan07}.
 
 Stripe~82 single-epoch images were taken directly from the DR7 SDSS Skyserver,
 which combined $g^{\prime}$, $r^{\prime}$, and $i^{\prime}$ exposures into the
 RGB channels. The co-added Stripe~82 images were assembled from runs 106 and
-206 in DR7 and made into color composites using the method of \citet{lup04}.
+206 in DR7 and processed into color composites in a corresponding manner.
 
-To deal with situations in which the sky noise was highly colored (which might
-have been a distraction to visual classification), a soft-edged object mask was
-applied to the coadded Stripe~82 and the COSMOS images. This mask preserved the
-color balance for galaxies, but desaturated speckled noise against regions of
-blank sky.
+In some cases, we found that attempting to emphasize faint features in the
+images resulted in the sky noise taking the appearance of brightly colored
+speckles. This impaired the aesthetics of the images and might have been a
+distraction to visual classification.  To counteract this, a soft-edged object
+mask was applied to the color images and a desaturation operation performed.
+This masked procedure was effective in preserving the color balance for
+galaxies, retaining the visibility of faint features, but reduced the color
+contrast in the sky noise and greatly improved the appearance of the images.
+This solution was applied to the coadded Stripe~82, COSMOS and 5-epoch GOODS
+images.
 
 \subsection{Images with simulated nuclear point sources}
 
