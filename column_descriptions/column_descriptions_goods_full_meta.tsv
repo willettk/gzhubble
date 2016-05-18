@@ -1,0 +1,22 @@
+Name	Type	Unit	Description
+zooniverse_id	String		unique ID given by Zooniverse
+survey_id	String		unique ID given by target survey
+imaging	String		survey source of image
+RA	Double	J2000 degrees	right ascension
+DEC	Double	J2000 degrees	declination
+Z_BEST	Double		best' redshift selected from 4 source catalogs; see Willett & Galloway et al. 2016 Section 2.6
+Z_BEST_TYPE	String		best' redshift type: SPEC_Z = spectroscopic, PHOTO_Z = photometric, GRISM_Z = grism
+Z_BEST_SOURCE	String		source catalog of best redshift ACS-GC, 3DHST, MUSYC, and UltraVISTA
+absolute_size	Double		
+counters_feature	Long		
+counters_smooth	Long		
+counters_star	Long		
+flux_radius1_I	Double		
+mag_B	Float		
+mag_V	Float		
+mag.I	Float		
+mag.Z	Float		
+mag.abs_Z	Double		
+kron_radius_I	Float		
+redshift	Double		
+z_spec_conflict_flag	Boolean		Flag for galaxies whose spectroscopic redshifts differed by dz > .001 in any of the catalogs ACS-GC, 3DHST, and MUSYC. (See Willett & Galloway et al. 2016 Section 2.4) 
