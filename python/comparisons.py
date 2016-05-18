@@ -221,7 +221,7 @@ def gems():
     print "Clumpy galaxies  n: {0:.2f}+-{1:.2f}".format(np.mean(data[clumpy_sample]['n']),np.std(data[clumpy_sample]['n']))
     print "Clumpy galaxies Re: {0:.0f}+-{1:.0f}".format(np.mean(data[clumpy_sample]['Re']),np.std(data[clumpy_sample]['Re']))
 
-    # Plot Figure 16 from Haussler+07
+    # Plot Figure 16 from Haeussler+07
 
 
     fig = plt.figure(figsize=(10,6))
@@ -792,7 +792,7 @@ def frac_all(zint=0.0,zlow=0.0):
               'classcol':'AUTOCLASS'},
              {'data':gems,
               'survey':'GEMS',
-              'citation':'Hauessler+07',
+              'citation':'Haeussler+07',
               'classcol':'TYPE'},
              {'data':zest,
               'survey':'COSMOS',
