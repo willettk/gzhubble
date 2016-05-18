@@ -1023,20 +1023,20 @@ from GZH for the images in each panel are (1) Top row: \ffeatures~= (0.900,
 
 \subsection{Correcting morphologies for classification bias}\label{ssec:zeta}
 
-The approach used in GZH for correcting the weighted classifications for redshift
-bias rests on the assumption that the \emph{degree} of bias is a function of
-the apparent size and brightness of the image as seen on screen. This is
-controlled by two types of parameters: \textbf{intrinsic} properties of the
-galaxy itself, such as its physical diameter and luminosity, and
+The approach used in GZH for correcting the weighted classifications for
+redshift bias rests on the assumption that the \emph{degree} of bias is a
+function of the apparent size and brightness of the image as seen on screen.
+This is controlled by two types of parameters: \textbf{intrinsic} properties of
+the galaxy itself, such as its physical diameter and luminosity, and
 \textbf{extrinsic} properties, such as the distance (redshift) of the galaxy
 and its relative orientation. There may also be other parameters that affect
-classifier accuracy, such as the proximity of close companions \citep[``distraction
-bias''; see][]{joh15} or bias as a function of individual classifier ability and
-skill. The combination of all such parameters forms a high-dimensional space,
-and it is not clear how to separate this into individual effects. Instead, the
-method used here employs only two parameters intended to capture the bulk of
-the change in bias: the $r^\prime$-band surface brightness ($\mu_r$; intrinsic)
-and redshift ($z$; extrinsic). 
+classifier accuracy, such as the proximity of close companions or bias as a
+function of individual classifier ability and skill. The combination of all
+such parameters forms a high-dimensional space, and it is not clear how to
+separate this into individual effects. Instead, the method used here employs
+only two parameters intended to capture the bulk of the change in bias: the
+$r^\prime$-band surface brightness ($\mu_r$; intrinsic) and redshift ($z$;
+extrinsic). 
 
 The change in bias as a function of $\mu_r$ and \zsim{} is measured using the
 \ferengi{} images over all the evolutionary correction factors. It is assumed
