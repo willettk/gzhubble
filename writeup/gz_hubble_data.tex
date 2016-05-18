@@ -399,7 +399,7 @@ images used were three-color composites using the $g^\prime$, $r^\prime$, and
 $i^\prime$ filters \citep{nie04}. 21,522 galaxies in SDSS met these criteria.
 Co-added images from Stripe~82 were selected from the union of galaxies with
 co-added magnitudes brighter than $17.77$~mag, and the galaxies detected in the
-single-depth images and matched to a co-add source. This resulted in a total
+\stripe{} images and matched to a co-add source. This resulted in a total
 set of 30,339 images. Of the images in the co-added sample, 5144 (17~percent)
 were dimmer than the initial magnitude cut of 17.77. 
 
@@ -444,14 +444,15 @@ luminosities, but the extended features of the noiseless \texttt{TinyTim} PSFs
 are visually more realistic at higher luminosities.
 % okay so I'm a cheeky self-citing biyotch
 
-Images with simulated AGN were classified in the main interface in an identical
+Images with simulated AGN were classified in the interface in an identical
 manner and evenly distributed with unaltered images of the galaxies.
 Classifiers were not explicitly told that the images had been altered during
 classification, as the goal was to measure the effect on normal classifications
 in as unbiased a manner as possible. Following classification, a classifier
 could view a page with additional details about each galaxy they had
 classified; where applicable these pages contained further information
-regarding image modifications.
+regarding image modifications. \citet{sim14} uses similarly-processed
+images for reliable identification of bulgeless galaxies using SDSS data.
 
 
 \subsubsection{Generating images of artificially-redshifted galaxies}\label{ssec:ferengi}
@@ -606,7 +607,7 @@ contrast in the sky noise and greatly improving the appearance of the images.
 This solution was applied to the coadded Stripe~82, COSMOS and 5-epoch GOODS
 images.
 
-In addition to the main \hst{} legacy imaging sample with colored images
+In addition to the primary \hst{} legacy imaging sample with colored images
 described as above, GZH also includes samples of \hst{} galaxy images with
 different color prescriptions. In particular, there are 2 sets of 3,927 images
 each, drawn from the COSMOS sample; the first has a dramatically reduced color
@@ -635,40 +636,40 @@ following labels:
 \begin{itemize}
 
 %\ref{tbl:catalog_hst}
-\item \texttt{main}: \hst{} imaging with RGB colors making use of all available
+\item \main: \hst{} imaging with RGB colors making use of all available
 filters with typical saturation and in correct order, as described in
 Section~\ref{ssec:images}. This sample includes AEGIS, COSMOS, GEMS, and
 full-depth GOODS (North and South) images. (118,425 galaxies)
 
 %\ref{tbl:catalog_faded}
-\item \texttt{faded}: a subset of COSMOS images with very low color saturation.
+\item \faded: a subset of COSMOS images with very low color saturation.
 (3,927 galaxies)
 
 %\ref{tbl:catalog_recolored}
-\item \texttt{recolored}: a subset of COSMOS images with red and blue channels
+\item \recolored: a subset of COSMOS images with red and blue channels
 reversed. Note: this sub-sample uses the same galaxies as the \texttt{faded}
 sub-sample. (3,927 galaxies)
 
 %\ref{tbl:catalog_goods_shallow}
-\item \texttt{goods-shallow}: Images from GOODS-North and GOODS-South, with
+\item \goods: Images from GOODS-North and GOODS-South, with
 color from 2 filters and imaged at 2-epoch depth. (6,144 galaxies)
 
 %\ref{tbl:stripe82_single}
-\item \texttt{stripe-82-single}: Single-epoch images from SDSS Stripe~82.
+\item \stripe: Single-epoch images from SDSS Stripe~82.
 (21,522 galaxies)
 
 %\ref{tbl:stripe82_coadd}
-\item \texttt{stripe-82-coadd}: Co-added images from SDSS Stripe~82. Note: this
+\item \coadd: Co-added images from SDSS Stripe~82. Note: this
 sub-sample includes all galaxies in the \texttt{stripe-82-single} sub-sample,
 with additional sources detected in the deeper imaging. (30,339 galaxies)
 
 %ferengi <-- no table?
-\item \texttt{redshifted}: Simulated \hst{} images constructed using SDSS
+\item \redshifted: Simulated \hst{} images constructed using SDSS
 images and artificially redshifted to between $0.3 \leq z \leq 1$. (288
 original galaxies; 3,950 redshifted galaxies)
 
 %\ref{tbl:simulated_agn}
-\item \texttt{simulated-agn}: Simulated AGN host galaxies constructed using
+\item \simagn: Simulated AGN host galaxies constructed using
 \hst{} images and PSFs. (96 original galaxies; 2,961 simulated AGN host
 galaxies)
 
@@ -678,13 +679,13 @@ galaxies)
 
 \subsection{Galaxy metadata}
 
-Photometric data for the bulk of the GZH sample were largely drawn from the
-tables in \citet{gri12}. This included photometric parameters such as
-the fluxes, magnitudes, radii, ellipticities, position angles, and positions
-drawn from both \sextractor{} and \galfit. \galfit{} also provided the
-parametric \sersic{} index and effective half-light radius for the best-fit
-model. All parameters were measured in both bands of the ACS imaging, with the
-exception of the single-band COSMOS images.
+Photometric data for the bulk of the GZH \main, \faded, \recolored, and \goods{}
+samples were largely drawn from the tables in \citet{gri12}. This included
+photometric parameters such as the fluxes, magnitudes, radii, ellipticities,
+position angles, and positions drawn from both \sextractor{} and \galfit.
+\galfit{} also provided the parametric \sersic{} index and effective half-light
+radius for the best-fit model. All parameters were measured in both bands of
+the ACS imaging, with the exception of the single-band COSMOS images.
 
 Redshifts for the GZH catalog were compiled from a variety of sources. For each
 galaxy, the primary redshift used for debiasing calculations
@@ -760,12 +761,12 @@ estimated redshift with the smallest error.
 %\enddata
 %\end{deluxetable*}
 
-Photometric and spectroscopic data for the SDSS Stripe~82 galaxies were taken
+Photometric and spectroscopic data for the \stripe{} and \coadd{} galaxies were taken
 from the CasJobs DR7 tables. This included $ugriz$ Petrosian magnitudes and
 fluxes, as well as the relative de~Vaucouleurs and exponential fits from the
 model magnitudes. All redshifts used for SDSS galaxies were spectroscopic.
-82.6\% of galaxies in the single-depth images and 65.1\% of galaxies in the
-co-add images had a measured DR7 spectroscopic redshift. 
+82.6\% of galaxies in the \stripe{} images and 65.1\% of galaxies in the
+\coadd{} images had a measured DR7 spectroscopic redshift. 
 
 \section{GZH interface and classifications}\label{sec:interface}
 
@@ -843,12 +844,11 @@ lanes, gravitational lenses, and mergers.
 The number of independent classifications per subject collected by GZH was on
 average higher than GZ1 or GZ2, due to both the increased complexity of the
 decision tree and the relative difficulty of classifying images of small and
-distant galaxies. Images from the main AEGIS, GEMS, and GOODS data sets had a
-median of 122~independent classifications per image. The remainder of the
-images either had a later activation date (COSMOS, simulated AGN) or a lower
-retirement limit (the low-redshift SDSS Stripe~82 galaxies). Images from these
-samples had a median of 46--48~classifications per image
-(Figure~\ref{fig:classification_hist}).
+distant galaxies. Images from the \main{} AEGIS, GEMS, and GOODS data sets had
+a median of 122~independent classifications per image. The remainder of the
+images either had a later activation date (\main{} COSMOS, \simagn) or a lower
+retirement limit (\stripe{} and \coadd). Images from these samples had a median
+of 46--48~classifications per image (Figure~\ref{fig:classification_hist}).
 
 \begin{figure}
 \center
@@ -863,7 +863,7 @@ GEMS, GOODS 2-epoch, and SDSS Stripe~82 images. Images from COSMOS and the
 simulated AGN were activated in Dec 2010, as well as a small sample of images
 from AEGIS, GEMS, and GOODS that were previously excluded from the original
 sample due to cuts on blended and/or saturated objects and subsequently
-confirmed as classifiable galaxies. The main GZH site collected data until its
+confirmed as classifiable galaxies. The GZH site collected data until its
 replacement, the fourth phase of
 Galaxy~Zoo\footnote{\url{http://zoo4.galaxyzoo.org}} (including data from both
 the \hst{} CANDELS survey and SDSS DR8) began on 10~Sep~2012. Classifications
@@ -1459,28 +1459,9 @@ applied. This accounts for the uncertainty in distinguishing between genuine
 ellipticals and disks whose features have been washed out due to surface
 brightness and redshift effects (Section~\ref{sec:debiasing}).
 
-Data products for GZH are split by the type of image being classified.
-Table~\ref{tbl:catalog_hst} contains the classifications for the \hst{} images
-from the AEGIS, COSMOS, and GEMS surveys, as well as 5-epoch deep imaging from
-the GOODS-N and GOODS-S surveys. This contains 118,425~galaxies and is the
-primary output from the GZH project. The next two tables have data for a small
-subset of 3,927~COSMOS~images that were re-processed to study the effect of
-color balance on morphological classification. Table~\ref{tbl:catalog_faded}
-has images that are desaturated to minimize the color contrast;
-Table~\ref{tbl:catalog_recolored} has images with the red and blue color
-channels inverted. Table~\ref{tbl:catalog_goods_shallow} contains data for
-6,144~galaxies with 2-epoch images from GOODS. These have been mostly
-supplanted in the main table with deeper 5-epoch GOODS imaging; however, there
-are 1,683~galaxies in the shallower imaging that were not classified in the
-deeper mosaics. This data can also be compared to the counterparts in
-Table~\ref{tbl:catalog_hst} to study the effect of depth on morphological
-classification. Tables~\ref{tbl:stripe82_single} and \ref{tbl:stripe82_coadd}
-contain data for the SDSS Stripe~82 single-depth and co-added images,
-respectively, that were classified using the GZH interface and decision tree.
-Finally, Table~\ref{tbl:simulated_agn} contains classifications for images with
-artificial point sources intended to simulate the effect of a bright AGN (see
-\citealt{sim14} for an example).
-
+Data products for GZH are split by the type of image being classified. Each
+sample in Section~\ref{ssec:sample_labels} corresponds to the data in
+Tables~\ref{tbl:Catalog_hst}-\ref{tbl:simulated_agn}.
 
 \tabletypesize{\scriptsize}
 \begin{deluxetable*}{lllcrlllllll|c}
@@ -2033,7 +2014,7 @@ the number of galaxies for which the question was reliably answered.}
 Given these caveats, the overall distribution of galaxy types is significantly
 different than the low-redshift sample classified in SDSS imaging from GZ1 and
 GZ2. \citet{lin11} found that elliptical galaxies exceeded spiral galaxies by a
-factor of $\sim2:1$ in the main spectroscopic sample if using a plurality vote
+factor of $\sim2:1$ in their spectroscopic sample if using a plurality vote
 criterion (although \citealt{bam09} show that this strongly depends on the
 selection method; spirals are the dominant population in a volume-limited
 sample at $z<0.088$, for example). The weighted votes for GZH have smooth
@@ -2081,7 +2062,7 @@ parameters from the \galfit{} code, which \citet{hau07} evaluated as more
 reliable than \gimtwod{} for GEMS due to the ability to fit multiple galaxies
 in crowded fields. A 1\arcsec~positional match for the GEMS galaxies in Table~9
 in \citet{hau07} to the GZH sample gives 8,846~galaxies in both \citet{hau07}
-and GZH. The main morphological parameter in the automated catalog is the
+and GZH. The primary morphological parameter in the automated catalog is the
 \sersic{} index $n$ defining the radial surface brightness profile.
 ``Elliptical'' galaxies are selected by $n>2.5$ and ``spirals''  by $n>2.5$.
 There is no automatic measurement of irregular or clumpy structure in this
@@ -2314,8 +2295,8 @@ Total                              & 2,551   & 4,913   & 7,464 \\
 \end{table}
 
 GZH used both 5-epoch and 2-epoch sets of data to construct the GOODS set of
-images. The 11,157 full depth 5-epoch images are used in the main catalog; the
-classifications for the 7,464 shallow depth 2-epoch images are provided as a
+images. The 11,157 full depth 5-epoch images are used in the \main{} catalog; the
+classifications for the 7,464 \goods{} images are provided as a
 supplementary table. This section analyzes the effect of image depth on the
 ability of the Galaxy~Zoo classifiers to identify features or disk structure in the images. 
 
@@ -2344,10 +2325,11 @@ Figures~\ref{fig:shallow_smooth},\ref{fig:shallow_intermediate}, and
 \begin{center}
 \includegraphics[width=0.50\textwidth]{figures/full_shallow_p_plot.pdf}
 \caption{Distribution of \ffeatures{} for the 4,461 GOODS galaxies with both
-shallow (2-epoch) and full-depth (5-epoch) images morphologically classified in
-GZH. For most galaxies, the value of \ffeatures{} is consistent ($\Delta
-f_\mathrm{features}<0.2$) between depths. Examples of galaxies with sharp
-changes in \ffeatures, as well as those with little to no change are shown in
+shallow (2-epoch; \goods) and full-depth (5-epoch; \main) images
+morphologically classified in GZH. For most galaxies, the value of \ffeatures{}
+is consistent ($\Delta f_\mathrm{features}<0.2$) between depths. Examples of
+galaxies with sharp changes in \ffeatures, as well as those with little to no
+change are shown in
 Figures~\ref{fig:shallow_smooth}-\ref{fig:shallow_featured}.}
 \label{fig:shallow_vs_full}
 \end{center}
