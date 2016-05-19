@@ -1055,11 +1055,11 @@ f_\textrm{features,debiased} = 1 - (1 - f_\mathrm{features,weighted})e^{\frac{z-
 
 \begin{figure*}
 \centering
-\subfigure{[a]\label{fig:6a}\includegraphics[width=0.5\textwidth]{figures/p_vs_p_SB_redshift.pdf}}
-\subfigure{[b]\label{fig:6b}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot1.pdf}}
+\subfigure{[a]\label{fig:bias_a}\includegraphics[width=0.5\textwidth]{figures/p_vs_p_SB_redshift.pdf}}
+\subfigure{[b]\label{fig:bias_b}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot1.pdf}}
 \\
-\subfigure{[c]\label{fig:6c}\includegraphics[width=0.5\textwidth]{figures/orangebars.pdf}}
-\subfigure{[d]\label{fig:6d}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot2.pdf}}
+\subfigure{[c]\label{fig:bias_c}\includegraphics[width=0.5\textwidth]{figures/orangebars.pdf}}
+\subfigure{[d]\label{fig:bias_d}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot2.pdf}}
 \caption{Effects of redshift bias in 3,950 images in the \ferengi{} sample.
 [a]: Each point in a given redshift and surface brightness bin represents a
 unique galaxy. On the $y$-axis in each bin is the \ffeatures{} value of the
@@ -1113,7 +1113,7 @@ redshift. The second group are disks whose features become indistinct at high
 redshift; hence their \ffeatures{} value at $z=0.3$ may be quite high, while
 the value observed at high redshift is very low. This effect is strongest at
 high $z$ and low $\mu$, where features become nearly impossible to discern in
-the images.
+the images (see top right panel of Figure~\ref{fig:bias_a}).
 
 The criteria for determining whether a region of this space is single-valued,
 and therefore correctable, is as follows: In each surface brightness and
@@ -1121,7 +1121,7 @@ redshift bin, the relationship between \ffeaturesz{} and \ffeaturesrest{} is
 modeled by fitting the data with a polynomial of degrees $n=3$, 2, and 1, and
 using the best formal fit out of the three as measured by the sum of the
 residuals. These fits are shown as the dashed black lines in
-Figure~\ref{fig:6a}. Any flat regions of the polynomial fits are areas in which
+Figure~\ref{fig:bias_a}. Any flat regions of the polynomial fits are areas in which
 there is not a clear single-valued relationship between \ffeaturesz{} and
 \ffeaturesrest; this is quantified by setting a minimum slope cut of 0.4. Any
 data in which the polynomial fit has a slope less than this value is considered
@@ -1129,16 +1129,16 @@ data in which the polynomial fit has a slope less than this value is considered
 \ffeaturesrest{} value.  Galaxies in this region are referred to as the
 \emph{lower limit} sample, because the most stringent correction available is
 that the weighted \ffeatures{} is a lower limit to the true value.  These
-regions are highlighted in blue in Figure~\ref{fig:6a}. Uncolored (white)
+regions are highlighted in blue in Figure~\ref{fig:bias_a}. Uncolored (white)
 regions of the plot have sufficiently high slopes to consider the relationship
 as single-valued; galaxies in these regions are considered ``correctable'', and
 only these are used in measuring the parameters for the $\zeta$ function
 (Section~\ref{ssec:zeta}). Only surface brightness/redshift bins with at least
 5 galaxies were considered; regions with fewer than 5 galaxies are considered
 to have ``not enough information'' to determine the \ffeaturesz{} and
-\ffeaturesrest{} relationship, colored gray in Figure~\ref{fig:6a}.
+\ffeaturesrest{} relationship, colored gray in Figure~\ref{fig:bias_a}.
 
-The unshaded regions in Figure~\ref{fig:6a} define discrete ranges of redshift,
+The unshaded regions in Figure~\ref{fig:bias_a} define discrete ranges of redshift,
 surface brightness, and \ffeatures{} a galaxy must have in order for the
 debiased correction to be confidently applied to a galaxy in the GZH sample.
 While the appropriate correctable regions were defined discretely, the true
@@ -1157,13 +1157,13 @@ to the relevant $z$-$\mu$ values.
 
 For the ``lower-limit'' galaxies for which a single debiased \ffeatures{} value
 cannot be confidently assigned, the \emph{range} of debiased values is
-estimated using a method visualized in Figure~\ref{fig:6c}. This uses the
+estimated using a method visualized in Figure~\ref{fig:bias_c}. This uses the
 \ferengi{} simulated data to analyze the range of intrinsic \ffeaturesrest{}
 values for any given observed \ffeatures{} value, again as a function of
 surface brightness and redshift. Each $z$,$\mu$ bin, shows the spread of
 intrinsic values of \ffeaturesrest{} for four ranges of observed \ffeatures.
 The range of intrinsic values is defined as the inner 80\% of the data,
-represented by the orange bars in Figure~\ref{fig:6c}. For any galaxy which
+represented by the orange bars in Figure~\ref{fig:bias_c}. For any galaxy which
 cannot be directly debiased by the $\zeta$ method, these ranges are used to
 denote the upper and lower limits on the expected values \ffeaturesrest{} as a
 function of the observed \ffeatures. 
