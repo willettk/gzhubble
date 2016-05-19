@@ -1054,13 +1054,9 @@ f_\textrm{features,debiased} = 1 - (1 - f_\mathrm{features,weighted})e^{\frac{z-
 
 \begin{figure*}
 \centering
-\subfigure{[a]\label{fig:bias_a}\includegraphics[width=0.5\textwidth]{figures/p_vs_p_SB_redshift.pdf}}
-\subfigure{[b]\label{fig:bias_b}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot1.pdf}}
-\\
-\subfigure{[c]\label{fig:bias_c}\includegraphics[width=0.5\textwidth]{figures/orangebars.pdf}}
-\subfigure{[d]\label{fig:bias_d}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot2.pdf}}
+\includegraphics[width=\textwidth]{figures/p_vs_p_sb_redshift.pdf}
 \caption{Effects of redshift bias in 3,950 images in the \ferengi{} sample.
-[a]: Each point in a given redshift and surface brightness bin represents a
+Each point in a given redshift and surface brightness bin represents a
 unique galaxy. On the $y$-axis in each bin is the \ffeatures{} value of the
 image of that galaxy redshifted to the value corresponding to that redshift
 bin. On the $x$-axis is the \ffeatures{} value of the image of the same galaxy
@@ -1069,17 +1065,21 @@ polynomials to the data in each square. The solid black line represents
 \ffeaturesz=\ffeaturesrest. Regions in which there is a single-valued
 relationship between \ffeatures{} at high redshift and at $z=0.3$ are white;
 those in which there is not are blue, and those with not enough data ($N<5$)
-are gray. [b]: A larger version of the dark-outlined square in [a], containing
-\ferengi{} galaxies that have been artificially redshifted to $z=1.0$ and have
-surface brightnesses between $20.3 < \mu < 21.0$ $\rm (mag/arcsec^2)$. [c]: The
-same data as [a] is shown. Each $z,\mu$ bin is divided into 4 sub-bins to
-determine the range of intrinsic \ffeaturesrest{} for a given range of observed
-\ffeaturesz{} values. In each sub-bin, the orange bars represent the inner
-80$^\mathrm{th}$ percentiles of the data, the boundaries of which are the lower
-and upper limits of the debiased values. [d]: The same data as [b], but
-highlighting the upper and lower limit regions.}
+are gray. A larger version of the bin outlined at $z=1.0$ and $20.3 < \mu < 21.0$ $\rm (mag/arcsec^2)$ is shown in Figure~\ref{fig:f_vs_f_zoom}.}
 \label{fig:f_vs_f}
-\end{figure*}
+\end{figure*} 
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{figures/z1_mu20_subplot2.pdf}
+\caption{A larger version of the dark-outlined square in Figure~\ref{fig:f_vs_f}, containing
+\ferengi{} galaxies that have been artificially redshifted to $z=1.0$ and have
+surface brightnesses between $20.3 < \mu < 21.0$ $\rm (mag/arcsec^2)$. The orange bars represent the inner
+80$^\mathrm{th}$ percentiles of the data, the boundaries of which are the lower
+and upper limits of the debiased values.}
+\label{fig:f_vs_f_zoom}
+\end{figure}
+
 
 Figure~\ref{fig:f_vs_f} shows the change in \ffeatures{} for the \ferengi{}
 galaxies relative to their lowest simulated redshift. In this analysis, only
@@ -1112,7 +1112,7 @@ redshift. The second group are disks whose features become indistinct at high
 redshift; hence their \ffeatures{} value at $z=0.3$ may be quite high, while
 the value observed at high redshift is very low. This effect is strongest at
 high $z$ and low $\mu$, where features become nearly impossible to discern in
-the images (see top right panel of Figure~\ref{fig:bias_a}).
+the images (see top right panel of Figure~\ref{fig:f_vs_f}).
 
 The criteria for determining whether a region of this space is single-valued,
 and therefore correctable, is as follows: In each surface brightness and
@@ -1120,7 +1120,7 @@ redshift bin, the relationship between \ffeaturesz{} and \ffeaturesrest{} is
 modeled by fitting the data with a polynomial of degrees $n=3$, 2, and 1, and
 using the best formal fit out of the three as measured by the sum of the
 residuals. These fits are shown as the dashed black lines in
-Figure~\ref{fig:bias_a}. Any flat regions of the polynomial fits are areas in which
+Figure~\ref{fig:f_vs_f}. Any flat regions of the polynomial fits are areas in which
 there is not a clear single-valued relationship between \ffeaturesz{} and
 \ffeaturesrest; this is quantified by setting a minimum slope cut of 0.4. Any
 data in which the polynomial fit has a slope less than this value is considered
@@ -1128,16 +1128,16 @@ data in which the polynomial fit has a slope less than this value is considered
 \ffeaturesrest{} value.  Galaxies in this region are referred to as the
 \emph{lower limit} sample, because the most stringent correction available is
 that the weighted \ffeatures{} is a lower limit to the true value.  These
-regions are highlighted in blue in Figure~\ref{fig:bias_a}. Uncolored (white)
+regions are highlighted in blue in Figure~\ref{fig:f_vs_f}. Uncolored (white)
 regions of the plot have sufficiently high slopes to consider the relationship
 as single-valued; galaxies in these regions are considered ``correctable'', and
 only these are used in measuring the parameters for the $\zeta$ function
 (Section~\ref{ssec:zeta}). Only surface brightness/redshift bins with at least
 5 galaxies were considered; regions with fewer than 5 galaxies are considered
 to have ``not enough information'' to determine the \ffeaturesz{} and
-\ffeaturesrest{} relationship, colored gray in Figure~\ref{fig:bias_a}.
+\ffeaturesrest{} relationship, colored gray in Figure~\ref{fig:f_vs_f}.
 
-The unshaded regions in Figure~\ref{fig:bias_a} define discrete ranges of redshift,
+The unshaded regions in Figure~\ref{fig:f_vs_f} define discrete ranges of redshift,
 surface brightness, and \ffeatures{} a galaxy must have in order for the
 debiased correction to be confidently applied to a galaxy in the GZH sample.
 While the appropriate correctable regions were defined discretely, the true
@@ -1156,13 +1156,13 @@ to the relevant $z$-$\mu$ values.
 
 For the ``lower-limit'' galaxies for which a single debiased \ffeatures{} value
 cannot be confidently assigned, the \emph{range} of debiased values is
-estimated using a method visualized in Figure~\ref{fig:bias_c}. This uses the
+estimated using a method visualized in Figure~\ref{fig:f_vs_f_zoom}. This uses the
 \ferengi{} simulated data to analyze the range of intrinsic \ffeaturesrest{}
 values for any given observed \ffeatures{} value, again as a function of
-surface brightness and redshift. Each $z$,$\mu$ bin, shows the spread of
-intrinsic values of \ffeaturesrest{} for four ranges of observed \ffeatures.
+surface brightness and redshift. In each unclassifiable (shaded blue) $z$,$\mu$ bin, the spread of
+intrinsic values of \ffeaturesrest{} for four ranges of observed \ffeatures is computed.
 The range of intrinsic values is defined as the inner 80\% of the data,
-represented by the orange bars in Figure~\ref{fig:bias_c}. For any galaxy which
+represented by the orange bars in Figure~\ref{fig:f_vs_f_zoom}. For any galaxy which
 cannot be directly debiased by the $\zeta$ method, these ranges are used to
 denote the upper and lower limits on the expected values \ffeaturesrest{} as a
 function of the observed \ffeatures. 
@@ -2327,13 +2327,9 @@ for all higher-order Tasks in GZH (Section~\ref{ssec:higher_order_tasks}).
 
 \begin{figure*}
 \centering
-\subfigure{[a]\label{a}\includegraphics[width=0.5\textwidth]{figures/p_vs_p_SB_redshift_bar.pdf}}
-\subfigure{[b]\label{b}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot1_bar.pdf}}
-\\
-\subfigure{[c]\label{c}\includegraphics[width=0.5\textwidth]{figures/orangebars_bar.pdf}}
-\subfigure{[d]\label{d}\includegraphics[width=0.4\textwidth]{figures/z1_mu20_subplot2_bar.pdf}}
+\includegraphics[width=\textwidth]{figures/p_vs_p_SB_redshift_bar.pdf}
 \caption{Similar to Figure~\ref{fig:f_vs_f}, showing effects of redshift bias
-for 3,950~images in the \ferengi{} sample. [a]: Each point in a given redshift
+for 3,950~images in the \ferengi{} sample. Each point in a given redshift
 and surface brightness bin represents a unique galaxy. The $y$-axis in each
 bin is the \ffeatures{} value of the image of that galaxy redshifted to the
 value corresponding to that redshift bin. The $x$-axis is the \ffeatures{}
@@ -2342,21 +2338,24 @@ black lines represent the best-fit polynomials to the data in each square.
 The solid black line represents \ffeaturesz=\ffeaturesrest. Regions in
 which there is a single-valued relationship between \ffeatures{} at high
 redshift and at $z=0.3$ are marked in white; those in which there is not
-are blue, and those with not enough data ($N<5$) are gray. The mean
+are blue, and those with not enough data ($N<5$) are gray. A larger version of the bin outlined at $z=1.0$ and $20.3 < \mu < 21.0$ $\rm (mag/arcsec^2)$ is shown in Figure~\ref{fig:f_vs_fbar_zoom}. The mean
 normalized $\chi^2$ of the change in vote fraction is 0.08. None of the
 correlations for higher-order tasks (including bars) were applied to
-galaxies in the GZH catalog. [b]: A larger version of the dark-outlined
-square in [a], containing \ferengi{} galaxies artificially redshifted to
-$z=1.0$ and have surface brightnesses between $20.3 < \mu < 21.0$ $\rm
-(mag/arcsec^2)$. [c]: The same data as [a]. Each $z,\mu$ bin is divided
-into 4~sub-bins to determine the range of intrinsic \ffeaturesrest{} for a
-given range of observed \ffeaturesz{} values. In each sub-bin, the orange
-bars represent the inner 80$^\mathrm{th}$ percentiles of the data, the
-boundaries of which are the lower and upper limits of the debiased values.
-[d]: The same data as [b], but highlighting the upper and lower limit
-regions.}
+galaxies in the GZH catalog.}
 \label{fig:f_vs_fbar}
 \end{figure*}
+
+
+\begin{figure}
+\centering
+\includegraphics[width=0.5\textwidth]{figures/z1_mu20_subplot2_bar.pdf}
+\caption{A larger version of the dark-outlined square in Figure~\ref{fig:f_vs_fbar}, containing
+\ferengi{} galaxies that have been artificially redshifted to $z=1.0$ and have
+surface brightnesses between $20.3 < \mu < 21.0$ $\rm (mag/arcsec^2)$. The orange bars represent the inner
+80$^\mathrm{th}$ percentiles of the data, the boundaries of which are the lower
+and upper limits of the debiased values.}
+\label{fig:f_vs_fbar_zoom}
+\end{figure}
 
 \begin{table}ー
 \label{tbl:ferengi_bar}
