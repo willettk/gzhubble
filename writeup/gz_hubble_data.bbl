@@ -1,4 +1,4 @@
-\begin{thebibliography}{100}
+\begin{thebibliography}{101}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Abazajian} {et~al}\mbox{.}(2009){Abazajian}, {Adelman-McCarthy},
@@ -288,6 +288,11 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
 
 \bibitem[{{Lackner} \& {Gunn}(2012)}]{lac12}
 {Lackner} C.~N., {Gunn} J.~E., 2012, \mnras, 421, 2277
+
+\bibitem[{{Lahav} {et~al}\mbox{.}(1995){Lahav}, {Naim}, {Buta}, {Corwin}, {de
+  Vaucouleurs}, {Dressler}, {Huchra}, {van den Bergh}, {Raychaudhury}, {Sodre},
+  \& {Storrie-Lombardi}}]{lah95}
+{Lahav} O. {et~al.}, 1995, Science, 267, 859
 
 \bibitem[{{Land} {et~al}\mbox{.}(2008){Land}, {Slosar}, {Lintott}, {Andreescu},
   {Bamford}, {Murray}, {Nichol}, {Raddick}, {Schawinski}, {Szalay}, {Thomas},
