@@ -936,7 +936,21 @@ The GZH classifications include 288 unique galaxies originally generated from
 SDSS imaging and processed with the \ferengi{} code. The selection spanned a
 variety of galaxy morphologies (as selected by GZ2 classifications) and
 $r^\prime$-band surface brightnesses, and also spanned the redshift range of
-SDSS targets that maximize the coverage of parameter space. 
+SDSS targets that maximize the coverage of parameter space
+(Figure~\ref{fig:sb_redshift}). 
+
+\begin{figure}
+\begin{center}
+\includegraphics[width=0.5\textwidth]{figures/eye_of_sauron.pdf}
+\caption{Surface brightness as a function of redshift for 3,950~\ferengi{}
+images and the 102,548~galaxies in the ACS sample with measured $\mu$ and $z$
+values. The color histogram shows the number of \ferengi{} images as a function
+of $\mu$ and $z_{\rm sim}$. White contours show counts for the full ACS sample,
+with contours starting at $N=1000$ and separated by intervals of 1000 up to
+7000.} 
+\label{fig:sb_redshift}
+\end{center}
+\end{figure}
 
 \subsection{Correcting morphologies for classification bias}\label{ssec:zeta}
 
@@ -1018,8 +1032,6 @@ of 296~images}
 \label{fig:zeta_mu}
 \end{figure}
 
-
-
 The data in Figure~\ref{fig:zeta_mu} are fit with a linear function such that:
 
 \begin{equation}
@@ -1040,19 +1052,6 @@ f_\textrm{features,debiased} = 1 - (1 - f_\mathrm{features,weighted})e^{\frac{z-
 \end{equation}
 
 \subsection{Effects of morphological debiasing}\label{ssec:zeta_results}
-
-\begin{figure}
-\begin{center}
-\includegraphics[width=0.5\textwidth]{figures/eye_of_sauron.pdf}
-\caption{Surface brightness as a function of redshift for 3,950~\ferengi{}
-images and the 102,548~galaxies in the ACS sample with measured $\mu$ and $z$
-values. The color histogram shows the number of \ferengi{} images as a function
-of $\mu$ and $z_{\rm sim}$. White contours show counts for the full ACS sample,
-with contours starting at $N=1000$ and separated by intervals of 1000 up to
-7000.} 
-\label{fig:sb_redshift}
-\end{center}
-\end{figure}
 
 \begin{figure*}
 \centering
@@ -1722,14 +1721,17 @@ content.}
 
 The primary purpose of the GZH catalog is to provide a reliable method of
 selecting galaxies of a desired morphological type.  This section provides
-instructions for creating such samples using the vote fractions corresponding
-to the tasks shown in Figure~\ref{fig:decisiontree}. More conservative cuts can
-be applied to create pure, but not necessarily complete, samples. These are
-useful for selecting galaxies exhibiting unique morphologies for individual
-case studies.  Looser cuts can be applied to obtain samples with a higher level
-of completeness, (but with a potential decrease on the overall purity). We
-stress that the details of any selection process will vary based on the
-particular science case. 
+instructions for creating such pure samples using the vote fractions
+corresponding to the tasks shown in Figure~\ref{fig:decisiontree}
+\citep[eg,][]{mas11c,che15,gal15}. Increasing the levels of the thresholds can
+create purer, but not necessarily complete, morphologically-selected samples.
+These are useful for selecting galaxies of rare or unique types that merit
+individual study.  Looser cuts can be applied to obtain samples with a higher
+level of completeness, although the rate of false positives must be closely
+monitored.  We stress that the details of any selection process will vary based
+on the particular science case; for example, \citet{bam09,ski09,sme15} demonstrate
+the advantages of using the vote fractions directly as weights rather than
+applying discrete thresholds.
 
 To select galaxies of a morphological type identified with a particular Task, a
 cut is placed on the vote fraction for that Task ($f_{\rm task}$), \emph{as
