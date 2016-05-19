@@ -408,12 +408,13 @@ were dimmer than the initial magnitude cut of 17.77.
 
 \subsection{Simulated \hst{} images}\label{ssec:simulatedimages}
 
-To facilitate correction of classifications in the presence of known biasing
-effects, GZH includes two different samples of simulated \hst{} images: real
-\hst{} galaxy images (Section \ref{ssec:legacy_surveys}) with nuclear emission
-added to simulate AGN host galaxies, and lower-redshift galaxy images from SDSS
-(Section \ref{ssec:sdss}), artificially redshifted from $0.3 \leq z \leq 1$.
-Each is described separately below. 
+To facilitate correction of classifications in the presence of known redshift
+bias (Section~\ref{sec:debiasing}), GZH includes two different samples of
+simulated \hst{} images: real \hst{} galaxy images (Section
+\ref{ssec:legacy_surveys}) with nuclear emission added to simulate AGN host
+galaxies, and lower-redshift galaxy images from SDSS (Section \ref{ssec:sdss}),
+artificially redshifted from $0.3 \leq z \leq 1$.  Each is described separately
+below. 
 
 \subsubsection{Images with simulated nuclear point sources}\label{ssec:sim_agn}
 
@@ -448,13 +449,13 @@ are visually more realistic at higher luminosities.
 
 Images with simulated AGN were classified in the interface in an identical
 manner and evenly distributed with unaltered images of the galaxies.
-Classifiers were not explicitly told that the images had been altered during
+Volunteers were not explicitly told that the images had been altered during
 classification, as the goal was to measure the effect on normal classifications
-in as unbiased a manner as possible. Following classification, a classifier
-could view a page with additional details about each galaxy they had
-classified; where applicable these pages contained further information
-regarding image modifications. \citet{sim14} uses similarly-processed
-images for reliable identification of bulgeless galaxies using SDSS data.
+usng the same technique as closely as possible. Following classification, a
+classifier could view a page with additional details about each galaxy; where
+applicable, these pages contained further information regarding image
+modifications. \citet{sim14} uses similarly-processed images for reliable
+identification of bulgeless galaxies using SDSS data.
 
 
 \subsubsection{Generating images of artificially-redshifted galaxies}\label{ssec:ferengi}
@@ -528,7 +529,7 @@ function of galaxy's redshift (since the new images cannot be resampled at
 better angular resolution than the original SDSS data), as well as the number
 of $e$ values selected. Table~\ref{tbl:ferengivalues} summarizes the redshifted
 images produced for GZH. The use of these images to correct for redshift-dependent
-classification bias is described in Section \ref{sec:debiasing}.
+bias is described in Section \ref{sec:debiasing}.
 
 \begin{table}
 \caption{Summary of \ferengi{} artificial redshifting \label{tbl:ferengivalues}}
@@ -689,8 +690,7 @@ radius for the best-fit model. All parameters were measured in both bands of
 the ACS imaging, with the exception of the single-band COSMOS images.
 
 Redshifts for the GZH catalog were compiled from a variety of sources. For each
-galaxy, the primary redshift used for debiasing calculations
-(Section~\ref{sec:debiasing}) is in the $\tt Z\_BEST$ column of
+galaxy, the primary redshift is in the $\tt Z\_BEST$ column of
 Table~\ref{tbl:catalog_hst}. The redshift type (spectroscopic: $\tt SPEC\_Z$,
 photometric: $\tt PHOTO\_Z$, or grism: $ \tt GRISM\_Z$) is listed in the column
 $\tt Z\_BEST\_TYPE$, and the source catalog of the redshift is included as $\tt
@@ -905,10 +905,15 @@ The previous versions of Galaxy Zoo morphology classifications
 \citep{lin11,wil13} were based on observations of galaxies in the Sloan Digital
 Sky Survey (SDSS) which have a median redshift of $z<0.2$. In these cases, it
 was assumed that there was no cosmological evolution of the morphologies of
-galaxies and therefore any observed changes in the distribution of galaxies
-with different consensus morphologies was due to the effects of redshift on the
-image quality (\ie, the reduction in physical resolution, surface brightness
-dimming, etc). For both previous releases of Galaxy~Zoo morphologies, a correction for
+galaxies and therefore any observed changes in the morphological distribution
+were due to a redshift-dependent bias that affects image quality and
+classification accuracy (ie, galaxies of a given mass/size will appear smaller
+and dimmer at higher redshifts).  This bias is not unique to the crowdsourcing
+technique; its dependence in data quality is a potential problem for
+\emph{both} automated and visual classifications, and must be addressed in
+order to accurately measure demographics over any significant redshift range. 
+
+For both previous releases of Galaxy~Zoo morphologies, a correction for
 redshift-dependent bias was applied based on matching the classification
 fractions at the highest redshifts with those at the lowest redshift.
 \citet{bam09} and \citet{wil13} provide complete descriptions of the process
@@ -916,20 +921,20 @@ for GZ1 and GZ2, respectively.
 
 In the GZH samples, the redshift range is large enough that cosmological
 evolution of the types and morphologies of galaxies is expected for galaxies in
-the sample. As a result, the previous methods of correcting for redshift
-dependent bias do not work. In addition, the effects of band shifting will
-change the images even more across these redshift ranges. 
+the sample. As a result, the previous methods of correcting for
+redshift-dependent bias do not work. In addition, the effects of band shifting
+will change the images even more across these redshift ranges. 
 %Figure~\ref{fig:exampleFERENGI} illustrates some of the possible effects of
 %losing features in spiral galaxies at high redshift. 
 
 In order to test and correct for the effects of redshift, GZH includes a set of
 calibration images. These images consist of the same galaxy as it would appear
 over a variety of redshifts. The input images are from the SDSS
-\citep{yor00,str02} and are processed to match the observational properties of 
-the \hst{} surveys out to $z=1$. These
-images were classified in the GZH interface using the same classification
-scheme as the original \hst{} images. Further details on the creation of these images
-is given in Section \ref{ssec:ferengi}.
+\citep{yor00,str02} and are processed to match the observational properties of
+the \hst{} surveys out to $z=1$. These images were classified in the GZH
+interface using the same classification scheme as the original \hst{} images.
+Further details on the creation of these images is given in Section
+\ref{ssec:ferengi}.
 
 The GZH classifications include 288 unique galaxies originally generated from
 SDSS imaging and processed with the \ferengi{} code. The selection spanned a
@@ -960,15 +965,15 @@ This is controlled by two types of parameters: \textbf{intrinsic} properties of
 the galaxy itself, such as its physical diameter and luminosity, and
 \textbf{extrinsic} properties, such as the distance (redshift) of the galaxy
 and its relative orientation. There may also be other parameters that affect
-classifier accuracy, such as the proximity of close companions or bias as a
-function of individual classifier ability and skill. The combination of all
+classifier accuracy, such as the proximity of close companions or 
+individual classifier ability and skill. The combination of all
 such parameters forms a high-dimensional space, and it is not clear how to
 separate this into individual effects. Instead, the method used here employs
 only two parameters intended to capture the bulk of the change in bias: the
 $r^\prime$-band surface brightness ($\mu_r$; intrinsic) and redshift ($z$;
 extrinsic). 
 
-The change in bias as a function of $\mu_r$ and \zsim{} is measured using the
+This dependence of the vote fraction on $\mu_r$ and \zsim{} is measured using the
 \ferengi{} images over all the evolutionary correction factors. It is assumed
 that the ``true'' (ie, debiased) vote fraction $f_{\mu,z}$ for an
 artificially-redshifted galaxy can be expressed as:
@@ -1093,7 +1098,7 @@ galaxy at \zsim$=0.3$.
  
 The objective is to use these data to predict, for a galaxy with a measured
 \ffeaturesz{} value, what its \ffeatures{} value \emph{would have been} if it
-had been viewed at $z=0.3$. This predicted value is defined as the debiased
+had been viewed at $z=0.3$. This predicted value is defined as the ``debiased''
 vote fraction \ffeaturesdebiased, and is calculated by applying a correction to
 the measured value of \ffeatures, determined by the $\zeta$ function described
 in the previous section. A reliable predicted value can be obtained so long as
@@ -1189,20 +1194,20 @@ Total                              & 3,950   & 100\% \\
 \end{table}
 
 Few galaxies in the sample have sufficiently high corrections to completely
-change them from being confidently smooth to featured following the bias
-correction (Figure~\ref{fig:debiased_corrections}). As a check, highly boosted
-galaxies are compared to the expert classifications in CANDELS \citep{kar15}.
-There are only eight galaxies that were strongly boosted (\ffeatures$<0.2$ and
-\fbest$>0.5$) in GZH and also appears in the CANDELS expert sample. Of those
-eight galaxies, \citet{kar15} classify 5 as spheroids, 2 as disks, and 1 as
-irregular/disky. The \fbest{} values for GZH are all between 0.5 and 0.6,
-making them intermediate disk candidates. One of the spheroids has a hint of
-extended emission to the south that may have been missed by the CANDELS
-experts, but almost all images are dim and with very low surface brightnesses
-in the ACS imaging, making positive identification challenging. Since the
-surveys use different rest-frame filters and the overlap sample is tiny,
-though, detailed comparisons between the overall morphologies are highly
-difficult.
+change them from being confidently ``smooth'' to ``featured'' following the
+correction for redshift bias (Figure~\ref{fig:debiased_corrections}). As a
+check, highly boosted galaxies are compared to the expert classifications in
+CANDELS \citep{kar15}.  There are only eight galaxies that were strongly
+boosted (\ffeatures$<0.2$ and \fbest$>0.5$) in GZH and also appears in the
+CANDELS expert sample. Of those eight galaxies, \citet{kar15} classify 5 as
+spheroids, 2 as disks, and 1 as irregular/disky. The \fbest{} values for GZH
+are all between 0.5 and 0.6, making them intermediate disk candidates. One of
+the spheroids has a hint of extended emission to the south that may have been
+missed by the CANDELS experts, but almost all images are dim and with very low
+surface brightnesses in the ACS imaging, making positive identification
+challenging. Since the surveys use different rest-frame filters and the overlap
+sample is tiny, though, detailed comparisons between the overall morphologies
+are highly difficult.
 
 \begin{figure*}
 \center
@@ -1339,7 +1344,7 @@ this reason, caution must be used when taking vote fractions as cut-offs to
 determine morphological structure; guidelines for careful classification are
 given in Section~\ref{sec:cookbook}. 
 
-The GZH catalog is corrected for classification bias only for the first
+The GZH catalog is corrected for redshift bias only for the first
 question of the GZH decision tree (Section~\ref{sec:debiasing}), which asks
 {\it ``Is the galaxy smooth and round, with no sign of a disk?''} For this
 question, the catalog provides the additional parameters $\tt debiased$, $\tt
@@ -2067,7 +2072,7 @@ out to $z=1.0$.
 Finally, there are 7,681~galaxies in the GOODS-S field with morphological
 classifications in both GZH and the Galaxy~Zoo:~CANDELS project (Simmons
 et~al., submitted). Since both the sensitivity and filters for the two sets of
-images differ (and there is no debiased correction applied to GZC), there is no
+images differ (and there is no correction for redshift bias applied to GZC), there is no
 prior reason to expect a perfect correlation between the separate vote
 fractions for the projects. Briefly, we note that the \ffeatures{} value for
 GZH is on average higher than GZC; the effect is strongest at
