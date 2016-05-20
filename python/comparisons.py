@@ -852,8 +852,8 @@ def frac_all(zint=0.0,zlow=0.0):
             for morph,color,label,ls in zip((early,spiral,irr),colors,mlabels,('-','--','-.')):
 
                 if morph.sum() > 0:
-                    h,edges = np.histogram(data[morph][frac],bins=bnum)
-                    h2,edges2 = np.histogram(data[np.any([early,spiral,irr],axis=0)][frac],bins=bnum)
+                    h,edges = np.histogram(data[morph][frac],bins=bnum,range=(0,1))
+                    h2,edges2 = np.histogram(data[np.any([early,spiral,irr],axis=0)][frac],bins=bnum,range=(0,1))
 
                     e_frac = h * 1./h2
                     e_frac_err = cameron_err(0.90,h,h2)
@@ -878,6 +878,7 @@ def frac_all(zint=0.0,zlow=0.0):
             ax1.legend(loc='upper left',fontsize=12)
 
     fig.tight_layout()
+
     if zint > 0.:
         plt.savefig("{0}/comparisons/all_z{1:.1f}.png".format(gzh_path,zlow),dpi=100)
     else:
