@@ -970,10 +970,10 @@ individual classifier ability and skill. The combination of all
 such parameters forms a high-dimensional space, and it is not clear how to
 separate this into individual effects. Instead, the method used here employs
 only two parameters intended to capture the bulk of the change in bias: the
-$r^\prime$-band surface brightness ($\mu_r$; intrinsic) and redshift ($z$;
+$i$-band surface brightness ($\mu_i$; intrinsic) and redshift ($z$;
 extrinsic). 
 
-This dependence of the vote fraction on $\mu_r$ and \zsim{} is measured using the
+This dependence of the vote fraction on $\mu_i$ and \zsim{} is measured using the
 \ferengi{} images over all the evolutionary correction factors. It is assumed
 that the ``true'' (ie, debiased) vote fraction $f_{\mu,z}$ for an
 artificially-redshifted galaxy can be expressed as:
@@ -986,10 +986,8 @@ f_{\mu,z} = \left(f_{\mu,z=0.3}\right) \times e^{{\frac{z-z_0}{\zeta}}},
 \noindent where $f_{\mu,z=0.3}$ is the ``calibrated'' vote fraction at the
 lowest redshift in the \ferengi{} bins ($z=0.3$) and $\zeta$ is a positive
 parameter that controls the rate at which $f$ decreases with increasing
-redshift. This formula fits the data relatively well (with very few exceptions,
-the vote fractions for featured galaxies decrease monotonically with increasing
-redshift), and the exponential function bounds the observed vote fractions
-between $f_{\mu,z=0.3}$ and zero. Figure~\ref{fig:zeta_examples} shows the
+redshift. The exponential function bounds the observed vote fractions
+between $f_{\mu,z=0.3}$ and zero based on two assumptions: 1) the vote fractions for featured galaxies decrease monotonically with increasing redshift, therefore restricting vote fractions for a given galaxy to be less than $f_{\mu,z=0.3}$  (which is true of the data with very few exceptions), and 2) the vote fractions cannot be less than zero (which is always true). Figure~\ref{fig:zeta_examples} shows the
 change in vote fraction and the fit to Equation~\ref{eqn:fzeta} for a random
 selection of galaxies in the \ferengi{} images. 
 
@@ -1046,7 +1044,7 @@ The data in Figure~\ref{fig:zeta_mu} are fit with a linear function such that:
 
 \noindent where $\hat\zeta$ is the correction factor applied to each galaxy as
 a function of surface brightness. The best-fit parameters to the linear fit
-(from least-squares optimization) are $\zeta_0=0.1$, $\zeta_1=1.4$. To make the
+(from least-squares optimization) are $\zeta_0=0.75$, $\zeta_1=-.04$. To make the
 final debiased correction, the simple exponential form of
 Equation~\ref{eqn:fzeta} is modified to bound the debiased vote fractions
 between $f$ and 1:
@@ -1141,7 +1139,7 @@ only these are used in measuring the parameters for the $\zeta$ function
 (Section~\ref{ssec:zeta}). Only surface brightness/redshift bins with at least
 5 galaxies were considered; regions with fewer than 5 galaxies are considered
 to have ``not enough information'' to determine the \ffeaturesz{} and
-\ffeaturesrest{} relationship, colored gray in Figure~\ref{fig:f_vs_f}.
+\ffeaturesrest{} relationship, colored gray in Figure~\ref{fig:f_vs_f}. These galaxies are hereafter referred to as the ``NEI'' sample.
 
 The unshaded regions in Figure~\ref{fig:f_vs_f} define discrete ranges of redshift,
 surface brightness, and \ffeatures{} a galaxy must have in order for the
