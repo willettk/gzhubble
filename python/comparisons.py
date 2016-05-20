@@ -24,6 +24,8 @@ pstar = 't01_smooth_or_features_a03_star_or_artifact_weighted_fraction'
 pspiral = 't04_spiral_a01_spiral_weighted_fraction'
 pirr = 't08_odd_feature_a04_irregular_fraction'
 pmerger = 't08_odd_feature_a06_merger_fraction'
+pdustlane = 't08_odd_feature_a07_dust_lane_fraction'
+plens = 't08_odd_feature_a02_lens_or_arc_fraction'
 
 # Colors
 blue = '#377EB8'
@@ -851,9 +853,17 @@ def frac_all(zint=0.0,zlow=0.0):
         for ax,frac in zip((ax1,ax2),(pfeat,podd)):
             for morph,color,label,ls in zip((early,spiral,irr),colors,mlabels,('-','--','-.')):
 
+                # Don't look at p_odd for galaxies dominated by dust lanes or lenses
+                if frac == podd:
+                    odd_ind = np.logical_not((data[podd] >= 0.5) & (data[pdustlane] + data[plens] > 0.5))
+                    if ls == '-':
+                        print d['survey'],d['citation'],len(data),odd_ind.sum(),len(data)-odd_ind.sum(),(len(data)-odd_ind.sum()) * 100./len(data)
+                else:
+                    odd_ind = np.ones(len(data),dtype=bool)
+
                 if morph.sum() > 0:
-                    h,edges = np.histogram(data[morph][frac],bins=bnum)
-                    h2,edges2 = np.histogram(data[np.any([early,spiral,irr],axis=0)][frac],bins=bnum)
+                    h,edges = np.histogram(data[morph & odd_ind][frac],bins=bnum,range=(0,1))
+                    h2,edges2 = np.histogram(data[np.any([early,spiral,irr],axis=0) & odd_ind][frac],bins=bnum,range=(0,1))
 
                     e_frac = h * 1./h2
                     e_frac_err = cameron_err(0.90,h,h2)
@@ -878,6 +888,10 @@ def frac_all(zint=0.0,zlow=0.0):
             ax1.legend(loc='upper left',fontsize=12)
 
     fig.tight_layout()
+
+    '''
+    plt.show()
+    '''
     if zint > 0.:
         plt.savefig("{0}/comparisons/all_z{1:.1f}.png".format(gzh_path,zlow),dpi=100)
     else:

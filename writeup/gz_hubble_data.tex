@@ -115,7 +115,7 @@ fields are also included and have $m_{I814W}<26.8$. The median redshift of the
 combined samples is $\langle z\rangle=0.9\pm0.6$, with a tail extending out to
 $z\simeq4$. The GZH morphological data include measurements of both bulge- and
 disk-dominated galaxies, details on spiral disk structure that relate to the
-Hubble type, bar identification, and numerous measuremenst of clump
+Hubble type, bar identification, and numerous measurements of clump
 identification and geometry.  This paper also describes a new method for
 calibrating morphologies for galaxies of different luminosities and at
 different redshifts by using artificially-redshifted galaxy images as a
@@ -895,8 +895,10 @@ randomly classifying or malicious participants.
 Classifications were aggregated and weighted only if the classifier was logged
 into GZH under their username (which was encouraged, but not required for
 participation). Classifications by participants who were not logged in were marked as
-``Anonymous'' and assumed to have $w = 1$. 
+``Anonymous'' and receive the same $w=1$ weighting as the vast majority
+of logged-in classifiers.
 % We should also try to estimate how many anonymous classifiers there were, if possible. 
+% Not clear that I can do that given the SQL data
 
 
 \section{Correcting for redshift-dependent classification bias}\label{sec:debiasing}
@@ -2006,7 +2008,7 @@ an empirical division based on several hundred training images to assign
 galaxies to discrete morphological categories. A similar method is employed by
 \citet{tas11}, using the same non-parametric indices but with a different
 method of calculating the Petrosian radius and total light profile. They employ
-a nearest-neighbors method is used to assign morphological categories for the
+a nearest-neighbors method to assign morphological categories for the
 entire sample based on a small training set. \citet[][ZEST]{sca07} used $C$,
 $A$, $G$, $M_{20}$, the galaxy ellipticity ($\epsilon$), and \sersic{} index
 ($n$) to quantify the galaxy shapes; a principal component analysis is used to
@@ -2023,8 +2025,11 @@ and other published catalogs, split by survey (AEGIS, COSMOS, GEMS, and GOODS).
 The first and third columns show the fraction of overall galaxies in the
 matched samples, split by their published morphologies as a function of the GZH
 \fbest. The corresponding second and fourth columns show data for the same
-galaxies as a function of \fodd. Confidence intervals for each binned fraction
-in the bin are calculated for a binomial population \citep{cam11}.}
+galaxies as a function of \fodd. The ``odd'' samples exclude galaxies dominated
+by lenses or dust lanes ($<1\%$ of the total), which are GZH categories not
+expected to correlate to larger-scale structural parameters. Confidence
+intervals for each binned fraction in the bin are calculated for a binomial
+population \citep{cam11}.}
 \label{fig:comparisons}
 \end{figure*}
 
@@ -2038,14 +2043,19 @@ spirals, showing almost no difference in proportion at the highest and lowest
 ends. Early-type galaxies are at their highest proportion at \fbest$\sim0$, but
 constitute at most only 40\% of galaxies. In contrast, GOODS galaxies at low
 \fbest{} are dominated by early-types, although spiral and irregular galaxies
-have comparable sizes as low as \fbest$\sim0.2$. In GEMS galaxies, the impact
-of irregular or peculiar galaxies is not measured; splitting on $n=2.5$ gives
-an essentially flat proportion of ellipticals to spirals at \fbest$>0.3$.
-Visual inspection of images of galaxies where both \fbest{} and $n$ are high
-show that the majority are obvious spirals but with prominent bulges,
-indicating that the single-component \sersic{} fit is likely choosing too small
-of an effective radius and missing the extended disk structure for a large
-population of galaxies. 
+have comparable sizes as low as \fbest$\sim0.2$. 
+
+In GEMS galaxies, the impact of irregular or peculiar galaxies is not measured;
+splitting on $n=2.5$ gives an essentially flat proportion of ellipticals to
+spirals at \fbest$>0.3$.  Visual inspection of images of galaxies where both
+\fbest{} and $n$ are high show that the majority are obvious spirals but with
+prominent bulges, indicating that the single-component \sersic{} fit is likely
+choosing too small of an effective radius and missing the extended disk
+structure for a large population of galaxies. This is a known issue with using
+$n$ as a standalone measure of galaxy morphology -- it is relatively common,
+for example, to measure high $n$ for an object with an exponential disk but a
+central cusp in the light profile (eg, due to an AGN, cluster, foreground
+star, noise, etc).
 
 Even within the same sample of galaxies in COSMOS, different techniques of
 measuring morphology show significant differences. Both \citet{cas07} and
