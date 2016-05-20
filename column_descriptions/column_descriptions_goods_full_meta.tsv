@@ -7,11 +7,11 @@ DEC	Double	J2000 degrees	declination
 Z_BEST	Double		'best' redshift selected from 4 source catalogs; see Willett & Galloway et al. 2016 Section 2.6
 Z_BEST_TYPE	String		'best' redshift type: SPEC_Z = spectroscopic, PHOTO_Z = photometric, GRISM_Z = grism
 Z_BEST_SOURCE	String		source catalog of best redshift ACS-GC, 3DHST, MUSYC, and UltraVISTA
-mag_B	Float	mag		apparent magnitude in B-band		
-mag_V	Float	mag		apparent magnitude in V-band		
-mag_I	Float	mag		apparent magnitude in I-band		
-mag_Z	Float	mag		apparent magnitude in Z-band		
-mag_abs_Z	Double		absolute magnitude in Z-band		
+mag_B	Float	mag	apparent magnitude in B-band		
+mag_V	Float	mag	apparent magnitude in V-band		
+mag_I	Float	mag	apparent magnitude in I-band		
+mag_Z	Float	mag	apparent magnitude in Z-band		
+mag_abs_Z	Double	absolute magnitude in Z-band		
 kron_radius_I	Float		
 redshift	Double		
 z_spec_conflict_flag	Boolean		Flag for galaxies whose spectroscopic redshifts differed by dz > .001 in any of the catalogs ACS-GC, 3DHST, and MUSYC. (See Willett & Galloway et al. 2016 Section 2.4) 
