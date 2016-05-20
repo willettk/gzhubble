@@ -895,8 +895,10 @@ randomly classifying or malicious participants.
 Classifications were aggregated and weighted only if the classifier was logged
 into GZH under their username (which was encouraged, but not required for
 participation). Classifications by participants who were not logged in were marked as
-``Anonymous'' and assumed to have $w = 1$. 
+``Anonymous'' and receive the same $w=1$ weighting as the vast majority
+of logged-in classifiers.
 % We should also try to estimate how many anonymous classifiers there were, if possible. 
+% Not clear that I can do that given the SQL data
 
 
 \section{Correcting for redshift-dependent classification bias}\label{sec:debiasing}
