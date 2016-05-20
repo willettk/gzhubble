@@ -995,15 +995,16 @@ selection of galaxies in the \ferengi{} images.
 
 \begin{figure*}
 \center
-\includegraphics[width=\textwidth]{figures/zeta_examples.pdf}
+\includegraphics[width=\textwidth]{figures/zeta_examples_sorted.pdf}
 \caption{Behavior of the normalized, weighted vote fractions of features
 visible in a galaxy ($f_\textrm{features}$) as a function of redshift in the
 artificial \ferengi{} images. Galaxies in this plot were randomly selected from
 a distribution with $e=0$ and at least three detectable images in redshift bins
-of $z\ge0.3$. Measured vote fractions (red points) are fit with an exponential
-function (Equation~\ref{eqn:fzeta}); the best-fit parameters are given above
-each plot. Error bars are Poissonian, assuming a median of 40~votes per
-galaxy.}
+of $z\ge0.3$, and are sorted by \ffeaturesrest. Measured vote fractions (blue
+solid line) are fit with an exponential function (red dashed line;
+Equation~\ref{eqn:fzeta}); the best-fit parameter for $\zeta$ is given above
+each plot.}
+% Error bars are binomial for each f, symmetrised, then added in quadrature.
 \label{fig:zeta_examples}
 \end{figure*}
 
@@ -1806,10 +1807,12 @@ fraction and find a steady decrease of \fbar$\sim 0.32$ at $z=0.4$ to
 \fbar$=0.22$ at $z=0.4$ to \fbar$=0.11$ at $z=1.0$. The difference in total bar
 fraction is expected, as this analysis used a looser cut on \fbar, there is no
 luminosity cut, and the use of debiased values for \ffeatures{} increases the
-total amount of disks in the sample compared to \citet{mel14}. For a more
-thorough analysis of the bar fraction, a cut on \fbar{} that evolves with
-redshift may yield more accurate results, since there are no explicit debiased
-values of \fbar{} that would take redshift induced bias into account. 
+total amount of disks in the sample compared to \citet{mel14}. However, the
+results from GZH indicate that if features are reliably identified, the bar is
+always visible; for galaxies at increasing redshifts, the discs fade first but
+the galactic bar remains visible \citep{mel16}. As a result, we do \emph{not}
+recommend using an evolving cut on \fbar{} as a function of redshift for the
+selection of barred discs. 
 
 Another existing study using GZH to select barred galaxies was presented in
 \citet{che15}. This study used a slightly different bar selection method to
