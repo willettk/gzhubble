@@ -23,11 +23,11 @@ PETROMAGERR_I	Float	mag	Petrosian apparent magnitude error in i-band
 PETROMAGERR_Z	Float	mag	Petrosian apparent magnitude error in z-band
 PSFMAG_R	Float	mag	PSF magnitude in r-band 
 FIBERMAG_R	Float	mag	Spectroscopic fiber (3 arcsec) magnitude in r-band
-DEVMAG_R	Float	mag	model magnitude from pure deVaucouleurs profile fit in r-band [mag]
+DEVMAG_R	Float	mag	model magnitude from pure de Vaucouleurs profile fit in r-band [mag]
 DEVMAGERR_R	Float	mag	model magnitude error from pure deVaucouleurs profile fit in r-band 
 EXPMAG_R	Float	mag	model magnitude from pure exponential profile fit in r-band 
 EXPMAGERR_R	Float	mag	model magnitude error from pure exponential profile fit in r-band 
-FRACDEV_R	Float	-	coefficient of deVaoucouleurs component in linear combination of models in r-band
+FRACDEV_R	Float	-	coefficient of de Vaucouleurs component in linear combination of models in r-band
 MU50_R	Double	mag/arcsec^2	surface brightness within Petrosian 50% r-band radius 
 EXTINCTION_U	Float	mag	extinction in u-band 
 EXTINCTION_G	Float	mag	extinction in g-band 
@@ -58,4 +58,4 @@ PETROMAGERR_MG	Float	mag	Petrosian absolute magnitude error in g-band
 PETROMAGERR_MR	Float	mag	Petrosian absolute magnitude error in r-band 
 PETROMAGERR_MI	Float	mag	Petrosian absolute magnitude error in i-band 
 PETROMAGERR_MZ	Float	mag	Petrosian absolute magnitude error in z-band 
-PETROR50_R_KPC	Float	kpc	physical Petrosian half-light radius 
+PETROR50_R_KPC	Float	kpc Petrosian half-light radius in kpc, based on redshift
