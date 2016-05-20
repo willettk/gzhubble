@@ -4,11 +4,11 @@ survey_id	String	-	unique ID given by target survey
 imaging	String	-	survey source of image
 RA	Double	J2000 degrees	right ascension
 DEC	Double	J2000 degrees	declination
-Z_BEST	Double	-	best' redshift selected from 4 source catalogs; see Willett & Galloway et al. 2016 Section 2.6
-Z_BEST_TYPE	String	-	best' redshift type: SPEC_Z = spectroscopic, PHOTO_Z = photometric, GRISM_Z = grism
+Z_BEST	Double	-	best redshift, as selected from 4 source catalogs; see GZH paper Section 2.6
+Z_BEST_TYPE	String	-	best redshift type: SPEC_Z = spectroscopic, PHOTO_Z = photometric, GRISM_Z = grism
 Z_BEST_SOURCE	String	-	source catalog of best redshift ACS-GC, 3DHST, MUSYC, and UltraVISTA
-NTOT_HI	Integer	-	ACS-GC measured Total number of objects simulaneously fitted 
-NTOT_LOW	Integer	-	ACS-GC measured Total number of objects simulaneously fitted
+NTOT_HI	Integer	-	ACS-GC measured total number of objects simulaneously fitted 
+NTOT_LOW	Integer	-	ACS-GC measured total number of objects simulaneously fitted
 Z_ORIGIN	String	-	ACS-GC measured source of ACS-GC spectroscopic redshift
 MAGB	Float	mag	ACS-GC measured B-band magnitude
 MAGB_ERR	Float	mag	ACS-GC measured error in B-band magnitude
@@ -30,10 +30,10 @@ EBV	Float	mag	ACS-GC measured extinction
 CLASS	String	-	ACS-GC Object classification, provided by DEEP2 survey and COMBO-17 survey
 MU_HI	Float	mag/arcsec2	ACS-GC measured surface brightness
 MU_LOW	Float	mag/arcsec2	ACS-GC measured surface brightness
-THETA_IMAGE_HI	Double	deg	ACS-GC measured Theta image (SExtractor)
-THETA_IMAGE_LOW	Double	deg	ACS-GC measured Theta image (SExtractor)
-THETA_WORLD_HI	Double	deg	ACS-GC measured Theta world (SExtractor)
-THETA_WORLD_LOW	Double	deg	ACS-GC measured Theta world (SExtractor)
+THETA_IMAGE_HI	Double	deg	ACS-GC measured position angle in image coordinates (SExtractor)
+THETA_IMAGE_LOW	Double	deg	ACS-GC measured position angle in image coordinates (SExtractor)
+THETA_WORLD_HI	Double	deg	ACS-GC measured position angle in world coordinates (SExtractor)
+THETA_WORLD_LOW	Double	deg	ACS-GC measured position angle in world coordinates (SExtractor)
 BA_HI	Float	-	ACS-GC measured Axis ratio b/a (SExtractor) 
 BA_LOW	Float	-	ACS-GC measured Axis ratio b/a (SExtractor) 
 KRON_RADIUS_HI	Float	pixel	ACS-GC measured Kron radius (SExtractor) 
@@ -60,36 +60,36 @@ ISOAREA_IMAGE_HI	Float	deg^2	ACS-GC measured iso area of object (SExtractor)
 ISOAREA_IMAGE_LOW	Float	deg^2	ACS-GC measured iso area of object (SExtractor) 
 SEX_FLAGS_HI	Integer	-	ACS-GC measured SExtractor flag (SExtractor) 
 SEX_FLAGS_LOW	Integer	-	ACS-GC measured SExtractor flag (SExtractor) 
-FLAG_GALFIT_HI	Integer	-	ACS-GC measured Flag Galfit good=0 bad=1
-FLAG_GALFIT_LOW	Integer	-	ACS-GC measured Flag Galfit good=0 bad=1
-CHI2NU_HI	Float	-	ACS-GC measured Galfit reduced chi2
-CHI2NU_LOW	Float	-	ACS-GC measured Galfit reduced chi2
+FLAG_GALFIT_HI	Integer	-	ACS-GC measured flag GALFIT good=0 bad=1
+FLAG_GALFIT_LOW	Integer	-	ACS-GC measured flag GALFIT good=0 bad=1
+CHI2NU_HI	Float	-	ACS-GC measured GALFIT reduced chi2
+CHI2NU_LOW	Float	-	ACS-GC measured GALFIT reduced chi2
 CLASS_STAR_HI	Float	-	ACS-GC measured Class star (SExtractor)
 CLASS_STAR_LOW	Float	-	ACS-GC measured Class star (SExtractor)
-X_GALFIT_HI	Float	pixel	ACS-GC measured X center for Galfit residual image
-X_GALFIT_LOW	Float	pixel	ACS-GC measured X center for Galfit residual image
-Y_GALFIT_HI	Float	pixel	ACS-GC measured Y center for Galfit residual image
-Y_GALFIT_LOW	Float	pixel	ACS-GC measured Y center for Galfit residual image
-MAG_GALFIT_HI	Float	AB mag	ACS-GC measured mag (Galfit)
-MAG_GALFIT_LOW	Float	AB mag	ACS-GC measured mag (Galfit)
-RE_GALFIT_HI	Float	arcsec	ACS-GC measured Effective half-light radius (Galfit)
-RE_GALFIT_LOW	Float	arcsec	ACS-GC measured Effective half-light radius (Galfit)
-N_GALFIT_HI	Float	-	ACS-GC measured S´ersic index [n < 1.5 (Late type) n > 2.5 (Early type)] (Galfit)
-N_GALFIT_LOW	Float	-	ACS-GC measured S´ersic index [n < 1.5 (Late type) n > 2.5 (Early type)] (Galfit)
-BA_GALFIT_HI	Float	-	ACS-GC measured Axis ratio (Galfit)
-BA_GALFIT_LOW	Float	-	ACS-GC measured Axis ratio (Galfit)
-PA_GALFIT_HI	Float	deg	ACS-GC measured Position angle (Galfit)
-PA_GALFIT_LOW	Float	deg	ACS-GC measured Position angle (Galfit)
-SKY_GALFIT_HI	Float	counts	ACS-GC measured Sky background measured by the Galapagos code
-SKY_GALFIT_LOW	Float	counts	ACS-GC measured Sky background measured by the Galapagos code
-MAGERR_GALFIT_HI	Float	AB mag	ACS-GC measured Error in mag (Galfit)
-MAGERR_GALFIT_LOW	Float	AB mag	ACS-GC measured Error in mag (Galfit)
-REERR_GALFIT_HI	Float	arcsec	ACS-GC measured Error in half-light radius (Galfit)
-REERR_GALFIT_LOW	Float	arcsec	ACS-GC measured Error in half-light radius (Galfit)
-NERR_GALFIT_HI	Float	-	ACS-GC measured Error in S´ersic index (Galfit) Error
-NERR_GALFIT_LOW	Float	-	ACS-GC measured Error in S´ersic index (Galfit) Error
-BAERR_GALFIT_HI	Float	-	ACS-GC measured Error in axis ratio (Galfit)
-BAERR_GALFIT_LOW	Float	-	ACS-GC measured Error in axis ratio (Galfit)
-PAERR_GALFIT_HI	Float	deg	ACS-GC measured Error in position angle (Galfit)
-PAERR_GALFIT_LOW	Float	deg	ACS-GC measured Error in position angle (Galfit)
-z_spec_conflict_flag	Boolean	-	Flag for galaxies whose spectroscopic redshifts differed by dz > .001 in any of the catalogs ACS-GC, 3DHST, and MUSYC. (See Willett & Galloway et al. 2016 Section 2.4) 
+X_GALFIT_HI	Float	pixel	ACS-GC measured X center for GALFIT residual image
+X_GALFIT_LOW	Float	pixel	ACS-GC measured X center for GALFIT residual image
+Y_GALFIT_HI	Float	pixel	ACS-GC measured Y center for GALFIT residual image
+Y_GALFIT_LOW	Float	pixel	ACS-GC measured Y center for GALFIT residual image
+MAG_GALFIT_HI	Float	AB mag	ACS-GC measured mag (GALFIT)
+MAG_GALFIT_LOW	Float	AB mag	ACS-GC measured mag (GALFIT)
+RE_GALFIT_HI	Float	arcsec	ACS-GC measured Effective half-light radius (GALFIT)
+RE_GALFIT_LOW	Float	arcsec	ACS-GC measured Effective half-light radius (GALFIT)
+N_GALFIT_HI	Float	-	ACS-GC measured S´ersic index [n < 1.5 (Late type) n > 2.5 (Early type)] (GALFIT)
+N_GALFIT_LOW	Float	-	ACS-GC measured S´ersic index [n < 1.5 (Late type) n > 2.5 (Early type)] (GALFIT)
+BA_GALFIT_HI	Float	-	ACS-GC measured Axis ratio (GALFIT)
+BA_GALFIT_LOW	Float	-	ACS-GC measured Axis ratio (GALFIT)
+PA_GALFIT_HI	Float	deg	ACS-GC measured Position angle (GALFIT)
+PA_GALFIT_LOW	Float	deg	ACS-GC measured Position angle (GALFIT)
+SKY_GALFIT_HI	Float	counts	ACS-GC measured Sky background measured by the GALAPAGOS code
+SKY_GALFIT_LOW	Float	counts	ACS-GC measured Sky background measured by the GALAPAGOS code
+MAGERR_GALFIT_HI	Float	AB mag	ACS-GC measured Error in mag (GALFIT)
+MAGERR_GALFIT_LOW	Float	AB mag	ACS-GC measured Error in mag (GALFIT)
+REERR_GALFIT_HI	Float	arcsec	ACS-GC measured Error in half-light radius (GALFIT)
+REERR_GALFIT_LOW	Float	arcsec	ACS-GC measured Error in half-light radius (GALFIT)
+NERR_GALFIT_HI	Float	-	ACS-GC measured Error in Sersic index (GALFIT) Error
+NERR_GALFIT_LOW	Float	-	ACS-GC measured Error in Sersic index (GALFIT) Error
+BAERR_GALFIT_HI	Float	-	ACS-GC measured Error in axis ratio (GALFIT)
+BAERR_GALFIT_LOW	Float	-	ACS-GC measured Error in axis ratio (GALFIT)
+PAERR_GALFIT_HI	Float	deg	ACS-GC measured Error in position angle (GALFIT)
+PAERR_GALFIT_LOW	Float	deg	ACS-GC measured Error in position angle (GALFIT)
+z_spec_conflict_flag	Boolean	-	Flag for galaxies whose spectroscopic redshifts differed by dz > .001 in any of the catalogs ACS-GC, 3DHST, and MUSYC. (See GZH paper Section 2.4) 
