@@ -58,4 +58,4 @@ PETROMAGERR_MG	Float	mag	Petrosian absolute magnitude error in g-band
 PETROMAGERR_MR	Float	mag	Petrosian absolute magnitude error in r-band 
 PETROMAGERR_MI	Float	mag	Petrosian absolute magnitude error in i-band 
 PETROMAGERR_MZ	Float	mag	Petrosian absolute magnitude error in z-band 
-PETROR50_R_KPC	Float	kpc Petrosian half-light radius in kpc based on redshift
+PETROR50_R_KPC	Float	kpc	Petrosian half-light radius in kpc based on redshift 
