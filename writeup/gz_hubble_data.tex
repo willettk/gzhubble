@@ -463,20 +463,12 @@ identification of bulgeless galaxies using SDSS data.
 The dimming and resolution effects of redshift can significantly affect galaxy
 classifications derived from any method. To facilitate corrections due to
 redshift, we include a sample of 288 galaxies with SDSS imaging that can be
-transformed to simulate \hst{} imaging out to $z = 1$. The selection spanned a
-variety of galaxy morphologies (as selected by GZ2 classifications) and
-$r^\prime$-band surface brightnesses, and also spanned the redshift range of
-SDSS targets (in $N_z = 4$ bins) in order to optimize for different target
-minimum redshifts in \hst{} imaging. We redshifted the galaxies and produced
-simulated \hst{} imaging using the \ferengi{} code \citep{bar08a}.
+transformed to simulate \hst{} imaging out to $z = 1$. 
+The SDSS images were redshifted and processed to mimic simulated \hst{} imaging 
+parameters using the \ferengi{} code \citep{bar08a}.
 
 %The selection criteria for the different morphological categories is
 %summarized in Table \ref{tbl:morphologies}. 
-The surface brightness selection ($N_\mu = 3$) for the \ferengi{} galaxies was
-(1) low: $\mu > 21.5$~\magarc;  (2) mid: $20.5 < \mu < 21.5$~\magarc; and (3)
-high: $\mu < 20.5$~\magarc. For each of the four ``target redshifts''
-($z_\mathrm{sim} = 0.3, 0.5, 0.8$ and $1.0$), the images were redshifted in
-$\Delta z = 0.1$ bins up to $z_\mathrm{sim}=1.0$. 
  
 %\begin{table*}
 %\center
@@ -518,7 +510,7 @@ with increasing redshift (out to at least $z\sim1-2$). The effect on the
 redshifted images is simply an empirical addition to the magnitude of a galaxy
 of the form $M' = e\times z + M$, where $M'$ is the corrected magnitude, and
 $e$ is the evolutionary correction in magnitudes (i.e., $e=-1$ essentially
-brightens the galaxy by 1~magnitude by $z=1$). \ferengi{} was run on the images
+brightens the entire galaxy by 1~magnitude by $z=1$). \ferengi{} was run on the images
 for values of $e$ starting from $e=0$ and decreasing to $e=-3.5$ in increments
 of $\Delta e = 0.5$. Figure~\ref{fig:exampleFERENGI} shows several examples
 of the effects of ``losing'' spiral/disc features with increasing redshift
@@ -527,23 +519,22 @@ for two galaxies with $e=0$.
 The final number of \ferengi{} images produced for each galaxy is ultimately a
 function of galaxy's redshift (since the new images cannot be resampled at
 better angular resolution than the original SDSS data), as well as the number
-of $e$ values selected. Table~\ref{tbl:ferengivalues} summarizes the redshifted
-images produced for GZH. The use of these images to correct for redshift-dependent
+of $e$ values selected. The use of these images to correct for redshift-dependent
 bias is described in Section \ref{sec:debiasing}.
 
-\begin{table}
-\caption{Summary of \ferengi{} artificial redshifting \label{tbl:ferengivalues}}
-\begin{tabular}{lccccr}
-\hline\hline
-$z_{\rm sim}$ & $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $e_{\rm max}$ & $N_{\rm galaxies}$ & $N_{\rm images}$\\
-\hline
-0.3              & 8                  & 7                   & $-3.0$        & 72             & 4032 \\
-0.5              & 6                  & 4                   & $-1.5$        & 72             & 1728 \\
-0.8              & 3                  & 3                   & $-1.0$        & 72             &  648 \\
-1.0              & 1                  & 3                   & $-1.0$        & 72             &  216 \\
-\hline\hline
-\end{tabular}
-\end{table}
+%\begin{table}
+%\caption{Summary of \ferengi{} artificial redshifting \label{tbl:ferengivalues}}
+%\begin{tabular}{lccccr}
+%\hline\hline
+%$z_{\rm sim}$ & $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $e_{\rm max}$ & $N_{\rm galaxies}$ & $N_{\rm images}$\\
+%\hline
+%0.3              & 8                  & 7                   & $-3.0$        & 72             & 4032 \\
+%0.5              & 6                  & 4                   & $-1.5$        & 72             & 1728 \\
+%0.8              & 3                  & 3                   & $-1.0$        & 72             &  648 \\
+%1.0              & 1                  & 3                   & $-1.0$        & 72             &  216 \\
+%\hline\hline
+%\end{tabular}
+%\end{table}
 
 \begin{figure*}
 \center
@@ -905,11 +896,11 @@ of logged-in classifiers.
 
 The previous versions of Galaxy Zoo morphology classifications
 \citep{lin11,wil13} were based on observations of galaxies in the Sloan Digital
-Sky Survey (SDSS) which have a median redshift of $z<0.2$. In these cases, it
+Sky Survey (SDSS), which have a median redshift of $z<0.2$. In these cases, it
 was assumed that there was no cosmological evolution of the morphologies of
 galaxies and therefore any observed changes in the morphological distribution
 were due to a redshift-dependent bias that affects image quality and
-classification accuracy (ie, galaxies of a given mass/size will appear smaller
+classification accuracy (\ie, galaxies of a given mass/size will appear smaller
 and dimmer at higher redshifts).  This bias is not unique to the crowdsourcing
 technique; its dependence in data quality is a potential problem for
 \emph{both} automated and visual classifications, and must be addressed in
@@ -921,29 +912,27 @@ fractions at the highest redshifts with those at the lowest redshift.
 \citet{bam09} and \citet{wil13} provide complete descriptions of the process
 for GZ1 and GZ2, respectively.
 
-In the GZH samples, the redshift range is large enough that cosmological
-evolution of the types and morphologies of galaxies is expected for galaxies in
-the sample. As a result, the previous methods of correcting for
+In GZH, the redshift range is large enough that cosmological
+evolution of the types and morphologies of galaxies is expected for the \hst{}
+sample. As a result, the previous methods of correcting for
 redshift-dependent bias do not work. In addition, the effects of band shifting
 will change the images even more across these redshift ranges. 
-%Figure~\ref{fig:exampleFERENGI} illustrates some of the possible effects of
-%losing features in spiral galaxies at high redshift. 
 
 In order to test and correct for the effects of redshift, GZH includes a set of
-calibration images. These images consist of the same galaxy as it would appear
-over a variety of redshifts. The input images are from the SDSS
-\citep{yor00,str02} and are processed to match the observational properties of
-the \hst{} surveys out to $z=1$. These images were classified in the GZH
-interface using the same classification scheme as the original \hst{} images.
-Further details on the creation of these images is given in Section
-\ref{ssec:ferengi}.
+calibration images.  These are simulated images of a set of nearby galaxies as
+they would appear observed at a variety of redshifts.  The input images are
+from the SDSS \citep{yor00,str02}.  The sample consists of 288~nearby galaxies
+at $z<0.013$. The galaxies spanned a variety of morphologies (as selected by
+GZ2 classifications, including identifications of spiral structure,
+ellipticals, mergers, edge-on disks, bulge prominence/shape, and bars) and
+$r^\prime$-band surface brightnesses.  The overall selection spanned the
+redshift range of SDSS targets and maximized the number of \hst{} galaxies at
+the same surface brightness and redshift (Figure~\ref{fig:sb_redshift}).  The
+\ferengi{} code was used to produce sets of images corresponding to
+observations of these galaxies out to $z_\mathrm{sim}=1.0$ (see
+Section~\ref{ssec:ferengi}).  The resulting images were classified in the GZH
+interface using the standard classification scheme.
 
-The GZH classifications include 288 unique galaxies originally generated from
-SDSS imaging and processed with the \ferengi{} code. The selection spanned a
-variety of galaxy morphologies (as selected by GZ2 classifications) and
-$r^\prime$-band surface brightnesses, and also spanned the redshift range of
-SDSS targets that maximize the coverage of parameter space
-(Figure~\ref{fig:sb_redshift}). 
 
 \begin{figure}
 \begin{center}
@@ -966,34 +955,31 @@ function of the apparent size and brightness of the image as seen on screen.
 This is controlled by two types of parameters: \textbf{intrinsic} properties of
 the galaxy itself, such as its physical diameter and luminosity, and
 \textbf{extrinsic} properties, such as the distance (redshift) of the galaxy
-and its relative orientation. There may also be other parameters that affect
-classifier accuracy, such as the proximity of close companions or 
-individual classifier ability and skill. The combination of all
+and its relative orientation. The combination of all
 such parameters forms a high-dimensional space, and it is not clear how to
 separate this into individual effects. Instead, the method used here employs
-only two parameters intended to capture the bulk of the change in bias: the
+only two parameters as a simple model of the effect of redshift brightness on classification: the
 $r^\prime$-band surface brightness ($\mu_r$; intrinsic) and redshift ($z$;
 extrinsic). 
 
-This dependence of the vote fraction on $\mu_r$ and \zsim{} is measured using the
-\ferengi{} images over all the evolutionary correction factors. It is assumed
-that the ``true'' (ie, debiased) vote fraction $f_{\mu,z}$ for an
-artificially-redshifted galaxy can be expressed as:
+%This dependence of the vote fraction on $\mu_r$ and \zsim{} is measured using the \ferengi{} images over all the evolutionary correction factors. 
+We model the debiased vote fraction $f_{\mu,z}$ for an
+artificially-redshifted galaxy as:
 
 \begin{equation}
 f_{\mu,z} = \left(f_{\mu,z=0.3}\right) \times e^{{\frac{z-z_0}{\zeta}}},
 \label{eqn:fzeta}
 \end{equation}
 
-\noindent where $f_{\mu,z=0.3}$ is the ``calibrated'' vote fraction at the
-lowest redshift in the \ferengi{} bins ($z=0.3$) and $\zeta$ is a positive
-parameter that controls the rate at which $f$ decreases with increasing
-redshift. This formula fits the data relatively well (with very few exceptions,
-the vote fractions for featured galaxies decrease monotonically with increasing
-redshift), and the exponential function bounds the observed vote fractions
-between $f_{\mu,z=0.3}$ and zero. Figure~\ref{fig:zeta_examples} shows the
-change in vote fraction and the fit to Equation~\ref{eqn:fzeta} for a random
-selection of galaxies in the \ferengi{} images. 
+\noindent where $f_{\mu,z=0.3}$ is the vote fraction at the
+lowest redshift in the \ferengi{} bins ($z=0.3$). Here, $\zeta$ is a model
+parameter that controls the rate at which \ffeatures{} decreases with increasing
+redshift (and that may depend on other galaxy properties). This formula fits
+the data relatively well (with very few exceptions, the vote fractions for
+featured galaxies decrease monotonically with increasing redshift), and the
+exponential function bounds the observed vote fractions between $f_{\mu,z=0.3}$
+and zero. Figure~\ref{fig:zeta_examples} shows the change in vote fraction and
+the best-fit model for a random sample of galaxies.
 
 \begin{figure*}
 \center
@@ -1010,36 +996,39 @@ each plot.}
 \label{fig:zeta_examples}
 \end{figure*}
 
-GZH uses the values of $\zeta$ for \emph{all} sets of artificially redshifted
-galaxies to fit the overall distribution as a function of surface brightness,
-since the correction being applied is expected to vary as a function of the
-intrinsic galaxy properties. The galaxies that can be used to measure the
-calibration are restricted to those with a non-zero $f_\textrm{features}$ at
-$z_\mathrm{sim}=0.3$ and with a reasonable fit ($\Delta \chi^2 > 3.0$) to the
-exponential model for the measured change in \ffeatures. 
+The data from Figure~\ref{fig:zeta_examples} show that there is a clear
+dependence on redshift for the observed changes in \ffeatures. To examine
+whether a better fit should involve different parameters, we examine the global
+dependence of $\zeta$ on the galaxy surface brightness. This is motivated by
+the fact that brighter galaxies would presumably be easier to identify;
+\citet{bam09} and \citet{wil13} found changes in \ffeatures{} depending on a
+combination of physical size and absolute magnitude. To simplify our model, we
+subsume these into a single parameter $\mu$.
 
-Figure~\ref{fig:zeta_mu} shows the results of fitting the \ferengi{} images
-with Equation~\ref{eqn:fzeta}; the correction is only a weak function of
-surface brightness ($\mu$). Higher-surface brightness galaxies have stronger
-average corrections, likely because these galaxies are more likely to have
-larger $f_\textrm{features}$ values at high redshifts. Low surface brightness
-galaxies are more likely to begin low and remain low; the bounded nature of the
-dropoff (and variance among the individual voters) means that the average
-magnitude of $\zeta$ will be lower. 
+Figure~\ref{fig:zeta_mu} examines the results of fitting the \ferengi{} images
+with Equation~\ref{eqn:fzeta}. Interestingly, the correction is only a weak
+function of surface brightness. Higher-surface brightness galaxies have
+slightly stronger average corrections, possibly because these galaxies are more
+likely to have larger $f_\textrm{features}$ values at high redshifts. Low
+surface brightness galaxies are more likely to begin low and remain low; the
+bounded nature of the dropoff (and variance among the individual voters) means
+that the average magnitude of $\zeta$ will be lower. 
 
 \begin{figure}
 \center
 \includegraphics[width=0.50\textwidth]{figures/zeta_mu.png}
-\caption{All fits for the vote fraction dropoff parameter $\zeta$ for
-\ffeatures{} in the \ferengi{} galaxies as a function of surface
-brightness. This includes only those galaxies with a reasonably bounded range
-on the dropoff ($-10<\log(\zeta)<10$) and sufficient points to fit each
-function (37 original galaxies, each artificially redshifted to create a total
-of 296~images}
+\caption{All fits for the \ferengi{} galaxies of the vote fraction dropoff
+parameter $\zeta$ for \ffeatures{} as a function of surface brightness. This
+includes only galaxies with a bounded range on the dropoff
+($-10<\log(\zeta)<10$) and sufficient points to fit each function (37~original
+galaxies, each artificially redshifted to create a total of 296~images).}
 \label{fig:zeta_mu}
 \end{figure}
 
-The data in Figure~\ref{fig:zeta_mu} are fit with a linear function such that:
+Since there is little evidence for any strong systematic dependence of $\zeta$
+on $\mu$, we do not include any additional parameters in fitting to our
+calibration model.  We fit the data in Figure~\ref{fig:zeta_mu} with a linear
+function:
 
 \begin{equation}
 \log_{10}(\hat\zeta) = \zeta_0 + (\zeta_1 \times \mu),
@@ -1064,7 +1053,7 @@ f_\textrm{features,debiased} = 1 - (1 - f_\mathrm{features,weighted})e^{\frac{z-
 \centering
 \includegraphics[width=\textwidth]{figures/p_vs_p_SB_redshift.pdf}
 \caption{Effects of redshift bias in 3,950 images in the \ferengi{} sample.
-Each point in a given redshift and surface brightness bin represents a
+Each point \emph{in a given redshift and surface brightness bin} represents a
 unique galaxy. On the $y$-axis in each bin is the \ffeatures{} value of the
 image of that galaxy redshifted to the value corresponding to that redshift
 bin. On the $x$-axis is the \ffeatures{} value of the image of the same galaxy
@@ -1073,7 +1062,8 @@ polynomials to the data in each square. The solid black line represents
 \ffeaturesz=\ffeaturesrest. Regions in which there is a single-valued
 relationship between \ffeatures{} at high redshift and at $z=0.3$ are white;
 those in which there is not are blue, and those with not enough data ($N<5$)
-are gray. A larger version of the bin outlined at $z=1.0$ and $20.3 < \mu < 21.0$ $\rm (mag/arcsec^2)$ is shown in Figure~\ref{fig:f_vs_f_zoom}.}
+are gray. A larger version of the bin outlined at $z=1.0$ and $20.3 < \mu <
+21.0$ $\rm (mag/arcsec^2)$ is shown in Figure~\ref{fig:f_vs_f_zoom}.}
 \label{fig:f_vs_f}
 \end{figure*} 
 
@@ -1088,16 +1078,14 @@ and upper limits of the debiased values.}
 \label{fig:f_vs_f_zoom}
 \end{figure}
 
-
 Figure~\ref{fig:f_vs_f} shows the change in \ffeatures{} for the \ferengi{}
-galaxies relative to their lowest simulated redshift. In this analysis, only
-galaxies whose lowest simulated redshift image was $z_\mathrm{sim}=0.3$ were
-used (see Table \ref{tbl:ferengivalues}), and only those which had detectable
-surface brightness measurements in \sextractor; this includes 3,950 of the
-total 6,466 images. For each simulated redshift value \zsim{} at a fixed
-surface brightness $\mu$, \ffeaturesz, the value measured at that simulated
-redshift, is plotted against \ffeaturesrest, the value measured for the same
-galaxy at \zsim$=0.3$. 
+galaxies relative to their lowest simulated redshift. This analysis only uses
+galaxies whose lowest simulated redshift image was $z_\mathrm{sim}=0.3$ and
+with detectable surface brightness measurements from \sextractor; this includes
+3,950 of the total 6,466~images originally processed. For each simulated
+redshift value \zsim{} at a fixed surface brightness $\mu$, \ffeaturesz, the
+value measured at that simulated redshift, is plotted against \ffeaturesrest,
+the value measured for the same galaxy at \zsim$=0.3$. 
  
 The objective is to use these data to predict, for a galaxy with a measured
 \ffeaturesz{} value, what its \ffeatures{} value \emph{would have been} if it
@@ -1820,7 +1808,8 @@ Another existing study using GZH to select barred galaxies was presented in
 \citet{che15}. This study used a slightly different bar selection method to
 demonstrate that AGN hosts show no statistically significant enhancement in bar
 fraction or average bar likelihood compared to closely-matched inactive
-galaxies. 
+galaxies. We note that their technique matched test and control galaxies over
+the same redshift ranges, which minimizes the possible impact of redshift bias.
 
 \subsection{Example 2: Identifying clump multiplicity} Clumps are known to be a
 characteristic feature of galaxies outside the local universe, and there is
