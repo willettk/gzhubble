@@ -171,11 +171,11 @@ necessary to reproduce the influence of baryonic physics \citep{vog14a,sch15}.
 Such simulations predict clustering of galaxies on large scales in a
 hierarchical assembly model \citep{sil12}. The structure of individual galaxies
 is affected by their merger history \citep{too72,ste02,hop10}, local
-environment \citep[such as the morphology-density relation;][]{dre80}, initial
+environment \citep[\eg, the morphology-density relation;][]{dre80}, initial
 dark halo mass, secular evolution rate, and many other factors. Morphologies of
 individual simulated high-mass galaxies at $z\sim2-3$ commonly show kpc-scale
 ``clumpy'' structures, with few galaxies that are either smooth or well-ordered
-spirals; asymmetric profiles with strong density contrasts dominate simulated
+spirals; asymmetric galaxies with strong density contrasts dominate simulated
 populations in the early Universe until at least $z\sim1$ \citep{bel12,gen14}. 
 
 Observational studies of galaxies at high-redshift also display a wide range of
@@ -193,7 +193,7 @@ characterizing high-redshift morphology.
 
 Space-based observatories, particularly the \hubble{} (\hst), have been
 responsible for the bulk of imaging studies of high-redshift galaxies.
-Observations of fixed fields with very deep imaging
+Observations of fields with very deep imaging
 \citep[eg,][]{wil96,gia04,bec06,dav07,sco07,gro11} give the photometric
 sensitivity necessary to detect $L^\star$ galaxies at $z>1$, while also
 providing the angular resolution to distinguish internal structure and
@@ -206,9 +206,9 @@ redshifts (at least distinguishing a disk from a bulge), but is limited for
 more compact structures. Since the size of galaxies evolves as roughly
 $r\propto(1+z)^{-1}$ \citep{mao98,law12a}, the compact sizes of high-redshift
 galaxies make detailed morphologies a challenge even for \hst{} \citep{che12}.
-The public availability of more than $10^5$~galaxies in archival imaging across
-various studies gives a data sample with the potential for high statistical
-significance.
+However, the public availability of more than $10^5$~galaxies in archival
+imaging has generated a data sample with the potential
+for statistically-robust studies of galaxy demographics and evolution. 
 
 One of the major difficulties in studying the morphologies of galaxies lies in
 the techniques used for measurement. Visual classification by experts has been
@@ -222,7 +222,7 @@ parametric \citep{pen02a,sim11,lac12} and non-parametric
 \citep{abr03,con03,lot04,sca07,bam08,fre13}, scale well to very large sample
 sizes, but do not always fully capture the relevant features, especially for
 asymmetric galaxies that become increasingly common at high redshifts. The
-Galaxy Zoo project \citep{lin08} utilizes crowdsourced visual classifications
+Galaxy Zoo project \citep{lin08,for12} utilizes crowdsourced visual classifications
 to measure galaxies in color-composite images. The efforts of more than
 $2\times10^5$~classifiers allow for multiple independent classifications of
 each image which are combined and calibrated to give a distribution of vote
@@ -234,8 +234,8 @@ studies \citep[eg,][]{lan08,bam09,dar10,mas11c,ski12,sim13,sch14,wil15}.
 This paper presents the classifications collected from the Galaxy Zoo Hubble
 (GZH) project.\footnote{\url{http://zoo3.galaxyzoo.org/}} GZH was the third
 phase of Galaxy Zoo, following its initial results classifying
-$\sim900,000$~SDSS~images into primarily early/late~types \citep{lin11} and
-Galaxy~Zoo~2, which covered $\sim250,000$~SDSS~images using a more detailed
+$\sim900,000$ Sloan Digital Sky Survey (SDSS)~images into primarily early/late~types \citep{lin11} and
+Galaxy~Zoo~2, which covered a subset of $\sim250,000$~images using a more detailed
 classification scheme that included bars, spiral arms, and galactic bulges
 \citep{wil13}. GZH used a similarly detailed classification scheme, but focused
 for the first time on images of high-redshift galaxies taken with \hst. The
@@ -383,21 +383,23 @@ total                                   & $-$          & $-$                    
 
 \subsection{The Sloan Digital Sky Survey}\label{ssec:sdss}
 
-The project includes images from the Sloan Digital Sky Survey
-\citep[SDSS;][]{yor00,str02}, in particular those from Data~Release~7
-\citep{aba09}. A small number of images were used in the creation of simulated
-\hst{} images, described in Sections \ref{ssec:ferengi} and \ref{sec:debiasing}
-below; the majority of SDSS images used in GZH were from Stripe~82. The
-Stripe~82 samples in GZH include single-epoch and co-added images, intended to
-facilitate comparison of morphological classification with image depth. 
+The project includes images from the SDSS \citep{yor00,str02}, in particular
+those from Data~Release~7 \citep{aba09}. A small number of images were used in
+the creation of simulated \hst{} images, described in Sections
+\ref{ssec:ferengi} and \ref{sec:debiasing} below; the majority of SDSS images
+used in GZH were from Stripe~82. The Stripe~82 samples in GZH include
+single-epoch and co-added images. The single-epoch images provide a local
+sample for comparison to higher-redshift galaxies (including the new
+measurments of clumpy structure), while the co-added images allow for analysis
+of morphological properties as a function of image depth. 
 
 %The creation of 51,861 images from these sources is described in Section
 %\ref{ssec:galselect} below.
-Single-epoch images from SDSS Stripe~82 were selected using the same criteria
+Single-epoch images from SDSS Stripe~82 were selected using the criteria
 from \citet{wil13}, which required limits of \texttt{petroR90\_r}$ >
 3$\arcsec~(where \texttt{petroR90\_r} is the radius containing 90\% of the
 $r^\prime$ Petrosian flux) and a magnitude brighter than $m_r < 17.77$. The
-images used were three-color composites using the $g^\prime$, $r^\prime$, and
+images used were three-color composites created using the $g^\prime$, $r^\prime$, and
 $i^\prime$ filters \citep{nie04}. 21,522 galaxies in SDSS met these criteria.
 Co-added images from Stripe~82 were selected from the union of galaxies with
 co-added magnitudes brighter than $17.77$~mag, and the galaxies detected in the
@@ -436,7 +438,7 @@ assembled from 95~galaxies from GOODS-S imaging and empirical PSFs made by
 combining stars in the GOODS fields using the PSF creation tools in
 \texttt{daophot}.  The second set (version~2) was assembled from 96~galaxies in
 GOODS-S; this version used simulated PSFs from \texttt{TinyTim} \citep{kri93},
-drizzled using the same procedures as those used in reduction of the GOODS-S
+drizzled using the same procedures as those used in the reduction of the GOODS-S
 images \citep{koe02,koe03,gia04}. The use of these 2 versions facilitates
 comparisons between these different PSF creation methods, which are widely used
 in AGN host galaxy morphology studies
@@ -506,18 +508,22 @@ parameters using the \ferengi{} code \citep{bar08a}.
 In addition to the physical parameters of the input images, the \ferengi{}
 output depends on assumptions of the global galaxy evolution model. This
 evolution is a crude mechanism that mimics the brightness increase of galaxies
-with increasing redshift (out to at least $z\sim1-2$). The effect on the
+with increasing redshift \citep[\eg,][]{lil98,lov12}. The effect on the
 redshifted images is simply an empirical addition to the magnitude of a galaxy
 of the form $M' = e\times z + M$, where $M'$ is the corrected magnitude, and
-$e$ is the evolutionary correction in magnitudes (i.e., $e=-1$ essentially
+$e$ is the evolutionary correction in magnitudes ($e=-1$ essentially
 brightens the entire galaxy by 1~magnitude by $z=1$). \ferengi{} was run on the images
 for values of $e$ starting from $e=0$ and decreasing to $e=-3.5$ in increments
 of $\Delta e = 0.5$. Figure~\ref{fig:exampleFERENGI} shows several examples
 of the effects of ``losing'' spiral/disc features with increasing redshift
-for two galaxies with $e=0$. 
+for two galaxies with no evolution corrections ($e=0$); as the signal-to-noise ratio in the images
+decreases and the galaxies become fainter, the contrast between features
+like spiral arms goes down and \ffeatures{} drops to the point where both
+galaxies would have been classified as likely ellipticals. 
+
 
 The final number of \ferengi{} images produced for each galaxy is ultimately a
-function of galaxy's redshift (since the new images cannot be resampled at
+function of the galaxy's redshift (since the new images cannot be resampled at
 better angular resolution than the original SDSS data), as well as the number
 of $e$ values selected. The use of these images to correct for redshift-dependent
 bias is described in Section \ref{sec:debiasing}.
@@ -546,18 +552,18 @@ from GZH for the images in each panel are (1) Top row: \ffeatures~= (0.900,
 0.875, 0.625, 0.375). \label{fig:exampleFERENGI}}
 \end{figure*}
 
-\subsection{Image creation}\label{ssec:images}
+\subsection{Creating color images}\label{ssec:images}
 
 The images used for classification in GZH were color-composite JPEGs made from
-multi-band data. These were created followed the method of \citet{lup04}, which
-preserves colour information irrespective of intensity.  An asinh intensity
+multi-band data. These were created following the method of \citet{lup04}, which
+preserves color information irrespective of intensity.  An asinh intensity
 mapping was applied to enhance the appearance of faint features while avoiding
 saturating galaxy centers. The relative scalings of the filter bands were
 chosen while trying to reproduce the color appearance of the SDSS images in
 previous iterations of Galaxy Zoo.
 
 Many of the Legacy surveys described in Section~\ref{ssec:legacy_surveys}
-provided images in only two filters. For these, the shorter-wavelength band was
+provided \hst{} images in only two filters. For these, the shorter-wavelength band was
 mapped to the blue channel, the longer-wavelength band to the red channel, and
 the green channel created by taking the arithmetic mean of the two. The bands
 used in each of the surveys are listed in Table~\ref{tbl:gzh_numbers}.
@@ -574,14 +580,14 @@ use of the full four-band data by using the arithmetic mean of \Bband{} and
 \Vband{} in the blue channel, \Iband{} in the green channel, and \zband{} in
 the red channel.
 
-The COSMOS survey provided only \Iband{} HST imaging at the time of the GZH
-launch.  These galaxies used ``pseudocolor'' images created by using
-the ACS \Iband{} data as an illumination map and ground-based imaging from the
-\subaru{} telescope in $B_J$, $r^+$, and $i^+$ filters to provide color
-information (see \citealt{gri12} for further details). This resulted in images
-with the angular resolution of \hst{} ($\sim0.05$~\arcsec/pixel) for the
-overall intensity, but color gradients at ground-based resolution, with seeing
-between 0.95\arcsec{} and 1.05\arcsec{} \citep{tan07}.
+The COSMOS survey provides only \Iband{} HST imaging. For these galaxies, GZH
+used ``pseudocolor'' images created by using the ACS \Iband{} data as an
+illumination map and ground-based imaging from the \subaru{} telescope in
+$B_J$, $r^+$, and $i^+$ filters to provide color information (see
+\citealt{gri12} for further details). This resulted in images with the angular
+resolution of \hst{} ($\sim0.05$~\arcsec/pixel) for the overall intensity, but
+color gradients at ground-based resolution, with seeing between 0.95\arcsec{}
+and 1.05\arcsec{} \citep{tan07}.
 
 Stripe~82 single-epoch images were taken directly from the DR7 SDSS Skyserver,
 which combined $g^{\prime}$, $r^{\prime}$, and $i^{\prime}$ exposures into the
@@ -594,8 +600,8 @@ images resulted in the sky noise taking the appearance of brightly colored
 speckles. This impaired the aesthetics of the images and might have been a
 distraction to visual classification.  To counteract this, a soft-edged object
 mask was applied to the color images and a desaturation operation performed.
-This masked procedure was effective in preserving the color balance for
-galaxies, retaining the visibility of faint features while reducing the color
+This masking procedure was effective in preserving the color balance for
+galaxies and retained the visibility of faint features, while reducing the color
 contrast in the sky noise and greatly improving the appearance of the images.
 This solution was applied to the coadded Stripe~82, COSMOS and 5-epoch GOODS
 images.
@@ -797,7 +803,9 @@ the corresponding Task numbers. Tasks in the decision tree are color-coded by
 tier level: Gray-colored Tasks are 1$^\mathrm{st}$-tier questions which are
 asked in every classification. Tasks colored green, blue, purple, and pink
 (respectively) are one, two, three, or four steps below branching points in the
-decision tree.}
+decision tree. The dashed line between T15 and T03 indicates the unique case
+where volunteers could label both clumpy and disk-like morphologies for
+galaxies with clumps arranged in a spiral pattern.}
 \label{fig:decisiontree}
 \end{figure*}
 
@@ -816,13 +824,13 @@ classification in-progress.
 
 The GZH decision tree was designed to remain close to that used by GZ2 while
 taking account of the likely differences in high redshift systems, and has four
-broad sets of morphologies classified by the users.  The first option
-designated stars or image artifacts (the result of either bad data or incorrect
+broad sets of morphologies classified by the users.  The first set
+identified stars or image artifacts (the result of either bad data or incorrect
 identification as a galaxy by the ACS pipeline); in this case, the
 classification process ended and no further questions were asked. The second
 set was smooth galaxies, intended to select ellipticals/early-types;
 volunteers also indicate the relative axial ratio (roundness) for these
-galaxies. The third set was for disk/late-type galaxies, which measured the
+galaxies. The third set was for disk/late-type galaxies, which labeled the
 features necessary to place a galaxy on the standard Hubble tuning fork (bars,
 spiral arm, strength of the central bulge). The final set, which was new in
 this phase of Galaxy~Zoo and designed for high-redshift targets, identified
@@ -859,9 +867,10 @@ confirmed as classifiable galaxies. The GZH site collected data until its
 replacement, the fourth phase of
 Galaxy~Zoo\footnote{\url{http://zoo4.galaxyzoo.org}} (including data from both
 the \hst{} CANDELS survey and SDSS DR8) began on 10~Sep~2012. Classifications
-for the GOODS 5-epoch images were separately obtained from Mar-Jun 2015 on the
-fourth version of the Galaxy~Zoo site. The GZH project had a total of
-10,349,357~classifications from 93,898 registered participants. 
+for the GOODS 5-epoch images were separately obtained from Mar-Jun 2015 using
+the fourth version of the Galaxy~Zoo site and the same GZH decision tree.
+The GZH project had a total of 10,349,357~classifications from
+93,898~registered participants. 
 % Sum is the total of the GZH SQL table plus the GOODS full-depth imaging in GZ4.
 
 
@@ -871,17 +880,16 @@ As a first step to producing a consensus measurement of each galaxy, the votes
 of individual volunteers who classified galaxies in GZH were combined to make a
 vote fraction for each response ($f_{response}$) to a question in the decision
 tree. Votes were subsequently weighted and re-combined in an iterative method
-similar that in previous versions of Galaxy~Zoo \citep{lan08,wil13}, using a
+similar to that in previous versions of Galaxy~Zoo \citep{lan08,wil13}, using a
 method chosen to be as egalitarian as possible while also identifying and
 downweighting classifiers who frequently disagreed with others. The weighting
-factor $(w)$ was 1 for the top 95\% of classifiers, as ranked by consistency.
+factor $w$ was 1 for the top 95\% of classifiers, as ranked by consistency.
 For the bottom 5\% of classifiers, $w$ was designed to drop smoothly and was
-effectively zero for the bottom 1\% in the distribution function. Since this
-only affected a tiny percentage of the classifiers (and an even smaller
-percentage of the classifications) the overall effect on the GZH dataset was
+effectively zero for the bottom 1\% in the distribution function. Since
+downweighting only occurs for the bottom few percent of classifiers (and an even smaller
+percentage of the classifications), the overall effect on the GZH dataset was
 minimal. The method was effective, however, at filtering out contributions from
 randomly classifying or malicious participants.
-% would be good to quantify "tiny" and "even smaller [than tiny]"
 
 Classifications were aggregated and weighted only if the classifier was logged
 into GZH under their username (which was encouraged, but not required for
@@ -895,8 +903,8 @@ of logged-in classifiers.
 \section{Correcting for redshift-dependent classification bias}\label{sec:debiasing}
 
 The previous versions of Galaxy Zoo morphology classifications
-\citep{lin11,wil13} were based on observations of galaxies in the Sloan Digital
-Sky Survey (SDSS), which have a median redshift of $z<0.2$. In these cases, it
+\citep{lin11,wil13} were based on observations of galaxies in the SDSS,
+which have a median redshift of $z<0.2$. In these cases, it
 was assumed that there was no cosmological evolution of the morphologies of
 galaxies and therefore any observed changes in the morphological distribution
 were due to a redshift-dependent bias that affects image quality and
@@ -907,7 +915,7 @@ technique; its dependence in data quality is a potential problem for
 order to accurately measure demographics over any significant redshift range. 
 
 For both previous releases of Galaxy~Zoo morphologies, a correction for
-redshift-dependent bias was applied based on matching the classification
+redshift-dependent bias was applied based on matching the mean classification
 fractions at the highest redshifts with those at the lowest redshift.
 \citet{bam09} and \citet{wil13} provide complete descriptions of the process
 for GZ1 and GZ2, respectively.
@@ -936,7 +944,7 @@ interface using the standard classification scheme.
 
 \begin{figure}
 \begin{center}
-\includegraphics[width=0.5\textwidth]{figures/eye_of_sauron.pdf}
+\includegraphics[width=0.5\textwidth]{figures/sb_redshift.pdf}
 \caption{Surface brightness as a function of redshift for 3,950~\ferengi{}
 images and the 102,548~galaxies in the ACS sample with measured $\mu$ and $z$
 values. The color histogram shows the number of \ferengi{} images as a function
@@ -972,7 +980,7 @@ f_{\mu,z} = \left(f_{\mu,z=0.3}\right) \times e^{{\frac{z-z_0}{\zeta}}},
 \end{equation}
 
 \noindent where $f_{\mu,z=0.3}$ is the vote fraction at the
-lowest redshift in the \ferengi{} bins ($z=0.3$). Here, $\zeta$ is a model
+lowest redshift in the \ferengi{} bins ($z_0=0.3$). Here, $\zeta$ is a model
 parameter that controls the rate at which \ffeatures{} decreases with increasing
 redshift (and that may depend on other galaxy properties). This formula fits
 the data relatively well (with very few exceptions, the vote fractions for
@@ -1007,12 +1015,12 @@ subsume these into a single parameter $\mu$.
 
 Figure~\ref{fig:zeta_mu} examines the results of fitting the \ferengi{} images
 with Equation~\ref{eqn:fzeta}. Interestingly, the correction is only a weak
-function of surface brightness. Higher-surface brightness galaxies have
-slightly stronger average corrections, possibly because these galaxies are more
-likely to have larger $f_\textrm{features}$ values at high redshifts. Low
-surface brightness galaxies are more likely to begin low and remain low; the
-bounded nature of the dropoff (and variance among the individual voters) means
-that the average magnitude of $\zeta$ will be lower. 
+function of surface brightness. Higher-surface brightness galaxies have on
+average slightly stronger corrections, possibly because these galaxies have
+larger $f_\textrm{features}$ values at high redshifts. Low surface brightness
+galaxies are more likely to begin low and remain low; the bounded nature of the
+dropoff (and variance among the individual voters) means that the average
+magnitude of $\zeta$ will be lower. 
 
 \begin{figure}
 \center
@@ -1043,9 +1051,12 @@ Equation~\ref{eqn:fzeta} is modified to bound the debiased vote fractions
 between $f$ and 1:
 
 \begin{equation}
-f_\textrm{features,debiased} = 1 - (1 - f_\mathrm{features,weighted})e^{\frac{z-z_0}{\hat\zeta}}.
+f_\textrm{features,debiased} = 1 - (1 - f_\mathrm{features,weighted})e^{\frac{z-z_0}{\hat\zeta}}
 \label{eqn:fzeta_mod}
 \end{equation}
+
+\noindent where $f_\mathrm{features,weighted}$ is the weighted vote fraction
+described in Section~\ref{ssec:weighting}.
 
 \subsection{Effects of morphological debiasing}\label{ssec:zeta_results}
 
@@ -1098,7 +1109,7 @@ that is, for a given \ffeaturesz, there is exactly one corresponding value of
 \ffeatures{} at $z=0.3$. 
 
 Figure~\ref{fig:f_vs_f} shows that the relationship between \ffeaturesz{} and
-\ffeaturesrest{} is \emph{not} always single valued; hence, it is not
+\ffeaturesrest{} is \emph{not} always single-valued; hence, it is not
 appropriate to correct galaxies that lie in certain regions of surface
 brightness/redshift/\ffeatures{} space. These regions tend to have low
 \ffeatures{} values at high redshift, but a wide range of values at $z=0.3$.
@@ -1113,15 +1124,15 @@ the images (see top right panel of Figure~\ref{fig:f_vs_f}).
 The criteria for determining whether a region of this space is single-valued,
 and therefore correctable, is as follows: In each surface brightness and
 redshift bin, the relationship between \ffeaturesz{} and \ffeaturesrest{} is
-modeled by fitting the data with a polynomial of degrees $n=3$, 2, and 1, and
+modeled by fitting the data with polynomials of degrees $n=3$, 2, and 1, and
 using the best formal fit out of the three as measured by the sum of the
 residuals. These fits are shown as the dashed black lines in
-Figure~\ref{fig:f_vs_f}. Any flat regions of the polynomial fits are areas in which
-there is not a clear single-valued relationship between \ffeaturesz{} and
-\ffeaturesrest; this is quantified by setting a minimum slope cut of 0.4. Any
-data in which the polynomial fit has a slope less than this value is considered
-\emph{not} one-to-one, and therefore \ffeaturesz{} cannot be boosted to its
-\ffeaturesrest{} value.  Galaxies in this region are referred to as the
+Figure~\ref{fig:f_vs_f}. Flat regions of the bins are areas in which there is
+not a clear single-valued relationship between \ffeaturesz{} and
+\ffeaturesrest. We quantify this by measuring the slope of the best-fit
+polynomical; regions of the bins with a slope less than 0.4 value are
+considered \emph{not} one-to-one, and therefore \ffeaturesz{} cannot be boosted
+to its \ffeaturesrest{} value.  Galaxies in this region are referred to as the
 \emph{lower limit} sample, because the most stringent correction available is
 that the weighted \ffeatures{} is a lower limit to the true value.  These
 regions are highlighted in blue in Figure~\ref{fig:f_vs_f}. Uncolored (white)
@@ -1145,10 +1156,11 @@ contamination from both groups is minimized. The resulting hulls define the
 correctable and lower-limit regions for categorizing the \hst{} galaxies. The
 results of this method and final categorization of the \hst{} sample are in
 Table~\ref{tbl:hubble_debiasable}. Of the galaxies at redshift higher than
-$z=0.3$, 17\% can be debiased using the $\zeta$ method, 27\% cannot be
-debiased, and 56\% cannot have the potential for a correction determined, due
-either to an unknown redshift or insufficient \ferengi{} images corresponding
-to the relevant $z$-$\mu$ values.
+$z=0.3$, 17\% can be debiased using the $\zeta$ method, 27\% cannot be debiased
+since the relationship between \ffeaturesz{} and \ffeaturesrest{} is not
+monotonic, and 56\% cannot be debiased since they either have an unknown
+redshift or insufficient numbers of \ferengi{} images in their $z$-$\mu$ value
+to determine a reliable value of $\zeta$.
 
 For the ``lower-limit'' galaxies for which a single debiased \ffeatures{} value
 cannot be confidently assigned, the \emph{range} of debiased values is
@@ -1204,8 +1216,8 @@ are highly difficult.
 \center
 \includegraphics[width=\textwidth]{figures/debiased_corrections.pdf}
 \caption{Debiased \ffeatures{} corrected to $z=0.3$ vs weighted \ffeatures{}
-for the correctable (left), lower-limit (middle), and NEI (right) galaxies in
-    the GZH sample.}
+for the correctable (left), lower-limit (middle), and ``not enough
+information'' (NEI; right) galaxies in the GZH sample.}
 \label{fig:debiased_corrections}
 \end{figure*}
 
@@ -1220,8 +1232,8 @@ sign of a disk?''}; as such the vote fractions \fsmooth, \ffeatures, and
 question, with between 40 and 140~responses (see Section~\ref{sec:interface}).
 The number of participants answering subsequent questions, however, is always equal
 to or less than the number who answered the preceding question. The average number
-of responses per task for fourth- or fifth-tier questions such as spiral arm
-structure (Tasks 12--14) is only $4\pm4$ for the \ferengi{} sample; while this
+of responses per task for fourth- or fifth-tier questions (such as spiral arm
+structure; Tasks 12--14) is only $4\pm4$ for the \ferengi{} sample. While this
 distribution is strongly bimodal (reflecting the true morphologies of
 selected galaxies), the very low absolute numbers of votes introduce very high
 variance when attempting to calculate a statistical correction.
@@ -1232,7 +1244,7 @@ used (Section~\ref{ssec:zeta}) requires that at least 10~classifiers answer each
 question for a galaxy with $z_\mathrm{sim}=0.3$ \emph{and} the corresponding
 image at higher redshift. This requirement is (by default) met by all galaxies
 for the smooth/features question. However, this is often \emph{not} met for
-questions beyond Task~01; on average. $60\%\pm24\%$ of the galaxies do not have
+questions beyond Task~01. On average, $60\%\pm24\%$ of the galaxies do not have
 sufficient data to measure a correction, as compared to 2.0\% achieved for
 Task~01 (Table~\ref{tbl:ferengi_corrections}). Of the remaining
 \ferengi{} galaxies which did meet this requirement, polynomials were fit to
@@ -1254,13 +1266,13 @@ debiased vote fractions are only offered in the GZH catalog for Task~01
 \hline\hline
                                    & Correction type & AEGIS   & COSMOS & GEMS & GOODS-N & GOODS-S    & SDSS    & Total \\
 \hline
-Correctable                        & 0               & 1,654   & 15,170 & 1,837 & 993    & 835     	& 0       & 20,489\\
-Lower-limit                        & 1               & 1,917   & 26,113 & 2,423 & 1,385  & 1,282   	& 0       & 33,120\\
-No Correction Needed ($z \le 0.3$) & 2               & 955     & 11,926 & 1,175 & 415    & 400     	& 37,545  & 52,416\\ 
-NEI                                & 3               & 2,847   & 34,511 & 3,308 & 2,535  & 2,523   	& 0       & 45,724\\
-No Redshift Information            & 4               & 1,134   & 5,088  & 561   & 687    & 102   		& 14,316  & 21,888\\
+correctable                        & 0               & 1,654   & 15,170 & 1,837 & 993    & 835     	& 0       & 20,489\\
+lower-limit                        & 1               & 1,917   & 26,113 & 2,423 & 1,385  & 1,282   	& 0       & 33,120\\
+no correction needed ($z \le 0.3$) & 2               & 955     & 11,926 & 1,175 & 415    & 400     	& 37,545  & 52,416\\ 
+not enough information (NEI)       & 3               & 2,847   & 34,511 & 3,308 & 2,535  & 2,523   	& 0       & 45,724\\
+no redshift information            & 4               & 1,134   & 5,088  & 561   & 687    & 102   		& 14,316  & 21,888\\
 \hline
-Total                              &                 & 8,507   & 92,808 & 9,304 & 6,015  & 5,142   	& 51,861  & 173,637\\
+total                              &                 & 8,507   & 92,808 & 9,304 & 6,015  & 5,142   	& 51,861  & 173,637\\
 \hline\hline
 \end{tabular}
 \end{table*}
@@ -1311,7 +1323,7 @@ Total                              &                 & 8,507   & 92,808 & 9,304 
 
 \section{The Galaxy Zoo: Hubble catalog}\label{sec:results}
 
-The data release for GZH includes morphological data for 181,101~images
+The catalog for GZH includes morphological data for 181,101~images
 (generated from a total of 150,771~unique galaxies). The full table can be
 accessed at \url{http://data.galaxyzoo.org}. The online data also includes a
 secondary metadata table, which is drawn from a variety of sources detailed in
@@ -1357,8 +1369,8 @@ negative vote fractions for \fsmooth; these were cases in which the
 \ffeatures{} vote fraction was boosted to a high value relative to \fartifact.
 In these cases, the constraint of Equation~\ref{eqn:constraint} is met by
 setting \fsmooth$=0.0$ and decreasing \fbest{} accordingly. This correction is
-typically small, with a median decrease/increase of
-$f_\mathrm{features}/f_\mathrm{smooth}$ of $\Delta f = 0.04$.
+typically small, with a median change of
+\ffeatures{} or \fsmooth{} of $\Delta f = 0.04$.
 
 Tables~\ref{tbl:catalog_hst}-\ref{tbl:simulated_agn} also contain flags for
 Task 01 that identify clean (but not complete) samples of galaxies with high
@@ -1372,7 +1384,7 @@ brightness and redshift effects (Section~\ref{sec:debiasing}).
 
 Data products for GZH are split by the type of image being classified. Each
 sample in Section~\ref{ssec:sample_labels} corresponds to the data in
-Tables~\ref{tbl:Catalog_hst}-\ref{tbl:simulated_agn}.
+Tables~\ref{tbl:catalog_hst}-\ref{tbl:simulated_agn}.
 
 \tabletypesize{\scriptsize}
 \begin{deluxetable*}{lllcrlllllll|c}
@@ -1744,16 +1756,18 @@ The flexibility of this catalog allows users to set their own selection
 criteria for vote fraction thresholds to create a morphologically pure sample.
 Table~\ref{tbl:thresholds} provides baseline cuts for selecting galaxies of a
 variety of morphologies. These thresholds are determined by a visual inspection
-of subsamples. For each Task, at least 20 classifiers are required to have voted on
-the given question along with a cut on the vote fraction is applied to the
-previous task. We visually analyzed subsamples of 50~galaxies meeting both
+of subsamples. The thresholds used are a combination of 20~votes for the
+task being considered, as well as limits on the vote fractions for previous
+response(s) in the decision tree. 
+
+We visually analyzed subsamples of 50~galaxies meeting both
 criteria, as well as a control sample of galaxies which had 20~classifiers vote on
 the task, but did not meet the threshold cut set for the previous task. The
 threshold cut was adjusted and new subsamples were inspected until both the
 original and control samples achieved $>80\%$ purity.
 
 As an example of how to use Table~\ref{tbl:thresholds} to create a sample of
-3-armed spirals galaxies, we suggest selecting objects with $N_{arm~number} \ge
+3-armed spiral galaxies, we suggest selecting objects with $N_{arm~number} \ge
 20$, \ffeatures$>0.23, f_{\rm clumpy,no} > 0.30, f_{edgeon,no}>0.25$, and
 $f_{spiral,yes}>0.25$. These cuts define a sample of galaxies of ``arm number
 candidates''; \ie, galaxies for which answering the arm number question makes
@@ -1768,31 +1782,31 @@ if they select ``featured/disk'' in Task~01, ``clumpy'' in Task~12, two or more
 clumps in Task~16, and ``spiral arrangement'' in Task~15. After applying
 the appropriate thresholds for this path, $< 0.5\%$ of the galaxies which
 have $\ge 20$ answers to these questions used this pathway to arrive at
-these Tasks.  Further, of these subjects, none were found to exhibit disk
-structure, although the clumps within were arranged in a spiral pattern. 
+these Tasks. None of these images show obvious disk
+structure, although the clumps within are arranged in a spiral pattern. 
 
 This section described how to use Table~\ref{tbl:thresholds} to select
-well-sampled galaxies for which a particular task is reliably sampled. The
+galaxies for which a particular task is reliably sampled. The
 following two examples extend this and show how to use the vote fractions to
 obtain samples of galaxies with a specific morphological type.
 
 \subsection{Example 1: Selecting barred galaxies} 
 
 A sample of barred disk galaxies is created by applying cuts on the previous
-tasks as listed in Table~\ref{tbl:thresholds}. 11,049 ``bar candidates'',
-galaxies for which asking the bar question is meaningful, were selected by
+tasks as listed in Table~\ref{tbl:thresholds}. 11,049 ``bar candidates'' are
+galaxies for which asking the bar question is meaningful, and were selected by
 applying the cuts $N_{bar} \ge 20$, $f_{\rm features}>0.23, f_{\rm clumpy,no} >
 0.30,$ and $f_{edgeon,no}>0.25$. These galaxies are featured, non-clumpy,
-non-edge~on galaxies. Of these, a pure sample of 730 barred disks was
-identified by applying a cut of \fbar$>0.7$. A subsample of 50 galaxies were
+non-edge~on galaxies. Of these, a pure sample of 730~barred disks was
+identified by applying a cut of \fbar$>0.7$. A subsample of 50~galaxies were
 visually inspected and 94\% were found to contain strong bars. A complete
 sample of strong and weak bars was created by applying a cut of \fbar$>0.3$.
-This sample contained 3,218 galaxies, 86\% of which were found to contain weak
+This sample contained 3,218~galaxies, 86\% of which were found to contain weak
 or strong bars through visual inspection in a subsample of 50.
 
 The resulting bar sample can be used to estimate the redshift evolution of bar
-fraction and find a steady decrease of \fbar$\sim 0.32$ at $z=0.4$ to
-\fbar$\sim 0.24$ at $z=1.0$. The decrease in bar fraction agrees with
+fraction; we find a steady decrease of \fbar$\sim 0.32$ at $z=0.4$ to
+\fbar$\sim 0.24$ at $z=1.0$. This decrease agrees with
 \citet{mel14}, although they report a lower overall bar fraction going from
 \fbar$=0.22$ at $z=0.4$ to \fbar$=0.11$ at $z=1.0$. The difference in total bar
 fraction is expected, as this analysis used a looser cut on \fbar, there is no
@@ -1812,13 +1826,13 @@ galaxies. We note that their technique matched test and control galaxies over
 the same redshift ranges, which minimizes the possible impact of redshift bias.
 
 \subsection{Example 2: Identifying clump multiplicity} Clumps are known to be a
-characteristic feature of galaxies outside the local universe, and there is
+characteristic feature of galaxies at high redshift, and there is
 evidence they play a crucial role in the evolution of modern spirals,
 particularly in the formation of central bulges
 \citep{elm05,elm14,guo15,beh16}. Simulations show clumps migrate from the outer
 disk to the galactic center in only a few orbital periods \citep{man15} and
 observations show increasing bulge to clump mass and density ratios as the
-universe evolves since $z\sim 1.5$ \citep{elm09}, suggesting that clumps
+Universe evolves since $z\sim 1.5$ \citep{elm09}, suggesting that clumps
 coalesce over time to form the modern bulges of disk galaxies. GZH added a
 ``clumpy'' path to the decision tree for the purpose of both identifying clumps
 and investigating their evolution with redshift. 
@@ -1888,7 +1902,7 @@ overall GZH sample.
 Figure~\ref{fig:sankey} shows the breakdown of morphologies for the combined
 surveys in GZH as a flow~diagram, where each node represents a task and the
 flows between the nodes represent the possible responses. The width of the
-flows is proportional to the number of galaxies associated with that response;
+flows is proportional to the number of galaxies associated with that response.
 Figure~\ref{fig:sankey} uses a simple plurality vote to assign the combined set
 of labels for each galaxy. This method is likely to undersample some of the
 categories; visual inspection of images suggests that \ffeatures$\gtrsim0.3$
@@ -1902,13 +1916,13 @@ Table~\ref{tbl:thresholds}.
 \caption{Demographics of the morphologies for all galaxies in GZH (including
 both \hst{} and SDSS imaging). Each node in each diagram (dark blue horizontal
 bars of uniform height) represents a task in the tree. The left diagram shows
-the full decision tree; the right diagram zooms in on the features/clumpy
+the full decision tree. The right diagram zooms in on the features/clumpy
 tasks, which are otherwise difficult to see. The paths between tasks represent
-each possible answer to the task; these flow from top to bottom between their
-origin question and the subsequent task in the tree. Labels are assigned to
+each possible answer to the task, flowing from top to bottom between their
+origin and the subsequent task in the tree. Labels are assigned to
 each galaxy based on the plurality answer for each task. A galaxy is assigned
 only one label at each node. Widths of the paths are proportional to the number
-of galaxies assigned to that path; the widths of the nodes are proportional to
+of galaxies assigned to that path. The widths of the nodes are proportional to
 the number of galaxies for which the question was reliably answered.}
 \label{fig:sankey}
 \end{figure*}
@@ -1922,18 +1936,18 @@ selection method; spirals are the dominant population in a volume-limited
 sample at $z<0.088$, for example). The weighted votes for GZH have smooth
 galaxies outnumbering disks and clumpy galaxies by a factor of $\sim3:1$,
 however. The fraction of objects identified as stars or artifact is also much
-higher in the Hubble imaging; by plurality votes, these encompass only
+higher in the Hubble imaging. By plurality votes, these encompass only
 $\sim0.1\%$ of images in SDSS \citep{wil13}, but 6\% of images in GZH. 
 
 Within the sample of galaxies identified as ``not smooth'', it is clear that
 the addition of the clumpy branch is necessary to describe a large fraction of
-the sample; disk-dominated galaxies outnumber clumpy morphologies by less than
+the sample, since disk-dominated galaxies outnumber clumpy morphologies by less than
 a factor of 2. Disk galaxies are primarily unbarred \citet{mel14} and
 possessing two visible spiral arms over a flat distribution of pitch angles and
 bulge prominence. Clumpy galaxies are identified across the full range of clump
 multiplicities, with the exception of 1-clump galaxies (which would be
 difficult to differentiate from compact spheroids). Roughly half of the
-galaxies have at least 1~clump identified as the brightest; the clumps are most
+galaxies have at least 1~clump identified as the brightest. Clumps are most
 commonly asymmetrically arranged in clusters and are not often seen embedded in
 larger structures. 
 
@@ -1943,9 +1957,9 @@ All of the Legacy surveys included in the GZH imaging have had morphological
 catalogs previously published; these catalogs have significant differences in
 the number of galaxies, size and magnitude limits, classification scheme, and
 the methods used for measuring morphology. These catalogs have been
-cross-matched to GZH to compare the results; this is not presented as an
+cross-matched to GZH to compare the results. This is not presented as an
 endorsement of any particular method, but as an exploration of the strengths
-and weaknesses of the Galaxy~Zoo crowdsourced catalogs as compared to products made
+and weaknesses of the Galaxy~Zoo crowdsourced catalogs compared to products made
 with machine learning, automatic fits, and expert visual classification. 
 
 The types and accuracy of morphological classification strongly depend on the
@@ -1959,16 +1973,13 @@ which constitutes a ``catch-all'' for the variety of asymmetric morphologies
 that can constitute an irregular galaxy. 
 
 Morphologies for GEMS galaxies were measured by \citet{hau07}, who used
-single-component \sersic{} fits to the F850LP imaging. This analysis used
-parameters from the \galfit{} code, which \citet{hau07} evaluated as more
-reliable than \gimtwod{} for GEMS due to the ability to fit multiple galaxies
-in crowded fields. A 1\arcsec~positional match for the GEMS galaxies in Table~9
-in \citet{hau07} to the GZH sample gives 8,846~galaxies in both \citet{hau07}
-and GZH. The primary morphological parameter in the automated catalog is the
-\sersic{} index $n$ defining the radial surface brightness profile.
-``Elliptical'' galaxies are selected by $n>2.5$ and ``spirals''  by $n>2.5$.
-There is no automatic measurement of irregular or clumpy structure in this
-catalog. 
+single-component \sersic{} fits to the F850LP imaging. A 1\arcsec~positional
+match for the GEMS galaxies in Table~9 in \citet{hau07} to the GZH sample gives
+8,846~galaxies in both \citet{hau07} and GZH. The primary morphological
+parameter in the automated catalog is the \sersic{} index $n$ defining the
+radial surface brightness profile.  ``Elliptical'' galaxies are selected by
+$n>2.5$ and ``spirals''  by $n>2.5$.  There is no automatic measurement of
+irregular or clumpy structure in this catalog. 
 
 AEGIS galaxies were morphologically classified using non-parametric
 measurements by \citet{lot08}. This method used a combination of the Gini
@@ -1983,7 +1994,7 @@ $S/N>3$ in both $V$- and $I$-bands.
 Galaxies in both of the GOODS fields down to a limit of $z_{AB}=22.5$ were
 visually classified by a single expert (R.S.~Ellis), inspecting both $z$-band
 and composite $Viz$ color images \citep{bun05}. These morphologies are assigned
-a numerical value based on categories in \citet{bri98a}; the corresponding
+a numerical value based on categories in \citet{bri98a}: the corresponding
 morphologies used are ``elliptical'' (classes 0,1,2), ``spirals'' (classes
 3,4,5), and ``irregular'' (classes 6,7,8). A 0.5\arcsec{} matched radius yields
 2,435 galaxies (1300 in GOODS-N, 1135 in GOODS-S) in both \citet{bun05} and
@@ -2024,8 +2035,8 @@ population \citep{cam11}.}
 
 Figure~\ref{fig:comparisons} shows the proportion of galaxies as split by their
 automated/expert visual morphologies for each of the six catalogs matched to
-GZH. The relation between GZH and the automated/expert morphologies is shown to
-vary significantly for different surveys --- this could be due to intrinsic
+GZH. The relation between GZH and the automated/expert morphologies varies
+significantly, depending on the survey --- this could be due to intrinsic
 differences in the galaxies, in the techniques used to measure morphology, or
 both. The distribution of \fbest{} for AEGIS galaxies is essentially flat for
 spirals, showing almost no difference in proportion at the highest and lowest
@@ -2057,12 +2068,12 @@ increase in irregulars. Early-types have a small bump near \fbest$\sim0.15$,
 but never constitute more than 10\% of the sample. 
 
 The second set of plots in Figure~\ref{fig:comparisons} indicates that \fodd{}
-is largely an effective method for separating irregular and/or peculiar
+is an effective method for separating irregular and/or peculiar
 galaxies from spirals. Despite the somewhat vague wording of the {\it
 ``anything odd?''} question in GZH, the AEGIS, COSMOS, and GOODS all show a
 marked increase in the irregular fraction increasing with \fodd. Any threshold
-value for distinguishing between the two, however, depends strongly on
-survey/redshift~range. 
+value for distinguishing between the two, however, depends on
+both the survey and redshift~range covered.
 
 As the data shown in Figure~\ref{fig:comparisons} cover a wide range of
 redshifts and sizes, a volume-limited sample of galaxies (or at least binning
@@ -2101,7 +2112,7 @@ classifications for 181,101~images generated from 150,771~unique galaxies.
 Galaxies were selected from a brightness-limited sample from multiple Legacy
 surveys using the Advanced Camera for Surveys on the Hubble Space Telescope,
 including AEGIS, GEMS, GOODS-N, GOODS-S, and COSMOS. The catalog also includes
-classifications for 51,861 Sloan Digital Sky Survey images in Stripe~82 at
+classifications for 51,861 SDSS images from Stripe~82 at
 relatively low redshift; these serve both as a low-redshift anchor for
 cosmological studies and a potential comparison for the different epochs of
 classification between GZH and Galaxy Zoo 2 \citep{wil13}. 
@@ -2280,7 +2291,8 @@ Total                         & 4,461   & 100      &              & \\
 
 \subfigure{[c]\label{fig:smooth_to_featured}\includegraphics[width=\textwidth]{figures/smooth_to_featured.pdf}}
 
-\caption{Galaxies whose shallow images were classified as smooth and full depth images were classified as smooth, intermediate, or featured.}
+\caption{Galaxies whose shallow images were classified as smooth and full depth
+images were classified as smooth, intermediate, or featured.}
 \label{fig:shallow_smooth}
 \end{figure*}
 
@@ -2293,7 +2305,8 @@ Total                         & 4,461   & 100      &              & \\
 
 \subfigure{[b]\label{fig:int_to_featured}\includegraphics[width=\textwidth]{figures/intermediate_to_featured.pdf}}
 
-\caption{Galaxies whose shallow images were classified as intermediate and full depth images were classified as smooth, intermediate, or featured.}
+\caption{Galaxies whose shallow images were classified as intermediate and full
+depth images were classified as smooth, intermediate, or featured.}
 \label{fig:shallow_intermediate}
 \end{figure*}
 
@@ -2345,10 +2358,11 @@ black lines represent the best-fit polynomials to the data in each square.
 The solid black line represents \ffeaturesz=\ffeaturesrest. Regions in
 which there is a single-valued relationship between \ffeatures{} at high
 redshift and at $z=0.3$ are marked in white; those in which there is not
-are blue, and those with not enough data ($N<5$) are gray. A larger version of the bin outlined at $z=1.0$ and $20.3 < \mu < 21.0$ $\rm (mag/arcsec^2)$ is shown in Figure~\ref{fig:f_vs_fbar_zoom}. The mean
-normalized $\chi^2$ of the change in vote fraction is 0.08. None of the
-correlations for higher-order tasks (including bars) were applied to
-galaxies in the GZH catalog.}
+are blue, and those with not enough data ($N<5$) are gray. A larger version of
+the bin outlined at $z=1.0$ and $20.3 < \mu < 21.0$ $\rm (mag/arcsec^2)$ is
+shown in Figure~\ref{fig:f_vs_fbar_zoom}. The mean normalized $\chi^2$ of the
+change in vote fraction is 0.08. None of the correlations for higher-order
+tasks (including bars) were applied to galaxies in the GZH catalog.}
 \label{fig:f_vs_fbar}
 \end{figure*}
 
