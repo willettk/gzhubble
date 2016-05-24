@@ -875,17 +875,13 @@ def frac_all(zint=0.0,zlow=0.0):
                 ax.set_ylim(0,1)
                 ax.set_title("{0} ({1})".format(d['survey'],d['citation']),fontsize=16)
 
-                if zint > 0:
-                    ax1.legend(loc='upper left',fontsize=10)
-
+                ax1.legend(loc='upper left',fontsize=12)
                 
         if (i+1) % 2:
             ax1.set_ylabel('fraction',fontsize=16)
         if i > 3:
             ax1.set_xlabel(r'$f_\mathrm{features}$',fontsize=20)
             ax2.set_xlabel(r'$f_\mathrm{odd}$',fontsize=20)
-        if i < 2 and zint == 0.:
-            ax1.legend(loc='upper left',fontsize=12)
 
     fig.tight_layout()
 
@@ -893,9 +889,9 @@ def frac_all(zint=0.0,zlow=0.0):
     plt.show()
     '''
     if zint > 0.:
-        plt.savefig("{0}/comparisons/all_z{1:.1f}.png".format(gzh_path,zlow),dpi=100)
+        plt.savefig("{0}/comparisons/all_z{1:.1f}.pdf".format(gzh_path,zlow),dpi=100)
     else:
-        plt.savefig("{0}/writeup/figures/comparisons.png".format(gzh_path,zlow),dpi=100)
+        plt.savefig("{0}/writeup/figures/comparisons.pdf".format(gzh_path,zlow),dpi=100)
 
 if __name__ == "__main__":
 
