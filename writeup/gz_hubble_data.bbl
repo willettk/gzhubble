@@ -1,4 +1,4 @@
-\begin{thebibliography}{104}
+\begin{thebibliography}{108}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Abazajian} {et~al}\mbox{.}(2009){Abazajian}, {Adelman-McCarthy},
@@ -169,6 +169,13 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
   {Steidel} C.~C., {Bouch{\'e}} N., {Cresci} G., {Davies} R., 2011, \apj, 731,
   65
 
+\bibitem[{{Fortson} {et~al}\mbox{.}(2012){Fortson}, {Masters}, {Nichol},
+  {Borne}, {Edmondson}, {Lintott}, {Raddick}, {Schawinski}, \&
+  {Wallin}}]{for12}
+{Fortson} L. {et~al.}, 2012, {Galaxy Zoo: Morphological Classification and
+  Citizen Science}, {Way} M.~J., {Scargle} J.~D., {Ali} K.~M., {Srivastava}
+  A.~N., eds., CRC Press, Taylor \& Francis Group, pp. 213--236
+
 \bibitem[{{Freeman} {et~al}\mbox{.}(2013){Freeman}, {Izbicki}, {Lee}, {Newman},
   {Conselice}, {Koekemoer}, {Lotz}, \& {Mozena}}]{fre13}
 {Freeman} P.~E., {Izbicki} R., {Lee} A.~B., {Newman} J.~A., {Conselice} C.~J.,
@@ -183,6 +190,9 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
   {Sijacki}, {Nelson}, {Snyder}, {Rodriguez-Gomez}, {Torrey}, \&
   {Hernquist}}]{gen14}
 {Genel} S. {et~al.}, 2014, \mnras, 445, 175
+
+\bibitem[{{Giavalisco}(2012)}]{gia12}
+{Giavalisco} M., 2012, VizieR Online Data Catalog, 2318
 
 \bibitem[{{Giavalisco} {et~al}\mbox{.}(2004){Giavalisco}, {Ferguson},
   {Koekemoer}, {Dickinson}, {Alexander}, {Bauer}, {Bergeron}, {Biagetti},
@@ -309,6 +319,11 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
 {Law} D.~R., {Steidel} C.~C., {Shapley} A.~E., {Nagy} S.~R., {Reddy} N.~A.,
   {Erb} D.~K., 2012{\natexlab{b}}, \apj, 745, 85
 
+\bibitem[{{Lilly} {et~al}\mbox{.}(1998){Lilly}, {Schade}, {Ellis}, {Le
+  F{\`e}vre}, {Brinchmann}, {Tresse}, {Abraham}, {Hammer}, {Crampton},
+  {Colless}, {Glazebrook}, {Mallen-Ornelas}, \& {Broadhurst}}]{lil98}
+{Lilly} S. {et~al.}, 1998, \apj, 500, 75
+
 \bibitem[{{Lintott} {et~al}\mbox{.}(2011){Lintott}, {Schawinski}, {Bamford},
   {Slosar}, {Land}, {Thomas}, {Edmondson}, {Masters}, {Nichol}, {Raddick},
   {Szalay}, {Andreescu}, {Murray}, \& {Vandenberg}}]{lin11}
@@ -327,6 +342,14 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
 
 \bibitem[{{Lotz} {et~al}\mbox{.}(2004){Lotz}, {Primack}, \& {Madau}}]{lot04}
 {Lotz} J.~M., {Primack} J., {Madau} P., 2004, \aj, 128, 163
+
+\bibitem[{{Loveday} {et~al}\mbox{.}(2012){Loveday}, {Norberg}, {Baldry},
+  {Driver}, {Hopkins}, {Peacock}, {Bamford}, {Liske}, {Bland-Hawthorn},
+  {Brough}, {Brown}, {Cameron}, {Conselice}, {Croom}, {Frenk}, {Gunawardhana},
+  {Hill}, {Jones}, {Kelvin}, {Kuijken}, {Nichol}, {Parkinson}, {Phillipps},
+  {Pimbblet}, {Popescu}, {Prescott}, {Robotham}, {Sharp}, {Sutherland},
+  {Taylor}, {Thomas}, {Tuffs}, {van Kampen}, \& {Wijesinghe}}]{lov12}
+{Loveday} J. {et~al.}, 2012, \mnras, 420, 1239
 
 \bibitem[{{Lupton} {et~al}\mbox{.}(2004){Lupton}, {Blanton}, {Fekete}, {Hogg},
   {O'Mullane}, {Szalay}, \& {Wherry}}]{lup04}

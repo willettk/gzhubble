@@ -1,5 +1,6 @@
 from PIL import Image
 from astropy.io import fits
+from astropy import units as u
 from matplotlib import cm
 from matplotlib import pyplot as plt
 from matplotlib.colors import LogNorm
@@ -10,6 +11,8 @@ import numpy as np
 import random
 import scipy.stats.distributions as dist
 import warnings
+from astropy.cosmology import WMAP9
+    
 
 warnings.filterwarnings('ignore', category=RuntimeWarning, append=True)
 
@@ -24,6 +27,8 @@ pstar = 't01_smooth_or_features_a03_star_or_artifact_weighted_fraction'
 pspiral = 't04_spiral_a01_spiral_weighted_fraction'
 pirr = 't08_odd_feature_a04_irregular_fraction'
 pmerger = 't08_odd_feature_a06_merger_fraction'
+pdustlane = 't08_odd_feature_a07_dust_lane_fraction'
+plens = 't08_odd_feature_a02_lens_or_arc_fraction'
 
 # Colors
 blue = '#377EB8'
@@ -39,11 +44,97 @@ def get_image(survey_id,goods=False,ns='n'):
     img = Image.open(filename)
     return img
 
+def get_dlist(aegis,gems,goods,cassata,tasca,zest):
+
+    dlist = [
+             {'data':aegis,
+              'survey':'AEGIS',
+              'citation':'Lotz+08',
+              'magcol':'MAG_BEST_HI',
+              'maglim':23.5,
+              'classcol':'TYPE'},
+             {'data':gems,
+              'survey':'GEMS',
+              'citation':'Haeussler+07',
+              'magcol':'MAG_BEST_HI',
+              'maglim':23.5,
+              'classcol':'TYPE'},
+             {'data':goods,
+              'survey':'GOODS',
+              'citation':'Bundy+05',
+              'magcol':'ZMAG',
+              'maglim':22.5,
+              'classcol':'TYPE'},
+             {'data':cassata,
+              'survey':'COSMOS',
+              'citation':'Cassata+07',
+              'magcol':'MAG_BEST_HI',
+              'maglim':23.5,
+              'classcol':'AUTOCLASS'},
+             {'data':tasca,
+              'survey':'COSMOS',
+              'citation':'Tasca+11',
+              'magcol':'MAG_BEST_HI',
+              'maglim':23.5,
+              'classcol':'CLASS_INT'},
+             {'data':zest,
+              'survey':'COSMOS',
+              'citation':'Scarlata+07',
+              'magcol':'MAG_BEST_HI',
+              'maglim':23.5,
+              'classcol':'TYPE'},
+              ]
+
+    return dlist
+
 def cameron_err(c,k,n):
     f_lower = dist.beta.ppf((1-c)/2., k+1,n-k+1)
     f_upper = dist.beta.ppf(1-(1-c)/2., k+1,n-k+1)
 
     return f_lower,f_upper
+
+def vl_plot():
+
+    # Plot the volume-limited samples split by survey
+
+    tasca = fits.getdata('{0}/comparisons/COSMOS/cosmos_tasca_gzh.fits'.format(gzh_path),1)
+    cassata = fits.getdata('{0}/comparisons/COSMOS/cosmos_cassata_gzh.fits'.format(gzh_path),1)
+    zest = fits.getdata('{0}/comparisons/COSMOS/cosmos_zest_gzh.fits'.format(gzh_path),1)
+    aegis = fits.getdata('{0}/comparisons/AEGIS/aegis_gzh.fits'.format(gzh_path),1)
+    gems = fits.getdata('{0}/comparisons/GEMS/gems_gzh.fits'.format(gzh_path),1)
+    goods = fits.getdata('{0}/comparisons/GOODS/goods_gzh.fits'.format(gzh_path),1)
+
+
+    dlist = get_dlist(aegis,gems,goods,cassata,tasca,zest)
+
+    fig,axarr = plt.subplots(3,2,sharex=True,sharey=True,figsize=(12,12))
+
+    for s,ax in zip(dlist,axarr.ravel()):
+        d = s['data']
+        newdata = volume_limit(d,1.0,s['magcol'],s['maglim'])
+        olddata = d[d['Z_BEST'] > 0.]
+        absmag_old = olddata[s['magcol']] - WMAP9.distmod(olddata['Z_BEST']).value
+        absmag_new = newdata[s['magcol']] - WMAP9.distmod(newdata['Z_BEST']).value
+        appmag_old = olddata[s['magcol']]
+        appmag_new = newdata[s['magcol']]
+
+        s['data'] = newdata
+        ax.scatter(olddata['Z_BEST'],absmag_old,c='gray')
+        ax.scatter(newdata['Z_BEST'],absmag_new,c='red')
+        ax.set_xlim(-0.5,4)
+        ax.set_ylim(-15,-25)
+        ax.set_xlabel(r'$z$',fontsize=20)
+        ax.set_ylabel(r'$M$',fontsize=20)
+        ax.set_title("{0} ".format(s['survey'])+r'$m_\mathrm{I|i|z}<$'+'{0:.1f}'.format(s['maglim']),fontsize=20)
+
+
+    fig.tight_layout()
+
+    plt.show()
+
+    plt.close()
+
+    return None
 
 def gems():
 
@@ -770,7 +861,28 @@ def cosmos():
 
     plt.show()
 
-def frac_all(zint=0.0,zlow=0.0):
+def volume_limit(sample,zmax,magcol,appmag):
+
+    # Volume-limit the sample based on the detection limit and redshift
+    
+    appmag_lim = appmag * u.mag
+    
+    distmod = WMAP9.distmod(zmax)
+    absmag_lim = appmag_lim - distmod
+
+    absmags = sample[magcol] - WMAP9.distmod(sample['Z_BEST']).value
+
+    #print sample['imaging'][0]
+    #print 'absmag_lim',absmag_lim
+    #print 'appmag_lim',appmag_lim
+    #print 'distmod',distmod
+
+    vl_ind = (absmags < absmag_lim.value) & (sample['Z_BEST'] > 0) & (sample['Z_BEST'] < zmax)
+    
+    return sample[vl_ind]
+
+
+def frac_features(zint=0.0,zlow=0.0,volume_limited=False):
 
     # Fraction of total sample as function of f_features, f_odd
 
@@ -779,36 +891,20 @@ def frac_all(zint=0.0,zlow=0.0):
     zest = fits.getdata('{0}/comparisons/COSMOS/cosmos_zest_gzh.fits'.format(gzh_path),1)
     aegis = fits.getdata('{0}/comparisons/AEGIS/aegis_gzh.fits'.format(gzh_path),1)
     gems = fits.getdata('{0}/comparisons/GEMS/gems_gzh.fits'.format(gzh_path),1)
-    goods = fits.getdata('{0}/comparisons/GOODS/goods_all_gzh.fits'.format(gzh_path),1)
+    goods = fits.getdata('{0}/comparisons/GOODS/goods_gzh.fits'.format(gzh_path),1)
 
-    dlist = [
-             {'data':aegis,
-              'survey':'AEGIS',
-              'citation':'Lotz+08',
-              'classcol':'TYPE'},
-             {'data':cassata,
-              'survey':'COSMOS',
-              'citation':'Cassata+07',
-              'classcol':'AUTOCLASS'},
-             {'data':gems,
-              'survey':'GEMS',
-              'citation':'Haeussler+07',
-              'classcol':'TYPE'},
-             {'data':zest,
-              'survey':'COSMOS',
-              'citation':'Scarlata+07',
-              'classcol':'TYPE'},
-             {'data':goods,
-              'survey':'GOODS',
-              'citation':'Bundy+05',
-              'classcol':'TYPE'},
-             {'data':tasca,
-              'survey':'COSMOS',
-              'citation':'Tasca+11',
-              'classcol':'CLASS_INT'},
-              ]
+    dlist = get_dlist(aegis,gems,goods,cassata,tasca,zest)
 
-    fig,axarr = plt.subplots(3,4,sharey=True,figsize=(16,12))
+    if volume_limited:
+        for s in dlist:
+            zlim = 1.0
+            maglim = 22.5
+
+            d = s['data']
+            newdata = volume_limit(d,zlim,s['magcol'],maglim)
+            s['data'] = newdata
+
+    fig,axarr = plt.subplots(2,3,sharey=True,figsize=(16,12))
 
     bnum = 10 if zint > 0 else 20
     bins = np.linspace(0,1,bnum)
@@ -816,7 +912,7 @@ def frac_all(zint=0.0,zlow=0.0):
     mlabels = ('early','spiral','irregular')
     colors = (red,blue,green)
 
-    for i,(d,(ax1,ax2)) in enumerate(zip(dlist,axarr.reshape(6,2))):
+    for i,(d,ax1) in enumerate(zip(dlist,axarr.ravel())):
 
         data = d['data']
 
@@ -824,9 +920,17 @@ def frac_all(zint=0.0,zlow=0.0):
             data = data[(data['Z_BEST'] >= zlow) & (data['Z_BEST'] < (zlow+zint))]
 
         if d['survey'] == 'COSMOS':
-            early = (data[d['classcol']] == 1)
-            spiral = (data[d['classcol']] == 2)
-            irr = (data[d['classcol']] == 3)
+
+            # For ZEST galaxies, include tpye 2.0 (S0 disks) as ellipticals
+
+            if d['citation'] == 'Scarlata+07':
+                early = (data[d['classcol']] == 1) | ((data[d['classcol']] == 2) & (data['BULG'] == 0))
+                spiral = (data[d['classcol']] == 2) & (data['BULG'] > 0.)
+                irr = (data[d['classcol']] == 3)
+            else:
+                early = (data[d['classcol']] == 1)
+                spiral = (data[d['classcol']] == 2)
+                irr = (data[d['classcol']] == 3)
 
         if d['survey'] == 'AEGIS':
             m1,b1 = 0.14,0.80
@@ -848,44 +952,157 @@ def frac_all(zint=0.0,zlow=0.0):
             spiral = (data['MORPH'] >= 3) & (data['MORPH'] <= 5)
             irr = (data['MORPH'] >= 6) & (data['MORPH'] <= 8)
 
-        for ax,frac in zip((ax1,ax2),(pfeat,podd)):
-            for morph,color,label,ls in zip((early,spiral,irr),colors,mlabels,('-','--','-.')):
+        for morph,color,label,ls in zip((early,spiral,irr),colors,mlabels,('-','--','-.')):
 
-                if morph.sum() > 0:
-                    h,edges = np.histogram(data[morph][frac],bins=bnum)
-                    h2,edges2 = np.histogram(data[np.any([early,spiral,irr],axis=0)][frac],bins=bnum)
+            if morph.sum() > 0:
+                h,edges = np.histogram(data[morph][pfeat],bins=bnum,range=(0,1))
+                h2,edges2 = np.histogram(data[np.any([early,spiral,irr],axis=0)][pfeat],bins=bnum,range=(0,1))
 
-                    e_frac = h * 1./h2
-                    e_frac_err = cameron_err(0.90,h,h2)
+                e_frac = h * 1./h2
+                e_frac_err = cameron_err(0.90,h,h2)
 
-                    ax.fill_between(bins,e_frac_err[0],e_frac_err[1],facecolor=color,alpha=0.5)
-                    ax.plot(bins,e_frac,label="{0} ({1})".format(label,morph.sum()),lw=3,ls=ls,color=color)
+                ax1.fill_between(bins,e_frac_err[0],e_frac_err[1],facecolor=color,alpha=0.5)
+                ax1.plot(bins,e_frac,label="{0} ({1})".format(label,morph.sum()),lw=3,ls=ls,color=color)
         
-                ax.set_xlim(-0.05,1.05)
-                ax.set_ylim(0,1)
-                ax.set_title("{0} ({1})".format(d['survey'],d['citation']),fontsize=16)
+            ax1.set_xlim(-0.05,1.05)
+            ax1.set_ylim(0,1.1)
+            ax1.set_title("{0} ({1})".format(d['survey'],d['citation']),fontsize=16)
 
-                if zint > 0:
-                    ax1.legend(loc='upper left',fontsize=10)
-
+            ax1.legend(loc='upper right',fontsize=12)
                 
-        if (i+1) % 2:
+        if not (i % 3):
             ax1.set_ylabel('fraction',fontsize=16)
-        if i > 3:
-            ax1.set_xlabel(r'$f_\mathrm{features}$',fontsize=20)
-            ax2.set_xlabel(r'$f_\mathrm{odd}$',fontsize=20)
-        if i < 2 and zint == 0.:
-            ax1.legend(loc='upper left',fontsize=12)
+        if i > 2:
+            ax1.set_xlabel(r'$f_\mathrm{features,best}$',fontsize=20)
 
     fig.tight_layout()
+
+    '''
+    plt.show()
+    '''
     if zint > 0.:
-        plt.savefig("{0}/comparisons/all_z{1:.1f}.png".format(gzh_path,zlow),dpi=100)
+        plt.savefig("{0}/comparisons/all_z{1:.1f}.pdf".format(gzh_path,zlow),dpi=100)
     else:
-        plt.savefig("{0}/writeup/figures/comparisons.png".format(gzh_path,zlow),dpi=100)
+        plt.savefig("{0}/writeup/figures/comparisons_features.pdf".format(gzh_path),dpi=100)
+
+    return None
+
+def frac_odd(zint=0.0,zlow=0.0,volume_limited=False):
+
+    # Fraction of total sample as function of f_features, f_odd
+
+    tasca = fits.getdata('{0}/comparisons/COSMOS/cosmos_tasca_gzh.fits'.format(gzh_path),1)
+    cassata = fits.getdata('{0}/comparisons/COSMOS/cosmos_cassata_gzh.fits'.format(gzh_path),1)
+    zest = fits.getdata('{0}/comparisons/COSMOS/cosmos_zest_gzh.fits'.format(gzh_path),1)
+    aegis = fits.getdata('{0}/comparisons/AEGIS/aegis_gzh.fits'.format(gzh_path),1)
+    gems = fits.getdata('{0}/comparisons/GEMS/gems_gzh.fits'.format(gzh_path),1)
+    goods = fits.getdata('{0}/comparisons/GOODS/goods_gzh.fits'.format(gzh_path),1)
+
+    dlist = get_dlist(aegis,gems,goods,cassata,tasca,zest)
+
+    if volume_limited:
+        for s in dlist:
+            zlim = 1.0
+            maglim = 22.5
+
+            d = s['data']
+            newdata = volume_limit(d,zlim,s['magcol'],maglim)
+            s['data'] = newdata
+
+    fig,axarr = plt.subplots(2,3,sharey=True,figsize=(16,12))
+
+    bnum = 10 if zint > 0 else 20
+    bins = np.linspace(0,1,bnum)
+
+    mlabels = ('early','spiral','irregular')
+    colors = (red,blue,green)
+
+    for i,(d,ax1) in enumerate(zip(dlist,axarr.ravel())):
+
+        data = d['data']
+
+        if zint > 0.:
+            data = data[(data['Z_BEST'] >= zlow) & (data['Z_BEST'] < (zlow+zint))]
+
+        if d['survey'] == 'COSMOS':
+
+            # For ZEST galaxies, include tpye 2.0 (S0 disks) as ellipticals
+
+            if d['citation'] == 'Scarlata+07':
+                early = (data[d['classcol']] == 1) | ((data[d['classcol']] == 2) & (data['BULG'] == 0))
+                spiral = (data[d['classcol']] == 2) & (data['BULG'] > 0.)
+                irr = (data[d['classcol']] == 3)
+            else:
+                early = (data[d['classcol']] == 1)
+                spiral = (data[d['classcol']] == 2)
+                irr = (data[d['classcol']] == 3)
+
+        if d['survey'] == 'AEGIS':
+            m1,b1 = 0.14,0.80
+            m2,b2 = -0.14,0.33
+
+            good = (data['FLAG_I'] == 0) & (data['FLAG_V'] == 0) & (data['SN_V'] >= 3.) & (data['SN_I'] >= 3.)
+
+            early = (data['G_I'] <= (m2*data['M20_I'] + b2)) & (data['G_I'] > (m1*data['M20_I'] + b1)) & good
+            spiral = (data['G_I'] <= (m2*data['M20_I'] + b2)) & (data['G_I'] <= (m1*data['M20_I'] + b1)) & good
+            irr = (data['G_I'] > (m2*data['M20_I'] + b2)) & good
+
+        if d['survey'] == 'GEMS':
+            spiral = (data['n'] < 2.5) & (data['flag_constraint'] == 1)
+            early  = (data['n'] > 2.5) & (data['flag_constraint'] == 1)
+            irr = (data['n'] < 0) & (data['flag_constraint'] == 1)
+
+        if d['survey'] == 'GOODS':
+            early = (data['MORPH'] >= 0) & (data['MORPH'] <= 2)
+            spiral = (data['MORPH'] >= 3) & (data['MORPH'] <= 5)
+            irr = (data['MORPH'] >= 6) & (data['MORPH'] <= 8)
+
+        # Don't look at p_odd for galaxies dominated by dust lanes or lenses
+        odd_ind = np.logical_not((data[podd] >= 0.5) & (data[pdustlane] + data[plens] > 0.5))
+
+        hh,ee = np.histogram(data[odd_ind][podd],bins=bnum,range=(0,1))
+        print sum(hh[10:])
+
+        for morph,color,label,ls in zip((early,spiral,irr),colors,mlabels,('-','--','-.')):
+
+            if morph.sum() > 0:
+                h,edges = np.histogram(data[morph & odd_ind][podd],bins=bnum,range=(0,1))
+                h2,edges2 = np.histogram(data[np.any([early,spiral,irr],axis=0) & odd_ind][podd],bins=bnum,range=(0,1))
+
+
+                e_frac = h * 1./h2
+                e_frac_err = cameron_err(0.90,h,h2)
+
+                ax1.fill_between(bins,e_frac_err[0],e_frac_err[1],facecolor=color,alpha=0.5)
+                ax1.plot(bins,e_frac,label="{0} ({1})".format(label,morph.sum()),lw=3,ls=ls,color=color)
+        
+            ax1.set_xlim(-0.05,1.05)
+            ax1.set_ylim(0,1)
+            ax1.set_title("{0} ({1})".format(d['survey'],d['citation']),fontsize=16)
+
+            ax1.legend(loc='upper left',fontsize=12)
+                
+        if not (i % 3):
+            ax1.set_ylabel('fraction',fontsize=16)
+        if i > 2:
+            ax1.set_xlabel(r'$f_\mathrm{odd}$',fontsize=20)
+
+    fig.tight_layout()
+
+    '''
+    plt.show()
+    '''
+    if zint > 0.:
+        plt.savefig("{0}/comparisons/all_z{1:.1f}.pdf".format(gzh_path,zlow),dpi=100)
+    else:
+        plt.savefig("{0}/writeup/figures/comparisons_odd.pdf".format(gzh_path),dpi=100)
+
+    return None
 
 if __name__ == "__main__":
 
     #zint = 0.2
     #for z in np.arange(0,1,zint):
     #    frac_all(zint,z)
-    frac_all()
+
+    frac_odd(volume_limited=True)
