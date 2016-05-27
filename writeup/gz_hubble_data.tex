@@ -398,9 +398,8 @@ of morphological properties as a function of image depth.
 Single-epoch images from SDSS Stripe~82 were selected using the criteria
 from \citet{wil13}, which required limits of \texttt{petroR90\_r}$ >
 3$\arcsec~(where \texttt{petroR90\_r} is the radius containing 90\% of the
-$r^\prime$ Petrosian flux) and a magnitude brighter than $m_r < 17.77$. The
-images used were three-color composites created using the $g^\prime$, $r^\prime$, and
-$i^\prime$ filters \citep{nie04}. 21,522~galaxies in SDSS met these criteria.
+$r$-band Petrosian flux) and a magnitude brighter than $m_r < 17.77$.
+21,522~galaxies in SDSS met these criteria.
 Co-added images from Stripe~82 were selected from the union of galaxies with
 co-added magnitudes brighter than $17.77$~mag, and the galaxies detected in the
 \stripe{} images and matched to a co-add source. This resulted in a total
@@ -591,7 +590,7 @@ and 1.05\arcsec{} \citep{tan07}.
 
 Stripe~82 single-epoch images were taken directly from the DR7 SDSS Skyserver,
 which combined $g^{\prime}$, $r^{\prime}$, and $i^{\prime}$ exposures into the
-RGB channels. The co-added Stripe~82 images were assembled from runs 106 and
+RGB channels \citep{nie04}. The co-added Stripe~82 images were assembled from runs 106 and
 206 in DR7 and processed into color composites in the same manner as previous
 iterations of Galaxy~Zoo.
 
@@ -937,7 +936,7 @@ from the SDSS \citep{yor00,str02}.  The sample consists of 288~nearby galaxies
 at $z<0.013$. The galaxies spanned a variety of morphologies (as selected by
 GZ2 classifications, including identifications of spiral structure,
 ellipticals, mergers, edge-on disks, bulge prominence/shape, and bars) and
-$r^\prime$-band surface brightnesses.  The overall selection spanned the
+$r$-band surface brightnesses.  The overall selection spanned the
 redshift range of SDSS targets and maximized the number of \hst{} galaxies at
 the same surface brightness and redshift (Figure~\ref{fig:sb_redshift}).  The
 \ferengi{} code was used to produce sets of images corresponding to
@@ -971,7 +970,7 @@ and its relative orientation. The combination of all
 such parameters forms a high-dimensional space, and it is not clear how to
 separate this into individual effects. Instead, the method used here employs
 only two parameters as a simple model of the effect of redshift brightness on classification: the
-$i^\prime$-band surface brightness ($\mu_\mathrm{i}$; intrinsic) and redshift ($z$;
+$i$-band surface brightness ($\mu_\mathrm{i}$; intrinsic) and redshift ($z$;
 extrinsic). 
 
 We model the debiased vote fraction $f_{\mu,z}$ for an
