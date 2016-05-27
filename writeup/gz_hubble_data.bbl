@@ -1,4 +1,4 @@
-\begin{thebibliography}{108}
+\begin{thebibliography}{109}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Abazajian} {et~al}\mbox{.}(2009){Abazajian}, {Adelman-McCarthy},
@@ -248,6 +248,9 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
   {Page}, {Smith}, {Weiland}, {Gold}, {Jarosik}, {Kogut}, {Limon}, {Meyer},
   {Tucker}, {Wollack}, \& {Wright}}]{hin13}
 {Hinshaw} G. {et~al.}, 2013, \apjs, 208, 19
+
+\bibitem[{{Holwerda}(2005)}]{hol05}
+{Holwerda} B.~W., 2005, ArXiv Astrophysics e-prints
 
 \bibitem[{{Hopkins} {et~al}\mbox{.}(2010){Hopkins}, {Bundy}, {Croton},
   {Hernquist}, {Keres}, {Khochfar}, {Stewart}, {Wetzel}, \& {Younger}}]{hop10}
