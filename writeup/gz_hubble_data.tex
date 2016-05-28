@@ -537,7 +537,7 @@ $e$ is the evolutionary correction in magnitudes ($e=-1$ essentially
 brightens the entire galaxy by 1~magnitude by $z=1$). \ferengi{} was run on the images
 for values of $e$ starting from $e=0$ and decreasing to $e=-3.5$ in increments
 of $\Delta e = 0.5$. Figure~\ref{fig:exampleFERENGI} shows several examples
-of the effects of ``losing'' spiral/disc features with increasing redshift
+of the effects of ``losing'' spiral/disk features with increasing redshift
 for two galaxies with no evolution corrections ($e=0$); as the signal-to-noise ratio in the images
 decreases and the galaxies become fainter, the contrast between features
 like spiral arms goes down and \ffeatures{} drops to the point where both
@@ -1840,10 +1840,22 @@ obtain samples of galaxies with a specific morphological type.
 
 \subsection{Example 1: Selecting barred galaxies} 
 
-A sample of barred disk galaxies is created by applying cuts on the previous
-tasks as listed in Table~\ref{tbl:thresholds}. We identify 11,049 ``bar
-candidates'' as disk galaxies for which bar identification can be attempted in
-GZH. These galaxies were selected by applying the cuts $N_{bar} \ge 20$,
+Bars in galaxies are a trace of the dynamical state of the disk
+\citep[\eg,][]{com09a,ath12}. Disks which have significant vertical motions
+typically do not form bars (with the exception of tidally triggered bars;
+\citealt{bar91}), but once a disk settles to a thin, dynamically cool state,
+the formation of bars proceeds quickly. Most theoretical predictions show that
+bars are long-lasting in the absence of significant galaxy interactions
+\citep{ath05}, so the fraction of bars in disk galaxies can measure the
+dynamical maturity of that population. For this reason, tracking the fraction
+of bars in disk galaxies as a function of redshift has attracted significant
+interest since the first resolved images of high redshift galaxies were
+obtained \citep[\eg,][]{abr99,elm04,jog04,she08a, mel14,sim14}.
+
+We create a sample of barred disk galaxies in GZH by applying cuts on the previous
+tasks in Table~\ref{tbl:thresholds}. We first identify 11,049 ``bar
+candidates,'' which are disk galaxies that are sufficiently face-on to attempt
+visual identification of a bar. These galaxies were selected by applying the cuts $N_{bar} \ge 20$,
 $f_{\rm features}>0.23, f_{\rm clumpy,no} > 0.30,$ and $f_{edgeon,no}>0.25$.
 These galaxies are featured, non-clumpy, non-edge~on galaxies. Of these, a pure
 sample of 730~barred disks was identified by applying a cut of \fbar$>0.7$. A
@@ -1861,10 +1873,10 @@ fraction is expected, as this analysis used a looser cut on \fbar, there is no
 luminosity cut, and the use of debiased values for \ffeatures{} increases the
 total amount of disks in the sample compared to \citet{mel14}. However, the
 results from GZH indicate that if features are reliably identified, the bar is
-always visible; for galaxies at increasing redshifts, the discs fade first but
+always visible; for galaxies at increasing redshifts, the disks fade first but
 the galactic bar remains visible \citep{mel16}. As a result, we do \emph{not}
 recommend using an evolving cut on \fbar{} as a function of redshift for the
-selection of barred discs. 
+selection of barred disks. 
 
 Another existing study using GZH to select barred galaxies was presented in
 \citet{che15}. This study used a slightly different bar selection method to

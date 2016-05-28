@@ -1,10 +1,15 @@
-\begin{thebibliography}{109}
+\begin{thebibliography}{117}
 \expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
 \bibitem[{{Abazajian} {et~al}\mbox{.}(2009){Abazajian}, {Adelman-McCarthy},
   {Ag{\"u}eros}, {Allam}, {Allende Prieto}, {An}, {Anderson}, {Anderson},
   {Annis}, {Bahcall}, \& et~al.}]{aba09}
 {Abazajian} K.~N. {et~al.}, 2009, \apjs, 182, 543
+
+\bibitem[{{Abraham} {et~al}\mbox{.}(1999){Abraham}, {Merrifield}, {Ellis},
+  {Tanvir}, \& {Brinchmann}}]{abr99}
+{Abraham} R.~G., {Merrifield} M.~R., {Ellis} R.~S., {Tanvir} N.~R.,
+  {Brinchmann} J., 1999, \mnras, 308, 569
 
 \bibitem[{{Abraham} {et~al}\mbox{.}(2003){Abraham}, {van den Bergh}, \&
   {Nair}}]{abr03}
@@ -19,6 +24,13 @@
   {Dencheva}, {Ely}, {Jenness}, {Labrie}, {Lim}, {Pierfederici}, {Pontzen},
   {Ptak}, {Refsdal}, {Servillat}, \& {Streicher}}]{ast13}
 {Astropy Collaboration} {et~al.}, 2013, \aap, 558, A33
+
+\bibitem[{{Athanassoula}(2012)}]{ath12}
+{Athanassoula} E., 2012, \mnras, 426, L46
+
+\bibitem[{{Athanassoula} {et~al}\mbox{.}(2005){Athanassoula}, {Lambert}, \&
+  {Dehnen}}]{ath05}
+{Athanassoula} E., {Lambert} J.~C., {Dehnen} W., 2005, \mnras, 363, 496
 
 \bibitem[{{Baillard} {et~al}\mbox{.}(2011){Baillard}, {Bertin}, {de Lapparent},
   {Fouqu{\'e}}, {Arnouts}, {Mellier}, {Pell{\'o}}, {Leborgne}, {Prugniel},
@@ -43,6 +55,9 @@
 \bibitem[{{Barden} {et~al}\mbox{.}(2008){Barden}, {Jahnke}, \&
   {H{\"a}u{\ss}ler}}]{bar08a}
 {Barden} M., {Jahnke} K., {H{\"a}u{\ss}ler} B., 2008, \apjs, 175, 105
+
+\bibitem[{{Barnes} \& {Hernquist}(1991)}]{bar91}
+{Barnes} J.~E., {Hernquist} L.~E., 1991, \apjl, 370, L65
 
 \bibitem[{{Beckwith} {et~al}\mbox{.}(2006){Beckwith}, {Stiavelli}, {Koekemoer},
   {Caldwell}, {Ferguson}, {Hook}, {Lucas}, {Bergeron}, {Corbin}, {Jogee},
@@ -116,6 +131,11 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
 {Chevance} M., {Weijmans} A.-M., {Damjanov} I., {Abraham} R.~G., {Simard} L.,
   {van den Bergh} S., {Caris} E., {Glazebrook} K., 2012, \apjl, 754, L24
 
+\bibitem[{{Combes}(2009)}]{com09a}
+{Combes} F., 2009, in Astronomical Society of the Pacific Conference Series,
+  Vol. 419, Galaxy Evolution: Emerging Insights and Future Challenges, {Jogee}
+  S., {Marinova} I., {Hao} L., {Blanc} G.~A., eds., p.~31
+
 \bibitem[{{Conselice}(2003)}]{con03}
 {Conselice} C.~J., 2003, \apjs, 147, 1
 
@@ -143,6 +163,10 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
 
 \bibitem[{{Dressler}(1980)}]{dre80}
 {Dressler} A., 1980, \apj, 236, 351
+
+\bibitem[{{Elmegreen} {et~al}\mbox{.}(2004){Elmegreen}, {Elmegreen}, \&
+  {Hirst}}]{elm04}
+{Elmegreen} B.~G., {Elmegreen} D.~M., {Hirst} A.~C., 2004, \apj, 612, 191
 
 \bibitem[{{Elmegreen} \& {Elmegreen}(2014)}]{elm14}
 {Elmegreen} D.~M., {Elmegreen} B.~G., 2014, \apj, 781, 11
@@ -269,6 +293,13 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
   {Richard}, {Salvato}, {Sanders}, {Scoville}, {Silverman}, {Taniguchi},
   {Tasca}, {Thomas}, {Toft}, {Tresse}, {Vergani}, {Wolk}, \& {Zirm}}]{ilb13}
 {Ilbert} O. {et~al.}, 2013, \aap, 556, A55
+
+\bibitem[{{Jogee} {et~al}\mbox{.}(2004){Jogee}, {Barazza}, {Rix}, {Shlosman},
+  {Barden}, {Wolf}, {Davies}, {Heyer}, {Beckwith}, {Bell}, {Borch}, {Caldwell},
+  {Conselice}, {Dahlen}, {H{\"a}ussler}, {Heymans}, {Jahnke}, {Knapen},
+  {Laine}, {Lubell}, {Mobasher}, {McIntosh}, {Meisenheimer}, {Peng},
+  {Ravindranath}, {Sanchez}, {Somerville}, \& {Wisotzki}}]{jog04}
+{Jogee} S. {et~al.}, 2004, \apjl, 615, L105
 
 \bibitem[{{Kartaltepe} {et~al}\mbox{.}(2015){Kartaltepe}, {Mozena}, {Kocevski},
   {McIntosh}, {Lotz}, {Bell}, {Faber}, {Ferguson}, {Koo}, {Bassett}, {Bernyk},
@@ -452,6 +483,12 @@ Cheung E. {et~al.}, 2015, \mnras, 447, 510
   {Kneib}, {LeFevre}, {Lilly}, {Mobasher}, {Renzini}, {Rich}, {Sanders},
   {Schinnerer}, {Schminovich}, {Shopbell}, {Taniguchi}, \& {Tyson}}]{sco07}
 {Scoville} N. {et~al.}, 2007, \apjs, 172, 1
+
+\bibitem[{{Sheth} {et~al}\mbox{.}(2008){Sheth}, {Elmegreen}, {Elmegreen},
+  {Capak}, {Abraham}, {Athanassoula}, {Ellis}, {Mobasher}, {Salvato},
+  {Schinnerer}, {Scoville}, {Spalsbury}, {Strubbe}, {Carollo}, {Rich}, \&
+  {West}}]{she08a}
+{Sheth} K. {et~al.}, 2008, \apj, 675, 1141
 
 \bibitem[{{Silk} \& {Mamon}(2012)}]{sil12}
 {Silk} J., {Mamon} G.~A., 2012, Research in Astronomy and Astrophysics, 12, 917
