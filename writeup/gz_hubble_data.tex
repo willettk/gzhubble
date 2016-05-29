@@ -128,16 +128,15 @@ are individually acknowledged at
 \url{http://authors.galaxyzoo.org/authors.html}.} This is the third phase in a
 large effort to measure reliable, detailed morphologies of galaxies by using
 crowdsourced visual classifications of color composite images. Images in GZH
-were selected from various \textit{Hubble Space Telescope} Legacy programs
-using the Advanced Camera for Surveys, with filters that probe the rest-frame
-optical emission from galaxies out to $z\sim1$.  The bulk of the sample is
-selected to have $m_{I814W}<23.5$ across AEGIS, COSMOS, GEMS, and 2-epoch
-exposures in GOODS-N and GOODS-S. Full-depth 5-epoch images from the GOODS
-fields are also included and have $m_{I814W}<26.8$. The median redshift of the
-combined samples is $\langle z\rangle=0.9\pm0.6$, with a tail extending out to
-$z\simeq4$. The GZH morphological data include measurements of both bulge- and
-disk-dominated galaxies, details on spiral disk structure that relate to the
-Hubble type, bar identification, and numerous measurements of clump
+were selected from various publicly-released \textit{Hubble Space Telescope}
+Legacy programs using the Advanced Camera for Surveys, with filters that probe
+the rest-frame optical emission from galaxies out to $z\sim1$.  The bulk of the
+sample is selected to have $m_{I814W}<23.5$, but goes as faint as
+$m_{I814W}<26.8$ for deep images combined over 5~epochs. The median redshift of
+the combined samples is $\langle z\rangle=0.9\pm0.6$, with a tail extending out
+to $z\simeq4$. The GZH morphological data include measurements of both bulge-
+and disk-dominated galaxies, details on spiral disk structure that relate to
+the Hubble type, bar identification, and numerous measurements of clump
 identification and geometry.  This paper also describes a new method for
 calibrating morphologies for galaxies of different luminosities and at
 different redshifts by using artificially-redshifted galaxy images as a
@@ -342,6 +341,15 @@ The properties of the individual surveys are as follows:
     $5\sigma$ limiting magnitude for extended sources was 25.7 for \Vband{} and
     25.0 for \iband. 
 
+\item The Galaxy Evolution from Morphologies and SEDs
+    \citep[GEMS;][]{rix04,cal08} survey was centered on the Chandra Deep
+    Field-South. The GEMS data covered $\sim800$~arcmin$^2$, completely surrounding
+    the area covered by GOODS-S. Images from ACS in GEMS had 1~orbit per pointing
+    for a total of 63~pointings. The exposure times were 2160 and 2286~seconds in
+    \Vband{} and \zband{}, respectively. The image resolution had a pixel scale
+    of 0.03~\arcsec/pixel. The $5\sigma$ limiting magnitude for source
+    detection was 25.7~AB in \Vband{} and 24.2~AB in \zband. 
+
 \item The Cosmic Evolution Survey \citep[COSMOS;][]{sco07} covered an area of
     $\sim1.8$~deg$^2$ centered at $\alpha=10^\textrm{h}00^\textrm{m},
     \delta=+02^\circ12^\prime$. Its location near the celestial equator was
@@ -352,15 +360,6 @@ The properties of the individual surveys are as follows:
     field. The image resolution was dithered to 0.05~\arcsec/pixel. The 50\%
     completeness magnitude for a galaxy with a half-light radius of
     $0.50^{\prime\prime}$ in \Iband{} was 24.7~mag. 
-
-\item The Galaxy Evolution from Morphologies and SEDs
-    \citep[GEMS;][]{rix04,cal08} survey was also centered on the Chandra Deep
-    Field-South. The GEMS data covered $\sim800$~arcmin$^2$, completely surrounding
-    the area covered by GOODS-S. Images from ACS in GEMS had 1~orbit per pointing
-    for a total of 63~pointings. The exposure times were 2160 and 2286~seconds in
-    \Vband{} and \zband{}, respectively. The image resolution had a pixel scale
-    of 0.03~\arcsec/pixel. The $5\sigma$ limiting magnitude for source
-    detection was 25.7~AB in \Vband{} and 24.2~AB in \zband. 
 
 \end{itemize}
 
@@ -413,7 +412,7 @@ the creation of simulated \hst{} images, described in Sections
 used in GZH were from Stripe~82. The Stripe~82 samples in GZH include
 single-epoch and co-added images. The single-epoch images provide a local
 sample for comparison to higher-redshift galaxies (including the new
-measurments of clumpy structure), while the co-added images allow for analysis
+measurements of clumpy structure), while the co-added images allow for analysis
 of morphological properties as a function of image depth. 
 
 %The creation of 51,861 images from these sources is described in Section
@@ -823,8 +822,9 @@ galaxy.
 \center
 \includegraphics[width=160mm]{figures/gzh_interface.png}
 \caption{Screenshot of the GZH interface (\url{http:/zoo3.galaxyzoo.org}) at
-the beginning of a classification, with the classifier ready to select an answer for
-the first question in the decision tree.\label{fig:interface}}
+the beginning of classifying a random galaxy, with the classifier ready
+to select an answer for the first question in the decision
+tree.\label{fig:interface}}
 \end{figure*}
 
 Classifications for GZH were made using a web-based interface
@@ -1246,18 +1246,18 @@ Total                              & 3,449   & 100\% \\
 Few galaxies in the sample have sufficiently high corrections to completely
 change them from being confidently ``smooth'' to ``featured'' following the
 correction for redshift bias (Figure~\ref{fig:debiased_corrections}). As a
-check, highly boosted galaxies are compared to the expert classifications in
-CANDELS \citep{kar15}.  There are only eight galaxies that were strongly
-boosted (\ffeatures$<0.2$ and \fbest$>0.5$) in GZH and also appear in the
-CANDELS expert sample. Of those eight galaxies, \citet{kar15} classify 5 as
-spheroids, 2 as disks, and 1 as irregular/disky. The \fbest{} values for GZH
-are all between 0.5 and 0.6, making them intermediate disk candidates. One of
-the spheroids has a hint of extended emission to the south that may have been
-missed by the CANDELS experts, but almost all images are dim and with very low
-surface brightnesses in the ACS imaging, making positive identification
-challenging. Since the surveys use different rest-frame filters and the overlap
-sample is tiny, though, detailed comparisons between the overall morphologies
-are highly difficult.
+check, we compare morphologies of highly boosted galaxies to the expert visual
+classifications in CANDELS \citep{kar15}.  Only nine galaxies that
+were strongly boosted (\ffeatures$<0.25$ and \fbest$>0.50$) in GZH also
+appear in the CANDELS expert sample. Of those, \citet{kar15}
+classify 4 as spheroids/disky, 2 as disks, 1 as a spheroid, 1 as
+irregular/disky and 1 as unclassifiable. The \fbest{} values for GZH are all
+between 0.5 and 0.7, making them all intermediate disk candidates. Visual
+inspection of the GZH images shows extended disk structure in at least
+5~images; the remaining 4 are either extremely faint or have imaging artifacts
+in the ACS data.  Since the surveys use different rest-frame filters and the
+overlap sample is tiny, though, detailed comparisons between the overall
+morphologies are highly difficult.
 
 \begin{figure*}
 \center
@@ -1271,19 +1271,20 @@ information'' (NEI; right) galaxies in the GZH sample.}
 
 \subsection{Challenges of debiasing questions beyond ``smooth or features''}\label{ssec:higher_order_tasks}
 
-As with the HST images, each \ferengi{} subject had a varying number of classifiers
-answering the various questions in the hierarchical decision tree. Every classifier
-answers the first question, {\it ``Is the galaxy smooth and rounded, with no
-sign of a disk?''}; as such the vote fractions \fsmooth, \ffeatures, and
-\fartifact{} are all computed with the minimum statistical error for any
-question, with between 40 and 140~responses (see Section~\ref{sec:interface}).
-The number of participants answering subsequent questions, however, is always equal
-to or less than the number who answered the preceding question. The average number
-of responses per task for fourth- or fifth-tier questions (such as spiral arm
-structure; Tasks 12--14) is only $4\pm4$ for the \ferengi{} sample. While this
-distribution is strongly bimodal (reflecting the true morphologies of
-selected galaxies), the very low absolute numbers of votes introduce very high
-variance when attempting to calculate a statistical correction.
+As with the HST images, each \ferengi{} subject had a varying number of
+classifiers answering the various questions in the hierarchical decision tree.
+Every classifier answers the first question, {\it ``Is the galaxy smooth and
+rounded, with no sign of a disk?''}; as such, the vote fractions \fsmooth,
+\ffeatures, and \fartifact{} all have the lowest statistical error for any
+question in the tree, based only on the total number of responses (between
+40 and 120; see Section~\ref{sec:interface}).  The number of participants
+answering subsequent questions, however, is always equal to or less than the
+number who answered the preceding question. The average number of responses per
+task for fourth- or fifth-tier questions (such as spiral arm structure; Tasks
+12--14) is only $4\pm4$ for the \ferengi{} sample. While this distribution is
+strongly bimodal (reflecting the true morphologies of selected galaxies), the
+very low absolute numbers of votes introduce very high variance when attempting
+to calculate a statistical correction.
 
 In the \ferengi{} data, these numbers severely limit the amount of information
 that can be extracted for the higher-tier questions. The debiasing technique
@@ -1878,7 +1879,7 @@ recommend using an evolving cut on \fbar{} as a function of redshift for the
 selection of barred disks. 
 
 Another existing study using GZH to select barred galaxies was presented in
-\citet{che15}. This study used a slightly different bar selection method to
+\citet{che15}. This study used a slightly different bar sample selection to
 demonstrate that AGN hosts show no statistically significant enhancement in bar
 fraction or average bar likelihood compared to closely-matched inactive
 galaxies. We note that their technique matched test and control galaxies over
@@ -2077,7 +2078,7 @@ $A$, $G$, $M_{20}$, the galaxy ellipticity ($\epsilon$), and \sersic{} index
 galaxies to categories. All three methods use discrete morphological categories
 of ellipticals, spirals, and peculiar/irregulars. We use the same categories
 with the exception of assigning S0/bulge-dominated disks (type~2.0) from ZEST
-into the elliptical category.
+into the early-type category.
 
 \begin{figure*}
 \center
@@ -2118,7 +2119,7 @@ measure of galaxy morphology -- it is relatively common, for example, to
 measure high $n$ for an object with an exponential disk but a central cusp in
 the light profile (eg, due to an AGN, cluster, foreground star, noise, etc).
 
-Galaxies from the three COSMOS surveys all have morphologies that are
+Galaxies from the three COSMOS morphology catalogs all have morphologies that are
 reasonably well-predicted by the GZH based on \fbest. The relation is strongest
 for early-type galaxies, since the comparable fractions of irregulars and
 spirals shows that clumpy/asymmetric morphologies are clearly also being
@@ -2128,53 +2129,71 @@ puzzling, but could potentially be due to the presence of a small
 population of extremely compact objects (stars or quasars) that would be
 classified as artifacts in GZH, explaining the dip in \fbest.
 
-We also emphasize that the various COSMOS catalogs are not consistent; for
-example, only 64\% of the galaxies in \citet{tas11} have the same morphological
-class as \citet{cas07}. The bulk of these are galaxies classified as ``spiral''
-using one technique and ``irregular'' using another (\citealt{cas07} is more
-likely to classify galaxies as irregular).  A detailed comparison of the
-external catalogs is outside the scope of this paper, but we emphasize only
-that it is \emph{impossible} for any catalog to be consistent with all three.
-We interpret the broad agreements between early-types, spirals, and irregulars
-for all three samples as a validation of the crowdsourced visual
-classifications provided by GZH.
+%We also emphasize that the previously published COSMOS catalogs are not
+%internally consistent; for example, only 64\% of the galaxies in \citet{tas11}
+%have the same morphological class as \citet{cas07}. The bulk of these are
+%galaxies classified as ``spiral'' using one technique and ``irregular'' using
+%another (\citealt{cas07} is more likely to classify galaxies as irregular).  A
+%detailed comparison of the external catalogs is outside the scope of this
+%paper, but we emphasize only that it is \emph{impossible} for any catalog to be
+%consistent with all three.  We interpret the broad agreements between
+%early-types, spirals, and irregulars for all three samples as a validation of
+%the crowdsourced visual classifications provided by GZH.
 
-\begin{figure*}
-\center
-\includegraphics[width=1.0\textwidth]{figures/comparisons_odd.pdf}
-\caption{Same as Figure~\ref{fig:comparisons_features}, but comparing external
-morphologies to \fodd{} in GZH. Measurement of \fodd{} excludes galaxies
-labeled as ``odd'' due to lenses or dust lanes ($<1\%$ of the total), which are GZH
-categories not expected to correlate with larger-scale structural parameters.}
-\label{fig:comparisons_odd}
-\end{figure*}
+%\begin{figure*}
+%\center
+%\includegraphics[width=1.0\textwidth]{figures/comparisons_odd.pdf}
+%\caption{Same as Figure~\ref{fig:comparisons_features}, but comparing external
+%morphologies to \fodd{} in GZH. Measurement of \fodd{} excludes galaxies
+%labeled as ``odd'' due to lenses or dust lanes ($<1\%$ of the total), which are GZH
+%categories not expected to correlate with larger-scale structural parameters.}
+%\label{fig:comparisons_odd}
+%\end{figure*}
+%
+%Figure~\ref{fig:comparisons_odd} analyzes the same sets of matched galaxies, but
+%compares the data to the \fodd{} parameter in GZH to examine its correlation with
+%irregular morphologies. The relationship in this case is less clear; for the
+%COSMOS catalogs, in particular, early-types, spirals, and irregulars are
+%roughly equally probable at \fodd$>0.5$. In both AEGIS and GOODS (there is no
+%measurement of irregular structure for GEMS in \citealt{hau07}), the proportion
+%of irregular galaxies does increase with \fodd. However, the actual number of
+%galaxies at \fodd$>0.5$ is quite small ($N\lesssim100$) in both samples, and so
+%estimating an accurate fraction is less precise.  We also note that this
+%particular question ({\it ``anything odd?''}) has somewhat uncertain phrasing
+%in GZH, and that the design of the tree explicitly separates clumpy from
+%irregular or merging morphologies, which would have similar properties in
+%automatic techniques. A more accurate selection of irregular morphologies in
+%GZH should use a weighted combination of \fbest, \fclumpy, and \fodd.
 
-Figure~\ref{fig:comparisons_odd} analyzes the same sets of matched galaxies, but
-compares the data to the \fodd{} parameter in GZH to examine its correlation with
-irregular morphologies. The relationship in this case is less clear; for the
-COSMOS catalogs, in particular, early-types, spirals, and irregulars are
-roughly equally probable at \fodd$>0.5$. In both AEGIS and GOODS (there is no
-measurment of irregular structure for GEMS in \citealt{hau07}), the proportion
-of irregular galaxies does increase with \fodd. However, the actual number of
-galaxies at \fodd$>0.5$ is quite small ($N\lesssim100$) in both samples, and so
-estimating an accurate fraction is less precise.  We also note that this
-particular question ({\it ``anything odd?''}) has somewhat uncertain phrasing
-in GZH, and that the design of the tree explicitly separates clumpy from
-irregular or merging morphologies, which would have similar properties in
-automatic techniques. A more accurate selection of irregular morphologies in
-GZH should use a weighted combination of \fbest, \fclumpy, and \fodd.
+A detailed comparison of the external catalogs is outside the scope of this
+paper, but we emphasize only that it is impossible for any catalog to be fully
+consistent with all of the previously published datasets (for example, only
+64\% of the galaxies in \citealt{tas11} have the same morphological class as
+the same galaxies in \citealt{cas07}). We interpret the broad agreements
+between early-types, spirals, and irregulars between GZH and all three methods
+of automated classification as a validation of both the crowdsourced visual
+classifications provided by GZH and those automated methods.
 
-We repeated all of the analysis comparing morphologies between GZH and external
+It has been argued that automated methods are preferable to visual
+classification due to being quantified and more easily reproducible
+\citep[\eg,][]{con14,paw16}. We argue that this distinction applies only to
+visual classification done by individual and/or small numbers of experts. The
+technique of crowdsourcing using a large number of independent classifiers
+provides visual classification which is both quantified, and reproducible, and
+(as demonstrated in this section), broadly agrees with all the automated
+methods and expert visual classifications.
+
+We repeated all analyses comparing morphologies between GZH and external
 catalogs on the entire catalog, rather than the volume-limited sample
-($z<1.0,m<22.5$) discussed above. If all redshifts and the original magnitude
-limit of $m<23.5$ are used, the correlations between all of the automatic
-morphological populations and GZH decrease significantly.  The only exception
-are the GEMS galaxies, which are the only sample visually classified (similar
-to GZH) and had a shallower magnitude cut on their catalog. Based on these
-comparisons, we suggest that use of the GZH catalog be limited to galaxies with
-$m<22.5$; fainter targets at the sensitivity of the \hst{} Legacy surveys have
-been demonstrated to be less reliable, regardless of the method of
-morphological classification being used.
+($z<1.0,m<22.5$) discussed above. If galaxies at all redshifts and at the
+original magnitude limit of $m<23.5$ are used, the correlations between all of
+the automatic morphological populations and GZH decrease significantly.  The
+exceptions are the GEMS galaxies, which are the only sample that was visually
+classified and had a shallower magnitude cut on their catalog.
+Based on these comparisons, we suggest that use of the GZH catalog be limited
+to galaxies with $m_\mathrm{I|i|z}<22.5$; fainter targets at the sensitivity of the \hst{}
+Legacy surveys have been demonstrated to be less reliable, regardless of the
+method of morphological classification being used.
 
 \subsection{Galaxy Zoo: Hubble and Galaxy Zoo: CANDELS}\label{ssec:gzh_gzc}
 
@@ -2253,7 +2272,7 @@ Global Impact Award.
 
 We thank Meg Schwamb and the ASIAA for hosting the ``Citizen Science in
 Astronomy'' workshop, 3-7 Mar 2014 in Taipei, Taiwan, at which some of this
-analysis was done. We thank Jennifer Lotz for sharing her $G$-$M_{20}$
+analysis was initiated. We thank Jennifer Lotz for sharing her $G$-$M_{20}$
 measurements for the AEGIS sample. We thank Coleman Krawczyk for his assistance
 in producing Figure~\ref{fig:decisiontree}.
 
