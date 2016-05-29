@@ -794,7 +794,6 @@ The technique for redshift debiasing (Section~\ref{sec:debiasing}) requires
 consistent measurements of the galaxy surface brightness. For both the
 \redshifted{} calibration images and the \hst{} images which have their
 morphologies corrected, we calculate the mean surface brightness $\mu$ within the
-:w
 effective radius ($R_e$) as:
 
 \begin{equation}
@@ -1055,7 +1054,7 @@ changes in \ffeatures. To examine whether a better fit should involve
 additional parameters, we examine the global dependence of $\zeta$ on the
 galaxy surface brightness. This is motivated by the fact that brighter galaxies
 would presumably be easier to identify; \citet{bam09} and \citet{wil13} found
-changes in \ffeatures{} depending on a combination of physical size and
+changes in \ffeatures{} depend on a combination of physical size and
 absolute magnitude. To simplify our model, we subsume these into a single
 parameter $\mu$.
 
@@ -1073,7 +1072,7 @@ lower.
 
 \begin{figure}
 \center
-\includegraphics[width=0.50\textwidth]{figures/zeta_mu.pdf}
+\includegraphics[width=0.5\textwidth]{figures/zeta_mu.pdf}
 \caption{All fits for the \ferengi{} galaxies of the vote fraction dropoff
 parameter $\zeta$ for \ffeatures{} as a function of surface brightness. This
 includes only galaxies with a bounded range on the dropoff
@@ -1177,7 +1176,7 @@ residuals. These fits are shown as the dashed black lines in
 Figure~\ref{fig:f_vs_f}. Flat regions of the bins are areas in which there is
 not a clear single-valued relationship between \ffeaturesz{} and
 \ffeaturesrest. We quantify this by measuring the slope of the best-fit
-polynomical; regions of the bins with a slope less than 0.4 are considered
+polynomial; regions of the bins with a slope less than 0.4 are considered
 \emph{not} one-to-one, and therefore \ffeaturesz{} cannot be boosted to its
 \ffeaturesrest{} value.  Galaxies in this region are referred to as the
 \emph{lower limit} sample, because the most stringent correction available is
@@ -1216,7 +1215,7 @@ estimated using a method visualized in Figure~\ref{fig:f_vs_f_zoom}. This uses t
 \ferengi{} simulated data to analyze the range of intrinsic \ffeaturesrest{}
 values for any given observed \ffeatures{} value, again as a function of
 surface brightness and redshift. In each unclassifiable (shaded blue) $z$,$\mu$ bin, the spread of
-intrinsic values of \ffeaturesrest{} for four ranges of observed \ffeatures is computed.
+intrinsic values of \ffeaturesrest{} for four ranges of observed \ffeatures{} is computed.
 The range of intrinsic values is defined as the inner 80\% of the data,
 represented by the orange bars in Figure~\ref{fig:f_vs_f_zoom}. For any galaxy which
 cannot be directly debiased by the $\zeta$ method, these ranges are used to
@@ -1249,7 +1248,7 @@ change them from being confidently ``smooth'' to ``featured'' following the
 correction for redshift bias (Figure~\ref{fig:debiased_corrections}). As a
 check, highly boosted galaxies are compared to the expert classifications in
 CANDELS \citep{kar15}.  There are only eight galaxies that were strongly
-boosted (\ffeatures$<0.2$ and \fbest$>0.5$) in GZH and also appears in the
+boosted (\ffeatures$<0.2$ and \fbest$>0.5$) in GZH and also appear in the
 CANDELS expert sample. Of those eight galaxies, \citet{kar15} classify 5 as
 spheroids, 2 as disks, and 1 as irregular/disky. The \fbest{} values for GZH
 are all between 0.5 and 0.6, making them intermediate disk candidates. One of
@@ -1385,7 +1384,7 @@ galaxy in the image is identified by the combination of the OBJNO and original
 survey. For each of the 55~responses in the GZH decision tree, the following
 classification data is provided: for each question, $\tt N_{votes}$ is the
 number of classifiers who answered that question. For each unique answer, $\tt fraction$
-is the fraction of classifiers who selected that answer ($\rm N_{answer}/N_{votes}$, and
+is the fraction of classifiers who selected that answer ($\rm N_{answer}/N_{votes}$), and
 $\tt weighted$ is the weighted fraction, which takes into account overall
 consistency (Section~\ref{ssec:weighting}). 
 
@@ -2020,7 +2019,7 @@ identifies deviations from well-formed spirals or S0s and which constitutes a
 ``catch-all'' for the variety of asymmetric morphologies that can constitute an
 irregular galaxy. 
 
-The comparison and analysis of the GZH morphologies is done a set of matched,
+The comparison and analysis of the GZH morphologies is done on a set of matched,
 volume-limited samples at $z<1.0$ and $m_{I|i|z} < 22.5$~mag.  The redshift and
 magnitude limits for the sample are chosen to match the shared constraints for
 the shallowest depths \citep[GEMS;][]{bun05} and the limits on morphological
@@ -2139,7 +2138,7 @@ categories not expected to correlate with larger-scale structural parameters.}
 \end{figure*}
 
 Figure~\ref{fig:comparisons_odd} analyzes the same sets of matched galaxies, but
-compares the data the \fodd{} parameter in GZH to examine its correlation with
+compares the data to the \fodd{} parameter in GZH to examine its correlation with
 irregular morphologies. The relationship in this case is less clear; for the
 COSMOS catalogs, in particular, early-types, spirals, and irregulars are
 roughly equally probable at \fodd$>0.5$. In both AEGIS and GOODS (there is no
@@ -2425,7 +2424,7 @@ modeled with functions in discrete redshift and surface brightness bins
 votes to reduce the error in the vote fractions and ensure they were
 well-sampled before applying a fit to the data. This requirement was only met
 for Task~01, which significantly reduced the goodness-of-fit for the model
-functions as compared with to the smooth/features task. Here we show an
+functions as compared to the smooth/features task. Here we show an
 example of results obtained for the bar Task. Figure~\ref{fig:f_vs_fbar}
 shows that both the low sample rate and the degree of scatter in each bin
 inhibit fitting a reliable function that predicts $f_{{\rm bar},z=0.3}$.
