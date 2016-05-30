@@ -7,7 +7,6 @@
 \usepackage{deluxetable}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
-\usepackage{subfigure}
 \usepackage{url}
 %\usepackage[normalem]{ulem}
 \usepackage[T1]{fontenc}
@@ -1951,36 +1950,23 @@ Total                         & 4,461   & 100      &              &         \\
 \end{tabular}
 \end{table}
 
-
-
 \begin{figure*}
 \centering
-
-\subfigure{[a]\label{fig:smooth_to_smooth}\includegraphics[width=\textwidth]{figures/smooth_to_smooth.pdf}}
-
-\subfigure{[b]\label{fig:smooth_to_int}\includegraphics[width=\textwidth]{figures/smooth_to_intermediate.pdf}}
-
-\subfigure{[c]\label{fig:smooth_to_featured}\includegraphics[width=\textwidth]{figures/smooth_to_featured.pdf}}
-
+\includegraphics[width=\textwidth]{figures/shallow_smooth.pdf}
 \caption{Example images of GOODS galaxies that compare GZH morphological
-classifications between their 2-epoch and 5-epoch imaging.  The top set (a)
+classifications between their 2-epoch and 5-epoch imaging.  The top set
 were classified as ``smooth'' in both the 2- and 5-epoch imaging. The
-middle set (b) was classified as ``smooth'' in the 2-epoch imaging and as
+middle set was classified as ``smooth'' in the 2-epoch imaging and as
 intermediate between ``smooth'' and ``featured'' in the 5-epoch imaging. The
-bottom set (c) was classified as ``smooth'' in the 2-epoch imaging and
-``featured'' in the 5-epoch imaging.}
+bottom set was classified as ``smooth'' in the 2-epoch imaging and
+``featured'' in the 5-epoch imaging (there are only seven such images
+in the sample).}
 \label{fig:shallow_smooth}
 \end{figure*}
 
 \begin{figure*}
 \centering
-
-\subfigure{[b]\label{fig:int_to_smooth}\includegraphics[width=\textwidth]{figures/intermediate_to_smooth.pdf}}
-
-\subfigure{[b]\label{fig:int_to_int}\includegraphics[width=\textwidth]{figures/intermediate_to_intermediate.pdf}}
-
-\subfigure{[b]\label{fig:int_to_featured}\includegraphics[width=\textwidth]{figures/intermediate_to_featured.pdf}}
-
+\includegraphics[width=\textwidth]{figures/shallow_intermediate.pdf}
 \caption{Similar to Figure~\ref{fig:shallow_smooth}. The top set (a) were
 classified as ``intermediate'' in the 2-epoch imaging and ``smooth'' in the
 5-epoch imaging. The middle set (b) was classified as intermediate in both the
@@ -1991,14 +1977,7 @@ in the 2-epoch imaging and ``featured'' in the 5-epoch imaging.}
 
 \begin{figure*}
 \centering
-
-\subfigure{[b]\label{fig:featured_to_smooth}\includegraphics[width=\textwidth]{figures/featured_to_smooth.pdf}}
-
-\subfigure{[b]\label{fig:featured_to_int}\includegraphics[width=\textwidth]{figures/featured_to_intermediate.pdf}}
-
-\subfigure{[b]\label{fig:featured_to_featured}\includegraphics[width=\textwidth]{figures/featured_to_featured.pdf}}
-
-
+\includegraphics[width=\textwidth]{figures/shallow_featured.pdf}
 \caption{Similar to Figure~\ref{fig:shallow_smooth}. The top set (a) were
 classified as ``featured'' in the 2-epoch imaging and ``smooth'' in the 5-epoch
 imaging (there were only six such images in the sample). The middle set (b) was
