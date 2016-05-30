@@ -1,126 +1,81 @@
-\documentclass[twocolumn]{aastex6}
+\documentclass[a4paper,fleqn,usenatbib]{mnras}
 
-%% The other main article choice is a tightly typeset, two-column article
-%% that more closely resembles the final typeset pdf article.
-%%
-%% \documentclass[twocolumn]{aastex6}
-%% 
-%% There are other optional arguments one can invoke to allow other 
-%% actions. 
-%%
-% These are the available options:
-%   manuscript  : onecolumn, doublespace, 12pt fonts
-%   preprint    : onecolumn, single space, 10pt fonts
-%   preprint2   : twocolumn, single space, 10pt fonts
-%   twocolumn   : a two column article. Probably not needed, but here just in case.
-%   onecolumn   : a one column article; default option.
-%   twocolappendix: make 2 column appendix
-%   onecolappendix: make 1 column appendix is the default. 
-%   astrosymb   : Loads Astrosymb font and define \astrocommands. 
-%   tighten : Makes baselineskip slightly smaller
-%   times   : uses times font instead of the default
-%   linenumbers : turn on lineno package.
-%   trackchanges : required to see the revision mark up and print output
-%   numberedappendix: Labels appendix sections A, B, ... This is the default.
-%   appendixfloats: Needed. Resets figure and table counters to zero
 
-%% these can be used in any combination, e.g.
-%%
-%% \documentclass[twocolumn,twocolappendix,linenumbers,trackchanges]{aastex6}
-
-\shorttitle{Galaxy Zoo: Hubble}
-\shortauthors{Willett et al.}
-
-%% This is the end of the preamble.  Indicate the beginning of the
-%% paper itself with \begin{document}.
-
-\usepackage{epsfig}
+%\usepackage{epsfig}
 \usepackage{color,soul}
-\usepackage{natbib}
+%\usepackage{natbib}
+\usepackage{deluxetable}
 \usepackage{amsmath,amssymb}
 \usepackage{graphicx}
 \usepackage{subfigure}
 \usepackage{url}
-\usepackage[normalem]{ulem}
-\bibliographystyle{apj}
+%\usepackage[normalem]{ulem}
+\usepackage[T1]{fontenc}
+\usepackage{ae,aecompl}
+
 
 \input{macros.tex}
 
-\begin{document}
 
-%% LaTeX will automatically break titles if they run longer than
-%% one line. However, you may use \\ to force a line break if
-%% you desire.
+\title[Galaxy Zoo: Hubble]{Galaxy Zoo: Morphological Classifications for 120,000 Galaxies in HST Legacy Imaging}
 
-\title{Galaxy Zoo: Morphological Classifications for 120,000 Galaxies in HST Legacy Imaging}
-%% Use \author, \affil, plus the \and command to format author and affiliation 
-%% information.  If done correctly the peer review system will be able to
-%% automatically put the author and affiliation information from the manuscript
-%% and save the corresponding author the trouble of entering it by hand.
-%%
-%% The \affil should be used to document primary affiliations and the
-%% \altaffil should be used for secondary affiliations, titles, or email.
-
-%% Authors with the same affiliation can be grouped in a single
-%% \author and \affil call.
-\author{
-    Kyle W. Willett\altaffilmark{1,2}, 
-    Melanie A. Galloway\altaffilmark{1}, 
-    Steven P. Bamford\altaffilmark{3}, 
-    Chris J. Lintott\altaffilmark{4}, 
-    Karen L. Masters\altaffilmark{5,6}, 
-    Claudia Scarlata\altaffilmark{1}, 
-    B.D. Simmons\altaffilmark{4,7}, 
-    Melanie Beck\altaffilmark{1}, 
-    Carolin N. Cardamone\altaffilmark{8}, 
-    Edmond Cheung\altaffilmark{9}, 
-    Edward M. Edmondson\altaffilmark{5}, 
-    Lucy F. Fortson\altaffilmark{1},
-    Roger L. Griffith\altaffilmark{10,11}, 
-    Boris H\"au{\ss}ler\altaffilmark{4,12,13},
-    Anna Han\altaffilmark{14}, 
-    Ross Hart\altaffilmark{3}, 
-    Thomas Melvin\altaffilmark{5}, 
-    Michael Parrish\altaffilmark{15}, 
-    Kevin Schawinski\altaffilmark{16}, 
-    R.J. Smethurst\altaffilmark{4}, 
-    Arfon M. Smith\altaffilmark{4,15,17}
-}
+\author[Willett et al.]{
+Kyle W. Willett$^{1,2}$,
+Melanie A. Galloway$^{1}$,
+Steven P. Bamford$^{3}$,
+Chris J. Lintott$^{4}$,
+\newauthor
+Karen L. Masters$^{5,6}$,
+Claudia Scarlata$^{1}$,
+B.D. Simmons$^{4,7}$\footnote{Einstein Fellow},
+Melanie Beck$^{1}$,
+\newauthor
+Carolin N. Cardamone$^{8}$,
+Edmond Cheung$^{9}$,
+Edward M. Edmondson$^{5}$,
+Lucy F. Fortson$^{1}$,
+\newauthor
+Roger L. Griffith$^{10,11}$,
+Boris H\"au{\ss}ler$^{4,12,13}$,
+Anna Han$^{14}$,
+Ross Hart$^{3}$,
+\newauthor
+Thomas Melvin$^{5}$,
+Michael Parrish$^{15}$,
+Kevin Schawinski$^{16}$,
+R.J. Smethurst$^{4}$,
+\newauthor
+Arfon M. Smith$^{4,15,17}$
+\\
 %
-%$^N$Institute for Cosmology and Gravitation, University of Portsmouth, Dennis Sciama Building, Burnaby Road, Portsmouth, PO1 3FX, UK \\
-%$^N$South East Physics Network, www.sepnet.ac.uk\\
-%$^N$Dept. of Astronomy, Cornell University, Space Sciences Building, Ithaca, NY 14850, USA\\
-%$^N$Institute for Sciences of the Cosmos (ICCUB), University of Barcelona, Marti i Franques 1, Barcelona, 08024 Spain\\
-%$^N$Oxford Astrophysics, Department of Physics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, UK\\
-%$^N$Yale Center for Astronomy and Astrophysics, Yale University, P.O. Box 208121, New Haven, CT 06520, USA \\
-%$^N$Steward Observatory, University of Arizona, 933 N. Cherry Ave, Tucson, AZ 85721, USA\\
-%$^N$Astronomy Department, Adler Planetarium and Astronomy Museum, 1300 Lake Shore Drive, Chicago, IL 60605, USA\\
-%$^N$Centre for Astronomy \& Particle Theory, University of Nottingham, University Park, Nottingham, NG7 2RD, UK\\
-%$^N$School of Physics and Astronomy, University of Minnesota, Minneapolis, MN 55455, USA\\
-%$^N$Department of Physics \& Astronomy, 206 Gallalee Hall, 514 University Blvd., University of Alabama, Tuscaloosa, AL 35487-0234, USA\\
-%$^N$Einstein Fellow\\ 
+$^{1}$School of Physics and Astronomy, University of Minnesota, 116 Church St. SE, Minneapolis, MN 55455, USA \\
+$^{2}$Department of Physics and Astronomy, University of Kentucky, 505 Rose St., Lexington, KY 40506, USA \\
+$^{3}$School of Physics and Astronomy, The University of Nottingham, University Park, Nottingham, NG7 2RD, UK \\
+$^{4}$Oxford Astrophysics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, UK \\
+$^{5}$Institute for Cosmology and Gravitation, University of Portsmouth, Dennis Sciama Building, Burnaby Road, Portsmouth, PO1 3FX, UK \\
+$^{6}$SEPnet, South East Physics Network, UK \\
+$^{7}$Center for Astrophysics and Space Sciences, Department of Physics, University of California, San Diego, CA 92093, USA \\
+$^{8}$Department of Mathematics and Science, Wheelock College, Boston, MA 02215, USA \\
+$^{9}$Kavli Institute for the Physics and Mathematics of the Universe (WPI), \\ Todai Institutes for Advanced Study, The University of Tokyo, Kashiwa 277-8583, Japan \\
+$^{10}$Infrared Processing and Analysis Center, California Institute of Technology, Pasadena, CA 91125, USA \\
+$^{11}$Department of Astronomy \& Astrophysics, 525 Davey Lab, The Pennsylvania State University, University Park, PA 16802, USA \\
+$^{12}$Centre for Astrophysics, Science \& Technology Research Institute, University of Hertfordshire, Hatfield, AL10 9AB, UK \\
+$^{13}$European Southern Observatory, Alonso de C\'ordova 3107, Vitacura, Casilla 19001, Santiago, Chile \\
+$^{14}$Department of Astronomy, Yale University, New Haven, CT 06520, USA \\
+$^{15}$Adler Planetarium, 1300 S. Lake Shore Drive, Chicago, IL 60605, USA \\
+$^{16}$Institute for Astronomy, Department of Physics, ETH Z\"urich, Wolfgang-Pauli-Strasse 27, CH-8093 Z\"urich, Switzerland \\
+$^{17}$GitHub
+}
 
-\altaffiltext{1}{School of Physics and Astronomy, University of Minnesota, 116 Church St. SE, Minneapolis, MN 55455, USA}
-\altaffiltext{2}{Department of Physics and Astronomy, University of Kentucky, 505 Rose St., Lexington, KY 40506, USA}
-\altaffiltext{3}{School of Physics and Astronomy, The University of Nottingham, University Park, Nottingham, NG7 2RD, UK}
-\altaffiltext{4}{Oxford Astrophysics, University of Oxford, Denys Wilkinson Building, Keble Road, Oxford, OX1 3RH, UK}
-\altaffiltext{5}{Institute for Cosmology and Gravitation, University of Portsmouth, Dennis Sciama Building, Burnaby Road, Portsmouth, PO1 3FX, UK}
-\altaffiltext{6}{SEPnet, South East Physics Network, UK}
-\altaffiltext{7}{Center for Astrophysics and Space Sciences, Department of Physics, University of California, San Diego, CA 92093, USA}
-\altaffiltext{8}{Department of Mathematics and Science, Wheelock College, Boston, MA 02215, USA}
-\altaffiltext{9}{Kavli Institute for the Physics and Mathematics of the Universe (WPI), Todai Institutes for Advanced Study, The University of Tokyo, Kashiwa 277-8583, Japan}
-\altaffiltext{10}{Infrared Processing and Analysis Center, California Institute of Technology, Pasadena, CA 91125, USA}
-\altaffiltext{11}{Department of Astronomy \& Astrophysics, 525 Davey Lab, The Pennsylvania State University, University Park, PA 16802, USA}
-\altaffiltext{12}{Centre for Astrophysics, Science \& Technology Research Institute, University of Hertfordshire, Hatfield, AL10 9AB, UK}
-\altaffiltext{13}{European Southern Observatory, Alonso de C\'ordova 3107, Vitacura, Casilla 19001, Santiago, Chile}
-\altaffiltext{14}{Department of Astronomy, Yale University, New Haven, CT 06520, USA}
-\altaffiltext{15}{Adler Planetarium, 1300 S. Lake Shore Drive, Chicago, IL 60605, USA}
-\altaffiltext{16}{Institute for Astronomy, Department of Physics, ETH Z\"urich, Wolfgang-Pauli-Strasse 27, CH-8093 Z\"urich, Switzerland}
-\altaffiltext{17}{GitHub}
+\date{Accepted XXX. Received YYY; in original form ZZZ}
+\pubyear{2016}
+
+\begin{document}
+\label{firstpage}
+\pagerange{\pageref{firstpage}--\pageref{lastpage}}
+\maketitle
 
 \begin{abstract}
-
-% Note: 250-word limit
 We present the data release paper for the Galaxy Zoo: Hubble (GZH)
 project.\footnote{This publication has been made possible by the participation
 of more than 200,000~volunteers in the Galaxy Zoo project. Their contributions
@@ -146,10 +101,12 @@ suitable for large-scale studies of galaxy evolution out to $z\sim1$.
 % Number = hubble + goods_shallow + stripe82_coadd
 \end{abstract}
 
-\keywords{galaxies:structure --- galaxies:high redshift --- galaxies:evolution
---- methods:data analysis --- catalogs}
+\begin{keywords}
+galaxies:structure --- galaxies:high redshift --- galaxies:evolution
+--- methods:data analysis --- catalogs
+\end{keywords}
 
-\section{Introduction} \label{sec:intro}
+\section{Introduction}\label{sec:intro}
 
 The morphology of galaxies encodes information on the orbital parameters and
 assembly history of their contents, including gas, dust, stars, and the central
@@ -300,13 +257,13 @@ Table~\ref{tbl:gzh_numbers}.
 
 
 \begin{figure*}
-\center
 \includegraphics[width=160mm]{figures/filter_curves.pdf}
 \caption{Transmission curves of the filters used by \hst{} Advanced Camera for
 Surveys (ACS) in wide-field channel mode for the various surveys in GZH. The
 unfilled black curves show the filters for the Suprime Camera on \subaru, which
 was used to create color gradients in the GZH COSMOS
-images.\label{fig:filtercurves}}
+images.}
+\label{fig:filtercurves}
 \end{figure*}
 
 The properties of the individual surveys are as follows:
@@ -468,7 +425,7 @@ advantages and disadvantages: the empirical PSFs better represent the nuances
 of the PSF in the specific data being used and look more realistic at lower
 luminosities, but the extended features of the noiseless \texttt{TinyTim} PSFs
 are visually more realistic at higher luminosities.
-% okay so I'm a cheeky self-citing biyotch
+% okay so I'm a cheeky self-citing biyotch - BDS
 
 Images with simulated AGN were classified in the interface in an identical
 manner and evenly distributed with unaltered images of the galaxies.
@@ -493,38 +450,7 @@ parameters using the \ferengi{} code \citep{bar08a}.
 %The selection criteria for the different morphological categories is
 %summarized in Table \ref{tbl:morphologies}. 
  
-%\begin{table*}
-%\center
-%\caption{Summary of morphological categories selected for \ferengi{} sample.\label{tbl:morphologies}}
-%\begin{tabular}{lllc}
-%\hline\hline
-%Morphology          & Label &  Selection                                                                                            & $N_{\rm objects}$ \\
-%                    &       &                                                                                                       & [$N_z \times N_\mu$] \\
-%\hline
-%Features            & Yes       & $f_{\rm features} > 0.8$, $f_{\rm odd} < 0.1$                                                         & 12 \\ 
-%                    & Int.      & $0.3 < f_{\rm smooth} < 0.6$, $f_{\rm odd} < 0.1$                                                     & 12 \\ 
-%                    & No        & $f_{\rm smooth} > 0.8$, $f_{\rm odd} < 0.1$                                                           & 12 \\ 
-%Merger              & No        & $f_{\rm features} > 0.8$, $f_{\rm odd < 0.1}$, $f_{\rm merger} < 0.1$                                 & 12 \\
-%                    & Int.      & $f_{\rm odd} > 0.5$, $0.1< f_{\rm merger} < 0.4$                                                      & 12 \\ 
-%                    & Yes       & $f_{\rm odd} > 0.5$, $f_{\rm merger} > 0.4$                                                           & 12 \\
-%Edge-on             & Yes       & $f_{\rm edgeon} > 0.8$, $f_{\rm features} > 0.5$                                                      & 12 \\
-%                    & Int.      & $0.4 < f_{\rm edgeon} < 0.8$ , $f_{\rm features} > 0.5$                                               & 12 \\
-%                    & No        & $f_{\rm edgeon} < 0.2$, $f_{\rm features} > 0.5$                                                      & 12 \\
-%Bar                 & No        & $f_{\rm bar} < 0.1$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$                                 & 24 \\
-%                    & Int.      & $0.2 < f_{\rm bar} < 0.4$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$                           & 24 \\
-%                    & Yes       & $f_{\rm bar} > 0.8$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$                                 & 24 \\
-%Visible spiral      & No        & $f_{\rm spiral} < 0.2$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$, $f_{\rm bar} < 0.1$         & 12 \\
-%                    & Int.      & $0.2 < f_{\rm spiral} < 0.8$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$, $f_{\rm bar} < 0.1$   & 12 \\
-%                    & Yes       & $f_{\rm spiral} > 0.8$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.2$, $f_{\rm bar} < 0.1$         & 12 \\
-%Oblique bulge size  & No        & $f_{\rm nobulge>0.6}$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.5$, $f_{\rm bar} < 0.2$          & 12 \\
-%                    & Int.      & $f_{\rm justnoticeable}>0.6$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.5$, $f_{\rm bar} < 0.2$   & 12 \\
-%                    & Yes       & $f_{\rm obvious|dominant}>0.5$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} < 0.5$, $f_{\rm bar} < 0.2$ & 12 \\
-%Edge-on bulge shape & Round     & $f_{\rm rounded}>0.5$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} > 0.5$                               & 12 \\
-%                    & Boxy      & $f_{\rm boxy}>0.4$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} > 0.2$                                  & 12 \\
-%                    & No bulge  & $f_{\rm nobulge}>0.5$, $f_{\rm features} > 0.5$, $f_{\rm edgeon} > 0.5$                               & 12 \\
-%\hline\hline
-%\end{tabular}
-%\end{table*}
+%\input{tables/morphologies.tex}
 
 In addition to the physical parameters of the input images, the \ferengi{}
 output depends on assumptions of the global galaxy evolution model. This
@@ -548,19 +474,7 @@ better angular resolution than the original SDSS data), as well as the number
 of $e$ values selected. The use of these images to correct for redshift-dependent
 bias is described in Section \ref{sec:debiasing}.
 
-%\begin{table}
-%\caption{Summary of \ferengi{} artificial redshifting \label{tbl:ferengivalues}}
-%\begin{tabular}{lccccr}
-%\hline\hline
-%$z_{\rm sim}$ & $N_{z {\rm bins}}$ & $N_{\rm evolution}$ & $e_{\rm max}$ & $N_{\rm galaxies}$ & $N_{\rm images}$\\
-%\hline
-%0.3              & 8                  & 7                   & $-3.0$        & 72             & 4032 \\
-%0.5              & 6                  & 4                   & $-1.5$        & 72             & 1728 \\
-%0.8              & 3                  & 3                   & $-1.0$        & 72             &  648 \\
-%1.0              & 1                  & 3                   & $-1.0$        & 72             &  216 \\
-%\hline\hline
-%\end{tabular}
-%\end{table}
+%\input{tables/ferengi.tex}
 
 \begin{figure*}
 \center
@@ -637,13 +551,13 @@ presence or absence of color features. The `recolored' set enables an
 alternative test of potential color biases in classifications.
 % I guess this means we need to say somewhere later that we don't see an effect
 % (we don't, right?).  Would also be good to cite here where we have done
-% similar things in the past...
+% similar things in the past... - BDS
 
 The simulated AGN host galaxy color images (described in Section \ref{ssec:sim_agn})
 were created using the same prescription as for the GOODS 2-epoch imaging. The
 artificially redshifted color images (Section \ref{ssec:ferengi}) were created using the
 same prescription as for the AEGIS images.
-% Edmond should verify the AEGIS bit above.
+% Edmond should verify the AEGIS bit above. - BDS
 
 
 \subsection{Galaxy sample labels}\label{ssec:sample_labels}
@@ -741,46 +655,7 @@ estimated redshift with the smallest error.
 %\label{fig:speczs}
 %\end{figure*}
 
-
-%\tabletypesize{\scriptsize}
-%\begin{deluxetable*}{l|rr|rrr|rr|r|rr}
-%\tablecolumns{12}
-%\tablewidth{0pc}
-%\tablecaption{GZH redshifts by survey\label{tbl:redshifts}} 
-%\tabletypesize{\scriptsize}
-%\tablehead{
-% &   
-%\multicolumn{2}{c}{\underline{ACS-GC}} &
-%\multicolumn{3}{c}{\underline{3DHST}} &
-%\multicolumn{2}{c}{\underline{MUSYC}} &
-%\multicolumn{1}{c}{\underline{UltraVISTA}}&
-%\multicolumn{2}{c}{\underline{Total}} 
-%\\
-%\colhead{Survey} & 
-%\colhead{spec-z} & 
-%\colhead{photo-z} & 
-%\colhead{spec-z} & 
-%\colhead{grism-z} & 
-%\colhead{photo-z} & 
-%\colhead{spec-z} & 
-%\colhead{photo-z} & 
-%\colhead{photo-z} & 
-%\colhead{with redshift} &
-%\colhead{in survey}
-%}
-%\small
-%\startdata
-%%Survey     Gs        Gp    3ds    3dg     3dp       Ms      Mp       UVp       total
-%AEGIS    & 3,656  & 2,941  & 12  &  515  &  249    & 0     & 0     &  0      & 7,373   & 8,507   \\
-%COSMOS   & 7,201  & 77,435 & 35  &  358  &  26     & 0     & 0     &  2,665  & 85,020  & 92,808  \\
-%GEMS     & 387    & 628    & 6   &  99   &  40     & 279   & 7,304 & 0       & 8,743   & 9,304   \\
-%GOODS-N  & 1,947  & 37     & 418 & 1,545 &  1,381  & 0     & 0     & 0       & 5,328   & 12,030  \\
-%GOODS-S  & 1,080  & 4      & 327 & 1,348 &  281    & 816   & 1,184 & 0       & 5,040   & 10,284  \\
-%SDSS     & 0      & 0      & 0   &  0    &  0      & 0     & 0     & 0       & 37,545  & 51,861  \\
-%\hline
-%Total    & 14,271 & 81,045 & 798 & 3,865 & 1,977   & 1,095 & 8,488 & 2,665   & 114,204 & 184,794 \\
-%\enddata
-%\end{deluxetable*}
+%\input{tables/redshifts.tex}
 
 Photometric and spectroscopic data for the \stripe{} and \coadd{} galaxies were taken
 from the CasJobs DR7 tables. This included $ugriz$ Petrosian magnitudes and
@@ -821,7 +696,7 @@ galaxy.
 \begin{figure*}
 \center
 \includegraphics[width=160mm]{figures/gzh_interface.png}
-\caption{Screenshot of the GZH interface (\url{http:/zoo3.galaxyzoo.org}) at
+\caption{Screenshot of the GZH interface at
 the beginning of classifying a random galaxy, with the classifier ready
 to select an answer for the first question in the decision
 tree.\label{fig:interface}}
@@ -1224,13 +1099,10 @@ function of the observed \ffeatures.
 
 \begin{table}
 \center
-\caption{Distribution of \ferengi{} images analyzed in Figure~\ref{fig:f_vs_f}.
-Correctable images have a single-valued relationship between their measured
-\ffeatures{} values at high and low redshifts (white regions in
-Figure~\ref{fig:f_vs_f}). Images with only a lower-limit on \ffeatures{} have a
-non single-valued relationship (blue regions). NEI (``not enough information'')
-images have undetermined relationships due to a lack of data ($N<5$) in their
-corresponding $z$-$\mu$ bins (gray regions).\label{tbl:ferengi_corrections}}
+\caption{Distribution of the ability of images to measure
+morphological bias for
+the \ferengi{} data (see Figure~\ref{fig:f_vs_f}).}
+\label{tbl:ferengi_corrections}
 \begin{tabular}{lrr}
 \hline \hline
                                    & N       & \% \\
@@ -1437,340 +1309,16 @@ Data products for GZH are split by the type of image being classified. Each
 sample in Section~\ref{ssec:sample_labels} corresponds to the data in
 Tables~\ref{tbl:catalog_hst}-\ref{tbl:simulated_agn}.
 
-\tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllcrlllllll|c}
-\centering
-\tablecolumns{13}
-\tablewidth{0pc}
-\tablecaption{GZH morphological classifications for \hst{} images from AEGIS, COSMOS, GEMS, and GOODS\label{tbl:catalog_hst}} 
-\tabletypesize{\scriptsize}
-\tablehead{
- & & & 
-\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
-\multicolumn{7}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
-\colhead{$\ldots$}
-\\
-\colhead{Zooniverse ID} & 
-\colhead{Survey ID} & 
-\colhead{Imaging} & 
-\colhead{Correction$^{1}$} & 
-\colhead{$N_\mathrm{votes}$} & 
-\colhead{fraction} & 
-\colhead{weighted} & 
-\colhead{debiased} & 
-\colhead{best} &
-\colhead{lower~limit} & 
-\colhead{upper~limit} &
-\colhead{flag} &
-\colhead{}
-}
-\small
-\startdata
-AHZ100002g  & 10010842  & AEGIS             & 0        & 127       & 0.118    & 0.128     & 0.085    & 0.085    & 0.226     & 0.226 & 0  \\
-AHZ100002h  & 10010870  & AEGIS             & 4        & 127       & 0.567    & 0.592     & 0.927    & 0.592    & $-$       & $-$   & 0  \\
-$\ldots$    \\
-AHZ20004kd  & 20014731  & COSMOS            & 3        &  44       & 0.682    & 0.675     & 0.147    & 0.675    & $-$       & $-$   & 0  \\
-AHZ20004ke  & 20014732  & COSMOS            & 2        &  45       & 0.689    & 0.756     & 0.893    & 0.756    & $-$       & $-$   & 0  \\
-$\ldots$    \\
-AHZ400043g  & 90022729  & GEMS              & 1        & 121       & 0.702    & 0.733     & 0.487    & 0.734    & 0.483     & 0.800 & 0  \\
-AHZ4000416  & 90022735  & GEMS              & 1        & 127       & 0.646    & 0.698     & 0.508    & 0.698    & 0.171     & 0.727 & 0  \\
-$\ldots$    \\
-AGZ0007z47  & 10014     & GOODS-N-FULLDEPTH & 1        & 40        & 0.475    & 0.475     & 0.197    & 0.475    & 0.011     & 0.496 & 0  \\
-AGZ0007z48  & 10017     & GOODS-N-FULLDEPTH & 3        & 40        & 0.675    & 0.675     & 0.048    & 0.675    & 0.168     & 0.669 & 0  \\
-$\ldots$    \\
-AGZ00083jb  & 8869      & GOODS-S-FULLDEPTH & 1        & 40        & 0.425    & 0.425     & 0.109    & 0.425    & 0.070     & 0.548 & 0  \\
-AGZ00083jc  & 8878      & GOODS-S-FULLDEPTH & 0        & 40        & 0.205    & 0.205     & 0.048    & 0.048    & $-$0.005  & 0.287 & 0  \\
-$\ldots$    \\
-\enddata
-\tablenotetext{1}{Flag indicating how the vote fractions for this galaxy were
-corrected through debiasing (Section~\ref{ssec:zeta_results}), if possible.
-0~=~correctable, 1~=~lower-limit ($f_\mathrm{raw}$ --- $f_\mathrm{adj}$ is not
-single-valued), 2~=~uncorrected ($z < 0.3$), 3~=~uncorrected
-(insufficient \ferengi{} galaxies in this $z$-$\mu$ bin), 4~=~uncorrected (no
-galaxy redshift available).}
-\tablecomments{The full version of this table is available in electronic form,
-as well as at \url{http://data.galaxyzoo.org}. The complete version includes
-data for 113,705~galaxies and morphological information for all tasks in the
-tree. A subset of the information is shown here to illustrate form and
-content.}
-\end{deluxetable*}
-
-\tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllcrlllllll|c}
-\centering
-\tablecolumns{13}
-\tablewidth{0pc}
-\tablecaption{GZH morphological classifications for color-faded \hst{} images\label{tbl:catalog_faded}} 
-\tabletypesize{\scriptsize}
-\tablehead{
- & & & 
-\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
-\multicolumn{7}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
-\colhead{$\ldots$}
-\\
-\colhead{Zooniverse ID} & 
-\colhead{Survey ID} & 
-\colhead{Imaging} & 
-\colhead{Correction} & 
-\colhead{$N_\mathrm{votes}$} & 
-\colhead{fraction} & 
-\colhead{weighted} & 
-\colhead{debiased} & 
-\colhead{best} &
-\colhead{lower~limit} & 
-\colhead{upper~limit} &
-\colhead{flag} &
-\colhead{}
-}
-\small
-\startdata
-AHZF000001  &   20000002    &   COSMOS  &   1   &   48 &  0.708   &     0.755   &   0.228    &    0.754 &   0.325   &   0.829 & 0 \\
-AHZF000003  &   20000004    &   COSMOS  &   3   &   49 &  0.367   &     0.379   &   0.100    &    0.379 &   0.198   &   0.198 & 0 \\
-AHZF000004  &   20000006    &   COSMOS  &   3   &   49 &  0.265   &     0.271   &   0.010    &    0.270 &   $-$     &   $-$   & 0 \\
-AHZF00000z  &   20000102    &   COSMOS  &   1   &   44 &  0.727   &     0.78    &   0.233    &    0.780 &   0.316   &   0.820 & 0 \\
-AHZF000010  &   20000104    &   COSMOS  &   2   &   53 &  0.811   &     0.849   &   0.904    &    0.848 &   $-$     &   $-$   & 0 \\
-$\ldots$    \\
-\enddata
-\tablecomments{The full version of this table is available in electronic form,
-as well as at \url{http://data.galaxyzoo.org}. The complete version includes
-data for 3,927~galaxies and morphological information for all tasks in the
-tree. A subset of the information is shown here to illustrate form and
-content.}
-\end{deluxetable*}
-
-\tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllcrllllllll|c}
-\centering
-\tablecolumns{13}
-\tablewidth{0pc}
-\tablecaption{GZH morphological classifications for color-inverted \hst{} images\label{tbl:catalog_recolored}} 
-\tabletypesize{\scriptsize}
-\tablehead{
- & & & 
-\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
-\multicolumn{7}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
-\colhead{$\ldots$}
-\\
-\colhead{Zooniverse ID} & 
-\colhead{Survey ID} & 
-\colhead{Imaging} & 
-\colhead{Correction} & 
-\colhead{$N_\mathrm{votes}$} & 
-\colhead{fraction} & 
-\colhead{weighted} & 
-\colhead{debiased} & 
-\colhead{best} &
-\colhead{lower~limit} & 
-\colhead{upper~limit} &
-\colhead{flag} &
-\colhead{}
-}
-\small
-\startdata
-AHZC000001  &   20000002      &   COSMOS      &   1    168  &   0.615   &   0.664   &   0.160   &  0.663   &  0.271   &  0.775  & 0  \\
-AHZC000003  &   20000004      &   COSMOS      &   0    235  &   0.333   &   0.364   &   0.002   &  0.002   &  0.063   &  0.063  & 0  \\
-AHZC000004  &   20000006      &   COSMOS      &   3    316  &   0.235   &   0.252   & $-0.011$  &  0.252   &  $-$     &  $-$    & 1  \\
-AHZC00000z  &   20000102      &   COSMOS      &   1    207  &   0.755   &   0.757   &   0.272   &  0.756   &  0.249   &  0.796  & 0  \\
-AHZC000010  &   20000104      &   COSMOS      &   2    158  &   0.843   &   0.882   &   0.936   &  0.881   &  $-$     &  $-$    & 1  \\
-$\ldots$    \\
-\enddata
-\tablecomments{The full version of this table is available in electronic form,
-as well as at \url{http://data.galaxyzoo.org}. The complete version includes
-data for 3,927~galaxies and morphological information for all tasks in the
-tree. A subset of the information is shown here to illustrate form and
-content.}
-\end{deluxetable*}
-
-\tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllcrlllllll|c}
-\centering
-\tablecolumns{13}
-\tablewidth{0pc}
-\tablecaption{GZH morphological classifications for GOODS 2-epoch images\label{tbl:catalog_goods_shallow}} 
-\tabletypesize{\scriptsize}
-\tablehead{
- & & &  
-\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
-\multicolumn{7}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
-\colhead{$\ldots$}
-\\
-\colhead{Zooniverse ID} & 
-\colhead{Survey ID} & 
-\colhead{Imaging} & 
-\colhead{Correction} & 
-\colhead{$N_\mathrm{votes}$} & 
-\colhead{fraction} & 
-\colhead{weighted} & 
-\colhead{debiased} & 
-\colhead{best} &
-\colhead{lower~limit} & 
-\colhead{upper~limit} &
-\colhead{flag} &
-\colhead{}
-}
-\small
-\startdata
-AHZ3000001  &   50000000    &     GOODS-N   &   0   &   123 &   0.390   &   0.415   &   0.090 &   0.090 &   $-$     &   $-$   & 0 \\
-AHZ3000002  &   50000001    &     GOODS-N   &   2   &   126 &   0.341   &   0.355   &   0.356 &   0.356 &   0.220   &   0.279 & 0 \\
-AHZ3000003  &   50000005    &     GOODS-N   &   1   &   129 &   0.760   &   0.826   &   0.633 &   0.825 &   0.596   &   0.834 & 0 \\
-AHZ3000004  &   50000008    &     GOODS-N   &   1   &   120 &   0.758   &   0.787   &   0.639 &   0.787 &   0.658   &   0.834 & 0 \\
-AHZ3000005  &   50000010    &     GOODS-N   &   1   &   123 &   0.854   &   0.890   &   0.611 &   0.889 &   0.597   &   0.914 & 0 \\
-$\ldots$    \\
-\enddata
-\tablecomments{The full version of this table is available in electronic form,
-as well as at \url{http://data.galaxyzoo.org}. The complete version includes
-data for 6,144~galaxies and morphological information for all tasks in the
-tree. A subset of the information is shown here to illustrate form and
-content.}
-\end{deluxetable*}
-
-
-
-\tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllcrlllll|c}
-\centering
-\tablecolumns{13}
-\tablewidth{0pc}
-\tablecaption{GZH morphological classifications for SDSS Stripe 82 single-epoch images\label{tbl:stripe82_single}} 
-\tabletypesize{\scriptsize}
-\tablehead{
- & & & 
-\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
-\multicolumn{5}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
-\colhead{$\ldots$}
-\\
-\colhead{Zooniverse ID} & 
-\colhead{Survey ID} & 
-\colhead{Imaging} & 
-\colhead{Correction} & 
-\colhead{$N_\mathrm{votes}$} & 
-\colhead{fraction} & 
-\colhead{weighted} & 
-\colhead{debiased} & 
-\colhead{best} &
-\colhead{flag} &
-\colhead{}
-}
-\small
-\startdata
-AHZ5000001  &   587730845812064684  &   SDSS    &     2 &   41  &   0.585   &    0.595  &   0.759   &   0.594 &  0  \\
-AHZ5000002  &   587730845812065247  &   SDSS    &     2 &   46  &   0.609   &    0.651  &   0.897   &   0.651 &  0  \\
-AHZ5000003  &   587730845812196092  &   SDSS    &     2 &   51  &   0.039   &    0.044  &   0.067   &   0.043 &  0  \\
-AHZ5000004  &   587730845812196825  &   SDSS    &     2 &   35  &   0.514   &    0.605  &   0.928   &   0.605 &  0  \\
-AHZ5000005  &   587730845812524122  &   SDSS    &     2 &   47  &   0.766   &    0.812  &   1.038   &   0.810 &  1  \\
-AHZ5000006  &   587730845812654984  &   SDSS    &     2 &   42  &   0.500   &    0.542  &   0.680   &   0.541 &  0  \\
-AHZ5000007  &   587730845812655541  &   SDSS    &     2 &   41  &   0.488   &    0.526  &   0.697   &   0.525 &  0  \\
-AHZ5000008  &   587730845812720365  &   SDSS    &     2 &   53  &   0.792   &    0.84   &   1.050   &   0.839 &  1  \\
-AHZ5000009  &   587730845812720640  &   SDSS    &     4 &   43  &   0.000   &    0.0    &   0.000   &   0.0   &  0  \\
-AHZ500000a  &   587730845812720699  &   SDSS    &     2 &   40  &   0.425   &    0.478  &   0.588   &   0.477 &  0  \\
-$\ldots$    \\
-\enddata
-\tablecomments{The full version of this table is available in electronic form,
-as well as at \url{http://data.galaxyzoo.org}. The complete version includes
-data for 21,522~galaxies and morphological information for all tasks in the
-tree. A subset of the information is shown here to illustrate form and
-content.}
-\end{deluxetable*}
-
-
-\tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllcrlllll|c}
-\centering
-\tablecolumns{13}
-\tablewidth{0pc}
-\tablecaption{GZH morphological classifications for SDSS Stripe 82 co-added images\label{tbl:stripe82_coadd}} 
-\tabletypesize{\scriptsize}
-\tablehead{
- & & & 
-\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
-\multicolumn{5}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
-\colhead{$\ldots$}
-\\
-\colhead{Zooniverse ID} & 
-\colhead{Survey ID} & 
-\colhead{Imaging} & 
-\colhead{Correction} & 
-\colhead{$N_\mathrm{votes}$} & 
-\colhead{fraction} & 
-\colhead{weighted} & 
-\colhead{debiased} & 
-\colhead{best} &
-\colhead{flag} &
-\colhead{}
-}
-\small
-\startdata
-AHZ6000001  & 8647474690312306978   &   SDSS    &    4  & 40  & 0.275   &    0.289  &   0.762   &   0.289   & 0 \\
-AHZ6000002  & 8647474690312307154   &   SDSS    &    2  & 43  & 0.605   &    0.634  &   0.858   &   0.635   & 0 \\
-AHZ6000003  & 8647474690312307877   &   SDSS    &    2  & 51  & 0.608   &    0.627  &   0.906   &   0.627   & 0 \\
-AHZ6000004  & 8647474690312308301   &   SDSS    &    4  & 52  & 0.038   &    0.038  &   0.723   &   0.038   & 0 \\
-AHZ6000005  & 8647474690312308318   &   SDSS    &    2  & 44  & 0.614   &    0.632  &   0.776   &   0.631   & 0 \\
-AHZ6000006  & 8647474690312308880   &   SDSS    &    2  & 36  & 0.667   &    0.683  &   0.901   &   0.683   & 0 \\
-AHZ6000007  & 8647474690312372644   &   SDSS    &    4  & 48  & 0.646   &    0.674  &   1.145   &   0.674   & 0 \\
-AHZ6000008  & 8647474690312372789   &   SDSS    &    4  & 45  & 0.489   &    0.571  &   0.964   &   0.570   & 0 \\
-AHZ6000009  & 8647474690312372931   &   SDSS    &    4  & 47  & 0.553   &    0.587  &   0.926   &   0.587   & 0 \\
-AHZ600000a  & 8647474690312373190   &   SDSS    &    4  & 47  & 0.574   &    0.559  &   1.008   &   0.559   & 0 \\
-$\ldots$    \\
-\enddata
-\tablecomments{The full version of this table is available in electronic form,
-as well as at \url{http://data.galaxyzoo.org}. The complete version includes
-data for 30,339~galaxies and morphological information for all tasks in the
-tree. A subset of the information is shown here to illustrate form and
-content.}
-\end{deluxetable*}
-
-\tabletypesize{\scriptsize}
-\begin{deluxetable*}{lllccccrrrrrrrr|c}
-\centering
-\tablecolumns{14}
-\tablewidth{0pc}
-\tablecaption{GZH morphological classifications for \hst{} images with simulated AGN\label{tbl:simulated_agn}} 
-\tabletypesize{\scriptsize}
-\tablehead{
- & & & & & & & &
-\multicolumn{7}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
-\colhead{$\ldots$}
-\\
-\colhead{Zooniverse ID} & 
-\colhead{Survey ID} & 
-\colhead{Imaging} & 
-\colhead{Correction} & 
-\colhead{Version} & 
-\colhead{$L_\mathrm{ratio}$} & 
-\colhead{AGN color$^{1}$} & 
-\colhead{$N_\mathrm{votes}$} & 
-\colhead{fraction} & 
-\colhead{weighted} & 
-\colhead{debiased} & 
-\colhead{best} &
-\colhead{lower limit} &
-\colhead{upper limit} &
-\colhead{flag} &
-\colhead{}
-}
-\small
-\startdata
-AHZ7000001  &   90024700  &   GEMS    &   1   &   1   &   0.2   &   1   &   42  &   0.238   &   0.239   &   $-$0.110  &       0.238  &  $-$0.113    &     0.287  & 0 \\
-AHZ7000002  &   90024700  &   GEMS    &   1   &   1   &   1.0   &   1   &   51  &   0.255   &   0.265   &   $-$0.107  &       0.264  &  $-$0.128    &     0.272  & 0 \\
-AHZ7000003  &   90024700  &   GEMS    &   0   &   1   &   5.0   &   1   &   47  &   0.170   &   0.167   &   $-$0.018  &    $-$0.018  &  $-$0.049    &     0.033  & 0 \\
-AHZ7000004  &   90024700  &   GEMS    &   0   &   1   &   10.0  &   1   &   41  &   0.195   &   0.195   &      0.045  &       0.045  &     0.044    &     0.127  & 0 \\
-AHZ7000005  &   90024700  &   GEMS    &   0   &   1   &   50.0  &   1   &   47  &   0.170   &   0.178   &      0.067  &       0.067  &     0.146    &     0.167  & 0 \\
-$\ldots$    \\
-AHZ700013m  &   90024700  &   GEMS    &   0   &   2   &   0.0   &   0   &   35  &   0.171   &   0.136   &      0.011  &       0.011  &     0.029    &      0.112 & 0 \\
-AHZ700013n  &   90024700  &   GEMS    &   1   &   2   &   0.2   &   1   &   20  &   0.150   &   0.158   &   $-$0.278  &       0.049  &  $-$0.351    &      0.049 & 0 \\
-AHZ700013o  &   90024700  &   GEMS    &   1   &   2   &   1.0   &   1   &   32  &   0.281   &   0.300   &   $-$0.086  &       0.281  &  $-$0.119    &      0.281 & 0 \\
-AHZ700013p  &   90024700  &   GEMS    &   0   &   2   &   5.0   &   1   &   29  &   0.103   &   0.115   &   $-$0.098  &    $-$0.098  &  $-$0.152    &   $-$0.069 & 0 \\
-AHZ700013q  &   90024700  &   GEMS    &   0   &   2   &   10.0  &   1   &   35  &   0.171   &   0.181   &      0.027  &       0.027  &     0.023    &      0.106 & 0 \\
-AHZ700013r  &   90024700  &   GEMS    &   0   &   2   &   50.0  &   1   &   34  &   0.206   &   0.206   &   $-$0.005  &    $-$0.005  &  $-$0.056    &      0.026 & 0 \\
-$\ldots$    \\
-\enddata
-\tablenotetext{1}{Flag indicating the color of the PSF in the simulated AGN. 0~=~no simulated AGN, 1~=~blue, 2~=~flat, 3~=~red.}
-\tablecomments{The full version of this table is available in electronic form,
-as well as at \url{http://data.galaxyzoo.org}. The complete version includes
-data for 2,961~galaxies and morphological information for all tasks in the
-tree. A subset of the information is shown here to illustrate form and
-content.}
-\end{deluxetable*}
+\clearpage
+\input{tables/main.tex}
+\input{tables/faded.tex}
+\input{tables/recolored.tex}
+\input{tables/goods-shallow.tex}
+\clearpage
+\input{tables/stripe82-single.tex}
+\input{tables/stripe82-coadded.tex}
+\input{tables/simulated-agn.tex}
+\clearpage
 
 \section{Using the catalog}\label{sec:cookbook}
 
@@ -2261,7 +1809,7 @@ from both the journal and at \url{http://data.galaxyzoo.org}. All the code and
 data tables used to generate this manuscript can be found at
 \url{https://github.com/willettk/gzhubble}.
  
-\acknowledgments
+\section*{Acknowledgements}
 KW, MG, CS, MB, and LF gratefully acknowledge support from the US National
 Science Foundation Grant AST1413610. KS gratefully acknowledges support from
 Swiss National Science Foundation Grant PP00P2\_138979/1. TM acknowledges
@@ -2309,6 +1857,7 @@ State University, Ohio State University, University of Pittsburgh, University
 of Portsmouth, Princeton University, the United States Naval Observatory and
 the University of Washington. 
 
+\bibliographystyle{mnras}
 \bibliography{gz_hubble_data}
 
 \newpage
@@ -2537,5 +2086,7 @@ Total                              & 3,950  & 100\%     \\
 \end{table}
 
 
+\bsp	% typesetting comment
+\label{lastpage}
 \end{document}
 
