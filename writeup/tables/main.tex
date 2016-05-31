@@ -1,0 +1,56 @@
+\tabletypesize{\scriptsize}
+\begin{deluxetable}{lllcrlllllll}
+\centering
+\tablecolumns{12}
+\tablewidth{0pc}
+\tablecaption{GZH morphological classifications for \hst{} images from AEGIS, COSMOS, GEMS, and GOODS\label{tbl:catalog_hst}} 
+\tabletypesize{\scriptsize}
+\tablehead{
+ & & & 
+\multicolumn{2}{c}{\underline{t01\_smooth\_or\_features\_}} &
+\multicolumn{6}{c}{\underline{t01\_smooth\_or\_features\_a01\_smooth\_}} &
+\colhead{$\ldots$}
+\\
+\colhead{Zooniverse ID} & 
+\colhead{Survey ID} & 
+\colhead{Imaging} & 
+\colhead{Correction$^{1}$} & 
+\colhead{$N_\mathrm{votes}$} & 
+\colhead{fraction} & 
+\colhead{weighted} & 
+\colhead{debiased} & 
+\colhead{best} &
+\colhead{lower~limit} & 
+\colhead{upper~limit} &
+\colhead{}
+}
+\small
+\startdata
+AHZ100002g  & 10010842  & AEGIS             & 0        & 127       & 0.118    & 0.128     & 0.085    & 0.085    & 0.226     & 0.226 \\
+AHZ100002h  & 10010870  & AEGIS             & 4        & 127       & 0.567    & 0.592     & 0.927    & 0.592    & $-$       & $-$   \\
+$\ldots$    \\
+AHZ20004kd  & 20014731  & COSMOS            & 3        &  44       & 0.682    & 0.675     & 0.147    & 0.675    & $-$       & $-$   \\
+AHZ20004ke  & 20014732  & COSMOS            & 2        &  45       & 0.689    & 0.756     & 0.893    & 0.756    & $-$       & $-$   \\
+$\ldots$    \\
+AHZ400043g  & 90022729  & GEMS              & 1        & 121       & 0.702    & 0.733     & 0.487    & 0.734    & 0.483     & 0.800 \\
+AHZ4000416  & 90022735  & GEMS              & 1        & 127       & 0.646    & 0.698     & 0.508    & 0.698    & 0.171     & 0.727 \\
+$\ldots$    \\
+AGZ0007z47  & 10014     & GOODS-N-FULLDEPTH & 1        & 40        & 0.475    & 0.475     & 0.197    & 0.475    & 0.011     & 0.496 \\
+AGZ0007z48  & 10017     & GOODS-N-FULLDEPTH & 3        & 40        & 0.675    & 0.675     & 0.048    & 0.675    & 0.168     & 0.669 \\
+$\ldots$    \\
+AGZ00083jb  & 8869      & GOODS-S-FULLDEPTH & 1        & 40        & 0.425    & 0.425     & 0.109    & 0.425    & 0.070     & 0.548 \\
+AGZ00083jc  & 8878      & GOODS-S-FULLDEPTH & 0        & 40        & 0.205    & 0.205     & 0.048    & 0.048    & $-$0.005  & 0.287 \\
+$\ldots$    \\
+\enddata
+\tablenotetext{1}{Flag indicating how the vote fractions for this galaxy were
+corrected through debiasing (Section~\ref{ssec:zeta_results}), if possible.
+0~=~correctable, 1~=~lower-limit ($f_\mathrm{raw}$ --- $f_\mathrm{adj}$ is not
+single-valued), 2~=~uncorrected ($z < 0.3$), 3~=~uncorrected
+(insufficient \ferengi{} galaxies in this $z$-$\mu$ bin), 4~=~uncorrected (no
+galaxy redshift available).}
+\tablecomments{The full version of this table is available in electronic form,
+as well as at \url{http://data.galaxyzoo.org}. The complete version includes
+data for 113,705~galaxies and morphological information for all tasks in the
+tree. A subset of the information is shown here to illustrate form and
+content.}
+\end{deluxetable}
