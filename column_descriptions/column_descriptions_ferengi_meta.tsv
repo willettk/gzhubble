@@ -1,0 +1,42 @@
+Name	Type	Unit	Description
+objid	Long	-	SDSS id, unique to each galaxy
+subject_id	String	-	id unique to each simulated image
+sim_redshift	Float	-	redshift of simulated image
+sim_evolution	Float	-	evolution value used when artificially redshifting
+automag_i	Float	mag	apparant I-band magnitude of image (SExtractor)
+automag_err_i	Float	mag	error in apparent I-band magnitude of image (SExtractor)
+MI_auto	Double	mag	absolute I-band magnitude of image
+automag_v	Float	mag	apparant v-band magnitude of image (SExtractor)
+automag_err_v	Float	mag	error in apparent v-band magnitude of image (SExtractor)
+MV_auto	Double	mag	absolute v-band magnitude of image 
+petromag_i	Float	mag	I-band petromag of image (SExtractor)
+petromag_err_i	Float	mag	error in I-band petromag of image (SExtractor)
+MI_petro	Double	mag	absolute I-band petromag of image
+petromag_v	Float	mag	v-band petromag of image (SExtractor)
+petromag_err_v	Float	mag	error in v-band petromag of image (SExtractor)
+MV_petro	Double	mag	absolute v-band petromag (SExtractor)
+petro_rad	Float	pixel	petrosian radius (pixels) of image (SExtractor)
+kron_rad	Float	pixel	kron radius (pixels) of image (SExtractor)
+r50	Float	pixel	radius containing 50% of the light of image (SExtractor)
+r90	Float	pixel	radius containing 90% of the light of image (SExtractor)
+FWHM_i	Float	pixel	full-width at half-maximum (SExtractor)
+FWHM_v	Float	pixel	full-width at half-maximum (SExtractor)
+a_image	Float	pixel	major-axis of image (SExtractor)
+b_image	Float	pixel	minor-axis of image (SExtractor)
+elongation	Double	-	a_image/b_image (SExtractor)
+ellipticity	Double	-	1 - b_image/a_image (SExtractor)
+theta_image	Float	deg	position angle in image coordinates (SExtractor)
+mu_max_i	Float	mag/arcsec2	I-band surface brightness of max pixel (SExtractor)
+mu_max_v	Float	mag/arcsec2	v-band surface brightness of max pixel (SExtractor)
+isoarea_image	Integer	deg^2	iso area of object (SExtractor)
+background	Double	pixel	sky background (SExtractor)
+SE_flags_i	Short	-	Source Extractor (i-band)
+SE_flags_v	Short	-	Source Extractor (v-band)
+RA	String	J2000 degrees	right ascension of source galaxy
+DEC	String	J2000 degrees	declination of source galaxy
+redshift	Double	-	redshift of source galaxy
+u	String	mag	u-band apparent magnitude of source galaxy
+g	String	mag	g-band apparent magnitude of source galaxy
+r	String	mag	r-band apparent magnitude of source galaxy
+i	String	mag	i-band apparent magnitude of source galaxy
+z	String	mag	z-band apparent magnitude of source galaxy
