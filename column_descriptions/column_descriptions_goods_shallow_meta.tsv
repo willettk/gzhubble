@@ -7,7 +7,7 @@ DEC	Double	J2000 degrees	declination
 Z_BEST	Double	-	best redshift, as selected from 4 source catalogs; see GZH paper Section 2.6
 Z_BEST_TYPE	String	-	best redshift type: SPEC_Z = spectroscopic, PHOTO_Z = photometric, GRISM_Z = grism
 Z_BEST_SOURCE	String	-	source catalog of best redshift ACS-GC, 3DHST, MUSYC, and UltraVISTA
-GZ_MU_HI	Double	mean surface brightness within r50 (see GZH paper Section 2.6)
+GZ_MU_HI	Double	mag/arcsec2  mean surface brightness within r50 (see GZH paper Section 2.6)
 NTOT_HI	Integer	-	ACS-GC measured total number of objects simulaneously fitted 
 NTOT_LOW	Integer	-	ACS-GC measured total number of objects simulaneously fitted
 Z_ORIGIN	String	-	ACS-GC measured source of ACS-GC spectroscopic redshift
