@@ -1555,16 +1555,35 @@ galaxies have at least 1~clump identified as the brightest. Clumps are most
 commonly asymmetrically arranged in clusters and are not often seen embedded in
 larger structures. 
 
+\subsection{Galaxy Zoo: Hubble and Galaxy Zoo: CANDELS}\label{ssec:gzh_gzc}
+
+There are 7,681~galaxies in the GOODS-S field with morphological
+classifications in both GZH and the Galaxy~Zoo:~CANDELS project (Simmons
+et~al., submitted). Since both the sensitivity and filters for the two sets of
+images are significantly different (and there is no correction for redshift
+bias applied to GZC), there is no prior reason to expect a perfect correlation
+between the separate vote fractions for the projects. Briefly, we note that the
+\ffeatures{} value for GZH is on average higher than GZC; the effect is
+strongest at $f_\mathrm{features,GZC}<0.3$, for which roughly half the galaxies
+have $f_\mathrm{features,GZH}>0.5$. However, the correlation between vote
+fractions is single-valued (although not linear, with a Pearson correlation
+coefficient of $r=0.6$), and should be possible to calibrate using a similar
+approach to that described in Section~\ref{sec:debiasing}; the correlation
+between other tasks, such as edge-on galaxies is significantly stronger
+($r=0.9$). So while the raw vote fractions are not directly comparable, the
+initial analysis indicates that the broad morphologies are at least consistent.
+
 \subsection{Comparing GZH morphologies to other catalogues}\label{ssec:comparisons}
 
 All of the Legacy surveys included in the GZH imaging have had morphological
 catalogues previously published; these have significant differences in
 the number of galaxies, size and magnitude limits, classification scheme, and
 the methods used for measuring morphology. These catalogues have been
-cross-matched to GZH to compare the results. This is not presented as an
-endorsement of any particular method, but as an exploration of the strengths
-and weaknesses of the Galaxy~Zoo crowdsourced catalogues compared to products
-made with machine learning, automatic fits, and expert visual classification. 
+cross-matched to GZH to compare the results. 
+%This is not presented as an
+%endorsement of any particular method, but as an exploration of the strengths
+%and weaknesses of the Galaxy~Zoo crowdsourced catalogues compared to products
+%made with machine learning, automatic fits, and expert visual classification. 
 
 The types and accuracy of morphological classification strongly depend on the
 sample and methods being used. In an attempt to make a consistent comparison
@@ -1584,9 +1603,8 @@ reliability \citep[COSMOS/ZEST;][]{sca07} in the comparison catalogues. We match
 all catalogues against GZH using a positional radius of 0.5\arcsec.
 
 Morphologies for GEMS galaxies were measured by \citet{hau07}, who used
-single-component \sersic{} fits to the F850LP imaging. A 1\arcsec~positional
-match for the GEMS galaxies in Table~9 in \citet{hau07} to the GZH sample gives
-8,846~galaxies in both \citet{hau07} and GZH. The primary morphological
+single-component \sersic{} fits to the F850LP imaging. There are 8,846~galaxies
+with measurements in both \citet{hau07} and GZH. The primary morphological
 parameter in the automated catalogue is the \sersic{} index $n$ defining the
 radial surface brightness profile.  ``Elliptical'' galaxies are selected by
 $n>2.5$ and ``spirals''  by $n<2.5$.  There is no automatic measurement of
@@ -1622,7 +1640,7 @@ $A$, $G$, $M_{20}$, the galaxy ellipticity ($\epsilon$), and \sersic{} index
 galaxies to categories. All three methods use discrete morphological categories
 of ellipticals, spirals, and peculiar/irregulars. We use the same categories
 with the exception of assigning S0/bulge-dominated disks (type~2.0) from ZEST
-into the early-type category.
+into the unfeatured category.
 
 \begin{figure*}
 \center
@@ -1644,16 +1662,17 @@ matched to GZH. Galaxies from every catalogue show a strong correlation between
 corresponding anti-correlation between \fbest{} and the fraction of
 ellipticals.
 
-The AEGIS sample had the fewest number of matched galaxies (485) with GZH;
-while the statistical uncertainties are as a result higher, the strongest
-difference between spirals and early-types is seen at \fbest$>0.8$. GOODS
-galaxies, which are the only comparison sample that also uses visual
-morphology, shows a very similar trend, with nearly 100\% pure samples at
-the lowest and highest values of \fbest.  Galaxies from GEMS (which are
-only split into two types) also have a strong correlation with \fbest,
-which is somewhat surprising (but encouraging) considering the known limits
-of assigning galaxy morphology based only on a single \sersic{} parameter. 
+The AEGIS sample had only 485~galaxies matched with GZH, and so the statistical
+uncertainties in the analysis are higher. However, at \fbest$>0.8$ there is a
+clear separation of featured and unfeatured galaxies, though this is not seen
+at lower \fbest.  GOODS galaxies, which are the only comparison sample that
+also uses visual morphology, shows a very similar trend, with nearly 100\% pure
+samples at the lowest and highest values of \fbest.  
 
+Galaxies from GEMS (which
+are only split into two types) also have a strong correlation with \fbest,
+which is somewhat surprising (but encouraging) considering the known limits of
+assigning galaxy morphology based only on a single \sersic{} parameter. 
 Visual inspection of images of the exceptions --- where both \fbest{} and $n$
 are high --- show that most are obvious spirals but with prominent bulges. This
 means that the single-component \sersic{} fit is likely choosing too small of
@@ -1733,29 +1752,11 @@ pulblications on the entire GZH dataset, rather than the volume-limited sample
 original magnitude limit of $m<23.5$ are used, the correlations between all of
 the automatic morphological populations and GZH decrease significantly.  The
 exceptions are the GEMS galaxies, which are the only sample that was visually
-classified and had a shallower magnitude cut on their catalogue.
-Based on these comparisons, we suggest that use of the GZH catalogue be limited
-to galaxies with $m_\mathrm{I|i|z}<22.5$; fainter targets at the sensitivity of the \hst{}
-Legacy surveys have been demonstrated to be less reliable, regardless of the
-method of morphological classification being used.
-
-\subsection{Galaxy Zoo: Hubble and Galaxy Zoo: CANDELS}\label{ssec:gzh_gzc}
-
-Finally, there are 7,681~galaxies in the GOODS-S field with morphological
-classifications in both GZH and the Galaxy~Zoo:~CANDELS project (Simmons
-et~al., submitted). Since both the sensitivity and filters for the two sets of
-images are significantly different (and there is no correction for redshift
-bias applied to GZC), there is no prior reason to expect a perfect correlation
-between the separate vote fractions for the projects. Briefly, we note that the
-\ffeatures{} value for GZH is on average higher than GZC; the effect is
-strongest at $f_\mathrm{features,GZC}<0.3$, for which roughly half the galaxies
-have $f_\mathrm{features,GZH}>0.5$. However, the correlation between vote
-fractions is single-valued (although not linear, with a Pearson correlation
-coefficient of $r=0.6$), and should be possible to calibrate using a similar
-approach to that described in Section~\ref{sec:debiasing}; the correlation
-between other tasks, such as edge-on galaxies is significantly stronger
-($r=0.9$). So while the raw vote fractions are not directly comparable, the
-initial analysis indicates that the broad morphologies are at least consistent.
+classified and had a shallower magnitude cut on their catalogue.  Based on
+these comparisons, we suggest that use of morphological catalogues with these
+\hst{} images be limited to galaxies with $m_\mathrm{I|i|z}<22.5$; fainter
+targets have been demonstrated to be less reliable, regardless of the method of
+morphological classification being used.
 
 \section{Summary}\label{sec:summary}
 
