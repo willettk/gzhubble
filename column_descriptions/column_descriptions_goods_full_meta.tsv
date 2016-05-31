@@ -16,3 +16,9 @@ kron_radius_I	Float	pixel	Kron radius in I-band
 z_spec_conflict_flag	Boolean	-	Flag for galaxies whose spectroscopic redshifts differed by dz > .001 in any of the catalogs ACS-GC, 3DHST, and MUSYC. (See GZH paper Section 2.4) 
 GZ_MU_HI	Double	mag/arcsec2	mean surface brightness within r50 (see GZH paper Section 2.6)
 FLUX_RADIUS2_I	Double	pix	50% light flux radius (SExtractor)
+MAG_AUTO_I	Float	mag	auto mag in I-band (SExtractor)
+MAG_BEST_I	Float	mag	best mag in I-band (SExtractor)
+A_IMAGE_I	Float	pix	a axis (SExtractor)
+B_IMAGE_I	Float	pix	b axis (SExtractor)
+
+
