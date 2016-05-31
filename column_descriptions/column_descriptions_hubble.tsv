@@ -1,9 +1,13 @@
 Name	Type	Description
 zooniverse_id	String	unique ID given by Zooniverse
+survey_id	String	unique ID given by target survey
+Table	String	match to datatable filename
 RA	Double	J2000.0 right ascension (decimal degrees)
 DEC	Double	J2000.0 declination (decimal degrees)
-survey_id	String	unique ID given by target survey
-imaging	String	survey source of image 
+Z_BEST	Double	best redshift selected from 4 source catalogs; see GZH paper Section 2.6
+GZ_MU_HI	Double	Average central surface brightness (see GZH paper Section 2.6)
+MAG_BEST_HI	Float	ACS-GC measured mag best (SExtractor)
+imaging	String	survey source of imageimaging	String	survey source of image 
 correction_type	Short	Correction sample type: 0=correctable, 1=lower limit, 2=z<0.3, 3=NEI, 4=no redshift information (see Willett & Galloway et al. 2016, Section 4)
 total_count	Short	total number of classifications for this galaxy
 total_weight	Float	total number of votes for each response, summed over all classifications
