@@ -1,33 +1,14 @@
 Name	Type	Description
-zooniverse_id	String	unique ID given by Zooniverse
-survey_id	String	unique ID given by target survey
-Table	String	match to datatable filename
-RA	Double	J2000.0 right ascension (decimal degrees)
-DEC	Double	J2000.0 declination (decimal degrees)
-Z_BEST	Double	best redshift selected from 4 source catalogs; see GZH paper Section 2.6
-GZ_MU_HI	Double	Average central surface brightness (see GZH paper Section 2.6)
-MAG_BEST_HI	Float	ACS-GC measured mag best (SExtractor)
-imaging	String	survey source of image 
-correction_type	Short	Correction sample type: 0=correctable, 1=lower limit, 2=z<0.3, 3=NEI, 4=no redshift information (see Willett & Galloway et al. 2016, Section 4)
-total_count	Short	total number of classifications for this galaxy
-total_weight	Float	total number of votes for each response, summed over all classifications
+objid	Long	SDSS id, unique to each galaxy
+subject_id	String	id unique to each simulated image
+sim_redshift	Float	redshift of simulated image
+sim_evolution	Float	evolution value used when artificially redshifting
 t01_smooth_or_features_a01_smooth_fraction	Float	fraction of votes for 'smooth' out of all responses to Task 01
 t01_smooth_or_features_a01_smooth_weighted_fraction	Float	consistency-weighted fraction of votes for 'smooth' out of all responses to Task 01
-t01_smooth_or_features_a01_smooth_debiased_fraction	Double	debiased fraction of votes for 'smooth' out of all responses to Task 01; only reliable if correction_type=0
-t01_smooth_or_features_a01_smooth_best_fraction	Double	recommended vote fraction to use. best_fraction = (debiased_fraction if correction_type=0, upper_limit if correction_type=1, and weighted_fraction if correction_type = 2,3,or 4). (see Willett & Galloway et al. 2016, Section 5)
-t01_smooth_or_features_a01_smooth_lower_limit	Double	lower-limit estimate of 'smooth' vote fraction corrected to z=0.3; applicable if correction_type=0 or 1
-t01_smooth_or_features_a01_smooth_upper_limit	Double	upper-limit estimate of 'smooth' vote fraction corrected to z=0.3; applicable if correction_type=0 or 1
-t01_smooth_or_features_a01_smooth_flag	Boolean	flag for 'smooth'  - 1 if galaxy is in clean sample, 0 otherwise
 t01_smooth_or_features_a02_features_or_disk_fraction	Float	fraction of votes for 'features' out of all responses to Task 01
 t01_smooth_or_features_a02_features_or_disk_weighted_fraction	Float	consistency-weighted fraction of votes for 'features' out of all responses to Task 01
-t01_smooth_or_features_a02_features_or_disk_debiased_fraction	Double	debiased fraction of votes for 'features' out of all responses to Task 01; only reliable if correction_type=0
-t01_smooth_or_features_a02_features_or_disk_best_fraction	Double	recommended vote fraction to use. best_fraction = (debiased_fraction if correction_type=0, lower_limit if correction_type=1, and weighted_fraction if correction_type = 2,3,or 4). (see Willett & Galloway et al. 2016, Section 5)
-t01_smooth_or_features_a02_features_or_disk_lower_limit	Double	lower-limit estimate of 'features' vote fraction corrected to z=0.3; applicable if correction_type=0 or 1
-t01_smooth_or_features_a02_features_or_disk_upper_limit	Double	upper-limit estimate of 'features' vote fraction corrected to z=0.3; applicable if correction_type=0 or 1
-t01_smooth_or_features_a02_features_or_disk_flag	Boolean	flag for 'features or disk'  - 1 if galaxy is in clean sample, 0 otherwise
 t01_smooth_or_features_a03_star_or_artifact_fraction	Float	fraction of votes for 'star or artifact' out of all responses to Task 01
 t01_smooth_or_features_a03_star_or_artifact_weighted_fraction	Float	consistency-weighted fraction of votes for 'star or artifact' out of all responses to Task 01
-t01_smooth_or_features_a03_star_or_artifact_flag	Boolean	flag for 'star or artifact'  - 1 if galaxy is in clean sample, 0 otherwise
 t01_smooth_or_features_total_count	Short	number of responses to Task 01
 t01_smooth_or_features_total_weight	Float	consistency-weighted number responses to Task 01
 t02_edgeon_a01_yes_fraction	Float	fraction of votes for 'edge-on' out of all responses to Task 02
