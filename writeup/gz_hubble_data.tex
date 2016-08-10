@@ -1074,9 +1074,11 @@ cannot be confidently assigned, the \emph{range} of debiased values is
 estimated using a method visualised in Figure~\ref{fig:f_vs_f_zoom}. This uses the
 \ferengi{} simulated data to analyse the range of intrinsic \ffeaturesrest{}
 values for any given observed \ffeatures{} value, again as a function of
-surface brightness and redshift. In each unclassifiable (shaded blue) $z$,$\mu$ bin, the spread of
-intrinsic values of \ffeaturesrest{} for four ranges of observed \ffeatures{} is computed.
-The range of intrinsic values is defined as the inner 80\% of the data,
+surface brightness and redshift. In each unclassifiable (shaded blue) $z$,$\mu$ bin, 
+we compute the spread of
+intrinsic values of \ffeaturesrest{} for five quantiles of observed \ffeatures{}
+(corresponding to the ``clean'' thresholds used in prior GZ publications).
+The range of intrinsic values for GZH is defined as the inner 80\% of the data,
 represented by the orange bars in Figure~\ref{fig:f_vs_f_zoom}. For any galaxy which
 cannot be directly debiased by the $\zeta$ method, these ranges are used to
 denote the upper and lower limits on the expected values \ffeaturesrest{} as a
