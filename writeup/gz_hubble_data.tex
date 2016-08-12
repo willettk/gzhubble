@@ -859,8 +859,8 @@ intervals of 1500.}
 \end{center}
 \end{figure}
 
-\subsection{Correcting morphologies for classification bias}\label{ssec:zeta}
 
+\subsection{Effects of morphological debiasing}\label{ssec:zeta_results}
 The approach used in GZH for correcting the weighted classifications for
 redshift bias rests on the assumption that the \emph{degree} of bias is a
 function of the apparent size and brightness of the galaxy.
@@ -874,13 +874,170 @@ only two parameters as a simple model of the effect of redshift brightness on cl
 surface brightness ($\mu$; intrinsic) and redshift ($z$;
 extrinsic).
 
-We model the debiased vote fraction $f_{\mu,z}$ for an
-artificially-redshifted galaxy as:
+
+\begin{figure*}
+\centering
+\includegraphics[width=\textwidth]{figures/p_vs_p_SB_redshift.pdf}
+\caption{Effects of redshift bias in 3,449~images in the \ferengi{} sample.
+Each point \emph{in a given redshift and surface brightness bin} represents a
+unique galaxy. On the $y$-axis in each bin is the \ffeatures{} value of the
+image of that galaxy redshifted to the value corresponding to that redshift
+bin. On the $x$-axis is the \ffeatures{} value of the image of the same galaxy
+redshifted to $z=0.3$. The dashed black lines represent the best-fit
+polynomials to the data in each square. The solid black line represents
+\ffeaturesz=\ffeaturesrest. Regions in which there is a single-valued
+relationship between \ffeatures{} at high redshift and at $z=0.3$ are white;
+those in which there is not are blue, and those with not enough data ($N<5$)
+are grey. A larger version of the bin outlined at $z=1.0$ and $20.3 < \mu <
+21.0$ $\rm (mag/arcsec^2)$ is shown in Figure~\ref{fig:f_vs_f_zoom}.}
+\label{fig:f_vs_f}
+\end{figure*} 
+
+\begin{figure}
+\centering
+\includegraphics[width=0.45\textwidth]{figures/z1_mu20_subplot2.pdf}
+\caption{A larger version of the dark-outlined square in Figure~\ref{fig:f_vs_f}, containing
+\ferengi{} galaxies that have been artificially redshifted to $z=1.0$ and have
+surface brightnesses between $20.3 < \mu < 21.0$ $\rm (mag/arcsec^2)$. The orange bars represent the inner
+80$^\mathrm{th}$ percentiles of the data, the boundaries of which are the lower
+and upper limits of the debiased values.}
+\label{fig:f_vs_f_zoom}
+\end{figure}
+
+Figure~\ref{fig:f_vs_f} shows the change in \ffeatures{} as a function of their
+lowest simulated redshift for the 3,449~\ferengi{} images with robust photometric
+measurements across the full range of redshifts.  For each simulated redshift
+value \zsim{} at a fixed surface brightness, \ffeaturesz{} is the value
+measured at that simulated redshift. We plot \ffeaturesz{} against \ffeaturesrest, the
+value measured for the same galaxy at \zsim$=0.3$. 
+ 
+The objective is to use these data to predict, for a galaxy with a measured
+\ffeaturesz{} value, what its \ffeatures{} value \emph{would have been} if it
+had been viewed at $z=0.3$. This predicted value is defined as the ``debiased''
+vote fraction \ffeaturesdebiased, and is calculated by applying a correction to
+the measured value of \ffeatures, determined by the $\zeta$ function described
+in the following section. A reliable predicted value can be obtained so long as
+the relationship between \ffeaturesz{} and \ffeaturesrest{} is single-valued;
+that is, for a given \ffeaturesz, there is exactly one corresponding value of
+\ffeatures{} at $z=0.3$. 
+
+Figure~\ref{fig:f_vs_f} shows that the relationship between \ffeaturesz{} and
+\ffeaturesrest{} is \emph{not} always single-valued; hence, it is not
+appropriate to correct galaxies that lie in certain regions of surface
+brightness/redshift/\ffeatures{} space. These regions tend to have low
+\ffeatures{} values at high redshift, but a wide range of values at $z=0.3$.
+These regions contain two morphological types of galaxies: the first set are
+genuine ellipticals, which have low values of \ffeatures{} at both high and low
+redshift. The second group are disks whose features become indistinct at high
+redshift; hence their \ffeatures{} value at $z=0.3$ may be quite high, while
+the value observed at high redshift is very low. This effect is strongest at
+high $z$ and low $\mu$, where features become nearly impossible to discern in
+the images (see top right panel of Figure~\ref{fig:f_vs_f}).
+
+The criteria for determining whether a region of this space is single-valued,
+and therefore correctable, is as follows: In each surface brightness and
+redshift bin, the relationship between \ffeaturesz{} and \ffeaturesrest{} is
+modelled by fitting the data with polynomials of degrees $n=3$, 2, and 1, and
+using the best formal fit out of the three as measured by the sum of the
+residuals. These fits are shown as the dashed black lines in
+Figure~\ref{fig:f_vs_f}. Flat regions of the bins are areas in which there is
+not a clear single-valued relationship between \ffeaturesz{} and
+\ffeaturesrest. We quantify this by measuring the slope of the best-fit
+polynomial; regions of the bins with a slope less than 0.4 are considered
+\emph{not} one-to-one, and therefore \ffeaturesz{} cannot be boosted to its
+\ffeaturesrest{} value.  Galaxies in this region are referred to as the
+\emph{lower limit} sample, because the most stringent correction available is
+that the weighted \ffeatures{} is a lower limit to the true value.  These
+regions are highlighted in blue in Figure~\ref{fig:f_vs_f}. Uncoloured (white)
+regions of the plot have sufficiently high slopes to consider the relationship
+as single-valued; galaxies in these regions are considered ``correctable'', and
+only these are used in measuring the parameters for the $\zeta$ function
+(Section~\ref{ssec:zeta}). Only surface brightness/redshift bins with at least
+5~galaxies were considered; regions with fewer than 5~galaxies are considered
+to have ``not enough information'' to determine the \ffeaturesz{} and
+\ffeaturesrest{} relationship, coloured grey in Figure~\ref{fig:f_vs_f}. These
+galaxies are hereafter referred to as the ``NEI'' sample.
+
+The unshaded regions in Figure~\ref{fig:f_vs_f} define discrete ranges of redshift,
+surface brightness, and \ffeatures{} within which a galaxy must lie in order for the
+debiased correction to be confidently applied.
+While the appropriate correctable regions were defined as discrete bins, the true
+correctable region is assumed to be a smooth function of $z$, $\mu$, and
+\ffeatures{}. To define this smooth space, we calculate the shape of the convex
+hull that encloses the correctable and lower-limit \ferengi{} galaxies in
+$z$-$\mu$-\ffeatures{} space. The boundaries are then adjusted until the
+contamination from both groups is minimised. The resulting hulls define the
+correctable and lower-limit regions for categorising the \hst{} galaxies. The
+results of this method and final categorisation of the \hst{} sample are in
+Table~\ref{tbl:hubble_debiasable}. Of the galaxies at redshift higher than
+$z=0.3$, 17\% can be debiased using the $\zeta$ method, 27\% cannot be debiased
+since the relationship between \ffeaturesz{} and \ffeaturesrest{} is not
+monotonic, and 56\% cannot be debiased since they either have an unknown
+redshift or insufficient numbers of \ferengi{} images in their $z$-$\mu$ bin
+to determine a reliable correction term ($\zeta$, described in section ~\ref{ssec:zeta}).
+
+For the ``lower-limit'' galaxies for which a single debiased \ffeatures{} value
+cannot be confidently assigned, the \emph{range} of debiased values is
+estimated using a method visualised in Figure~\ref{fig:f_vs_f_zoom}. This uses the
+\ferengi{} simulated data to analyse the range of intrinsic \ffeaturesrest{}
+values for any given observed \ffeatures{} value, again as a function of
+surface brightness and redshift. In each unclassifiable (shaded blue) $z$,$\mu$ bin, 
+we compute the spread of
+intrinsic values of \ffeaturesrest{} for five quantiles of observed \ffeatures{}
+(corresponding to the ``clean'' thresholds used in prior GZ publications).
+The range of intrinsic values for GZH is defined as the inner 80\% of the data,
+represented by the orange bars in Figure~\ref{fig:f_vs_f_zoom}. For any galaxy which
+cannot be directly debiased by the $\zeta$ method, these ranges are used to
+denote the upper and lower limits on the expected values \ffeaturesrest{} as a
+function of the observed \ffeatures. 
+
+\begin{table}
+\center
+\caption{Distribution of the ability of images to measure
+morphological bias for
+the \ferengi{} data (see Figure~\ref{fig:f_vs_f}).}
+\label{tbl:ferengi_corrections}
+\begin{tabular}{lrr}
+\hline \hline
+                                   & N       & \% \\
+\hline 
+Correctable                        & 1,690   &  49\% \\
+Lower-limit                        & 1,678   &  49\% \\
+NEI                                & 81      &   2\%\\
+Total                              & 3,449   & 100\% \\
+\hline \hline
+\end{tabular}
+\end{table}
+
+\begin{figure*}
+\center
+\includegraphics[width=\textwidth]{figures/debiased_corrections.pdf}
+\caption{Debiased \ffeatures{} corrected to $z=0.3$ vs weighted \ffeatures{}
+for the correctable (left), lower-limit (middle), and ``not enough
+information'' (NEI; right) galaxies in the GZH sample.}
+\label{fig:debiased_corrections}
+\end{figure*}
+
+\subsection{Correcting morphologies for classification bias}\label{ssec:zeta}
+
+For the ``correctable'' sample of galaxies, we observe a decline in the vote fraction
+\ffeatures{} with increasing simulated redshift for each unique galaxy. 
+We model this relationship with a simple exponential
+function which bounds $f_{\mu, z>0.3}$  between $f_{\mu, z=0.3}$ and 0:
 
 \begin{equation}
-f_{\mu,z} = \left(f_{\mu,z=0.3}\right) \times e^{{\frac{z-z_0}{\zeta}}},
+f_{\mu,z} = 1 - (1 - f_{\mu,z=0.3})e^{\frac{z-z_0}{\hat\zeta}}
 \label{eqn:fzeta}
 \end{equation}
+
+%old equation
+%We model the debiased vote fraction $f_{\mu,z}$ for an
+%artificially-redshifted galaxy as:
+
+%\begin{equation}
+%f_{\mu,z} = \left(f_{\mu,z=0.3}\right) \times e^{{\frac{z-z_0}{\zeta}}},
+%\label{eqn:fzeta}
+%\end{equation}
 
 \noindent where $f_{\mu,z=0.3}$ is the vote fraction at the lowest redshift in
 the artificially-redshifted sample ($z_0=0.3$). Here, $\zeta$ is a parameter that
@@ -954,153 +1111,17 @@ function:
 \noindent where $\hat\zeta$ is the correction factor applied to each galaxy as
 a function of surface brightness. The best-fit parameters to the linear fit
 (from least-squares optimization) are $\zeta_0=0.50$, $\zeta_1=-0.03$. To make the
-final debiased correction, the simple exponential form of
-Equation~\ref{eqn:fzeta} is modified to bound the debiased vote fractions
-between $f$ and 1:
+final debiased correction, we use Equation~\ref{eqn:fzeta}, rearranged for clarity:
 
 \begin{equation}
-f_\textrm{features,debiased} = 1 - (1 - f_\mathrm{features,weighted})e^{\frac{z-z_0}{\hat\zeta}}
+f_\textrm{features,debiased} = 1 - (1 - f_\mathrm{features,weighted})e^{\frac{-(z-z_0)}{\hat\zeta}}
 \label{eqn:fzeta_mod}
 \end{equation}
 
 \noindent where $f_\mathrm{features,weighted}$ is the weighted vote fraction
-described in Section~\ref{ssec:weighting}.
+described in Section~\ref{ssec:weighting}, and here $f_{\rm features,debiased}$ is bounded 
+between $f_{\rm features,weighted}$ and 1.
 
-\subsection{Effects of morphological debiasing}\label{ssec:zeta_results}
-
-\begin{figure*}
-\centering
-\includegraphics[width=\textwidth]{figures/p_vs_p_SB_redshift.pdf}
-\caption{Effects of redshift bias in 3,449~images in the \ferengi{} sample.
-Each point \emph{in a given redshift and surface brightness bin} represents a
-unique galaxy. On the $y$-axis in each bin is the \ffeatures{} value of the
-image of that galaxy redshifted to the value corresponding to that redshift
-bin. On the $x$-axis is the \ffeatures{} value of the image of the same galaxy
-redshifted to $z=0.3$. The dashed black lines represent the best-fit
-polynomials to the data in each square. The solid black line represents
-\ffeaturesz=\ffeaturesrest. Regions in which there is a single-valued
-relationship between \ffeatures{} at high redshift and at $z=0.3$ are white;
-those in which there is not are blue, and those with not enough data ($N<5$)
-are grey. A larger version of the bin outlined at $z=1.0$ and $20.3 < \mu <
-21.0$ $\rm (mag/arcsec^2)$ is shown in Figure~\ref{fig:f_vs_f_zoom}.}
-\label{fig:f_vs_f}
-\end{figure*} 
-
-\begin{figure}
-\centering
-\includegraphics[width=0.45\textwidth]{figures/z1_mu20_subplot2.pdf}
-\caption{A larger version of the dark-outlined square in Figure~\ref{fig:f_vs_f}, containing
-\ferengi{} galaxies that have been artificially redshifted to $z=1.0$ and have
-surface brightnesses between $20.3 < \mu < 21.0$ $\rm (mag/arcsec^2)$. The orange bars represent the inner
-80$^\mathrm{th}$ percentiles of the data, the boundaries of which are the lower
-and upper limits of the debiased values.}
-\label{fig:f_vs_f_zoom}
-\end{figure}
-
-Figure~\ref{fig:f_vs_f} shows the change in \ffeatures{} as a function of their
-lowest simulated redshift for the 3,449~\ferengi{} images with robust photometric
-measurements across the full range of redshifts.  For each simulated redshift
-value \zsim{} at a fixed surface brightness, \ffeaturesz{} is the value
-measured at that simulated redshift. We plot \ffeaturesz{} against \ffeaturesrest, the
-value measured for the same galaxy at \zsim$=0.3$. 
- 
-The objective is to use these data to predict, for a galaxy with a measured
-\ffeaturesz{} value, what its \ffeatures{} value \emph{would have been} if it
-had been viewed at $z=0.3$. This predicted value is defined as the ``debiased''
-vote fraction \ffeaturesdebiased, and is calculated by applying a correction to
-the measured value of \ffeatures, determined by the $\zeta$ function described
-in the previous section. A reliable predicted value can be obtained so long as
-the relationship between \ffeaturesz{} and \ffeaturesrest{} is single-valued;
-that is, for a given \ffeaturesz, there is exactly one corresponding value of
-\ffeatures{} at $z=0.3$. 
-
-Figure~\ref{fig:f_vs_f} shows that the relationship between \ffeaturesz{} and
-\ffeaturesrest{} is \emph{not} always single-valued; hence, it is not
-appropriate to correct galaxies that lie in certain regions of surface
-brightness/redshift/\ffeatures{} space. These regions tend to have low
-\ffeatures{} values at high redshift, but a wide range of values at $z=0.3$.
-These regions contain two morphological types of galaxies: the first set are
-genuine ellipticals, which have low values of \ffeatures{} at both high and low
-redshift. The second group are disks whose features become indistinct at high
-redshift; hence their \ffeatures{} value at $z=0.3$ may be quite high, while
-the value observed at high redshift is very low. This effect is strongest at
-high $z$ and low $\mu$, where features become nearly impossible to discern in
-the images (see top right panel of Figure~\ref{fig:f_vs_f}).
-
-The criteria for determining whether a region of this space is single-valued,
-and therefore correctable, is as follows: In each surface brightness and
-redshift bin, the relationship between \ffeaturesz{} and \ffeaturesrest{} is
-modelled by fitting the data with polynomials of degrees $n=3$, 2, and 1, and
-using the best formal fit out of the three as measured by the sum of the
-residuals. These fits are shown as the dashed black lines in
-Figure~\ref{fig:f_vs_f}. Flat regions of the bins are areas in which there is
-not a clear single-valued relationship between \ffeaturesz{} and
-\ffeaturesrest. We quantify this by measuring the slope of the best-fit
-polynomial; regions of the bins with a slope less than 0.4 are considered
-\emph{not} one-to-one, and therefore \ffeaturesz{} cannot be boosted to its
-\ffeaturesrest{} value.  Galaxies in this region are referred to as the
-\emph{lower limit} sample, because the most stringent correction available is
-that the weighted \ffeatures{} is a lower limit to the true value.  These
-regions are highlighted in blue in Figure~\ref{fig:f_vs_f}. Uncoloured (white)
-regions of the plot have sufficiently high slopes to consider the relationship
-as single-valued; galaxies in these regions are considered ``correctable'', and
-only these are used in measuring the parameters for the $\zeta$ function
-(Section~\ref{ssec:zeta}). Only surface brightness/redshift bins with at least
-5~galaxies were considered; regions with fewer than 5~galaxies are considered
-to have ``not enough information'' to determine the \ffeaturesz{} and
-\ffeaturesrest{} relationship, coloured grey in Figure~\ref{fig:f_vs_f}. These
-galaxies are hereafter referred to as the ``NEI'' sample.
-
-The unshaded regions in Figure~\ref{fig:f_vs_f} define discrete ranges of redshift,
-surface brightness, and \ffeatures{} within which a galaxy must lie in order for the
-debiased correction to be confidently applied.
-While the appropriate correctable regions were defined as discrete bins, the true
-correctable region is assumed to be a smooth function of $z$, $\mu$, and
-\ffeatures{}. To define this smooth space, we calculate the shape of the convex
-hull that encloses the correctable and lower-limit \ferengi{} galaxies in
-$z$-$\mu$-\ffeatures{} space. The boundaries are then adjusted until the
-contamination from both groups is minimised. The resulting hulls define the
-correctable and lower-limit regions for categorising the \hst{} galaxies. The
-results of this method and final categorisation of the \hst{} sample are in
-Table~\ref{tbl:hubble_debiasable}. Of the galaxies at redshift higher than
-$z=0.3$, 17\% can be debiased using the $\zeta$ method, 27\% cannot be debiased
-since the relationship between \ffeaturesz{} and \ffeaturesrest{} is not
-monotonic, and 56\% cannot be debiased since they either have an unknown
-redshift or insufficient numbers of \ferengi{} images in their $z$-$\mu$ bin
-to determine a reliable value of $\zeta$.
-
-For the ``lower-limit'' galaxies for which a single debiased \ffeatures{} value
-cannot be confidently assigned, the \emph{range} of debiased values is
-estimated using a method visualised in Figure~\ref{fig:f_vs_f_zoom}. This uses the
-\ferengi{} simulated data to analyse the range of intrinsic \ffeaturesrest{}
-values for any given observed \ffeatures{} value, again as a function of
-surface brightness and redshift. In each unclassifiable (shaded blue) $z$,$\mu$ bin, 
-we compute the spread of
-intrinsic values of \ffeaturesrest{} for five quantiles of observed \ffeatures{}
-(corresponding to the ``clean'' thresholds used in prior GZ publications).
-The range of intrinsic values for GZH is defined as the inner 80\% of the data,
-represented by the orange bars in Figure~\ref{fig:f_vs_f_zoom}. For any galaxy which
-cannot be directly debiased by the $\zeta$ method, these ranges are used to
-denote the upper and lower limits on the expected values \ffeaturesrest{} as a
-function of the observed \ffeatures. 
-
-\begin{table}
-\center
-\caption{Distribution of the ability of images to measure
-morphological bias for
-the \ferengi{} data (see Figure~\ref{fig:f_vs_f}).}
-\label{tbl:ferengi_corrections}
-\begin{tabular}{lrr}
-\hline \hline
-                                   & N       & \% \\
-\hline 
-Correctable                        & 1,690   &  49\% \\
-Lower-limit                        & 1,678   &  49\% \\
-NEI                                & 81      &   2\%\\
-Total                              & 3,449   & 100\% \\
-\hline \hline
-\end{tabular}
-\end{table}
 
 Few galaxies in the sample have sufficiently high corrections to completely
 change them from being confidently ``smooth'' to ``featured'' following the
@@ -1119,15 +1140,6 @@ overlap sample is tiny, though, detailed comparisons between the overall
 morphologies are highly difficult (see
 Sections~\ref{ssec:comparisons}--\ref{ssec:gzh_gzc}).
 
-
-\begin{figure*}
-\center
-\includegraphics[width=\textwidth]{figures/debiased_corrections.pdf}
-\caption{Debiased \ffeatures{} corrected to $z=0.3$ vs weighted \ffeatures{}
-for the correctable (left), lower-limit (middle), and ``not enough
-information'' (NEI; right) galaxies in the GZH sample.}
-\label{fig:debiased_corrections}
-\end{figure*}
 
 
 \subsection{Challenges of debiasing questions beyond ``smooth or features''}\label{ssec:higher_order_tasks}
