@@ -71,5 +71,17 @@ The regions can be perfectly separated if we keep the discrete binning as in Fig
 Minor Comment 8
 ----------------------------------
 
+We chose to evaluate the distribution of f_features in 5 (not 4, this was a typo) bins to match the common ranges of vote fractions used in GZ morphological studies: 0-0.2 indicating a weak/no detection of the feature in question, 0.2-0.4, 0.4-0.6, and 0.6-0.8 representing different ranges of intermediate detection, and 0.8-1.0 representing a very strong detection. This explanation has been added to the text. 
+
+----------------------------------
+Minor Comment 9
+----------------------------------
+80% was a mostly arbitrary choice to represent the distribution of f_features in a given bin; we discussed and agree with the referee that a more typical statistical range would be more appropriate. We therefore chose to represent the range as the upper and lower 1 sigma limits, or the inner 68% of the data. 
+
+----------------------------------
+Minor Comment 10
+----------------------------------
+
+
 
 
