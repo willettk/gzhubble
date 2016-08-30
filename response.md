@@ -37,7 +37,7 @@ The FERENGI sample is biased to lower surface brightness than the real data, sim
 Minor Comment 3
 -----------------------------------
 
-(*** will continue to be taken care of as section 4 continues to be finalized (pending choice of zeta in Major Comment II), but probable response will be:***)
+( ***will continue to be taken care of as section 4 continues to be finalized (pending choice of zeta in Major Comment II), but probable response will be:*** )
 
 We have implemented changes in the text that we believe removes the confusion.
 
@@ -65,7 +65,7 @@ Minor Comment 7
 
 The regions can be perfectly separated if we keep the discrete binning as in Figure 9 - however we assumed that a true/physical separation would be a smooth function of z-mu-f. Implementing a convex hull in this space created a small amount of contamination around the edges, which was minimized by adjusting the hull as described. 
 
-***does this sound efficient?*** 
+***does this sound sufficient?*** 
 
 ----------------------------------
 Minor Comment 8
@@ -81,7 +81,11 @@ Minor Comment 9
 ----------------------------------
 Minor Comment 10
 ----------------------------------
+We have switched to a reduced chi squared metric on the grounds that is a more commonly used and typical values are well-known, as suggested by the referee. We believe this metric will make it more evident to the reader that the ferengi data was not well-fit for questions beyond Task 01. 
 
-
+----------------------------------
+Minor Comment 11
+----------------------------------
+Typo has been fixed in the text. 
 
 
