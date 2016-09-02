@@ -79,7 +79,7 @@ Minor Comment 9
 ----------------------------------
 Minor Comment 10
 ----------------------------------
-We have switched to a reduced chi squared metric on the grounds that is a more commonly used and typical values are well-known, as suggested by the referee. We believe this metric will make it more evident to the reader that the ferengi data was not well-fit for questions beyond Task 01. 
+We agree that the normalized chi squared is not the ideal metric for evaluating the goodness of fit here. Rather than comparing the fits of the polynomials for Task 1 vs the rest, we chose to compare the available data per bin. For Task 1, an average of 59 points were fit in each z-mu bin (Figure 9). For the other tasks, an average of 9 points remained in each bin, due to these questions often not being asked of at least 10 users per galaxy, as is required by default in Task 1. We believe this simpler evaluation will make it more evident to the reader that the ferengi data was not well-fit for questions beyond Task 01. Last, we felt that stating these numbers was sufficient and opted to remove the example visual from the appendix. 
 
 ----------------------------------
 Minor Comment 11
