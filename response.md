@@ -10,7 +10,7 @@ Major Issue II: Statistical Model
 
 We thank the referee for the very thorough analysis of this method and for the detailed suggestions. We used this input to review and revise the fitting of the artificially-redshifted images (from FERENGI) and construction of the debiasing equation for the Hubble data, as follows:
 
-We tested a variety of models for fitting f/f_o, including linear, quadratic, cubic, and exponential dependences on redshift; for each of these functional forms, we also tested combinations using either a constant zeta parameter or a zeta function that linearly depends on surface brightness. We compared the relative quality of fits using the Akaike information criteria (AIC); for each case, we found no significant differences in the results based on the choice of model. Full details and code for these tests can be viewed in this Python notebook: https://github.com/willettk/gzhubble/blob/master/python/notebooks/zeta_models_compared.ipynb. 
+We tested a variety of models for fitting f/f_0, including linear, quadratic, cubic, and exponential dependences on redshift; for each of these functional forms, we also tested combinations using either a constant zeta parameter or a zeta function that linearly depends on surface brightness. We compared the relative quality of fits using the Akaike information criteria (AIC); for each case, we found no significant differences in the results based on the choice of model. Full details and code for these tests can be viewed in this Python notebook: https://github.com/willettk/gzhubble/blob/master/python/notebooks/zeta_models_compared.ipynb. 
 
 Of all the models tested, we believe the best model is an exponential fit for f_features vs redshift using a linear dependence on zeta. This decision is based on the following points:
 
@@ -27,6 +27,8 @@ Minor Comment 1
 ***1) Section 3.2: what checking did the authors do to indicate that giving all anonymous classifications a weight of 1 is valid?***
 
 From a strict sense, it is impossible to tell a priori if giving the anonymous classifiers a weight of 1 is valid (since the grouping within the anonymous data is unknown). However, there are large amounts of data from similar projects that support this approach. For the Galaxy Zoo: CANDELS project (Simmons et al. 2016, submitted), which is nearly identical in design to Galaxy Zoo: Hubble and shares a large fraction of the same user base, the distribution of the classifier consistency for both the logged-in and non-logged-in populations peak at the same value (kappa = 0.7). The anonymous users have slightly broader wings, with slightly more addresses at the lowest and highest levels of consistency, but the overall behavior is similar. The roughly 50-50 split between logged-in users and non-logged-in IP addresses is typical of the ratio for Zooniverse crowdsourced projects as a group.
+
+ATTACH: Figure from https://cloud.githubusercontent.com/assets/2357126/17576650/cfc59fbe-5f29-11e6-99b7-c39a43c013b6.png
 
 -----------------------------------
 Minor Comment 2
