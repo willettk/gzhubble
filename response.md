@@ -1,4 +1,6 @@
-referee response
+We thank the referee for the very thorough analysis and for the detailed suggestions that helped to improve the analysis and the paper overall. In the following, we report the original comment by the referee, followed by our response. 
+In the manuscript, we highlighted our changes in boldface. 
+
 ==========
 Major Issue I: Reorganization of Section 4
 ------------------------------------------
@@ -8,7 +10,7 @@ Section 4 has been re-organized in the manner suggested by the reviewer. The aut
 Major Issue II: Statistical Model
 ------------------------------------------
 
-We thank the referee for the very thorough analysis of this method and for the detailed suggestions. We used this input to review and revise the fitting of the artificially-redshifted images (from FERENGI) and construction of the debiasing equation for the Hubble data, as follows:
+We used this input to review and revise the fitting of the artificially-redshifted images (from FERENGI) and construction of the debiasing equation for the Hubble data, as follows:
 
 We tested a variety of models for fitting f/f_o, including linear, quadratic, cubic, and exponential dependences on redshift; for each of these functional forms, we also tested combinations using either a constant zeta parameter or a zeta function that linearly depends on surface brightness. We compared the relative quality of fits using the Akaike information criteria (AIC); for each case, we found no significant differences in the results based on the choice of model. Full details and code for these tests can be viewed in this Python notebook: https://github.com/willettk/gzhubble/blob/master/python/notebooks/zeta_models_compared.ipynb. 
 
