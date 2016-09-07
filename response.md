@@ -90,7 +90,7 @@ Minor Comment 8
 
 ***8) Section 4.2: "In each unclassifiable (shaded blue) z,mu bin, the spread of intrinsic values for f_features,z=0.3 for four ranges of observed f_features is computed." Where did the "four" come from? More explanation needed.***
 
-We chose to evaluate the distribution of f_features in 5 (not 4; a typo in the earlier manuscript has been corrected) bins to match the common ranges of vote fractions used in previous GZ morphological studies: 0.0-0.2 is typically used to indicate weak/no detection of the feature in question, 0.2-0.4, 0.4-0.6, and 0.6-0.8 represent ranges of increasing likelihood of detection, and 0.8-1.0 represents a very strong detection. This explanation and references to other papers using a similar system has been added to the text. 
+We chose to evaluate the distribution of f_features in 5 (not 4; a typo in the earlier manuscript has been corrected) bins to match the common ranges of vote fractions used in previous GZ morphological studies: 0.0-0.2 is typically used to indicate weak/no detection of the feature in question, 0.2-0.4, 0.4-0.6, and 0.6-0.8 represent ranges of increasing likelihood of detection, and 0.8-1.0 represents a very strong detection. This explanation has been added to the text at the end of Section 4.1. 
 
 ----------------------------------
 Minor Comment 9
