@@ -1036,7 +1036,7 @@ information'' (NEI; right) galaxies in the GZH sample.}
 
 For the ``correctable'' sample of galaxies, we observe a decline in the vote fraction
 \ffeatures{} with increasing simulated redshift for each unique galaxy. 
-We model this relationship with a simple exponential
+We model this relationship \changes{for artificially-redshifted images} with a simple exponential
 function which bounds $f_{\mu, z>0.3}$  between $f_{\mu, z=0.3}$ and 0:
 
 \begin{equation}
@@ -1125,7 +1125,7 @@ function:
 \noindent where $\hat\zeta$ is the correction factor applied to each galaxy as
 a function of surface brightness. The best-fit parameters to the linear fit
 (from least-squares optimization) are $\zeta_0=0.50$, $\zeta_1=-0.03$. To make the
-final debiased correction, we use Equation~\ref{eqn:fzeta}, rearranged for clarity:
+final debiased correction \changes{for the genuine \hst{} data, we apply Equation~\ref{eqn:fzeta}:}
 
 \begin{equation}
 f_\textrm{features,debiased} = 1 - (1 - f_\mathrm{features,weighted})e^{\frac{-(z-z_0)}{\hat\zeta}}

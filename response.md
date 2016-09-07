@@ -46,7 +46,9 @@ Minor Comment 3
 
 ***3) In parts of Section 4.1, there is a confusing mix of f_mu,z and f_features, which appear to represent the same thing. Some clean-up (or additional explanation as to why they are different quantities) would be useful here.***
 
-We have implemented changes in the text that we believe removes the confusion.
+The main difference between Equations 2 and 4 is that the former is applied to the FERENGI calibration images and used to fit the normalization and zeta parameters. The latter uses the parameters to apply corrections to individual galaxies from the true data, and is the form implemented throughout the text. 
+
+We have added text to explicitly mark the difference between the two equations in what is now Section 4.2. 
 
 -----------------------------------
 Minor Comment 4
