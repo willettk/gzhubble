@@ -64,7 +64,7 @@ Minor Comment 5
 
 ***5) Figure 8: "-10 < log(xi) < 10" should be "-10 < xi < 10"***
 
-This mistake is edited in the text.
+Correct, thank you. This typo has been edited in the figure caption.
 
 ---------------------------------
 Minor Comment 6
