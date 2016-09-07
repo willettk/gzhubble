@@ -98,7 +98,7 @@ Minor Comment 9
 
 ***9) Why 80% of the data (orange bars, Figure 10)? This is an ad hoc choice that doesn't correspond to any typical statistical practice (except perhaps a 10% trimmed mean, but the authors are not computing means here). And how is this information applied in Figure 11, middle panel? This is not clear.***
 
-The threshold of 80% was a mostly arbitrary choice to represent the distribution of f_features in a given bin; the authors have discussed it and agree with the referee that a more typical statistical range would be more appropriate. We therefore have changed the range to upper and lower 1 sigma limits, or the inner 68% of the data. 
+The threshold of 80% was a mostly arbitrary choice to represent the distribution of f_features in a given bin; the authors have discussed it and agree with the referee that a more typical statistical range would be more appropriate. We therefore have changed the range to upper and lower 1 sigma limits, or the inner 68% of the data. The figure (now Figure 8) has been modified and text added to the end of Section 4.1.
 
 ----------------------------------
 Minor Comment 10
