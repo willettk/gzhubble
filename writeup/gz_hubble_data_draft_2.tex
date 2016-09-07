@@ -835,17 +835,28 @@ redshift-dependent bias do not work.
 In order to test and correct for the effects of redshift, GZH includes a set of
 calibration images.  These are simulated images of a set of nearby galaxies as
 they would appear observed at a variety of redshifts.  The input images are
-from the SDSS \citep{yor00,str02}.  The sample consists of 288~well-resolved galaxies
-at $z<0.013$. The galaxies spanned a variety of morphologies (as selected by
-GZ2 classifications, including identifications of spiral structure,
+from the SDSS \citep{yor00,str02}.  The sample consists of 288~well-resolved
+galaxies at $z<0.013$. The galaxies spanned a variety of morphologies (as
+selected by GZ2 classifications, including identifications of spiral structure,
 ellipticals, mergers, edge-on disks, bulge prominence/shape, and bars) and
-$r$-band surface brightnesses.  The overall selection spanned the
-redshift range of SDSS targets and maximised the number of \hst{} galaxies at
-the same surface brightness and redshift (Figure~\ref{fig:sb_redshift}).  The
-\ferengi{} code was used to produce sets of images corresponding to
-observations of these galaxies out to $z_\mathrm{sim}=1.0$ (see
-Section~\ref{ssec:ferengi}).  The resulting images were classified in the GZH
-interface using the standard classification scheme.
+$r$-band surface brightnesses.  The selection of galaxies spanned the redshift
+range of SDSS targets and maximised the number of \hst{} galaxies at the same
+surface brightness and redshift. The \ferengi{} code was used to produce sets
+of images corresponding to observations of these galaxies out to
+$z_\mathrm{sim}=1.0$ (see Section~\ref{ssec:ferengi}). The resulting images
+were classified in the GZH interface using the standard classification scheme. 
+
+\changes{Figure~\ref{fig:sb_redshift} shows the distribution in $\mu$ and $z$ of
+the artificially-redshifted \textsc{FERENGI} images compared to the genuine
+\hst{} images. The full bivariate distributions differ due to a combination of
+the detection limits of the \hst{} surveys, intrinsic rareness of bright $\mu$
+galaxies in the SDSS volume, and evolution of the stellar populations. Since
+the dependence of the debiasing correction is evaluated in separate bins, the
+main concern is the existence of an overlap between the two sets of images;
+this is the case for almost all of the \hst{} images, which have $\mu >
+19$~mag~arcsec$^{-2}$.  The brightest end of the distribution, which has fewer
+examples of comparable \textsc{FERENGI} images, correspond to galaxies for
+which the debiased correction is expected to be minor.}
 
 
 \begin{figure}
