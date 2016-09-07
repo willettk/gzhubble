@@ -26,7 +26,9 @@ Minor Comment 1
 
 ***1) Section 3.2: what checking did the authors do to indicate that giving all anonymous classifications a weight of 1 is valid?***
 
-From a strict sense, it is impossible to tell a priori if giving the anonymous classifiers a weight of 1 is valid (since the grouping within the anonymous data is unknown). However, there are large amounts of data from similar projects that support this approach. For the Galaxy Zoo: CANDELS project (Simmons et al. 2016, submitted), which is nearly identical in design to Galaxy Zoo: Hubble and shares a large fraction of the same user base, the distribution of the classifier consistency for both the logged-in and non-logged-in populations peak at the same value (kappa = 0.7). The anonymous users have slightly broader wings, with slightly more addresses at the lowest and highest levels of consistency, but the overall behavior is similar. The roughly 50-50 split between logged-in users and non-logged-in IP addresses is typical of the ratio for Zooniverse crowdsourced projects as a group.
+From a strict sense, it is impossible to tell a priori if giving the anonymous classifiers a weight of 1 is valid (since the grouping within the anonymous data is unknown). However, there are large amounts of data from similar projects that support this approach. For the Galaxy Zoo: CANDELS project (Simmons et al. 2016, submitted), which is nearly identical in design to Galaxy Zoo: Hubble and shares a large fraction of the same user base, the distribution of the classifier consistency for both the logged-in and non-logged-in populations peak at the same value (kappa = 0.7). The anonymous users have slightly broader wings, with slightly more addresses at the lowest and highest levels of consistency, but the overall behavior is similar. 
+
+The roughly 50-50 split between logged-in users and non-logged-in IP addresses is typical of the ratio for Zooniverse crowdsourced projects as a group. Similar results have been published for the Planet Hunters project (Schwamb et al. 2012) and have been seen in unpublished data for Pulsar Hunters (https://www.zooniverse.org/projects/zooniverse/pulsar-hunters). 
 
 ATTACH: Figure from https://cloud.githubusercontent.com/assets/2357126/17576650/cfc59fbe-5f29-11e6-99b7-c39a43c013b6.png
 
@@ -90,7 +92,9 @@ Minor Comment 8
 
 ***8) Section 4.2: "In each unclassifiable (shaded blue) z,mu bin, the spread of intrinsic values for f_features,z=0.3 for four ranges of observed f_features is computed." Where did the "four" come from? More explanation needed.***
 
-We chose to evaluate the distribution of f_features in 5 (not 4; a typo in the earlier manuscript has been corrected) bins to match the common ranges of vote fractions used in previous GZ morphological studies: 0.0-0.2 is typically used to indicate weak/no detection of the feature in question, 0.2-0.4, 0.4-0.6, and 0.6-0.8 represent ranges of increasing likelihood of detection, and 0.8-1.0 represents a very strong detection. This explanation has been added to the text at the end of Section 4.1. 
+We chose to evaluate the distribution of f_features in 5 (not 4; a typo in the earlier manuscript has been corrected) bins to match some of the common ranges of vote fractions used in previous GZ morphological studies. The bin size is chosen to be roughly twice the size of the typical scatter for any individual galaxy (which has been measured using repeat image classifications in several phases of Galaxy Zoo), and so any finer grained intervals will begin to simply fit the noise. 
+
+Some clarification has been added to the text at the end of Section 4.1. 
 
 ----------------------------------
 Minor Comment 9
@@ -98,7 +102,7 @@ Minor Comment 9
 
 ***9) Why 80% of the data (orange bars, Figure 10)? This is an ad hoc choice that doesn't correspond to any typical statistical practice (except perhaps a 10% trimmed mean, but the authors are not computing means here). And how is this information applied in Figure 11, middle panel? This is not clear.***
 
-The threshold of 80% was initially a somewhat arbitrary choice to represent the distribution of f_features in a given bin; the authors agree with the referee that a more typical statistical range would be more appropriate. We have changed the range to upper and lower 1 sigma limits, or the inner 68% of the data. The figure (now Figure 8) has been modified and text added to the end of Section 4.1.
+The authors agree with the referee that a more typical statistical range would be appropriate. We have changed the range to upper and lower 1 sigma limits, or the inner 68% of the data. The figure (now Figure 8) has been modified and text added to the end of Section 4.1.
 
 ----------------------------------
 Minor Comment 10
