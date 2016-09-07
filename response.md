@@ -56,7 +56,7 @@ Minor Comment 4
 
 ***4) I probably should have mentioned this above, but why are the authors not working with equation (4) as the basis of their regression model?***
 
-We originally left Equation 2 unbounded because the data being fit was inherently bounded between vote fractions of 0 and 1, while the corrected Equation 4 would produce vote fractions greater than 1 if left in the same form as Equation 2. We have realized that the difference in normalization, while having only a small effect on the fitting of the data, is inconsistent and may be confusing to a reader. Therefore, we have changed Equation 2 to match Equation 4 (see response to Major Comment II). 
+Equation 2 was originally left unbounded because the raw data being fit was inherently bounded between vote fractions of 0 and 1. However, the original verseion of Equation 4 could produce vote fractions greater than 1 if left in the same form as Equation 2. We have realized that the difference in normalization, while having only a small effect on the fitting of the data, is inconsistent and may be confusing to a reader. Therefore, we have changed Equation 2 to match Equation 4 (see response to Major Comment II, as well as Minor Comment 3). All data in the tables and catalog have been updated to account for these small changes.
 
 ----------------------------------
 Minor Comment 5
