@@ -80,9 +80,9 @@ Minor Comment 7
 
 ***7) Section 4.2: "The boundaries [of the convex hull] are then adjusted until the contamination from both groups is minimized." If I look at Figure 9, it would appear that the correctable and lower-limit regions can be perfectly separated (using a tree, for instance). Am I wrong about this?***
 
-The regions in Figure 9 can be perfectly separated in f_features-redshift space if we keep the same discrete binning shown in the figure. However, our analysis makes the assumption that a true/physical separation should be a smooth function of z-mu-f. Implementing a convex hull in this space created a small amount of contamination around the edges, which was minimized by adjusting the hull as described. 
+The regions in Figure 9 (now Figure 7) can be nearly perfectly separated in f_features-redshift space, but there are a few regions near the edges in which there is overlap between the two populations. This is affected slightly in Figure 9 by the choice of bin size and location. However, our analysis makes the assumption that a true/physical separation should be a smooth function of z-mu-f. Implementing a convex hull in this space created a very small volume near the edge of the inner convex hull that had overlapping positive and negative data points; we optimize the overall accuracy of the hull by adjusting the outer boundaries as described in what is now Section 4.1. 
 
-***does this sound sufficient?*** 
+Use of a different method such as a tree could potentially prove to be a superior separator. However, the new normalization technique used in this draft results in very clean separation based on the convex hull, with only a single adjustment (see https://github.com/willettk/gzhubble/blob/master/python/creating_debiased_catalog/STEP_3_ferengi_smooth_function.ipynb). Further optimization would have an extremely minimal effect on the overall results. 
 
 ----------------------------------
 Minor Comment 8
