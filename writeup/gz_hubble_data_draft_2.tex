@@ -1181,11 +1181,12 @@ image at higher redshift. This requirement is (by default) met by all galaxies
 for the smooth/features question. However, this is often \emph{not} met for
 questions beyond Task~01. On average, $60\%\pm24\%$ of the galaxies do not have
 sufficient data to measure a correction, as compared to 2.0\% achieved for
-Task~01 (Table~\ref{tbl:ferengi_corrections}).\hl{This left each surface brightness/redshift bin 
-with insufficient data points to fit a function with confidence; on average only 9 points
-remained in each bin (as compared to an average of 59 points per bin for Task~01). For these reasons,
-debiased vote fractions are only offered in the GZH catalogue for Task~01
-(smooth/features).  }
+Task~01 (Table~\ref{tbl:ferengi_corrections}). \changes{This leaves the average
+surface brightness/redshift bin 
+with insufficient data points to confidently measure the change in vote fraction ($\lesssim10$~galaxies per bin). 
+For these reasons, debiased vote fractions are only provided in the GZH catalogue for Task~01
+(smooth/features). We suggest that use of morphological data for higher order tasks should instead use
+the weighted vote fractions (see Section~\ref{sec:cookbook}).}
 
 \begin{table*}
 \caption{Number of correctable galaxies for the top-level task in GZH, split by \hst{} survey.}\label{tbl:hubble_debiasable}
@@ -1685,7 +1686,7 @@ provides visual classification which is both quantified, and reproducible, and
 methods and expert visual classifications.
 
 We repeated all analyses comparing morphologies between GZH and external
-\hl{publications} on the entire GZH dataset, rather than the volume-limited sample
+\changes{publications} on the entire GZH dataset, rather than the volume-limited sample
 ($z<1.0,m<22.5$) discussed above. If galaxies at all redshifts and at the
 original magnitude limit of $m<23.5$ are used, the correlations between all of
 the automatic morphological populations and GZH decrease significantly.  The

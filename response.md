@@ -98,18 +98,18 @@ Minor Comment 9
 
 ***9) Why 80% of the data (orange bars, Figure 10)? This is an ad hoc choice that doesn't correspond to any typical statistical practice (except perhaps a 10% trimmed mean, but the authors are not computing means here). And how is this information applied in Figure 11, middle panel? This is not clear.***
 
-The threshold of 80% was a mostly arbitrary choice to represent the distribution of f_features in a given bin; the authors have discussed it and agree with the referee that a more typical statistical range would be more appropriate. We therefore have changed the range to upper and lower 1 sigma limits, or the inner 68% of the data. The figure (now Figure 8) has been modified and text added to the end of Section 4.1.
+The threshold of 80% was initially a somewhat arbitrary choice to represent the distribution of f_features in a given bin; the authors agree with the referee that a more typical statistical range would be more appropriate. We have changed the range to upper and lower 1 sigma limits, or the inner 68% of the data. The figure (now Figure 8) has been modified and text added to the end of Section 4.1.
 
 ----------------------------------
 Minor Comment 10
 ----------------------------------
 
 ***10) Section 4.3: "The goodness-of-fit was evaluated in each bin, for each Task, using a normalized chi^2 metric." The authors need to provide the formula for this; the numbers don't make sense, if one assumes "normalized" is the same
-as "reduced chi^2" (where the typical value for a good fit is approximately1).***
+as "reduced chi^2" (where the typical value for a good fit is approximately 1).***
 
-We agree that the normalized chi-squared is not the ideal metric for evaluating the goodness-of-fit here. Rather than comparing the fits of the polynomials for Task 1 vs the rest of the tasks, we compare the available data per bin. For Task 1, an average of 59 points were fit in each z-mu bin (Figure 9). For the other tasks, an average of 9 points remained in each bin, due to these questions often not being asked of at least 10 users per galaxy (as required by default in Task 1). This simpler evaluation should make it more evident to the reader that the FERENGI data was not well-fit for questions beyond Task 01. 
+We agree that the normalized chi-squared is not the ideal metric for evaluating the goodness-of-fit here. Rather than comparing the fits of the polynomials for Task 1 vs the rest of the tasks, we compare the available data per bin. For Task 1, an average of 59 points were fit in each z-mu bin (Figure 9). Fitting parameters for any other task is significantly limited by the number of galaxies in each z-mu bin; the higher-order tasks have an average of only 9 galaxies per bin. This is driven by the fact that the tasks do not meet the minimum threshold of 10 individual classifications (this threshold is exceeded for every galaxy in Task 1, however). This simpler evaluation should make it more evident to the reader that the FERENGI data was not well-fit for questions beyond Task 01. 
 
-The authors feel that quoting the numbers is sufficient for the manuscript; we have removed the example visual from the Appendix for streamlining. 
+As this is not a key product of the paper, we have removed Figures A5 and A6 from the manuscript to avoid confusion and extraneous discussion. Additional text has been added at the end of Section 4.3.  
 
 ----------------------------------
 Minor Comment 11
