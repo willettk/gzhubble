@@ -1,4 +1,4 @@
-We thank the referee for the very thorough analysis and for the detailed suggestions that helped to improve the analysis and the paper overall. In the following, we report the original comment by the referee, followed by our response. 
+We thank the referee for the very thorough analysis and for the detailed suggestions that helped to improve the analysis and the paper overall. In the following, we provide the original comment by the referee, followed by our response. 
 In the manuscript, we highlighted our changes in boldface. 
 
 ==========
@@ -28,7 +28,7 @@ Minor Comment 1
 
 ***1) Section 3.2: what checking did the authors do to indicate that giving all anonymous classifications a weight of 1 is valid?***
 
-From a strict sense, it is impossible to tell a priori if giving the anonymous classifiers a weight of 1 is valid (since the grouping within the anonymous data is unknown). However, there are large amounts of data from similar projects that support this approach. For the Galaxy Zoo: CANDELS project (Simmons et al. 2016, submitted), which is nearly identical in design to Galaxy Zoo: Hubble and shares a large fraction of the same user base, the distribution of the classifier consistency for both the logged-in and non-logged-in populations peak at the same value (kappa = 0.7). The anonymous users have slightly broader wings, with slightly more addresses at the lowest and highest levels of consistency, but the overall behavior is similar. 
+From a strict sense, it is impossible to tell a priori if giving the anonymous classifiers a weight of 1 is valid (since the grouping within the anonymous data is unknown). However, there are large amounts of data from similar projects that support this approach. For the Galaxy Zoo: CANDELS project (Simmons et al. 2016, submitted), which is nearly identical in design to Galaxy Zoo: Hubble and shares a large fraction of the same user base, the distribution of the classifier consistency for both the logged-in and non-logged-in populations peak at the same value (kappa = 0.7). The anonymous users have slightly broader wings, with slightly more IP addresses at the lowest and highest levels of consistency, but the overall behavior is similar. 
 
 The roughly 50-50 split between logged-in users and non-logged-in IP addresses is typical of the ratio for Zooniverse crowdsourced projects as a group. Similar results have been published for the Planet Hunters project (Schwamb et al. 2012) and have been seen in unpublished data for Pulsar Hunters (https://www.zooniverse.org/projects/zooniverse/pulsar-hunters). 
 
@@ -40,7 +40,7 @@ Minor Comment 2
 
 ***2) Figure 6: the authors should comment (unless I missed the comment) on why the bivariate distribution of the FERENGI galaxies in (mu,z) does not match the bivariate distribution for the main sample.***
 
-The FERENGI sample is biased in including examples of galaxies that have lower surface brightnesses than any images found in the real Hubble data, simply because the local Universe has no examples of galaxies at the high surface brightness end. This is a combination of both a finite-volume sample at low redshift in addition to some evolution in the stellar populations and size-magnitude relation over cosmic time.  We deal with this issue partially by applying the evolutionary correction described in Section 2.3.2, but this still results in a sample spans (but does not reproduce) the surface brightness-redshift distribution of the real data. The mismatch does not affect the overall calibration accuracy as we are not correcting the population as a whole, but only galaxies at particular bins of surface brightness and redshift.
+The FERENGI sample is biased in including examples of galaxies that have lower surface brightnesses than any images found in the real Hubble data, simply because the local Universe has no examples of galaxies at the high surface brightness end. This is a combination of both a finite-volume sample at low redshift in addition to some evolution in the stellar populations and size-magnitude relation over cosmic time.  We deal with this issue partially by applying the evolutionary correction described in Section 2.3.2, but this still results in a sample that spans (but does not reproduce) the surface brightness-redshift distribution of the real data. The mismatch does not affect the overall calibration accuracy as we are not correcting the population as a whole, but only galaxies at particular bins of surface brightness and redshift.
 
 We have added a paragraph in Section 4 for clarification.
 
@@ -113,7 +113,7 @@ Minor Comment 10
 ***10) Section 4.3: "The goodness-of-fit was evaluated in each bin, for each Task, using a normalized chi^2 metric." The authors need to provide the formula for this; the numbers don't make sense, if one assumes "normalized" is the same
 as "reduced chi^2" (where the typical value for a good fit is approximately 1).***
 
-We agree that the normalized chi-squared is not the ideal metric for evaluating the goodness-of-fit here. Rather than comparing the fits of the polynomials for Task 1 vs the rest of the tasks, we compare the available data per bin. For Task 1, an average of 59 points were fit in each z-mu bin (Figure 9). Fitting parameters for any other task is significantly limited by the number of galaxies in each z-mu bin; the higher-order tasks have an average of only 9 galaxies per bin. This is driven by the fact that the tasks do not meet the minimum threshold of 10 individual classifications (this threshold is exceeded for every galaxy in Task 1, however). This simpler evaluation should make it more evident to the reader that the FERENGI data was not well-fit for questions beyond Task 01. 
+We agree that the normalized chi-squared is not the ideal metric for evaluating the goodness-of-fit here. Rather than comparing the fits of the polynomials for Task 1 vs the rest of the tasks, we compare the available data per bin. For Task 1, an average of 59 points were fit in each z-mu bin (now Figure 7). Fitting parameters for any other task is significantly limited by the number of galaxies in each z-mu bin; the higher-order tasks have an average of only 9 galaxies per bin. This is driven by the fact that the tasks do not meet the minimum threshold of 10 individual classifications (this threshold is exceeded for every galaxy in Task 1, however). This simpler evaluation should make it more evident to the reader that the FERENGI data was not well-fit for questions beyond Task 1.
 
 As this is not a key product of the paper, we have removed Figures A5 and A6 from the manuscript to avoid confusion and extraneous discussion. Additional text has been added at the end of Section 4.3.  
 
@@ -123,6 +123,6 @@ Minor Comment 11
 
 ***11) Section 7.3: "external pulblications" -> "external publications"***
 
-Typo has been fixed in the text. 
+Thank you, this typo has been fixed in the text. 
 
 
