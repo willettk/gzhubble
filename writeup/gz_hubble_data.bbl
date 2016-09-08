@@ -574,11 +574,21 @@ Yale University Press
 {Smethurst} R.~J.,  et~al., 2015, \mn@doi [\mnras] {10.1093/mnras/stv161},
   \href {http://adsabs.harvard.edu/abs/2015MNRAS.450..435S} {450, 435}
 
+\bibitem[\protect\citeauthoryear{{Smethurst} et~al.,}{{Smethurst}
+  et~al.}{2016}]{sme16}
+{Smethurst} R.~J.,  et~al., 2016, preprint, \href
+  {http://adsabs.harvard.edu/abs/2016arXiv160900023S} {} (\mn@eprint {arXiv}
+  {1609.00023})
+
 \bibitem[\protect\citeauthoryear{{Steinmetz} \& {Navarro}}{{Steinmetz} \&
   {Navarro}}{2002}]{ste02}
 {Steinmetz} M.,  {Navarro} J.~F.,  2002, \mn@doi [\na]
   {10.1016/S1384-1076(02)00102-1}, \href
   {http://adsabs.harvard.edu/abs/2002NewA....7..155S} {7, 155}
+
+\bibitem[\protect\citeauthoryear{{Stetson}}{{Stetson}}{1987}]{ste87}
+{Stetson} P.~B.,  1987, \mn@doi [\pasp] {10.1086/131977}, \href
+  {http://adsabs.harvard.edu/abs/1987PASP...99..191S} {99, 191}
 
 \bibitem[\protect\citeauthoryear{{Strauss} et~al.,}{{Strauss}
   et~al.}{2002}]{str02}
