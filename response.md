@@ -1,4 +1,4 @@
-We thank the referee for the very thorough analysis and for the detailed suggestions that helped to improve the analysis and the paper overall. In the following, we report the original comment by the referee, followed by our response. 
+We thank the referee for the very thorough analysis and for the detailed suggestions that helped to improve the analysis and the paper overall. In the following, we provide the original comment by the referee, followed by our response. 
 In the manuscript, we highlighted our changes in boldface. 
 
 ==========
