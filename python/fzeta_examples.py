@@ -11,7 +11,7 @@ data = Table.read("../data/ferengi_debiasable_data.fits")
 # Use only galaxies with surface brightness/redshift ranges that are considered "debiasable"
 
 
-data = data#[data['Correctable_Category']!=uncorrectable]
+data = data#[data['Correctable_Category']=='correctable']
 
 # Limit to galaxies that have data at z_sim = 0.3, since that's what we're normalizing to.
 unique_galaxies = set(data['sdss_id'])
@@ -84,7 +84,7 @@ ncols = 5
 
 # Set up plot
 fig,axarr = plt.subplots(nrows=nrows,ncols=ncols,sharex=True,sharey=True,figsize=(18,14))
-bigax = common_labels(fig,'Redshift',r'$\frac{f_{\rm features}}{f_{{\rm features},z=0.3}}$',20,28, 12, 12)
+bigax = common_labels(fig,'Redshift',r'$\frac{1-f_{{\rm features},z=0.3}}{1-f_{\rm features}}$',20,28, 12, 12)
 zarr = np.linspace(0,1,50)
 
 # For examples, only plot galaxies with an evolution correction of zero.
@@ -92,6 +92,7 @@ evol = 0.0
 e0 = data_z0[np.absolute(data_z0['sim_evolution'] - evol) < 0.001]
 
 e0_z0 = e0[e0['sim_redshift'] < 0.35]
+#e0_z0 = data_z0
 
 unique_galaxies = []
 plist = np.linspace(0.1, 1.0, nrows*ncols+1)
@@ -128,7 +129,7 @@ for ax in axarr.ravel():
     #  ADD ERROR BARS
     n = 40  # assume 40 classifications per galaxy; it'd be better to use true value, though
     f_gal_err = error_bars(f_gal*n,n)
-    f_gal_norm = f_gal / f_gal[0]
+    f_gal_norm = (1-f_gal[0]) /(1- f_gal)
     f_gal_norm_err = np.sqrt((f_gal_err/f_gal)**2 + (f_gal_err[0]/f_gal[0])**2) * f_gal_norm
 
     # Values must be explicitly cast as double-type precision for optimization to work. Incredibly frustrating.
@@ -148,4 +149,4 @@ for ax in axarr.ravel():
 
 fig.subplots_adjust(hspace=0.20, wspace=0.05)
 
-fig.savefig('../writeup/zeta_examples.pdf')
+fig.savefig('../writeup/figures/zeta_examples_sorted.pdf')
