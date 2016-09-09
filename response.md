@@ -1,5 +1,6 @@
 We thank the referee for the very thorough analysis and for the detailed suggestions that helped to improve the analysis and the paper overall. In the following, we provide the original comment by the referee, followed by our response. 
-In the manuscript, we highlighted our changes in boldface. 
+
+The major changes in the manuscript have been marked in red boldface. We note that the reorganization of Section 4 (Major Issue I) is not marked. There has also been a mild amount of reordering of tables and figures as a result. We have added a single figure (Figure 11) that shows the fraction of correctable galaxies distributed over the sample, and a short amount of explanatory text in Sections 4.2 and 8. 
 
 ==========
 Major Issue I: Reorganization of Section 4
@@ -60,7 +61,7 @@ Minor Comment 4
 
 ***4) I probably should have mentioned this above, but why are the authors not working with equation (4) as the basis of their regression model?***
 
-Equation 2 was originally left unbounded because the raw data being fit was inherently bounded between vote fractions of 0 and 1. However, the original verseion of Equation 4 could produce vote fractions greater than 1 if left in the same form as Equation 2. We have realized that the difference in normalization, while having only a small effect on the fitting of the data, is inconsistent and may be confusing to a reader. Therefore, we have changed Equation 2 to match Equation 4 (see response to Major Comment II, as well as Minor Comment 3). All data in the tables and catalog have been updated to account for these small changes.
+Equation 2 was originally left unbounded because the raw data being fit was inherently bounded between vote fractions of 0 and 1. However, the original version of Equation 4 could produce vote fractions greater than 1 for certain combinations of z and f_0 if left in the same form as Equation 2. We have realized that the difference in normalization, while having only a small effect on the fitting of the data, is inconsistent and may be confusing to a reader. Therefore, we have changed Equation 2 to match Equation 4 (see response to Major Comment II, as well as Minor Comment 3). All data in the tables and catalog have been updated to account for these small changes.
 
 ----------------------------------
 Minor Comment 5
@@ -68,7 +69,7 @@ Minor Comment 5
 
 ***5) Figure 8: "-10 < log(xi) < 10" should be "-10 < xi < 10"***
 
-Correct, thank you. This typo has been edited in the figure caption.
+Correct, thank you. This typo has been edited in the caption (now Figure 10).
 
 ---------------------------------
 Minor Comment 6
@@ -76,7 +77,7 @@ Minor Comment 6
 
 ***6) How many data points are there in Figure 8? Obviously more than 37, but fewer than 37 x 8.***
 
-***response pending final fit ***
+The final version of this figure (now Figure 10; changed slightly based on the new form of Equation 4) has 28 unique galaxies, each with multiple images that have been artificially redshifted in between three to eight bins. 
 
 ----------------------------------
 Minor Comment 7
@@ -84,7 +85,7 @@ Minor Comment 7
 
 ***7) Section 4.2: "The boundaries [of the convex hull] are then adjusted until the contamination from both groups is minimized." If I look at Figure 9, it would appear that the correctable and lower-limit regions can be perfectly separated (using a tree, for instance). Am I wrong about this?***
 
-The regions in Figure 9 (now Figure 7) can be nearly perfectly separated in f_features-redshift space, but there are a few regions near the edges in which there is overlap between the two populations. This is affected slightly in Figure 9 by the choice of bin size and location. However, our analysis makes the assumption that a true/physical separation should be a smooth function of z-mu-f. Implementing a convex hull in this space created a very small volume near the edge of the inner convex hull that had overlapping positive and negative data points; we optimize the overall accuracy of the hull by adjusting the outer boundaries as described in what is now Section 4.1. 
+The regions in Figure 9 (now Figure 7) can be nearly perfectly separated in f_features-redshift space, but there are a few regions near the edges in which there is overlap between the two populations. This is affected slightly in the figure by the choice of bin size and location. However, our analysis makes the assumption that a true/physical separation should be a smooth function of z-mu-f. Implementing a convex hull in this space created a very small volume near the edge of the inner convex hull that had overlapping positive and negative data points; we optimize the overall accuracy of the hull by adjusting the outer boundaries as described in what is now Section 4.1. 
 
 Use of a different method such as a tree could potentially prove to be a superior separator. However, the new normalization technique used in this draft results in very clean separation based on the convex hull, with only a single adjustment (see https://github.com/willettk/gzhubble/blob/master/python/creating_debiased_catalog/STEP_3_ferengi_smooth_function.ipynb). Further optimization would have an extremely minimal effect on the overall results. 
 
