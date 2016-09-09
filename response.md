@@ -106,6 +106,8 @@ Minor Comment 9
 
 The authors agree with the referee that a more typical statistical range would be appropriate. We have changed the range to upper and lower 1 sigma limits, or the inner 68% of the data. The figure (now Figure 8) has been modified and text added to the end of Section 4.1.
 
+The edges of the 1-sigma range in each bin are used to determine the lower and upper limits for the debiased vote fractions of f_features. In the middle panel of what is now Figure 9, we show only the lower limits.
+
 ----------------------------------
 Minor Comment 10
 ----------------------------------
