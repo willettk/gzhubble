@@ -1833,18 +1833,18 @@ ability of the Galaxy~Zoo classifiers to identify features or disk structure in 
 
 \subsection{Comparing shallow and full depth morphologies}\label{ssec:depth_comparison}
 
-Of the 11,157 galaxies in the GOODS-N and GOODS-S full depth sample, 4,461
+Of the 11,157 galaxies in the GOODS-N and GOODS-S full depth sample, 4,460
 are also in the shallow-depth sample. Figure~\ref{fig:shallow_vs_full} shows a
-strong correlation between \ffeatures{} for both sets of images. The mean
+strong correlation between \ffeatures{} for both sets of images. \changes{The mean
 change in \ffeatures{} from the shallow to full depth images
-$f_\mathrm{features,full} - f_{features,shallow} \equiv \Delta f = 0.00$, with
-a standard deviation of $\sigma = 0.17$. While there is some variance in
+$f_\mathrm{features,full} - f_{features,shallow} \equiv \Delta f = -0.01$, with
+a standard deviation of $\sigma = 0.18$.} While there is some variance in
 $\Delta f$ in the whole sample, the change is usually small and not often
 significant enough to change a morphological classification. Defining a clean
 sample of disk galaxies as those with \fbest$>0.8$, elliptical galaxies as
 those with $f_\mathrm{smooth,best}<0.2$, and intermediate as those in between,
 75\% of the sample would not change morphology. Of the remaining 25\% that
-would change morphology, only 0.3\% (10~galaxies)
+would change morphology, only \changes{0.2\% (9~galaxies)}
 drastically change morphology either from smooth to featured or vice versa, while the
 rest transition to or from the ``intermediate'' morphology. Details can
 be seen in Table~\ref{tbl:shallow_to_full_stats} and examples of images
@@ -1855,7 +1855,7 @@ Figures~\ref{fig:shallow_smooth},\ref{fig:shallow_intermediate}, and
 \begin{figure*}
 \begin{center}
 \includegraphics[width=0.50\textwidth]{figures/full_shallow_p_plot.pdf}
-\caption{Distribution of \ffeatures{} for the 4,461 GOODS galaxies with both
+\caption{Distribution of \ffeatures{} for the 4,460 GOODS galaxies with both
 shallow (2-epoch; \goods) and full-depth (5-epoch; \main) images
 morphologically classified in GZH. For most galaxies, the value of \ffeatures{}
 is consistent ($\Delta f_\mathrm{features}<0.2$) between depths. Examples of
@@ -1875,17 +1875,17 @@ intermediate = $0.2<$\fbest$<0.8$, smooth = $f_\mathrm{smooth,best}<0.2$.
 \hline\hline
                               & $N$     & \%       & $<\Delta f>$ & $<z>$   \\
 \hline
-smooth to smooth              & 758     & 17.0     & $-$0.00      &  0.69   \\
-smooth to intermediate        & 367     & 8.2      &    0.18      &  0.69   \\
-smooth to featured            & 7       & 0.2      &    0.76      &  0.57   \\ 
-intermediate to smooth        & 214     & 4.8      & $-$0.18      &  0.65   \\
-intermediate to intermediate  & 2,303   & 51.6     &    0.01      &  0.78   \\
-intermediate to featured      & 168     & 3.8      &    0.19      &  0.83   \\
-featured to smooth            & 3       & 0.1      & $-$0.74      &  0.71   \\
-featured to intermediate      & 337     & 7.6      & $-$0.18      &  0.68   \\
-featured to featured          & 301     & 6.8      & $-$0.05      &  0.71   \\
+smooth to smooth              & 708     & 15.9     &    0.00      &  0.72   \\
+smooth to intermediate        & 346     & 7.8      &    0.21      &  0.70   \\
+smooth to featured            & 6       & 0.1      &    0.80      &  0.45   \\ 
+intermediate to smooth        & 266     & 6.0      & $-$0.24      &  0.66   \\
+intermediate to intermediate  & 2,363   & 53.0     &    0.00      &  0.75   \\
+intermediate to featured      & 121     & 2.7      &    0.17      &  0.82   \\
+featured to smooth            & 3       & 0.1      & $-$0.73      &  0.71   \\
+featured to intermediate      & 370     & 8.3      & $-$0.15      &  0.69   \\
+featured to featured          & 277     & 6.2      & $-$0.05      &  0.71   \\
 \hline
-Total                         & 4,461   & 100      &              &         \\
+Total                         & 4,460   & 100      &              &         \\
 \hline\hline
 \end{tabular}
 \end{table}
