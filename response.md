@@ -5,11 +5,20 @@ The major changes in the manuscript have been marked in red boldface. We note th
 ==========
 Major Issue I: Reorganization of Section 4
 ------------------------------------------
+
+***I spent an inordinate amount of time trying to piece together the analysis of Section 4 before discovering that important information was given later (in Section 4.2) rather than earlier (in Section 4.1).***
+
+***I believe that Section 4.2 should come first: present the FERENGI sample, and discuss the scheme used to select those data that are to be analyzed to determine the debiasing correction. Then the details of the statistical model for debiasing (currently in Section 4.1) should come next.***
+
+***Section 4.3 is fine where it is placed. (However, see minor comment 10 below, which actually is not quite as minor as the other comments.)***
+
 Section 4 has been re-organized in the manner suggested by the reviewer. The authors agree this structure will be more clear to the readers. 
 
 ------------------------------------------
 Major Issue II: Statistical Model
 ------------------------------------------
+
+***Due to the length of Major Issue II, it is placed at the end of this response.*** 
 
 We used the referee's input to review and revise the fitting of the artificially-redshifted images (from FERENGI) and construction of the debiasing equation for the Hubble data, as follows:
 
@@ -128,4 +137,33 @@ Minor Comment 11
 
 Thank you, this typo has been fixed in the text. 
 
+-------------------------------
+***Major Issue II***
 
+***The authors currently apply a two-step sequential linear regression model. The first step is to fit***
+
+***f = f_o exp[-(z-z_o)/xi]***
+
+***which is equivalent to the fitting a linear regression after alog-transformation:***
+
+***log(f) = log(f_o) + z_o/xi - z/xi = beta_0 + beta_1 z .***
+
+***(Important note: there was a minus sign left out of the exponential terms in equations (2) and (4), no? The plotted results of Figure 7 don't make sense otherwise.) The derived xi's for each galaxy are then placed into another regression as the response, with surface brightness mu as the predictor, and the linear model***
+
+***log_10(hat_xi) = xi_0 + xi_1 mu***
+
+***is fit. For the second linear model, the xi_1 term is not actually statistically significant, but the authors sweep this under the rug and simply use the point estimate as is to drive their debiasing correction. (I did combine the steps into one linear regression model with interaction but discovered that the model could not be fit directly. It could perhaps be fit via iteration but I did not explore this further.)***
+
+***The model appears to be a bit contrived, and there is no evidence presented that the model actually generates good results [other than a vague mention of chi^2 = 0.04 in Section 4.3 that may or may not be applicable here]). Since there is no physical motivation for the model, I would suggest two alternatives that are simpler and may perform just as well or better. (At a minimum I would want to see a metric of fit defined [*] and computed for the current model and the alternatives, if for no other reason to show that the current model is just as good or better than the others. If it is "just as good," I'd go with a simpler alternative.) It may seem that I am asking for too much here, but since the whole goal of this paper is to provide a catalog with good estimates of f_features that one can use to select galaxy samples, the authors need to do more to show that their debiased values of f_features are actually valid! (Estimates of uncertainty would help too; the models below would be able to provide them.)***
+
+***[*] Is the normalized chi^2 considered a metric of fit? It is not completely clear. See minor comment 10 below. Perhaps the mean-squared error would work better here; it is a standard estimator.***
+
+***1) Linear regression, with interactions; perhaps***
+
+***log(f/f_o) = beta_0 + beta_1 z + beta_2 mu + beta_12 z mu ,***
+
+***although one should check other tranformations (e.g., sqrt(f/f_o), log(mu), etc.)***
+
+***2) Forego parametrization, and apply a regression tree (or its related cousin random forest regression) to log(f/f_o)(mu,z). Play with the tree settings to achieve a proper trade-off between bias and variance (i.e., to make sure the nodes are numerous enough to capture the true dependence of log(f/f_o) on mu and z, but not so numerous that each node only has a few galaxies, making the estimates of log(f/f_o) unduly noisy). A good book to use to learn about regression trees (and linear regression too) is "An Introduction to Statistical Learning" by Gareth James et al. The authors should not worry about the "Applications in R" part, although they might find doing the analysis in R (assuming it is not already done there) might be simplest. Note that a PDF of the book is available for free from James' website.***
+
+***Another issue in Section 4.1 is the statement "The combination of all such parameters forms a high-dimensional space, and it is not clear how to separate this into individual effects." (1) I'm not sure why the individual effects are important here: the goal is to derive a debiasing correction, not to understand how the debiasing correction works. (2) There are many methods that one can use to deal with higher-dimensional regression problems, such as PCA regression, the Lasso, best subset selection, etc.; the book mentioned above gives more details on these. I'm not going to demand that the authors work with the high-dimensional data now, but they should begin to learn these statistical methods for future work.***
