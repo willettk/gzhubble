@@ -72,6 +72,10 @@ Minor Comment 4
 
 Equation 2 was originally left unbounded because the raw data being fit was inherently bounded between vote fractions of 0 and 1. However, the original version of Equation 4 could produce vote fractions greater than 1 for certain combinations of z and f_0 if left in the same form as Equation 2. We have realized that the difference in normalization, while having only a small effect on the fitting of the data, is inconsistent and may be confusing to a reader. Therefore, we have changed Equation 2 to match Equation 4 (see response to Major Comment II, as well as Minor Comment 3). All data in the tables and catalog have been updated to account for these small changes.
 
+The attached figure displays the effect of this change. Shown is the distribution of the change in debiased f_features between this draft (new normalization) and the previous draft (old normalization). For the correctable sample of galaxies, the new debiased f_features vote fractions are on average 0.02 greater than the previous draft, and at maximum 0.06 greater. These changes are too small to significantly affect any final morphologies. 
+
+ATTACH: https://github.com/willettk/gzhubble/blob/master/python/notebooks/compare_new_debiased_fraction_hist.png
+
 ----------------------------------
 Minor Comment 5
 ----------------------------------
