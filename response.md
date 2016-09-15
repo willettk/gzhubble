@@ -74,7 +74,7 @@ Equation 2 was originally left unbounded because the raw data being fit was inhe
 
 The attached figure displays the effect of this change. Shown is the distribution of the change in debiased f_features between this draft (new normalization) and the previous draft (old normalization). For the correctable sample of galaxies, the new debiased f_features vote fractions are on average 0.02 greater than the previous draft, and at maximum 0.06 greater. These changes are too small to significantly affect any final morphologies. 
 
-ATTACH: https://github.com/willettk/gzhubble/blob/master/python/notebooks/compare_new_debiased_fraction_hist.png
+ATTACH: https://github.com/willettk/gzhubble/blob/master/python/notebooks/compare_new_debiased_fraction.png
 
 ----------------------------------
 Minor Comment 5
