@@ -799,9 +799,9 @@ Classifications for GZH were weighted only if the classifier was logged
 into the site under their username (this was encouraged, but not required for
 participation). Classifications by participants who were not logged in were marked as
 ``Anonymous'' and receive the same $w=1$ weighting as the vast majority of
-logged-in classifiers. \changes{Results from the Galaxy Zoo: CANDELS project (Simmons et~al., submitted)
+logged-in classifiers. Results from the Galaxy Zoo: CANDELS project (Simmons et~al., submitted)
 show that the distributions of weights for anonymous and
-logged-in users are similar, supporting the default technique of GZH.}
+logged-in users are similar, supporting the default technique of GZH.
 % We should also try to estimate how many anonymous classifiers there were, if possible. 
 % Not clear that I can do that given the SQL data
 
@@ -846,7 +846,7 @@ of images corresponding to observations of these galaxies out to
 $z_\mathrm{sim}=1.0$ (see Section~\ref{ssec:ferengi}). The resulting images
 were classified in the GZH interface using the standard classification scheme. 
 
-\changes{Figure~\ref{fig:sb_redshift} shows the distribution in $\mu$ and $z$ of
+Figure~\ref{fig:sb_redshift} shows the distribution in $\mu$ and $z$ of
 the artificially-redshifted \textsc{FERENGI} images compared to the genuine
 \hst{} images. The full bivariate distributions differ due to a combination of
 the detection limits of the \hst{} surveys, intrinsic rareness of bright $\mu$
@@ -856,7 +856,7 @@ main concern is the existence of an overlap between the two sets of images;
 this is the case for almost all of the \hst{} images, which have $\mu >
 19$~mag~arcsec$^{-2}$.  The brightest end of the distribution, which has fewer
 examples of comparable \textsc{FERENGI} images, correspond to galaxies for
-which the debiased correction is expected to be minor.}
+which the debiased correction is expected to be minor.
 
 
 \begin{figure}
@@ -873,7 +873,7 @@ intervals of 1500.}
 \end{figure}
 
 
-\changes{\subsection{Effects of morphological debiasing}\label{ssec:zeta_results}}
+\subsection{Effects of morphological debiasing}\label{ssec:zeta_results}
 The approach used in GZH for correcting the weighted classifications for
 redshift bias rests on the assumption that the \emph{degree} of bias is a
 function of the apparent size and brightness of the galaxy.
@@ -881,8 +881,8 @@ This is controlled by two types of parameters: \textbf{intrinsic} properties of
 the galaxy itself, such as its physical diameter and luminosity, and
 \textbf{extrinsic} properties, such as the distance (redshift) of the galaxy
 and its relative orientation. The combination of all
-such parameters forms a high-dimensional space, \changes{and there is no obvious technique
-for separating these into individual effects}. Instead, the method used here employs
+such parameters forms a high-dimensional space, and there is no obvious technique
+for separating these into individual effects. Instead, the method used here employs
 only two parameters as a simple model of the effect of redshift brightness on classification: the
 surface brightness ($\mu$; intrinsic) and redshift ($z$;
 extrinsic).
@@ -956,7 +956,8 @@ residuals. These fits are shown as the dashed black lines in
 Figure~\ref{fig:f_vs_f}. Flat regions of the bins are areas in which there is
 \emph{not} a clear single-valued relationship between \ffeaturesz{} and
 \ffeaturesrest. We quantify this by measuring the slope of the best-fit
-polynomial to the vote fractions; regions of the bins with a slope less than 0.4 are considered
+polynomial to the vote fractions. Regions within the bins with a slope less than 0.4
+(a boundary selected through manual inspection and testing) are considered
 \emph{not} one-to-one, and therefore \ffeaturesz{} cannot be boosted to its
 \ffeaturesrest{} value.  Galaxies in this region are referred to as the
 \emph{lower limit} sample, because the most stringent correction available is
@@ -994,13 +995,13 @@ cannot be confidently assigned, the \emph{range} of debiased values is
 estimated and included as a data product. This uses the
 \ferengi{} simulated data to analyse the range of intrinsic \ffeaturesrest{}
 values for any given observed \ffeatures{} value, again as a function of
-surface brightness and redshift. \changes{In each unclassifiable (shaded blue) $z$,$\mu$ bin, 
+surface brightness and redshift. In each unclassifiable (shaded blue) $z$,$\mu$ bin, 
 we compute the spread of
 intrinsic values of \ffeaturesrest{} for five quantiles of observed \ffeatures{}
 (corresponding to the ``clean'' thresholds used in prior GZ publications).
 The range of intrinsic values for GZH is defined by the upper and lower 1~$\sigma$ limits,
 enclosing the inner 68\% of the data. This range is represented by the orange bars in 
-Figure}~\ref{fig:f_vs_f_zoom}. For any galaxy which
+Figure~\ref{fig:f_vs_f_zoom}. For any galaxy which
 cannot be directly debiased by the $\zeta$ method, these ranges are used to
 denote the upper and lower limits on the expected values \ffeaturesrest{} as a
 function of the observed \ffeatures. 
@@ -1023,19 +1024,17 @@ Total                              & 3,449   & 100\% \\
 \end{tabular}
 \end{table}
 
-\changes{\subsection{Correcting morphologies for classification bias}\label{ssec:zeta}}
+\subsection{Correcting morphologies for classification bias}\label{ssec:zeta}
 
 For the ``correctable'' sample of galaxies, we observe a decline in the vote fraction
 \ffeatures{} with increasing simulated redshift for each unique galaxy. 
-We model this relationship \changes{for artificially-redshifted images} with a simple exponential
+We model this relationship for artificially-redshifted images with a simple exponential
 function which bounds $f_{\mu, z>0.3}$  between $f_{\mu, z=0.3}$ and 0:
 
-\changes{
 \begin{equation}
 f_{\mu,z} = 1 - (1 - f_{\mu,z=0.3})e^{\frac{z-z_0}{\hat\zeta}}
 \label{eqn:fzeta}
 \end{equation}
-}
 %old equation
 %We model the debiased vote fraction $f_{\mu,z}$ for an
 %artificially-redshifted galaxy as:
@@ -1045,7 +1044,7 @@ f_{\mu,z} = 1 - (1 - f_{\mu,z=0.3})e^{\frac{z-z_0}{\hat\zeta}}
 %\label{eqn:fzeta}
 %\end{equation}
 
-\noindent \changes{where $f_{\mu,z=0.3}$ is the vote fraction at the lowest redshift in
+\noindent where $f_{\mu,z=0.3}$ is the vote fraction at the lowest redshift in
 the artificially-redshifted sample ($z_0=0.3$). Here, $\zeta$ is a parameter that
 controls the rate at which \ffeatures{} decreases with increasing redshift (and
 that may depend on other galaxy properties). This function bounds the observed
@@ -1053,14 +1052,16 @@ vote fractions between $f_{\mu,z=0.3}$ and zero based on two assumptions: 1)
 the vote fractions for featured galaxies decrease monotonically with increasing
 redshift, therefore restricting vote fractions for a given galaxy to be less
 than $f_{\mu,z=0.3}$ (which is almost always true of the data), and 2) the
-vote fractions cannot be less than zero (which is always true).}
+vote fractions cannot be less than zero (which is always true).
 
 \begin{figure*}
 \center
 \includegraphics[width=\textwidth]{figures/zeta_examples_sorted.pdf}
 \caption{Behaviour of the normalised, weighted vote fractions of features
 visible in a galaxy ($f_\textrm{features}$) as a function of redshift in the
-artificial \ferengi{} images. Galaxies in this plot were randomly selected from
+artificial \ferengi{} images. These plots demonstrate overall trends
+in the sensitivity to feature detection as a function of redshift.
+Galaxies in this plot were randomly selected from
 a distribution with evolutionary correction $e=0$ and at least three detectable images 
 in redshift bins of $z\ge0.3$. The displayed bins are sorted by \ffeaturesrest, 
 labeled above each plot. Measured vote fractions (blue
@@ -1088,8 +1089,8 @@ parameter of surface brightness, $\mu$.
 \caption{All fits for the \ferengi{} galaxies of the vote fraction dropoff
 parameter $\zeta$ for \ffeatures{} as a function of surface brightness. This
 includes only the simulated galaxies with a bounded range on the dropoff
-\changes{($-10<\zeta<10$)} and sufficient points to fit each function (\changes{28~original
-galaxies, each with varying images artificially redshifted in one to eight bins over a range from} $0.3\lesssim z_\mathrm{sim}\lesssim1.0$). 
+($-10<\zeta<10$) and sufficient points to fit each function (28~original
+galaxies, each with varying images artificially redshifted in one to eight bins over a range from $0.3\lesssim z_\mathrm{sim}\lesssim1.0$). 
 }
 \label{fig:zeta_mu}
 \end{figure}
@@ -1119,8 +1120,8 @@ function:
 \noindent where $\hat\zeta$ is the correction factor applied to each galaxy as
 a function of surface brightness. The best-fit parameters to the linear fit
 from least-squares optimization are $\zeta_0=0.50$, $\zeta_1=-0.03$. To make the
-final debiased correction \changes{for the genuine \hst{} data, we apply a 
-correction similar to Equation~\ref{eqn:fzeta}:}
+final debiased correction for the genuine \hst{} data, we apply a 
+correction similar to Equation~\ref{eqn:fzeta}:
 
 \begin{equation}
 f_\textrm{features,debiased} = 1 - (1 - f_\mathrm{features,weighted})e^{\frac{-(z-z_0)}{\hat\zeta}}
@@ -1134,22 +1135,22 @@ between $f_{\rm features,weighted}$ and 1.
 \begin{figure}
 \center
 \includegraphics[width=0.5\textwidth]{figures/correctable_fraction.pdf}
-\caption{\changes{Histogram showing the fraction of galaxies that have a finite correction
+\caption{Histogram showing the fraction of galaxies that have a finite correction
 for the debiased vote fractions \ffeaturesdebiased{} as a function of \ffeatures{}
 and redshift. The parameter space for corrections is limited to $0.3 \leq z \leq 1.0$
-due to the sampling of the parent SDSS galaxies and detectability in the \ferengi{} images.}
+due to the sampling of the parent SDSS galaxies and detectability in the \ferengi{} images.
 }
 \label{fig:correctable_fraction}
 \end{figure}
 
-\changes{Figure~\ref{fig:correctable_fraction} shows the
+Figure~\ref{fig:correctable_fraction} shows the
 distribution of the fraction of galaxies that are ultimately correctable as a function
 of \ffeatures{} and redshift. The distributions for individual samples (AEGIS, COSMOS,
 GEMS, GOODS) are individually very similar. We emphasize that a correction is more likely to be derived
 and applied for galaxies at higher redshift and with higher weighted values of \ffeatures.
 This has important consequences for selection of physically meaningful samples from GZH
 (see Section~\ref{sec:cookbook}), meaning that comparative studies of galaxies
-should use a threshold on the likelihood of features that evolves as a function of redshift.}
+should use a threshold on the likelihood of features that evolves as a function of redshift.
 
 \begin{figure*}
 \center
@@ -1166,7 +1167,7 @@ change them from being confidently ``smooth'' to ``featured'' following the
 correction for redshift bias (Figure~\ref{fig:debiased_corrections}). As a
 check, we compare morphologies of highly boosted galaxies to the expert visual
 classifications in CANDELS \citep{kar15}.  Only nine galaxies that
-were strongly boosted (\ffeatures$<0.25$ and \fbest$>0.50$) in GZH also
+were strongly boosted (\ffeatures$<0.25$ and \ffeaturesdebiased$>0.50$) in GZH also
 appear in the CANDELS expert sample. Of those, the CANDELS expert sample
 classifies 4 as spheroids/disky, 2 as disks, 1 as a spheroid, 1 as
 irregular/disky and 1 as unclassifiable. The \fbest{} values for GZH are all
@@ -1203,12 +1204,12 @@ image at higher redshift. This requirement is (by default) met by all galaxies
 for the smooth/features question. However, this is often \emph{not} met for
 questions beyond Task~01. On average, $60\%\pm24\%$ of the galaxies do not have
 sufficient data to measure a correction, as compared to 2.0\% achieved for
-Task~01 (Table~\ref{tbl:ferengi_corrections}). \changes{This leaves the average
+Task~01 (Table~\ref{tbl:ferengi_corrections}). This leaves the average
 surface brightness/redshift bin 
 with insufficient data points to confidently measure the change in vote fraction ($\lesssim10$~galaxies per bin). 
 For these reasons, debiased vote fractions are only provided in the GZH catalogue for Task~01
 (smooth/features). We suggest that use of morphological data for higher order tasks should instead use
-the weighted vote fractions (see Section~\ref{sec:cookbook}).}
+the weighted vote fractions (see Section~\ref{sec:cookbook}).
 
 \begin{table*}
 \caption{Number of correctable galaxies for the top-level task in GZH, split by \hst{} survey.}\label{tbl:hubble_debiasable}
@@ -1708,7 +1709,7 @@ provides visual classification which is both quantified, and reproducible, and
 methods and expert visual classifications.
 
 We repeated all analyses comparing morphologies between GZH and external
-\changes{publications} on the entire GZH dataset, rather than the volume-limited sample
+publications on the entire GZH dataset, rather than the volume-limited sample
 ($z<1.0,m<22.5$) discussed above. If galaxies at all redshifts and at the
 original magnitude limit of $m<23.5$ are used, the correlations between all of
 the automatic morphological populations and GZH decrease significantly.  The
@@ -1751,10 +1752,10 @@ low-redshift galaxies, processes them to appear as if they were at higher
 redshift, and classifies them through the GZH interface in an identical
 fashion. The resulting change in \ffeatures{} as a function of $z$ and $\mu$ is
 applied as a multiplicative correction to the top-level vote fractions for
-$\sim50\%$ of the GZH galaxies. \changes{However, any population studies using
+$\sim50\%$ of the GZH galaxies. However, any population studies using
 GZH morphological data must use a combination of debiased vote fractions
 and upper limits from the ``uncorrectable'' galaxies, due to the evolving nature
-of the thresholds as a function of redshift.}
+of the thresholds as a function of redshift.
 
 Galaxies in GZH show significant changes in the disk/elliptical fraction as a
 function of redshift, along with an increasing number of galaxies dominated by
@@ -1866,16 +1867,16 @@ ability of the Galaxy~Zoo classifiers to identify features or disk structure in 
 
 Of the 11,157 galaxies in the GOODS-N and GOODS-S full depth sample, 4,460
 are also in the shallow-depth sample. Figure~\ref{fig:shallow_vs_full} shows a
-strong correlation between \ffeatures{} for both sets of images. \changes{The mean
+strong correlation between \ffeatures{} for both sets of images. The mean
 change in \ffeatures{} from the shallow to full depth images
 $f_\mathrm{features,full} - f_{features,shallow} \equiv \Delta f = -0.01$, with
-a standard deviation of $\sigma = 0.18$.} While there is some variance in
+a standard deviation of $\sigma = 0.18$. While there is some variance in
 $\Delta f$ in the whole sample, the change is usually small and not often
 significant enough to change a morphological classification. Defining a clean
 sample of disk galaxies as those with \fbest$>0.8$, elliptical galaxies as
 those with $f_\mathrm{smooth,best}<0.2$, and intermediate as those in between,
 75\% of the sample would not change morphology. Of the remaining 25\% that
-would change morphology, only \changes{0.2\% (9~galaxies)}
+would change morphology, only 0.2\% (9~galaxies)
 drastically change morphology either from smooth to featured or vice versa, while the
 rest transition to or from the ``intermediate'' morphology. Details can
 be seen in Table~\ref{tbl:shallow_to_full_stats} and examples of images
