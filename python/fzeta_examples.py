@@ -143,7 +143,8 @@ for ax in axarr.ravel():
     ax.errorbar(z_gal,f_gal_norm, f_gal_norm_err)
     ax.plot(zarr,fzeta_exp(p,zarr),'--',lw=1)
     zeta = '={:.2f}'.format(p[0]) if p[0] <= 10.0 else '>10'
-    ax.set_title('$f_0={:.2f}\; \zeta{:s}$'.format(f_gal[0], zeta), y=1.01, fontsize=16)
+#    ax.set_title('$f_{z=0}={:.2f}\; \zeta{:s}$'.format(f_gal[0], zeta), y=1.01, fontsize=16)
+    ax.set_title('$f_{features,z=0.3}=%s\; \zeta%s$'%(round(f_gal[0],2),zeta),y=1.01,fontsize=16)
     ax.set_xlim(0.11,1.05)
     ax.set_ylim(0,2)
 
