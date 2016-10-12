@@ -5,6 +5,7 @@ This is the repository for the analysis and collaborative writing of the paper f
 * Submitted to _MNRAS_ on __30 May 2016__. 
 * Received referee report; re-submitted on __15 Sep 2016__. 
 * Received second referee report; re-re-submitted on __3 Oct 2016__.
+* Accepted by MNRAS on __4 Oct 2016__. Preprint is available on arXiv: [https://arxiv.org/abs/1610.03068](https://arxiv.org/abs/1610.03068)
 
 Note: run all figures through [PDFCompressor](http://pdfcompressor.com) before submission to comply with MNRAS' file size limitations. 
 
