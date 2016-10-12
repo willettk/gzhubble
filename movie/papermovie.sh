@@ -39,7 +39,7 @@ while read p; do
         cp $filename $revpad.pdf
         
         # Use ImageMagick to turn the paginated PDF into a single image
-        montage $revpad.pdf -tile 6x4 -background white -geometry 213x275-15+4 frames/$revpad.png
+        montage $revpad.pdf -tile 6x6 -background white -geometry 213x275-15+4 frames/$revpad.png
 
         let rev+=1
     fi
@@ -51,7 +51,7 @@ rev=0
 for f in `ls -1 frames/*.png | grep -v "movie\-1.png" | sort -nr`; do
     n=`printf "%03d" $rev`
     # Rename frames for ffmpeg's format style
-    convert $f -crop 1280x1320+0+0 $n.png
+    convert $f -crop 1280x1630+0+0 $n.png
     let rev+=1
 done
 
